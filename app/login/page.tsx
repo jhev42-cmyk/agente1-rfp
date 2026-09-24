@@ -47,9 +47,9 @@ export default function LoginPage() {
       background: 'var(--bg)'
     }}>
       <div className="card" style={{ maxWidth: '400px', width: '100%' }}>
-        <header style={{ margin: '-24px -28px 24px -28px', background: 'var(--navy)', padding: '24px 28px' }}>
-          <h1>Agente 1 — Login</h1>
-          <p>RFP Agent • Sistema de Cotizaciones</p>
+        <header style={{ margin: '-24px -28px 24px -28px', background: '#1F3864', padding: '24px 28px' }}>
+          <h1 style={{ margin: '0 0 6px 0', color: '#fff' }}>Agente 1 — Login</h1>
+          <p style={{ margin: 0, color: '#cbd6ea' }}>RFP Agent</p>
         </header>
 
         <form onSubmit={handleSubmit}>
