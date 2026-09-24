@@ -3,7 +3,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Agente 1 — RFP Agent',
-  description: 'Herramienta de cotización técnica para ES Metals',
+  description: 'Herramienta de cotización técnica para líneas de media tensión',
 }
 
 export default function RootLayout({

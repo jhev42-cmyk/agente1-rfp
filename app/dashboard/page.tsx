@@ -39,7 +39,7 @@ export default function DashboardPage() {
         <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div>
             <h1>Agente 1 — Generador de Cotizaciones</h1>
-            <p>RFP Agent • ES Metals</p>
+            <p>RFP Agent • Sistema de Cotizaciones</p>
           </div>
           <button onClick={handleLogout} className="btn btn-secondary">
             Cerrar sesión
@@ -106,7 +106,7 @@ export default function DashboardPage() {
       </main>
 
       <footer>
-        <p>© 2026 ES Metals • Agente 1 RFP | Última actualización: {new Date().toLocaleDateString('es-CO')}</p>
+        <p>© 2026 RFP Agent • Agente 1 | Última actualización: {new Date().toLocaleDateString('es-CO')}</p>
       </footer>
     </div>
   )
