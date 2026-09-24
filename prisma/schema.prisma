@@ -1,0 +1,61 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int     @id @default(autoincrement())
+  email     String  @unique
+  password  String
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  quotations Quotation[]
+}
+
+model Quotation {
+  id        Int     @id @default(autoincrement())
+  userId    Int
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Datos del proyecto
+  codigoCotizacion  String
+  nombreProyecto    String
+  empresaSolicitante String
+  respNombreCargo   String
+  respEmail         String
+  respTelefono      String
+  ccInterno         String?
+  lugarEntrega      String
+  fechaLimite       String
+  reunionAclaraciones String?
+
+  // Parámetros técnicos
+  kv                Int
+  km                Float
+  tipoCableado      String
+  calibreCableado   String
+  holgura           Float
+  depto             String
+  operadorLinea     String
+  cliente           String
+  alcance           String
+
+  // Módulos (JSON)
+  modulos           Json
+
+  // Exportación
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([codigoCotizacion])
+}

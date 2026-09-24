@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agente 1 — Mockup Técnico | RFP Agent</title>
+<style>
+  :root {
+    --navy: #1F3864;
+    --blue: #2E5395;
+    --blue-light: #D9E2F3;
+    --gray: #595959;
+    --border: #d9d9d9;
+    --bg: #f5f7fb;
+    --ok: #2e7d32;
+    --warn: #b8860b;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", Arial, sans-serif;
+    margin: 0; background: var(--bg); color: #222;
+  }
+  header {
+    background: var(--navy); color: #fff; padding: 28px 40px;
+  }
+  header h1 { margin: 0 0 6px 0; font-size: 26px; }
+  header p { margin: 0; color: #cbd6ea; font-size: 14px; }
+  .badge {
+    display: inline-block; background: #2E5395; color: #fff; font-size: 11px;
+    padding: 3px 10px; border-radius: 12px; margin-top: 10px; letter-spacing: .03em;
+  }
+  main { max-width: 1100px; margin: 0 auto; padding: 30px 24px 80px; }
+  .card {
+    background: #fff; border: 1px solid var(--border); border-radius: 10px;
+    padding: 24px 28px; margin-bottom: 26px; box-shadow: 0 1px 3px rgba(0,0,0,.04);
+  }
+  .card h2 {
+    color: var(--navy); font-size: 19px; margin-top: 0; margin-bottom: 6px;
+    border-bottom: 2px solid var(--blue-light); padding-bottom: 10px;
+  }
+  .card .sub { color: var(--gray); font-size: 13px; margin-bottom: 18px; }
+  .form-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px 20px;
+  }
+  label { display: block; font-size: 12.5px; font-weight: 600; color: var(--navy); margin-bottom: 5px; }
+  select, input[type=number], input[type=text] {
+    width: 100%; padding: 9px 10px; border: 1px solid #c7cede; border-radius: 6px;
+    font-size: 14px; background: #fbfcfe;
+  }
+  textarea {
+    width: 100%; padding: 9px 10px; border: 1px solid #c7cede; border-radius: 6px;
+    font-size: 12.5px; background: #fbfcfe; font-family: ui-monospace, Menlo, Consolas, monospace;
+    resize: vertical; line-height: 1.5;
+  }
+  .btn {
+    background: var(--navy); color: #fff; border: none; padding: 11px 22px;
+    border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; margin-top: 18px;
+  }
+  .btn:hover { background: var(--blue); }
+  .note {
+    font-size: 12px; color: var(--warn); background: #fff8e6; border: 1px solid #f0dca0;
+    border-radius: 6px; padding: 10px 14px; margin-top: 16px;
+  }
+  #resultado { display: none; }
+  .module {
+    border: 1px solid var(--border); border-left: 5px solid var(--blue);
+    border-radius: 8px; padding: 16px 20px; margin-bottom: 16px; background: #fcfdff;
+  }
+  .module h3 { margin: 0 0 4px 0; color: var(--navy); font-size: 16px; }
+  .module .spec { font-size: 13.5px; color: #333; margin-bottom: 10px; }
+  .module .spec b { color: var(--navy); }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    background: var(--blue-light); color: var(--navy); font-size: 12.5px;
+    padding: 5px 11px; border-radius: 14px; border: 1px solid #c3d2ec;
+  }
+  .chip a { color: var(--navy); text-decoration: none; font-weight: 600; }
+  .chip a:hover { text-decoration: underline; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--border); }
+  th { background: var(--navy); color: #fff; font-weight: 600; position: sticky; top: 0; }
+  tr:hover td { background: #f2f6fc; }
+  .cat-tag {
+    display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 10px;
+    background: var(--blue-light); color: var(--navy); font-weight: 600;
+  }
+  .filter-row { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .filter-row select, .filter-row input { max-width: 240px; }
+  footer { text-align: center; color: var(--gray); font-size: 12px; padding: 20px; }
+  .disclaimer {
+    font-size: 12px; color: var(--gray); font-style: italic; margin-top: 10px;
+  }
+  .module-header {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+  }
+  .module-header label {
+    margin: 0; font-size: 15px; color: var(--navy); font-weight: 700; cursor: pointer;
+  }
+  .module-header input[type=checkbox] { width: 17px; height: 17px; cursor: pointer; }
+  .item-row {
+    display: flex; align-items: center; gap: 12px; padding: 8px 0;
+    border-top: 1px solid #eef1f7;
+  }
+  .item-row:first-of-type { border-top: none; }
+  .item-row input[type=checkbox] { width: 16px; height: 16px; cursor: pointer; flex-shrink: 0; }
+  .item-row .item-nombre { flex: 1; font-size: 13.5px; color: #222; }
+  .item-row .item-qty { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+  .item-row .item-qty input { width: 90px; padding: 6px 8px; border: 1px solid #c7cede; border-radius: 5px; font-size: 13px; }
+  .item-row .item-qty span { font-size: 12.5px; color: var(--gray); }
+  .item-row.disabled .item-nombre, .item-row.disabled .item-qty { opacity: .4; }
+  .wizard-progress { margin-bottom: 16px; }
+  .wizard-steps { display: flex; gap: 6px; margin-bottom: 8px; flex-wrap: wrap; }
+  .wizard-dot { width: 22px; height: 6px; border-radius: 3px; background: #d9e2f3; }
+  .wizard-dot.hecho { background: var(--blue); }
+  .wizard-dot.activo { background: var(--navy); }
+  .wizard-label { font-size: 12.5px; font-weight: 600; color: var(--navy); }
+  .wizard-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 18px; }
+  .wizard-final { display: flex; justify-content: space-between; align-items: center; margin-top: 18px; }
+  #btnPasoSiguiente, #btnPasoAtras { margin-top: 0; }
+  .wizard-nav .btn:disabled, .wizard-nav .btn-secondary:disabled { opacity: .4; cursor: not-allowed; }
+  .btn-secondary {
+    background: #fff; color: var(--navy); border: 1.5px solid var(--navy);
+  }
+  .btn-secondary:hover { background: var(--blue-light); }
+  #step3 { display: none; }
+  .resumen-box {
+    background: var(--blue-light); border-radius: 8px; padding: 14px 18px; margin-bottom: 20px;
+  }
+  .resumen-box table { background: #fff; border-radius: 6px; overflow: hidden; }
+  .resumen-box .sub { margin-bottom: 10px; }
+  .chip.tarifario { background: #e3f2e6; border-color: #a9d4b0; color: #205023; }
+  .chip .precio { font-weight: 700; }
+  .fuente-tag {
+    display: inline-block; font-size: 10.5px; padding: 1px 7px; border-radius: 9px;
+    margin-left: 6px; font-weight: 600;
+  }
+  .fuente-tag.propio { background: #2e7d32; color: #fff; }
+  .fuente-tag.web { background: #e2e6ee; color: var(--gray); }
+  .cobertura-tag {
+    display: inline-block; font-size: 10.5px; padding: 2px 8px; border-radius: 9px;
+    margin-left: 8px; font-weight: 600; vertical-align: middle;
+  }
+  .cobertura-tag.completa { background: #e3f2e6; color: var(--ok); }
+  .cobertura-tag.parcial { background: #fdf1de; color: var(--warn); }
+  .cobertura-tag.ninguna { background: #e2e6ee; color: var(--gray); }
+  .sin-precio { color: var(--gray); font-size: 12px; font-style: italic; }
+  #resumenTotal td { border-top: 2px solid var(--navy); padding-top: 8px; }
+  .toggle-link { font-size: 12.5px; color: var(--navy); text-decoration: underline; cursor: pointer; }
+  #dataStatus {
+    font-size: 11.5px; color: var(--gray); margin-top: -10px; margin-bottom: 16px;
+  }
+  .item-block { border-top: 1px solid #eef1f7; padding: 8px 0; }
+  .item-block:first-of-type { border-top: none; }
+  .item-block .item-row { border-top: none; padding: 0; }
+  .spec-toggle {
+    font-size: 12px; color: var(--blue); cursor: pointer; margin: 4px 0 0 28px;
+    display: inline-block; font-weight: 600;
+  }
+  .spec-toggle:hover { text-decoration: underline; }
+  .spec-toggle.cat-toggle { margin: 10px 0 0 0; font-size: 13px; }
+  .spec-panel {
+    margin: 10px 0 4px 28px; padding: 14px 16px; background: #f7f9fd;
+    border: 1px solid #dde5f3; border-radius: 8px;
+  }
+  .spec-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px 14px;
+  }
+  .spec-grid > div { min-width: 0; }
+  .spec-grid label { font-size: 11px; margin-bottom: 3px; }
+  .spec-grid input, .spec-grid select { font-size: 12.5px; padding: 6px 8px; }
+  .spec-grid .full { grid-column: 1 / -1; }
+  .spec-norma {
+    font-size: 11.5px; color: var(--gray); margin-top: 8px; padding-top: 8px;
+    border-top: 1px dashed #dde5f3;
+  }
+  .cod-operador-activo label { color: var(--blue); font-weight: 700; }
+  .cod-operador-activo input {
+    background: #fff8dc; border-color: var(--blue) !important; font-weight: 600;
+  }
+  .normas-pills { display: flex; flex-wrap: wrap; gap: 5px; margin: 4px 0 0 28px; }
+  .norma-pill {
+    display: inline-block; font-size: 10.5px; font-weight: 600; color: var(--navy);
+    background: #e2e6ee; border: 1px solid #c7cede; border-radius: 9px;
+    padding: 2px 8px; cursor: pointer;
+  }
+  .norma-pill:hover { background: #d3dae8; }
+  .norma-pill.con-link { color: #fff; background: var(--blue); border-color: var(--blue); text-decoration: none; }
+  .norma-pill.con-link:hover { opacity: .85; }
+  .ficha-tecnica {
+    background: #fff; border: 1px solid var(--border); border-radius: 8px;
+    padding: 14px 16px; margin-top: 10px;
+  }
+  .ficha-tecnica table { font-size: 12.5px; }
+  .ficha-tecnica th { background: #eef1f7; color: var(--navy); }
+  .ficha-tecnica td.ficha-valor { padding: 4px 6px; }
+  .ficha-tecnica input[type=text] {
+    font-size: 12.5px; padding: 6px 8px; background: #fff; border: 1px solid #c7cede; border-radius: 5px;
+  }
+  .ficha-tecnica input[type=text]:focus { border-color: var(--blue); outline: none; background: #fbfcfe; }
+  .ficha-editable-tag {
+    font-size: 10.5px; color: var(--blue); font-weight: 600; margin-left: 6px;
+  }
+  .precio-ref {
+    font-size: 11.5px; color: var(--gray); margin-top: 6px; padding-top: 6px;
+    border-top: 1px dashed #dde5f3;
+  }
+  .precio-ref .valor { font-weight: 700; color: var(--ok); }
+  .precio-ref b { color: var(--navy); }
+  .chip-select { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+  .chip-select input { cursor: pointer; }
+  .send-bar {
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+    margin-top: 18px; padding-top: 14px; border-top: 1px dashed #c3d2ec;
+  }
+  .send-bar span { font-size: 13.5px; color: var(--navy); font-weight: 600; }
+  .send-bar .btn:disabled { background: #a9b6cc; cursor: not-allowed; }
+  .btn-link {
+    background: none; color: var(--navy); border: none; padding: 0; text-decoration: underline;
+    font-size: 13px; cursor: pointer; font-weight: 600;
+  }
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; background: rgba(15,25,50,.55);
+    align-items: center; justify-content: center; z-index: 100; padding: 20px;
+  }
+  .modal-box {
+    background: #fff; border-radius: 10px; padding: 26px 30px; max-width: 640px; width: 100%;
+    max-height: 85vh; overflow-y: auto; position: relative; box-shadow: 0 10px 40px rgba(0,0,0,.2);
+  }
+  .modal-box h3 { color: var(--navy); margin-top: 0; margin-bottom: 4px; }
+  .modal-close {
+    position: absolute; top: 16px; right: 18px; background: none; border: none;
+    font-size: 20px; color: var(--gray); cursor: pointer; line-height: 1;
+  }
+  .modal-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+  .modal-actions .btn, .modal-actions a.btn { text-decoration: none; display: inline-block; margin-top: 0; }
+  .envio-tabla { margin-top: 12px; }
+  .email-missing { color: var(--warn); font-style: italic; font-size: 12px; }
+  .th-check, .td-check { width: 34px; text-align: center; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Agente 1 — Requisitos Técnicos de Cotización</h1>
+  <p>Mockup funcional · Líneas de Media Tensión, Colombia · Submódulo técnico con filtro de proveedores</p>
+  <span class="badge">MOCKUP · v0.1</span>
+</header>
+
+<main>
+
+  <div class="card" id="datosSolicitud">
+    <h2>1. Datos de la solicitud y contacto</h2>
+    <div class="sub">Esta información se usa para generar la solicitud de cotización (RFQ) que se enviará a los proveedores de cada categoría. Ajusta los valores por defecto según el proyecto — los campos vacíos se marcan entre corchetes en el correo para que no pase desapercibido completarlos.</div>
+    <div class="form-grid">
+      <div>
+        <label>Código de cotización</label>
+        <input type="text" id="codigoCotizacion" placeholder="COT-2026-LMT-001">
+      </div>
+      <div>
+        <label>Nombre del proyecto</label>
+        <input type="text" id="nombreProyecto" placeholder="Ej: Línea de Media Tensión en Boyacá">
+      </div>
+      <div>
+        <label>Empresa solicitante</label>
+        <input type="text" id="empresaSolicitante" value="Consulting RZ">
+      </div>
+      <div>
+        <label>Responsable (nombre y cargo)</label>
+        <input type="text" id="respNombreCargo" placeholder="Ej: Nombre Apellido – Gerente de Proyecto">
+      </div>
+      <div>
+        <label>Correo del responsable</label>
+        <input type="text" id="respEmail" placeholder="nombre@empresa.com">
+      </div>
+      <div>
+        <label>Teléfono del responsable</label>
+        <input type="text" id="respTelefono" placeholder="+57 3XX XXX XXXX">
+      </div>
+      <div>
+        <label>CC interno (opcional)</label>
+        <input type="text" id="ccInterno" placeholder="Equipo de compras / proyecto">
+      </div>
+      <div>
+        <label>Dirección / lugar de entrega</label>
+        <input type="text" id="lugarEntrega" placeholder="Ej: Km 15 vía Tunja–Sogamoso, Boyacá">
+      </div>
+      <div>
+        <label>Fecha límite recepción de ofertas</label>
+        <input type="text" id="fechaLimite" placeholder="dd/mm/aaaa">
+      </div>
+      <div>
+        <label>Reunión de aclaraciones (opcional)</label>
+        <input type="text" id="reunionAclaraciones" placeholder="Ej: 12/07/2026, 10:00 AM (Teams/Zoom)">
+      </div>
+    </div>
+
+    <div class="disclaimer">Los criterios de evaluación incluidos en la solicitud (cumplimiento técnico, calidad, precio, plazo, experiencia y garantías) son un esquema preliminar — deben confirmarse con el equipo de compras/legal antes de enviarse a los proveedores.</div>
+  </div>
+
+  <div class="card">
+    <h2>2. Parámetros del proyecto</h2>
+    <div class="sub">Define las condiciones básicas del proyecto para generar el desglose técnico estimado por submódulo.</div>
+    <div class="form-grid">
+      <div>
+        <label>Nivel de tensión</label>
+        <select id="kv">
+          <option value="13.2">13.2 kV</option>
+          <option value="34.5" selected>34.5 kV</option>
+          <option value="44">44 kV</option>
+        </select>
+      </div>
+      <div>
+        <label>Longitud de la línea (km)</label>
+        <input type="number" id="km" value="12" min="0.1" step="0.1">
+      </div>
+      <div>
+        <label>Tipo de cableado (conductor aéreo)</label>
+        <select id="tipoCableado" onchange="actualizarCalibres()"></select>
+      </div>
+      <div>
+        <label>Calibre</label>
+        <select id="calibreCableado"></select>
+      </div>
+      <div>
+        <label>Factor de holgura del conductor (%)</label>
+        <input type="number" id="holgura" value="3" min="0" step="0.5">
+      </div>
+      <div>
+        <label>Departamento / cobertura</label>
+        <select id="depto">
+          <option value="Nacional" selected>Nacional / Sin preferencia</option>
+          <option value="Antioquia">Antioquia</option>
+          <option value="Cundinamarca">Cundinamarca</option>
+          <option value="Santander">Santander</option>
+          <option value="Valle del Cauca">Valle del Cauca</option>
+          <option value="Atlántico">Atlántico</option>
+        </select>
+      </div>
+      <div>
+        <label>Operador de la línea</label>
+        <select id="operadorLinea" onchange="renderModulos()">
+          <option value="">Seleccionar...</option>
+          <option value="ENEL">ENEL</option>
+          <option value="CELSIA" disabled title="Próximamente">CELSIA (próximamente)</option>
+          <option value="EPM">EPM</option>
+          <option value="ElectroHuila" disabled title="Próximamente">ElectroHuila (próximamente)</option>
+          <option value="Enerca" disabled title="Próximamente">Enerca (próximamente)</option>
+        </select>
+      </div>
+      <div>
+        <label>Tipo de cliente</label>
+        <select id="cliente">
+          <option value="publico">Público (licitación / SECOP)</option>
+          <option value="privado" selected>Privado</option>
+        </select>
+      </div>
+      <div>
+        <label>Alcance</label>
+        <select id="alcance">
+          <option value="suministro">Solo suministro de materiales</option>
+          <option value="epc" selected>Suministro + instalación (EPC)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="sub" style="margin-top:18px; margin-bottom:0; font-weight:600; color:var(--navy);">Cantidad de estructuras por tipo de configuración</div>
+    <div class="sub">Indica cuántas estructuras de cada tipo (según ángulo de deflexión / función) tiene la línea. El listado de materiales (categorías I–IX) se calcula sumando, para cada ítem, su cantidad en la lista de materiales de cada tipo de configuración multiplicada por el número de estructuras de ese tipo.</div>
+    <div class="form-grid" id="configGrid"></div>
+
+    <button class="btn" onclick="generarDesglose()">Generar desglose técnico</button>
+    <div class="note">Las cantidades de las categorías I–IX se calculan a partir de la lista de materiales (BOM) de cada tipo de configuración estructural (C1–C5) según la codificación de operadores de red MT en Colombia; el conductor (categoría X) se calcula por longitud de línea, esquema trifásico y factor de holgura. Todas las cantidades quedan editables antes de cotizar y no sustituyen el cálculo detallado del equipo técnico.</div>
+  </div>
+
+  <div class="card" id="resultado">
+    <h2>3. Selección de materiales y productos a cotizar</h2>
+    <div class="sub">Revisa cada categoría de materiales, una a la vez. Desmarca lo que no aplique y ajusta cantidades — solo lo seleccionado pasará al directorio de proveedores.</div>
+    <div class="wizard-progress" id="wizardProgress"></div>
+    <div id="modulos"></div>
+    <div class="wizard-nav">
+      <button class="btn btn-secondary" id="btnPasoAtras" onclick="pasoAnterior()">← Atrás</button>
+      <button class="btn" id="btnPasoSiguiente" onclick="pasoSiguiente()">Siguiente →</button>
+    </div>
+    <div class="wizard-final" id="wizardFinal" style="display:none;">
+      <button class="btn-link" type="button" onclick="generarResumenPDF()">📄 Ver resumen en PDF</button>
+      <button class="btn" onclick="mostrarProveedores()">Ver proveedores de los ítems seleccionados →</button>
+    </div>
+  </div>
+
+  <div class="card" id="step3">
+    <h2>4. Proveedores por categoría</h2>
+    <div class="sub">Para cada categoría de materiales seleccionada en el paso 3, se muestra la ficha técnica del ítem y el listado de proveedores — con acuerdo previo o sugeridos — para enviarles la solicitud de cotización de ese material específico. La comparación de las cotizaciones que respondan será responsabilidad del Agente 2.</div>
+    <div id="dataStatus">Cargando directorio de proveedores…</div>
+
+    <div id="categoriasContainer"></div>
+
+    <div class="disclaimer">Fuente de proveedores: investigación web pública, julio 2026 (salvo los marcados como "Acuerdo previo"). Se recomienda validar certificaciones (RETIE/RETILAP/NTC) y condiciones comerciales directamente con cada proveedor antes de invitarlo a cotizar. La "Ficha técnica" de cada categoría define el requisito técnico mínimo que debe cumplir el proveedor — verifíquelo junto con las certificaciones, y complete cualquier campo marcado como "por definir" antes de enviar la solicitud. Los precios de referencia marcados con asterisco (*) son orientativos, no vinculantes, y provienen de investigación web pública — no reflejan negociación directa con proveedores.</div>
+  </div>
+
+</main>
+
+<footer>RFP Agent — Sistema de Cotizaciones (3 Agentes) · Mockup interactivo del Agente 1 (parte técnica)</footer>
+
+<div class="modal-overlay" id="modalEnvio">
+  <div class="modal-box">
+    <button class="modal-close" onclick="cerrarModalEnvio()">✕</button>
+    <h3 id="modalEnvioTitulo">Enviar solicitud de cotización</h3>
+    <div id="modalEnvioContenido"></div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// MODELO DE DATOS TÉCNICOS — 10 categorías / 40 ítems / 5 configuraciones
+// Fuente: Consolidado Maestro Líneas MT (Capítulos Config Aérea)
+// ============================================================
+const CONFIGS = [{"codigo": "C1", "descripcion": "1. Transición aérea-subterránea / Terminal / Protección (Salida hacia ramal, reconectador o seccionador)"}, {"codigo": "C2", "descripcion": "2. Suspensión Tangente (α<5°)"}, {"codigo": "C3", "descripcion": "3. Suspensión / Retención (5°≤ α <30°)"}, {"codigo": "C4", "descripcion": "4. Retención Ángulo (30°< α <60°)"}, {"codigo": "C5", "descripcion": "5. Doble Retención (α =60° a 90°)"}];
+
+const ITEMS_MASTER = [{"item": "1.1", "descripcion": "Postes de Concreto Armado / Pretensado o PRFV (10 m, 12 m, 14 m, 16 m × 510 kgf a 4000 kgf)", "cod_epm_afinia": "NC-RA7-001", "cod_enel": "LA 001", "cod_celsia": "ET-101", "cod_electrohuila_enerca": "N-MT-01", "normas_fabricacion": "NTC 1329 (Postes de concreto)NTC 4564 (Postes pretensados)ASTM C1089 (Postes spun/PRFV)RETIE (Art. 20.19)", "normas_pruebas": "NTC 1329 (Ensayo de rotura, flexión lateral y cizallamiento)NTC 4564 (Flecha y recuperación elástica)NTC 673 / ASTM C39 (Resistencia a compresión de concreto)RETIE (Prueba de absorción de agua)", "descripcion_tecnica": "Soporte vertical principal. Disponible en concreto pretensado/armado o poliéster reforzado con fibra de vidrio (PRFV).", "categoria_num": "I", "categoria_nombre": "ESTRUCTURA Y SOPORTE PRINCIPAL", "unidad": "UN", "bom_por_config": {"C1": 1.0, "C2": 1.0, "C3": 1.0, "C4": 1.0, "C5": 1.0}}, {"item": "1.2", "descripcion": "Cruceta metálica angular (L 75×75×6 mm o 2\"×2\"×1/4\", longitud 2.0 m, 2.5 m, 3.6 m)", "cod_epm_afinia": "NC-RA7-002", "cod_enel": "LA 201", "cod_celsia": "ET-201", "cod_electrohuila_enerca": "N-MT-10", "normas_fabricacion": "NTC 2134 (Estructuras de acero)ASTM A36 (Acero estructural)NTC 2076 / ASTM A123 (Galvanizado)", "normas_pruebas": "ASTM A90 (Masa de recubrimiento de zinc por decapado)ASTM E376 (Espesor no destructivo por ultrasonido/magnético)ASTM A370 (Ensayos de tracción, doblado y resiliencia)", "descripcion_tecnica": "Soporte horizontal para aisladores y herrajes en estructuras de alineación y tangente (C2, C3). Acero galvanizado por inmersión en caliente.", "categoria_num": "I", "categoria_nombre": "ESTRUCTURA Y SOPORTE PRINCIPAL", "unidad": "UN", "bom_por_config": {"C1": 2.0, "C2": 1.0, "C3": 2.0, "C4": 2.0, "C5": 0}}, {"item": "1.3", "descripcion": "Cruceta reforzada perfil Canal C (100×50×5 mm o 4\", longitud 2.5 m / 3.0 m)", "cod_epm_afinia": "NC-RA7-003", "cod_enel": "LA 202", "cod_celsia": "ET-202", "cod_electrohuila_enerca": "N-MT-12", "normas_fabricacion": "NTC 2134 (Estructuras de acero)ASTM A36 (Acero estructural)NTC 2076 / ASTM A123 (Galvanizado)", "normas_pruebas": "ASTM A90 / ASTM E376 (Adherencia y espesor de capa de zinc)ASTM A370 (Ensayo de tracción pura y límite elástico)ASTM B117 (Cámara de niebla salina 1000h)", "descripcion_tecnica": "Perfil UPN / Canal C de alta inercia torsional. Obligatoria en estructuras C5 para esquinas pesadas (60° a 90°), dobles retenciones y terminales de gran calibre.", "categoria_num": "I", "categoria_nombre": "ESTRUCTURA Y SOPORTE PRINCIPAL", "unidad": "UN", "bom_por_config": {"C1": 0, "C2": 0, "C3": 0, "C4": 0, "C5": 2.0}}, {"item": "1.4", "descripcion": "Diagonales angulares metálicas en V / Pieamigos (L 38×38×4.8 mm, long. 1.0 m / 2.4 m)", "cod_epm_afinia": "NC-RA7-005", "cod_enel": "LA 203", "cod_celsia": "ET-203", "cod_electrohuila_enerca": "N-MT-15", "normas_fabricacion": "NTC 2134 (Acondicionamiento perfiles)ASTM A36 (Acero estructural)NTC 2076 / ASTM A123 (Galvanización)", "normas_pruebas": "ASTM A90 (Prueba de Preece / Masa de zinc)ASTM E376 (Medición magnética de espesor)ASTM A370 (Ensayos destructivos de tracción)", "descripcion_tecnica": "Arriostramiento mecánico rígido en V que transmite la carga vertical y flexión de la cruceta hacia el poste.", "categoria_num": "I", "categoria_nombre": "ESTRUCTURA Y SOPORTE PRINCIPAL", "unidad": "UN", "bom_por_config": {"C1": 4.0, "C2": 2.0, "C3": 4.0, "C4": 4.0, "C5": 4.0}}, {"item": "1.5", "descripcion": "Soporte / puntera metálica para montaje de Cutout y DPS", "cod_epm_afinia": "NC-RA7-015", "cod_enel": "LA 220", "cod_celsia": "ET-220", "cod_electrohuila_enerca": "N-MT-16", "normas_fabricacion": "NTC 2076 (Herrajes de acero)ASTM A36 (Acero estructural)ASTM A123 / A153 (Galvanizado)", "normas_pruebas": "ASTM A90 (Ensayo de adherencia de galvanizado)ASTM B117 (Prueba de niebla salina acelerada)ASTM A370 (Resistencia a la carga mecánica límite)", "descripcion_tecnica": "Estructura auxiliar en la cima del poste para fijación rígida y alineada de cortacircuitos y pararrayos en estructuras C1.", "categoria_num": "I", "categoria_nombre": "ESTRUCTURA Y SOPORTE PRINCIPAL", "unidad": "JGO", "bom_por_config": {"C1": 1.0, "C2": 0, "C3": 0, "C4": 0, "C5": 0}}, {"item": "2.1", "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100 mm - 4\" a 300 mm - 12\")", "cod_epm_afinia": "NC-RA7-012", "cod_enel": "LA 208", "cod_celsia": "ET-208", "cod_electrohuila_enerca": "N-MT-20", "normas_fabricacion": "NTC 2076 (Herrajes para redes)ASTM A36 (Pletina de acero)ASTM A153 (Galvanizado herrajes)", "normas_pruebas": "ASTM A90 (Verificación de capa de zinc)ASTM A370 (Prueba de deformación por cizallamiento y tracción)ASTM E376 (Espesor de galvanizado)", "descripcion_tecnica": "Abrazadera de pletina circular galvanizada para fijar pieamigos, retenciones y herrajes al fuste del poste.", "categoria_num": "II", "categoria_nombre": "ABRAZADERAS Y COLLARINES", "unidad": "UN", "bom_por_config": {"C1": 2.0, "C2": 1.0, "C3": 2.0, "C4": 2.0, "C5": 3.0}}, {"item": "2.2", "descripcion": "Abrazadera de pletina para fijación de bajada de tubería conduit", "cod_epm_afinia": "NC-RA7-016", "cod_enel": "LA 215", "cod_celsia": "ET-215", "cod_electrohuila_enerca": "N-MT-21", "normas_fabricacion": "NTC 2076 (Herrajes metálicos)ASTM A36 (Pletina estructural)ASTM A153 (Galvanizado en caliente)", "normas_pruebas": "ASTM A90 (Masa de recubrimiento de zinc)ASTM B117 (Resistencia a corrosión salina)", "descripcion_tecnica": "Abrazadera metálica tipo omega para sujetar la tubería conduit de bajada en transiciones subterráneas (C1).", "categoria_num": "II", "categoria_nombre": "ABRAZADERAS Y COLLARINES", "unidad": "UN", "bom_por_config": {"C1": 3.0, "C2": 0, "C3": 0, "C4": 0, "C5": 0}}, {"item": "3.1", "descripcion": "Pernos de máquina 5/8\" × 10\" / 12\" / 14\" / 16\" con rosca continua", "cod_epm_afinia": "NC-RA7-010", "cod_enel": "LA 205", "cod_celsia": "ET-205", "cod_electrohuila_enerca": "N-MT-25", "normas_fabricacion": "ASTM A307 (Pernos de acero al carbono)NTC 2076 / ASTM A153 (Galvanizado Clase C)ANSI B1.1 (Roscas UNC)", "normas_pruebas": "ASTM A370 (Prueba de tracción en perno completo y corte de rosca)ASTM A90 (Uniformidad y peso del zinc por decape)ANSI B1.3 (Verificación dimensional de rosca)", "descripcion_tecnica": "Perno pasante galvanizado por inmersión en caliente para ensamble de crucetas, collarines y pieamigos al poste.", "categoria_num": "III", "categoria_nombre": "TORNILLERÍA Y ELEMENTOS ROSCADOS (GALVANIZADOS EN CALIENTE)", "unidad": "UN", "bom_por_config": {"C1": 6.0, "C2": 3.0, "C3": 5.0, "C4": 8.0, "C5": 10.0}}, {"item": "3.2", "descripcion": "Pernos de ojo pasantes 5/8\" × 10\" / 12\" / 14\" con rosca", "cod_epm_afinia": "NC-RA7-011", "cod_enel": "LA 206", "cod_celsia": "ET-206", "cod_electrohuila_enerca": "N-MT-26", "normas_fabricacion": "ANSI C135.4 (Pernos de ojo galvanizados)ASTM A153 (Galvanizado)NTC 2076 (Tornillería pesada)", "normas_pruebas": "ANSI C135.4 (Prueba de carga mecánica destructiva del ojo forjado)ASTM A370 (Ensayo de tracción axial)ASTM A90 (Prueba de adherencia del galvanizado)", "descripcion_tecnica": "Perno con ojo forjado. Anclaje mecánico principal para cadenas de aisladores de suspensión y retención (C1, C3, C4, C5).", "categoria_num": "III", "categoria_nombre": "TORNILLERÍA Y ELEMENTOS ROSCADOS (GALVANIZADOS EN CALIENTE)", "unidad": "UN", "bom_por_config": {"C1": 3.0, "C2": 0, "C3": 3.0, "C4": 6.0, "C5": 6.0}}, {"item": "3.3", "descripcion": "Pernos espigo para aislador tipo PIN (5/8\" × 7\" o espigo largo)", "cod_epm_afinia": "NC-RA7-014", "cod_enel": "LA 207", "cod_celsia": "ET-207", "cod_electrohuila_enerca": "N-MT-27", "normas_fabricacion": "ANSI C135.22 (Pernos espigo con tope de plomo/nylon)ASTM A153 (Galvanizado en caliente)", "normas_pruebas": "ANSI C135.22 (Prueba de esfuerzo en cantilever/cantilever de flexión superior)ASTM A90 (Espesor de zinc)", "descripcion_tecnica": "Perno vertical roscado con tope de plomo/nylon para fijar la base del aislador tipo PIN sobre la cruceta (C2, C3).", "categoria_num": "III", "categoria_nombre": "TORNILLERÍA Y ELEMENTOS ROSCADOS (GALVANIZADOS EN CALIENTE)", "unidad": "UN", "bom_por_config": {"C1": 0, "C2": 3.0, "C3": 3.0, "C4": 0, "C5": 0}}, {"item": "3.4", "descripcion": "Tuercas hexagonales de acero 5/8\" y contratuercas de seguridad", "cod_epm_afinia": "NC-RA7-010", "cod_enel": "LA 205", "cod_celsia": "ET-205", "cod_electrohuila_enerca": "N-MT-25", "normas_fabricacion": "ASTM A563 (Tuercas de acero carbono)NTC 2076 / ASTM A153 (Galvanizado)RETIE (Art. 20)", "normas_pruebas": "ASTM A563 (Prueba de carga de prueba / Proof Load Test de la rosca)ASTM A90 (Capa de zinc por decapado)", "descripcion_tecnica": "Elementos de apriete. La contratuerca es obligatoria según RETIE para evitar el desajuste por vibraciones eólicas.", "categoria_num": "III", "categoria_nombre": "TORNILLERÍA Y ELEMENTOS ROSCADOS (GALVANIZADOS EN CALIENTE)", "unidad": "UN", "bom_por_config": {"C1": 18.0, "C2": 6.0, "C3": 16.0, "C4": 24.0, "C5": 28.0}}, {"item": "3.5", "descripcion": "Tuercas de ojo / Ojos giratorios de 5/8\"", "cod_epm_afinia": "NC-RA7-013", "cod_enel": "LA 206", "cod_celsia": "ET-206", "cod_electrohuila_enerca": "N-MT-26", "normas_fabricacion": "ANSI C135.5 (Tuercas de ojo forjadas)ASTM A153 (Galvanizado)", "normas_pruebas": "ANSI C135.5 (Ensayo de resistencia mecánica a tracción pura en la argolla)ASTM A90 (Adherencia de recubrimiento)", "descripcion_tecnica": "Tuerca forjada con argolla acoplada al extremo posterior del perno de ojo para segundo punto de anclaje de vientos.", "categoria_num": "III", "categoria_nombre": "TORNILLERÍA Y ELEMENTOS ROSCADOS (GALVANIZADOS EN CALIENTE)", "unidad": "UN", "bom_por_config": {"C1": 3.0, "C2": 0, "C3": 3.0, "C4": 6.0, "C5": 6.0}}, {"item": "3.6", "descripcion": "Arandelas cuadradas planas/curvas de acero 5/8\" × 4\" × 4\" × 3/16\" (o 2\" × 2\")", "cod_epm_afinia": "NC-RA7-010", "cod_enel": "LA 205", "cod_celsia": "ET-205", "cod_electrohuila_enerca": "N-MT-25", "normas_fabricacion": "ANSI C135.1 (Arandelas estructurales)NTC 2076 / ASTM A153 (Galvanizado en caliente)", "normas_pruebas": "ASTM A90 / ASTM E376 (Determinación de espesor de zinc)ASTM A370 (Ensayo de aplastamiento y dureza Rockwell)", "descripcion_tecnica": "Distribución de la presión mecánica sobre el fuste de concreto o el perfil metálico para prevenir fisuras o deformaciones.", "categoria_num": "III", "categoria_nombre": "TORNILLERÍA Y ELEMENTOS ROSCADOS (GALVANIZADOS EN CALIENTE)", "unidad": "UN", "bom_por_config": {"C1": 12.0, "C2": 6.0, "C3": 10.0, "C4": 16.0, "C5": 20.0}}, {"item": "3.7", "descripcion": "Arandelas de presión (Guasa) de 5/8\"", "cod_epm_afinia": "NC-RA7-010", "cod_enel": "LA 205", "cod_celsia": "ET-205", "cod_electrohuila_enerca": "N-MT-25", "normas_fabricacion": "NTC 2076 / ASTM A153 (Galvanizado)ANSI B18.21.1 (Arandelas muelle)", "normas_pruebas": "ANSI B18.21.1 (Prueba de elasticidad, dureza y temple)ASTM A90 (Verificación de recubrimiento de zinc)", "descripcion_tecnica": "Arandela helicoidal de muelle que mantiene el torque y absorbe dilataciones térmicas en uniones roscadas.", "categoria_num": "III", "categoria_nombre": "TORNILLERÍA Y ELEMENTOS ROSCADOS (GALVANIZADOS EN CALIENTE)", "unidad": "UN", "bom_por_config": {"C1": 18.0, "C2": 6.0, "C3": 11.0, "C4": 24.0, "C5": 28.0}}, {"item": "4.1", "descripcion": "Aisladores tipo PIN / Line Post poliméricos o porcelana (15 kV / 35 kV / 46 kV)", "cod_epm_afinia": "NC-RA7-031", "cod_enel": "LA 301", "cod_celsia": "ET-301", "cod_electrohuila_enerca": "N-MT-41", "normas_fabricacion": "ANSI C29.5 / ANSI C29.18 (Diseño PIN/Line Post)NTC 2618 (Aisladores eléctricos)IEC 60383", "normas_pruebas": "ANSI C29.1 / IEC 60383 (Flameo en seco/húmedo a 60 Hz, Tensión de impulso BIL, Prueba mecánica en Cantilever, Porosidad en fucsina)", "descripcion_tecnica": "Aislador rígido vertical o cantilever para alineaciones rectas en tangente (C2) y ángulos leves (C3).", "categoria_num": "IV", "categoria_nombre": "AISLAMIENTO Y HERRAJES DE CADENA", "unidad": "UN", "bom_por_config": {"C1": 0, "C2": 3.0, "C3": 3.0, "C4": 0, "C5": 0}}, {"item": "4.2", "descripcion": "Aisladores poliméricos tipo Tensor/Suspensión (15 kV / 35 kV / 46 kV, 70 kN / 120 kN)", "cod_epm_afinia": "NC-RA7-030", "cod_enel": "LA 302", "cod_celsia": "ET-302", "cod_electrohuila_enerca": "N-MT-40", "normas_fabricacion": "ANSI C29.13 (Aisladores poliméricos suspensión)IEC 61109 (Aisladores sintéticos)NTC 2618 / RETIE", "normas_pruebas": "IEC 61109 / ANSI C29.13 (Ensayo de carga mecánica especificada SML, Prueba de penetración de agua/hermeticidad, Prueba de tracking/erosión 1000h)", "descripcion_tecnica": "Aislador de silicona con núcleo de fibra de vidrio. Absorbe tensiones mecánicas transversales y longitudinales (C1, C3, C4, C5).", "categoria_num": "IV", "categoria_nombre": "AISLAMIENTO Y HERRAJES DE CADENA", "unidad": "UN", "bom_por_config": {"C1": 3.0, "C2": 0, "C3": 3.0, "C4": 6.0, "C5": 6.0}}, {"item": "4.3", "descripcion": "Eslabones de extensión / Clevis / Grilletes de acople", "cod_epm_afinia": "NC-RA7-022", "cod_enel": "LA 212", "cod_celsia": "ET-212", "cod_electrohuila_enerca": "N-MT-32", "normas_fabricacion": "ANSI C135.20 (Herrajes de acople de aisladores)NTC 2076 / ASTM A153 (Galvanizado)", "normas_pruebas": "ANSI C135.20 (Prueba de tracción combinada pasador-clevis)ASTM A90 (Masa de zinc por decape)", "descripcion_tecnica": "Herrajes de acero forjado galvanizado que articulan la unión entre el perno de ojo y la caperuza del aislador de suspensión.", "categoria_num": "IV", "categoria_nombre": "AISLAMIENTO Y HERRAJES DE CADENA", "unidad": "UN", "bom_por_config": {"C1": 3.0, "C2": 0, "C3": 3.0, "C4": 6.0, "C5": 6.0}}, {"item": "5.1", "descripcion": "Grapas de retención tipo pistola de aluminio (3-4 pernos / cuña)", "cod_epm_afinia": "NC-RA7-020", "cod_enel": "LA 210", "cod_celsia": "ET-210", "cod_electrohuila_enerca": "N-MT-30", "normas_fabricacion": "ANSI C119.4 (Conectores y grapas aéreas)ASTM B211 (Aleación de aluminio)NTC 2076", "normas_pruebas": "ANSI C119.4 (Prueba de deslizamiento mecánico del conductor sin daño de hebras, Ciclos térmicos de calentamiento)", "descripcion_tecnica": "Grapa de aluminio de apriete mecánico. Retiene el conductor sin deslizamiento ni deformación excesiva de hebras.", "categoria_num": "V", "categoria_nombre": "SUJECIÓN, RETENCIÓN Y PROTECCIÓN DEL CONDUCTOR", "unidad": "UN", "bom_por_config": {"C1": 3.0, "C2": 0, "C3": 3.0, "C4": 6.0, "C5": 6.0}}, {"item": "5.2", "descripcion": "Grapas de suspensión basculante para ángulo", "cod_epm_afinia": "NC-RA7-021", "cod_enel": "LA 211", "cod_celsia": "ET-211", "cod_electrohuila_enerca": "N-MT-31", "normas_fabricacion": "ANSI C119.4 (Grapas móviles)ASTM A153 (Cuerpo de acero/aluminio)NTC 2076", "normas_pruebas": "ANSI C119.4 (Ensayo de carga vertical destructiva y ángulo de basculación libre)ASTM A90 (Verificación de recubrimiento)", "descripcion_tecnica": "Grapa pendular articulada para cadenas de suspensión en ángulos intermedios (C3), permitiendo el libre movimiento del conductor.", "categoria_num": "V", "categoria_nombre": "SUJECIÓN, RETENCIÓN Y PROTECCIÓN DEL CONDUCTOR", "unidad": "UN", "bom_por_config": {"C1": 0, "C2": 0, "C3": 3.0, "C4": 0, "C5": 0}}, {"item": "5.3", "descripcion": "Amarres preformados / helicoidales para PIN / Line Post", "cod_epm_afinia": "NC-RA7-025", "cod_enel": "LA 214", "cod_celsia": "ET-214", "cod_electrohuila_enerca": "N-MT-33", "normas_fabricacion": "ASTM B211 (Hilo de aleación de aluminio)RETIE (Cap. 3 - Herrajes)", "normas_pruebas": "ASTM B211 (Prueba de tracción de hilo, Ensayos de resiliencia y sujeción sin deslizamiento bajo vibración)", "descripcion_tecnica": "Varillas helicoidales en aleación de aluminio (o con cubierta aislante para red ecológica) que fijan el conductor a la garganta del aislador.", "categoria_num": "V", "categoria_nombre": "SUJECIÓN, RETENCIÓN Y PROTECCIÓN DEL CONDUCTOR", "unidad": "UN", "bom_por_config": {"C1": 0, "C2": 3.0, "C3": 3.0, "C4": 0, "C5": 0}}, {"item": "5.4", "descripcion": "Cinta de armar de aluminio / Varillas de Armar (Armor Rods)", "cod_epm_afinia": "NC-RA7-026", "cod_enel": "LA 214", "cod_celsia": "ET-214", "cod_electrohuila_enerca": "N-MT-34", "normas_fabricacion": "ASTM B211 (Varillas de aluminio extruido)NTC 2076", "normas_pruebas": "ASTM B211 (Ensayo de rigidez, resiliencia y amortiguamiento de vibración eólica)", "descripcion_tecnica": "Protección contra fatiga y desgaste por vibración eólica bajo grapas de suspensión. Obligatorio Armor Rods en calibres > 3/0 AWG.", "categoria_num": "V", "categoria_nombre": "SUJECIÓN, RETENCIÓN Y PROTECCIÓN DEL CONDUCTOR", "unidad": "RLL", "bom_por_config": {"C1": 0, "C2": 1.0, "C3": 1.0, "C4": 0, "C5": 0}}, {"item": "6.1", "descripcion": "Cortacircuitos (Cutout) monopolares 15 kV / 27 kV / 38 kV (100 A)", "cod_epm_afinia": "NC-RA4-001", "cod_enel": "LA 655", "cod_celsia": "ET-655", "cod_electrohuila_enerca": "N-MT-60", "normas_fabricacion": "IEEE C37.41 / IEEE C37.42 (Especificación Cutouts)NTC 2132 / RETIE (Cap. 3)", "normas_pruebas": "IEEE C37.41 (Prueba de capacidad de interrupción a 10 kA, Elevación de temperatura a 100 A, Tensión no disruptiva BIL en seco/húmedo)", "descripcion_tecnica": "Seccionador fusible desmontable para protección contra sobrecorrientes (capacidad 10 kA simétricos) y corte visible en ramales (C1).", "categoria_num": "VI", "categoria_nombre": "EQUIPOS DE PROTECCIÓN, MANIOBRA Y TRANSICIÓN", "unidad": "UN", "bom_por_config": {"C1": 3.0, "C2": 0, "C3": 0, "C4": 0, "C5": 0}}, {"item": "6.2", "descripcion": "Fusibles tipo chicote / hilo de fusión rápida/lenta (1 A - 100 A)", "cod_epm_afinia": "NC-RA4-005", "cod_enel": "LA 656", "cod_celsia": "ET-656", "cod_electrohuila_enerca": "N-MT-62", "normas_fabricacion": "IEEE C37.42 (Esquema de curvas I-T)NTC 2132", "normas_pruebas": "IEEE C37.42 (Prueba de curva de tiempo-corriente de fusión MMT y de aclaración total CTT)", "descripcion_tecnica": "Hilo fusible de plata/cobre (Tipo K rápida o T lenta) dentro del tubo porta-fusible, coordinado con la capacidad de la carga.", "categoria_num": "VI", "categoria_nombre": "EQUIPOS DE PROTECCIÓN, MANIOBRA Y TRANSICIÓN", "unidad": "UN", "bom_por_config": {"C1": 3.0, "C2": 0, "C3": 0, "C4": 0, "C5": 0}}, {"item": "6.3", "descripcion": "Descargadores de sobretensión (DPS) ZnO (12 kV / 27 kV / 36 kV - 10 kA)", "cod_epm_afinia": "NC-RA4-002", "cod_enel": "LA 655", "cod_celsia": "ET-655", "cod_electrohuila_enerca": "N-MT-61", "normas_fabricacion": "IEC 60099-4 / IEEE C62.11 (Pararrayos de ZnO)RETIE (Art. 17)", "normas_pruebas": "IEC 60099-4 (Tensión residual a onda de choque 8/20 µs, Ciclo de funcionamiento con 10 kA, Envejecimiento acelerado de ZnO, Disipador de sobrepresión)", "descripcion_tecnica": "Pararrayos de varistores de ZnO en envolvente de silicona. Drena a tierra sobretensiones por descargas atmosféricas y maniobras.", "categoria_num": "VI", "categoria_nombre": "EQUIPOS DE PROTECCIÓN, MANIOBRA Y TRANSICIÓN", "unidad": "UN", "bom_por_config": {"C1": 3.0, "C2": 0, "C3": 0, "C4": 0, "C5": 0}}, {"item": "6.4", "descripcion": "Kit de terminales termocontraíbles intemperie (3 fases)", "cod_epm_afinia": "NC-RS1-005", "cod_enel": "CS 250", "cod_celsia": "ET-250", "cod_electrohuila_enerca": "N-MT-65", "normas_fabricacion": "IEEE 48 (Especificación terminales de cable)IEC 60502-4 / RETIE", "normas_pruebas": "IEEE 48 (Tensión soportada a frecuencia industrial en húmedo, Ciclos de carga térmica, Ensayo de descargas parciales < 5 pC)", "descripcion_tecnica": "Terminal premoldeado o termocontraíble para control de campo eléctrico en transiciones aérea-subterránea (C1).", "categoria_num": "VI", "categoria_nombre": "EQUIPOS DE PROTECCIÓN, MANIOBRA Y TRANSICIÓN", "unidad": "JGO", "bom_por_config": {"C1": 1.0, "C2": 0, "C3": 0, "C4": 0, "C5": 0}}, {"item": "7.1", "descripcion": "Varilla de anclaje con ojo para viento 3/4\" × 2.4 m con platina", "cod_epm_afinia": "NC-RA7-051", "cod_enel": "LA 401", "cod_celsia": "ET-401", "cod_electrohuila_enerca": "N-MT-50", "normas_fabricacion": "ANSI C135.2 (Varillas de anclaje)NTC 2076 / ASTM A153 (Galvanizado en caliente)", "normas_pruebas": "ANSI C135.2 (Prueba de tracción destructiva en el ojo forjado)ASTM A90 (Medición de capa de zinc)", "descripcion_tecnica": "Varilla de acero galvanizado con ojo doble/triple que transmite la tracción del viento hacia la cimentación enterrada.", "categoria_num": "VII", "categoria_nombre": "RETENIDAS (VIENTOS) Y ANCLAJES", "unidad": "UN", "bom_por_config": {"C1": 1.0, "C2": 1.0, "C3": 1.0, "C4": 2.0, "C5": 2.0}}, {"item": "7.2", "descripcion": "Bloque de anclaje en concreto reforzado (o ancla expansiva)", "cod_epm_afinia": "NC-RA7-050", "cod_enel": "LA 400", "cod_celsia": "ET-400", "cod_electrohuila_enerca": "N-MT-49", "normas_fabricacion": "", "normas_pruebas": "NTC 673 (Prueba de compresión de bloques de concreto)ASTM A370 (Resistencia de platinas metálicas)", "descripcion_tecnica": "Cimentación masiva de concreto o ancla metálica enterrada (1.8 m a 2.0 m) que reacciona contra la tensión del viento.", "categoria_num": "VII", "categoria_nombre": "RETENIDAS (VIENTOS) Y ANCLAJES", "unidad": "UN", "bom_por_config": {"C1": 1.0, "C2": 1.0, "C3": 1.0, "C4": 2.0, "C5": 1.0}}, {"item": "7.3", "descripcion": "Cable de acero galvanizado EHS 5/16\" o 3/8\" para viento", "cod_epm_afinia": "NC-RA7-052", "cod_enel": "LA 402", "cod_celsia": "ET-402", "cod_electrohuila_enerca": "N-MT-51", "normas_fabricacion": "", "normas_pruebas": "ASTM A475 (Ensayo de rotura mecánica a tracción EHS, Adherencia y masa del recubrimiento de zinc por el método de Preece)", "descripcion_tecnica": "Guaya multihilos de acero de alta resistencia que equilibra las fuerzas resultantes en ángulos y estructuras de retención.", "categoria_num": "VII", "categoria_nombre": "RETENIDAS (VIENTOS) Y ANCLAJES", "unidad": "MET", "bom_por_config": {"C1": 15.0, "C2": 15.0, "C3": 15.0, "C4": 30.0, "C5": 30.0}}, {"item": "7.4", "descripcion": "Tensor metálico galvanizado con ojo y gancho (5/8\")", "cod_epm_afinia": "NC-RA7-053", "cod_enel": "LA 403", "cod_celsia": "ET-403", "cod_electrohuila_enerca": "N-MT-52", "normas_fabricacion": "", "normas_pruebas": "ASTM F1145 (Prueba de carga de prueba / Proof Load al 200% de carga de trabajo, Ensayo de tracción límite)", "descripcion_tecnica": "Dispositivo forjado de ajuste lineal para tensar y calibrar la tensión del cable de retenida durante el montaje.", "categoria_num": "VII", "categoria_nombre": "RETENIDAS (VIENTOS) Y ANCLAJES", "unidad": "UN", "bom_por_config": {"C1": 1.0, "C2": 1.0, "C3": 1.0, "C4": 2.0, "C5": 2.0}}, {"item": "7.5", "descripcion": "Preformados de retenida / Guardacabos y grapas prensacables", "cod_epm_afinia": "NC-RA7-054", "cod_enel": "LA 404", "cod_celsia": "ET-404", "cod_electrohuila_enerca": "N-MT-53", "normas_fabricacion": "", "normas_pruebas": "ASTM A475 / NTC 2076 (Prueba de sujeción sin deslizamiento de la guaya, Resistencia a la deformación del guardacabo)", "descripcion_tecnica": "Remates helicoidales o prensacables con guardacabos que protegen la guaya de acero contra aplastamiento o radio de curvatura excesivo.", "categoria_num": "VII", "categoria_nombre": "RETENIDAS (VIENTOS) Y ANCLAJES", "unidad": "JGO", "bom_por_config": {"C1": 2.0, "C2": 2.0, "C3": 2.0, "C4": 8.0, "C5": 4.0}}, {"item": "7.6", "descripcion": "Aislador de retenida tipo nuez o polimérico (15 kV / 34.5 kV)", "cod_epm_afinia": "NC-RA7-055", "cod_enel": "LA 405", "cod_celsia": "ET-405", "cod_electrohuila_enerca": "N-MT-54", "normas_fabricacion": "", "normas_pruebas": "ANSI C29.4 (Ensayo de resistencia a compresión por tensión del cable, Perforación dieléctrica en aceite)", "descripcion_tecnica": "Aislador que interrumpe la continuidad eléctrica del cable de viento a una altura mayor a 3.0 m para evitar que quede energizado por falla.", "categoria_num": "VII", "categoria_nombre": "RETENIDAS (VIENTOS) Y ANCLAJES", "unidad": "UN", "bom_por_config": {"C1": 1.0, "C2": 1.0, "C3": 1.0, "C4": 4.0, "C5": 2.0}}, {"item": "7.7", "descripcion": "Protector tubular plástico (Camisa/Manguera amarilla de señalización)", "cod_epm_afinia": "NC-RA7-056", "cod_enel": "LA 406", "cod_celsia": "ET-406", "cod_electrohuila_enerca": "N-MT-55", "normas_fabricacion": "", "normas_pruebas": "RETIE (Ensayo de intemperismo UV y resistencia a la flexión/impacto plástico)", "descripcion_tecnica": "Tubo reflectivo amarillo de 2.0 m instalado en la base de la guaya para dar visibilidad y prevenir accidentes de peatones o vehículos.", "categoria_num": "VII", "categoria_nombre": "RETENIDAS (VIENTOS) Y ANCLAJES", "unidad": "UN", "bom_por_config": {"C1": 1.0, "C2": 1.0, "C3": 1.0, "C4": 2.0, "C5": 1.0}}, {"item": "8.1", "descripcion": "Varilla de puesta a tierra Copperweld 5/8\" × 2.4 m", "cod_epm_afinia": "NC-RA7-060", "cod_enel": "LA 500", "cod_celsia": "ET-500", "cod_electrohuila_enerca": "N-MT-70", "normas_fabricacion": "NTC 2206 / UL 467 (Electrodos de puesta a tierra)RETIE (Art. 15)", "normas_pruebas": "UL 467 / NTC 2206 (Prueba de adherencia de la capa de cobre por doblado/corte, Medición de espesor de cobre mín. 254 µm, Prueba de hincado)", "descripcion_tecnica": "Electrodo enterrado de acero revestido de cobre (capa mín. 254 µm). Resistencia de Puesta a Tierra objetivo < 10 Ω.", "categoria_num": "VIII", "categoria_nombre": "SISTEMA DE PUESTA A TIERRA (SPT)", "unidad": "UN", "bom_por_config": {"C1": 1.0, "C2": 1.0, "C3": 1.0, "C4": 1.0, "C5": 1.0}}, {"item": "8.2", "descripcion": "Conductor de bajada (Copperclad Steel 7×No 8 - 58.56 mm², Cu #2 AWG o Cinta de Cobre)", "cod_epm_afinia": "NC-RA7-061", "cod_enel": "LA 501", "cod_celsia": "ET-501", "cod_electrohuila_enerca": "N-MT-71", "normas_fabricacion": "", "normas_pruebas": "ASTM B228 (Prueba de conductividad IACS %, Ensayo de tracción del cable composite, Espesor de capa de cobre)", "descripcion_tecnica": "Conductor de interconexión continua entre la masa metálica de herrajes/DPS y la varilla de tierra.", "categoria_num": "VIII", "categoria_nombre": "SISTEMA DE PUESTA A TIERRA (SPT)", "unidad": "MET", "bom_por_config": {"C1": 12.0, "C2": 12.0, "C3": 12.0, "C4": 12.0, "C5": 12.0}}, {"item": "8.3", "descripcion": "Conector bimetálico / perno partido / soldadura exotérmica para varilla", "cod_epm_afinia": "NC-RA7-062", "cod_enel": "LA 502", "cod_celsia": "ET-502", "cod_electrohuila_enerca": "N-MT-72", "normas_fabricacion": "", "normas_pruebas": "IEEE 837 (Prueba de choque térmico y ciclos de corriente de cortocircuito, Ensayo de resistencia a corrosión acelerada)", "descripcion_tecnica": "Elemento de unión mecánicamente firme y de baja resistencia entre el conductor de bajada y el electrodo.", "categoria_num": "VIII", "categoria_nombre": "SISTEMA DE PUESTA A TIERRA (SPT)", "unidad": "UN", "bom_por_config": {"C1": 1.0, "C2": 1.0, "C3": 1.0, "C4": 1.0, "C5": 1.0}}, {"item": "8.4", "descripcion": "Grapas de fijación / abrazaderas metálicas para bajante de tierra en poste", "cod_epm_afinia": "NC-RA7-063", "cod_enel": "LA 503", "cod_celsia": "ET-503", "cod_electrohuila_enerca": "N-MT-73", "normas_fabricacion": "", "normas_pruebas": "ASTM A90 (Masa de galvanizado de grapas y clavos)", "descripcion_tecnica": "Abrazaderas/clavos de acero galvanizado adosados cada 1.0 m para asegurar el bajante de tierra a lo largo del poste.", "categoria_num": "VIII", "categoria_nombre": "SISTEMA DE PUESTA A TIERRA (SPT)", "unidad": "UN", "bom_por_config": {"C1": 6.0, "C2": 6.0, "C3": 6.0, "C4": 6.0, "C5": 6.0}}, {"item": "9.1", "descripcion": "Conectores de compresión (C-Tap / H-Tap / Cuña bimetálicos)", "cod_epm_afinia": "NC-RA7-040", "cod_enel": "LA 230", "cod_celsia": "ET-230", "cod_electrohuila_enerca": "N-MT-80", "normas_fabricacion": "ANSI C119.4 (Conectores eléctricos de potencia)NTC 2244 / RETIE", "normas_pruebas": "ANSI C119.4 (Ensayo de 500 ciclos de calentamiento eléctrico, Prueba de tracción mecánica Clase A, Cámara de niebla salina)", "descripcion_tecnica": "Conectores bimetálicos de deformación controlada para puentes de flexión (cuellos de retención en C4 y C5) y derivaciones de red.", "categoria_num": "IX", "categoria_nombre": "CONECTÓRICA Y ACCESORIOS DE CONEXIÓN", "unidad": "UN", "bom_por_config": {"C1": 6.0, "C2": 0, "C3": 3.0, "C4": 6.0, "C5": 6.0}}, {"item": "9.2", "descripcion": "Estribos de línea con conector de cuña (para punto de mantenimiento)", "cod_epm_afinia": "NC-RA7-042", "cod_enel": "LA 232", "cod_celsia": "ET-232", "cod_electrohuila_enerca": "N-MT-82", "normas_fabricacion": "ANSI C119.4 / NTC 2244 (Estribos de línea)", "normas_pruebas": "ANSI C119.4 (Prueba de sobrecalentamiento en el punto de contacto, Resistencia al impacto e inserción de la cuña)", "descripcion_tecnica": "Herraje bimetálico que provee una pata/estribo de cobre donde conectar grapas de operado en caliente sin degradar la fase principal.", "categoria_num": "IX", "categoria_nombre": "CONECTÓRICA Y ACCESORIOS DE CONEXIÓN", "unidad": "UN", "bom_por_config": {"C1": 3.0, "C2": 0, "C3": 0, "C4": 0, "C5": 0}}, {"item": "9.3", "descripcion": "Grapas de operar en caliente (GOC) en bronce/aluminio", "cod_epm_afinia": "NC-RA7-043", "cod_enel": "LA 233", "cod_celsia": "ET-233", "cod_electrohuila_enerca": "N-MT-83", "normas_fabricacion": "NTC 2076 / ANSI C119.4 (Grapas de pértiga)", "normas_pruebas": "ANSI C119.4 (Ensayo de torque del tornillo de ajuste por pértiga, Elevación de temperatura a corriente nominal)", "descripcion_tecnica": "Conector con ojal para pértiga aislada que engancha en el estribo para conectar/desconectar transformadores o ramales energizados.", "categoria_num": "IX", "categoria_nombre": "CONECTÓRICA Y ACCESORIOS DE CONEXIÓN", "unidad": "UN", "bom_por_config": {"C1": 3.0, "C2": 0, "C3": 0, "C4": 0, "C5": 0}}, {"item": "10.1", "descripcion": "Conductores Aéreos MT (ACSR, AAC, AAAC, Ecológico / Semiaislado XLPE-HDPE, 1/0 AWG a 500 kcmil)", "cod_epm_afinia": "NC-RA1-001", "cod_enel": "LA 101", "cod_celsia": "ET-101", "cod_electrohuila_enerca": "N-MT-05", "normas_fabricacion": "NTC 360 / NTC 2730 (Conductores de aluminio)ASTM B231 / ASTM B232RETIE (Cap. 3)", "normas_pruebas": "ASTM B232 / NTC 360 (Tracción individual de hilos de aluminio y alambre de acero, Resistencia eléctrica DC a 20°C)IEC 60502-2 (Resistencia a descargas parciales / tracking en redes ecológicas)", "descripcion_tecnica": "Conductor principal de transporte de energía. Desnudo (ACSR/AAAC) o semiaislado con cubierta de polietileno reticulado (XLPE/HDPE) resistente a descargas e intemperie.", "categoria_num": "X", "categoria_nombre": "CONDUCTORES AÉREOS DE MEDIA TENSIÓN", "unidad": "", "bom_por_config": {}}];
+
+const CABLES_AEREOS = [{"familia": "ACSR (Aluminio con Alma de Acero)", "calibre": "2 AWG", "norma": "NTC 309 / ASTM B232", "imax": "180 A", "icc": "5.4 kA", "rbs": "12.4 kN", "eds": "1.8 – 2.5 kN", "descripcion": "Vanos largos y zonas rurales: Su alma de acero absorbe la tensión mecánica y el esfuerzo de tiro, garantizando estabilidad en grandes distancias entre apoyos. Es la opción estándar para redes aéreas desnudas en esquemas rurales, troncales de distribución principal, líneas de subtransmisión y salidas de subestaciones.\nRestricción: Vetado en zonas costeras debido a la corrosión acelerada por la combinación de salinidad y humedad."}, {"familia": "ACSR (Aluminio con Alma de Acero)", "calibre": "1/0 AWG", "norma": "NTC 309 / ASTM B232", "imax": "230 A", "icc": "8.6 kA", "rbs": "19.3 kN", "eds": "2.9 – 3.8 kN", "descripcion": ""}, {"familia": "ACSR (Aluminio con Alma de Acero)", "calibre": "2/0 AWG", "norma": "NTC 309 / ASTM B232", "imax": "270 A", "icc": "10.8 kA", "rbs": "23.6 kN", "eds": "3.5 – 4.7 kN", "descripcion": ""}, {"familia": "ACSR (Aluminio con Alma de Acero)", "calibre": "4/0 AWG", "norma": "NTC 309 / ASTM B232", "imax": "380 A", "icc": "17.2 kA", "rbs": "37.1 kN", "eds": "5.5 – 7.4 kN", "descripcion": ""}, {"familia": "ACSR (Aluminio con Alma de Acero)", "calibre": "266.8 kcmil", "norma": "NTC 309 / ASTM B232", "imax": "460 A", "icc": "22.5 kA", "rbs": "50.3 kN", "eds": "7.5 – 10.0 kN", "descripcion": ""}, {"familia": "AAC (Todo Aluminio)", "calibre": "2 AWG", "norma": "NTC 308 / ASTM B231", "imax": "155 A", "icc": "4.2 kA", "rbs": "5.6 kN", "eds": "0.8 – 1.1 kN", "descripcion": "Redes urbanas en vanos cortos/medios: Bajo peso y menor resistencia a la tracción (carga de rotura). Está diseñado para redes de baja exigencia mecánica, requiriendo vanos cortos a medios para controlar la tensión y la flecha.\nRestricción: Vetado en zonas costeras debido a la corrosión acelerada por la combinación de salinidad y humedad."}, {"familia": "AAC (Todo Aluminio)", "calibre": "1/0 AWG", "norma": "NTC 308 / ASTM B231", "imax": "200 A", "icc": "6.7 kA", "rbs": "8.4 kN", "eds": "1.2 – 1.7 kN", "descripcion": ""}, {"familia": "AAC (Todo Aluminio)", "calibre": "2/0 AWG", "norma": "NTC 308 / ASTM B231", "imax": "235 A", "icc": "8.4 kA", "rbs": "10.4 kN", "eds": "1.5 – 2.1 kN", "descripcion": ""}, {"familia": "AAC (Todo Aluminio)", "calibre": "4/0 AWG", "norma": "NTC 308 / ASTM B231", "imax": "325 A", "icc": "13.4 kA", "rbs": "16.1 kN", "eds": "2.4 – 3.2 kN", "descripcion": ""}, {"familia": "AAC (Todo Aluminio)", "calibre": "336,4 kcmil", "norma": "NTC 308 / ASTM B231", "imax": "420 A", "icc": "21.2 kA", "rbs": "24.8 kN", "eds": "3.7 – 5.0 kN", "descripcion": ""}, {"familia": "AAC (Todo Aluminio)", "calibre": "477 kcmil", "norma": "NTC 308 / ASTM B231", "imax": "525 A", "icc": "30.1 kA", "rbs": "34.2 kN", "eds": "5.1 – 6.8 kN", "descripcion": ""}, {"familia": "AAAC (Aleación de Aluminio / Al 6201)", "calibre": "2 AWG", "norma": "NTC 1099 / ASTM B399", "imax": "170 A", "icc": "4.8 kA", "rbs": "9.8 kN", "eds": "1.5 – 2.0 kN", "descripcion": "Zonas corrosivas / costeras: Fabricado en aleación 6201 sin alma de acero, combina alta resistencia a la tracción y excelente relación resistencia-peso. Elimina el riesgo de corrosión por par galvánico y ofrece superior resistencia a la degradación química.\nDiseñado para troncales y alimentadores en zonas costeras, salinas o de alta contaminación industrial. Es el sustituto directo del ACSR en franjas litorales y de uso obligatorio bajo normativas técnicas de los OR´s en ambientes marinos."}, {"familia": "AAAC (Aleación de Aluminio / Al 6201)", "calibre": "1/0 AWG", "norma": "NTC 1099 / ASTM B399", "imax": "220 A", "icc": "7.7 kA", "rbs": "15.5 kN", "eds": "2.3 – 3.1 kN", "descripcion": ""}, {"familia": "AAAC (Aleación de Aluminio / Al 6201)", "calibre": "2/0 AWG", "norma": "NTC 1099 / ASTM B399", "imax": "255 A", "icc": "9.7 kA", "rbs": "19.5 kN", "eds": "2.9 – 3.9 kN", "descripcion": ""}, {"familia": "AAAC (Aleación de Aluminio / Al 6201)", "calibre": "4/0 AWG", "norma": "NTC 1099 / ASTM B399", "imax": "360 A", "icc": "15.5 kA", "rbs": "31.0 kN", "eds": "4.6 – 6.2 kN", "descripcion": ""}, {"familia": "AAAC (Aleación de Aluminio / Al 6201)", "calibre": "266,8 kcmil", "norma": "NTC 1099 / ASTM B399", "imax": "420 A", "icc": "19.5 kA", "rbs": "39.1 kN", "eds": "5.8 – 7.8 kN", "descripcion": ""}, {"familia": "Ecológicos / Semiaislados (Cubiertos)", "calibre": "2 AWG", "norma": "NTC 5909 / ANSI ICEA S-121-733", "imax": "150 A", "icc": "4.2 kA", "rbs": "", "eds": "0.8 – 1.1 kN", "descripcion": "Redes Compactas Aéreas: Alma de AAC/AAAC con cubierta polimérica (XLPE/HDPE) sin apantallamiento. Opera en redes compactas y requiere el uso de espaciadores e aisladores para mantener la geometría y soportar las cargas mecánicas.\nIdeal para troncales en zonas arboladas o de alta densidad urbana. Evita cortocircuitos por contacto accidental (ramas o interfases) y reduce la franja de servidumbre, minimizando la poda de árboles y optimizando espacios reducidos."}, {"familia": "Ecológicos / Semiaislados (Cubiertos)", "calibre": "1/0 AWG", "norma": "NTC 5909 / ANSI ICEA S-121-733", "imax": "190 A", "icc": "6.7 kA", "rbs": "", "eds": "1.2 – 1.7 kN", "descripcion": ""}, {"familia": "Ecológicos / Semiaislados (Cubiertos)", "calibre": "2/0 AWG", "norma": "NTC 5909 / ANSI ICEA S-121-733", "imax": "225 A", "icc": "8.4 kA", "rbs": "", "eds": "1.5 – 2.1 kN", "descripcion": ""}, {"familia": "Ecológicos / Semiaislados (Cubiertos)", "calibre": "4/0 AWG", "norma": "NTC 5909 / ANSI ICEA S-121-733", "imax": "310 A", "icc": "13.4 kA", "rbs": "", "eds": "2.4 – 3.2 kN", "descripcion": ""}, {"familia": "Ecológicos / Semiaislados (Cubiertos)", "calibre": "336,4 kcmil", "norma": "NTC 5909 / ANSI ICEA S-121-733", "imax": "400 A", "icc": "21.2 kA", "rbs": "", "eds": "3.7 – 5.0 kN", "descripcion": ""}, {"familia": "Ecológicos / Semiaislados (Cubiertos)", "calibre": "477 kcmil", "norma": "NTC 5909 / ANSI ICEA S-121-733", "imax": "500 A", "icc": "30.1 kA", "rbs": "", "eds": "5.1 – 6.8 kN", "descripcion": ""}];
+
+const OR_EXIGENCIAS_CABLE = "Exigencias Particulares por Operador de Red (OR)\nPara que te reciban la obra, el constructor debe presentar obligatoriamente el certificado de conformidad RETIE y el protocolo de pruebas de fábrica. Las marcas de estándar confiable y homologadas en Colombia son Nexans (Centelsa), Prysmian Group (Procables) y Conducol/Cablenorte:\n\nEPM - Normativa Base Series RA8-003 y especificación ET-TD-ME01-05.\nCables cubiertos de Media Tensión para red compacta tengan aislamiento resistente a rayos UV y sean de color Gris. Además, veta el uso de cables ACSR en zonas costeras o de alta contaminación, obligando a usar AAAC para evitar la corrosión del núcleo de acero.\n\nEnel Colombia (Codensa) - Normas globales del grupo Enel.\nExigencia Crítica con el nivel de cortocircuito en redes subterráneas con pantallas de hilos de cobre de 35 mm2 o superiores (en vez de las estándar de 16 mm2) si estás cerca de una Subestación de Potencia. En redes aéreas estandarizan calibres 1/0 y 4/0 AWG.\n\nCelsia (Valle / Tolima) - Manuales de diseño técnico internos.\nLimitan drásticamente la regulación de tensión (caída de voltaje) permitida en las colas de circuito de distribución. Esto te obligará frecuentemente a hacer \"Up-sizing\" (aumentar el calibre del cable, puramente para optimizar las pérdidas energéticas por efecto Joule.";
+
+// 10 categorías agrupadas en 5 familias de compras (para proveedores/Card 4)
+const CATEGORIAS = [
+  { num: "I",    nombre: "ESTRUCTURA Y SOPORTE PRINCIPAL", grupo: "estructura_soporte" },
+  { num: "II",   nombre: "ABRAZADERAS Y COLLARINES", grupo: "estructura_soporte" },
+  { num: "III",  nombre: "TORNILLERÍA Y ELEMENTOS ROSCADOS (GALVANIZADOS EN CALIENTE)", grupo: "estructura_soporte" },
+  { num: "IV",   nombre: "AISLAMIENTO Y HERRAJES DE CADENA", grupo: "aislamiento_herrajes" },
+  { num: "V",    nombre: "SUJECIÓN, RETENCIÓN Y PROTECCIÓN DEL CONDUCTOR", grupo: "aislamiento_herrajes" },
+  { num: "VI",   nombre: "EQUIPOS DE PROTECCIÓN, MANIOBRA Y TRANSICIÓN", grupo: "equipos_proteccion" },
+  { num: "VII",  nombre: "RETENIDAS (VIENTOS) Y ANCLAJES", grupo: "estructura_soporte" },
+  { num: "VIII", nombre: "SISTEMA DE PUESTA A TIERRA (SPT)", grupo: "puesta_a_tierra" },
+  { num: "IX",   nombre: "CONECTÓRICA Y ACCESORIOS DE CONEXIÓN", grupo: "equipos_proteccion" },
+  { num: "X",    nombre: "CONDUCTORES AÉREOS DE MEDIA TENSIÓN", grupo: "conductores" },
+];
+
+const GRUPOS_PROVEEDOR = [
+  { id: "estructura_soporte",   nombre: "Estructura y Soporte (postes, crucetas, tornillería, retenidas)" },
+  { id: "aislamiento_herrajes", nombre: "Aislamiento y Herrajes de Cadena / Sujeción del Conductor" },
+  { id: "equipos_proteccion",   nombre: "Equipos de Protección, Maniobra y Conectórica" },
+  { id: "puesta_a_tierra",      nombre: "Sistema de Puesta a Tierra" },
+  { id: "conductores",          nombre: "Conductores Aéreos de Media Tensión" },
+];
+
+function itemsDeCategoria(catNum) {
+  return ITEMS_MASTER.filter(it => it.categoria_num === catNum);
+}
+function grupoDeCategoria(catNum) {
+  const c = CATEGORIAS.find(c => c.num === catNum);
+  return c ? c.grupo : null;
+}
+function familiasCable() {
+  return [...new Set(CABLES_AEREOS.map(c => c.familia))];
+}
+function calibresDeFamilia(familia) {
+  return CABLES_AEREOS.filter(c => c.familia === familia);
+}
+
+// Directorio embebido de respaldo (fuente: investigación web, julio 2026).
+// Se usa SOLO si no se puede cargar proveedores.json (ver cargarProveedores más abajo).
+const PROVEEDORES_FALLBACK = [
+  { nombre: "Pretecor", categoria: "estructura_soporte", cobertura: "Santander / Nacional", notas: "Postes de concreto, NTC 1329, RETIE/RETILAP.", url: "https://pretecor.com" },
+  { nombre: "METALTEC PI SAS", categoria: "estructura_soporte", cobertura: "Nacional", notas: "Postes, crucetas y estructuras metálicas para líneas de distribución MT/BT.", url: "https://www.metaltecpi.com" },
+  { nombre: "JD Eléctricos", categoria: "estructura_soporte", cobertura: "Nacional", notas: "Distribuidor de materiales eléctricos MT/AT/BT, incl. tornillería y retenidas.", url: "https://jdelectricos.com.co" },
+  { nombre: "D&C Distribuciones Eléctricas de Colombia", categoria: "estructura_soporte", cobertura: "Nacional", notas: "Postes de concreto, metálicos y fibra de vidrio.", url: "https://dycdistricolsas.com" },
+  { nombre: "Surtielectronic", categoria: "estructura_soporte", cobertura: "Nacional", notas: "Postes de concreto y fibra de vidrio, RETIE/RETILAP.", url: "https://www.surtielectronic.com" },
+
+  { nombre: "Electroporcelana GAMMA", categoria: "aislamiento_herrajes", cobertura: "Nacional / Internacional", notas: "Aisladores de porcelana y poliméricos bajo normas IEC/ANSI.", url: "https://www.gamma.com.co" },
+  { nombre: "CAMELECO SAS", categoria: "aislamiento_herrajes", cobertura: "Bogotá / Nacional", notas: "Herrajería de cadena y sujeción para líneas BT/MT/AT.", url: "https://cameleco.com" },
+  { nombre: "Disace Energía", categoria: "aislamiento_herrajes", cobertura: "Nacional", notas: "Grapas, grilletes, rótulas, cadenas de aisladores.", url: "https://www.disaceenergia.com" },
+  { nombre: "Fundiherrajes de Colombia (FHC)", categoria: "aislamiento_herrajes", cobertura: "Nacional", notas: "Herrajes de fijación de aisladores y conductores.", url: "https://www.fhc.com.co" },
+  { nombre: "Edemco", categoria: "aislamiento_herrajes", cobertura: "Nacional", notas: "Aisladores y aislantes.", url: "https://edemco.co" },
+
+  { nombre: "Nacional de Transformadores S.A.S.", categoria: "equipos_proteccion", cobertura: "Nacional", notas: "Equipos de protección y maniobra MT hasta 36 kV.", url: "" },
+  { nombre: "EIS Energy", categoria: "equipos_proteccion", cobertura: "Nacional", notas: "Cutouts, DPS y equipos de maniobra, NTC 818/819/3445, RETIE.", url: "https://www.eisenergy.com.co" },
+  { nombre: "Andina T.C. Ltda.", categoria: "equipos_proteccion", cobertura: "Bogotá / Nacional", notas: "Equipos de protección y conectórica tipo poste.", url: "https://www.andinatc.com" },
+  { nombre: "Dielco", categoria: "equipos_proteccion", cobertura: "Nacional", notas: "Comercialización de equipos de protección y maniobra MT.", url: "https://www.dielco.co" },
+  { nombre: "Cameleco", categoria: "equipos_proteccion", cobertura: "Bogotá / Nacional", notas: "Materiales eléctricos incl. protección y conectórica BT/MT.", url: "https://cameleco.com" },
+
+  { nombre: "JD Eléctricos", categoria: "puesta_a_tierra", cobertura: "Nacional", notas: "Varillas de puesta a tierra, conectores bimetálicos y cinta de cobre.", url: "https://jdelectricos.com.co" },
+  { nombre: "Sonepar Colombia", categoria: "puesta_a_tierra", cobertura: "Nacional", notas: "Distribuidor de materiales de puesta a tierra y conexión.", url: "https://sonepar.co" },
+  { nombre: "Alianza Eléctrica", categoria: "puesta_a_tierra", cobertura: "Nacional", notas: "Distribuidor de electrodos y conductores de bajada a tierra.", url: "https://tienda.alianzaelectrica.com" },
+  { nombre: "CAMELECO SAS", categoria: "puesta_a_tierra", cobertura: "Bogotá / Nacional", notas: "Conectores y grapas de fijación para sistemas de puesta a tierra.", url: "https://cameleco.com" },
+  { nombre: "Disace Energía", categoria: "puesta_a_tierra", cobertura: "Nacional", notas: "Conectores bimetálicos y accesorios de conexión a tierra.", url: "https://www.disaceenergia.com" },
+
+  { nombre: "Nexans Colombia (Centelsa)", categoria: "conductores", cobertura: "Nacional", notas: "Cable ACSR/AAAC/ecológico para redes de transmisión y distribución.", url: "https://www.nexans.co" },
+  { nombre: "Facelec S.A.S.", categoria: "conductores", cobertura: "Nacional", notas: "Fabricante de cables de aluminio BT/MT desde 1992.", url: "https://www.facelec.com.co" },
+  { nombre: "Cabletec", categoria: "conductores", cobertura: "Nacional", notas: "Cables ACSR certificados CIDET.", url: "https://cabletec.co" },
+  { nombre: "Sonepar Colombia", categoria: "conductores", cobertura: "Nacional", notas: "Distribuidor de cables desnudos ACSR.", url: "https://sonepar.co" },
+  { nombre: "Alianza Eléctrica", categoria: "conductores", cobertura: "Nacional", notas: "Distribuidor de conductores, incl. ACSR/AAAC.", url: "https://tienda.alianzaelectrica.com" },
+].map(p => ({ ...p, fuente: "investigacion_web", precio_negociado: null, unidad_precio: null, moneda: null, vigencia_hasta: null, condiciones_pago: null, email: null }));
+
+let PROVEEDORES = PROVEEDORES_FALLBACK;
+
+// Carga el directorio real desde proveedores.json (archivo externo, editable sin tocar este HTML).
+// Si el archivo no existe o falla la carga (ej. abriendo el HTML directo con file://), se usa el respaldo embebido.
+function cargarProveedores() {
+  const status = document.getElementById('dataStatus');
+  fetch('./proveedores.json', { cache: 'no-store' })
+    .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(data => {
+      if (!Array.isArray(data) || !data.length) throw new Error('formato inválido');
+      PROVEEDORES = data.map(p => ({
+        fuente: "investigacion_web", precio_negociado: null, unidad_precio: null,
+        moneda: null, vigencia_hasta: null, condiciones_pago: null, url: "", notas: "",
+        email: null,
+        ...p
+      }));
+      const nProp = PROVEEDORES.filter(p => p.fuente === 'tarifario_propio').length;
+      if (status) status.textContent = `Directorio cargado desde proveedores.json — ${PROVEEDORES.length} proveedores (${nProp} con acuerdo previo).`;
+      if (ULTIMAS_CATEGORIAS.length) renderCategorias();
+    })
+    .catch(() => {
+      PROVEEDORES = PROVEEDORES_FALLBACK;
+      if (status) status.textContent = `Directorio de respaldo (investigación web) — no se encontró proveedores.json en esta carpeta.`;
+      if (ULTIMAS_CATEGORIAS.length) renderCategorias();
+    });
+}
+
+const CAT_LABEL = {
+  estructura_soporte: "Estructura y Soporte Principal",
+  aislamiento_herrajes: "Aislamiento y Herrajes de Cadena",
+  equipos_proteccion: "Equipos de Protección, Maniobra y Conectórica",
+  puesta_a_tierra: "Sistema de Puesta a Tierra",
+  conductores: "Conductores Aéreos"
+};
+
+// Cada grupo de proveedores tiene su propio formato de cotización en Excel (parámetros técnicos distintos).
+const FORMATO_EXCEL = {
+  estructura_soporte: "Formato_Cotizacion_Estructura_Soporte.xlsx",
+  aislamiento_herrajes: "Formato_Cotizacion_Aislamiento_Herrajes.xlsx",
+  equipos_proteccion: "Formato_Cotizacion_Equipos_Proteccion.xlsx",
+  puesta_a_tierra: "Formato_Cotizacion_Puesta_a_Tierra.xlsx",
+  conductores: "Formato_Cotizacion_Conductores.xlsx"
+};
+
+// Checklist de documentación requerida por grupo de proveedores — usado al construir la solicitud de
+// cotización (RFQ). Esquema base común a toda compra de materiales eléctricos MT, ajustado
+// por grupo (ej. planos y SDS solo donde aplica). Ajustar con el equipo técnico/legal
+// si un proveedor o proyecto específico requiere documentos adicionales.
+const DOC_REQUERIDA = {
+  estructura_soporte: [
+    "Ficha técnica completa de cada ítem (postes, abrazaderas, collarines, tornillería, retenidas)",
+    "Certificado RETIE / RETILAP",
+    "Certificados de conformidad (NTC 1329 postes; galvanizado en caliente NTC 2076 tornillería)",
+    "Informe de prueba de carga de rotura (postes y retenidas)",
+    "Planos o diagramas técnicos",
+    "Manual de instalación y manejo",
+    "Garantía del fabricante",
+    "Declaración de origen"
+  ],
+  aislamiento_herrajes: [
+    "Ficha técnica completa de cada ítem (aisladores, herrajes de cadena, sujeción y retención del conductor)",
+    "Certificado RETIE",
+    "Certificados de conformidad (IEC 60383-1, ANSI C29/57, NTC 2470/2076 según aplique)",
+    "Informes de pruebas de fábrica (tensión soportada, carga de rotura)",
+    "Manual de instalación",
+    "Garantía del fabricante",
+    "Declaración de origen"
+  ],
+  equipos_proteccion: [
+    "Ficha técnica completa de cada equipo (protección, maniobra, transición, conectórica)",
+    "Certificado RETIE",
+    "Certificados de conformidad (NTC 818/819/3445, ANSI/IEEE C37.42 según aplique)",
+    "Informes de pruebas de fábrica (routine tests / type tests)",
+    "Planos o diagramas técnicos",
+    "Manual de instalación y mantenimiento",
+    "Garantía del fabricante",
+    "Declaración de origen"
+  ],
+  puesta_a_tierra: [
+    "Ficha técnica completa de cada ítem del sistema de puesta a tierra (SPT)",
+    "Certificado RETIE",
+    "Certificados de conformidad con normas aplicables",
+    "Informes de pruebas de fábrica",
+    "Manual de instalación",
+    "Garantía del fabricante",
+    "Declaración de origen"
+  ],
+  conductores: [
+    "Ficha técnica completa del conductor (todos los parámetros solicitados arriba)",
+    "Certificado RETIE",
+    "Certificados de conformidad con normas aplicables (ASTM B230, IEC 61089)",
+    "Informes de pruebas de fábrica (ensayos de tracción y resistencia eléctrica)",
+    "Manual de manejo, tendido e instalación",
+    "Garantía del fabricante",
+    "Declaración de origen"
+  ]
+};
+
+// val(): sustituye un campo vacío del formulario por un placeholder entre corchetes,
+// para que quede visualmente obvio en el correo generado qué falta completar.
+function val(v, placeholder) {
+  v = (v || "").toString().trim();
+  return v ? v : `[${placeholder}]`;
+}
+
+function escapeHtml(str) {
+  return (str || "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+// Construye el bloque de "Requisitos Técnicos" del correo de RFQ: por cada ítem seleccionado
+// de la categoría, lista cantidad, designación de referencia, todos los campos de la ficha
+// técnica (SPEC_REGISTRY) y las normas aplicables.
+function bloqueItemsTecnicos(itemsCat) {
+  return itemsCat.map(it => {
+    if (it.catNum === 'X') {
+      const spec = CABLES_AEREOS.find(c => c.familia === it.conductor.familia && c.calibre === it.conductor.calibre);
+      const specTxt = spec
+        ? `   - Norma: ${spec.norma || 'por definir'}\n   - Imax: ${spec.imax || 'por definir'}\n   - Icc: ${spec.icc || 'por definir'}\n   - RBS: ${spec.rbs || 'por definir'}\n   - EDS: ${spec.eds || 'por definir'}`
+        : `   - Sin ficha registrada para ${it.conductor.familia} ${it.conductor.calibre}`;
+      return `• ${it.nombre} — ${it.cantidad.toLocaleString('es-CO')} ${it.unidad}\n   Designación: ${it.conductor.familia} ${it.conductor.calibre}\n${specTxt}\n   Marca/referencia ofertada: ${it.marcaOfertada || 'por definir (ver ficha técnica adjunta)'}`;
+    }
+    const m = it.master;
+    return `• ${it.nombre} — ${it.cantidad.toLocaleString('es-CO')} ${it.unidad}\n   Descripción técnica: ${m.descripcion_tecnica || 'por definir'}\n   Normas de fabricación: ${m.normas_fabricacion || 'por definir'}\n   Normas de pruebas: ${m.normas_pruebas || 'por definir'}\n   Marca/referencia ofertada: ${it.marcaOfertada || 'por definir (ver ficha técnica adjunta)'}`;
+  }).join('\n\n');
+}
+
+function bloqueDocumentacion(cat) {
+  const lista = DOC_REQUERIDA[cat] || DOC_REQUERIDA.equipos_proteccion;
+  return lista.map(d => `✅ ${d}`).join('\n');
+}
+
+function proveedoresPorCategoria(cat, depto) {
+  let list = PROVEEDORES.filter(p => p.categoria === cat);
+  if (depto && depto !== "Nacional") {
+    const preferidos = list.filter(p => p.cobertura && p.cobertura.includes(depto));
+    list = preferidos.length ? preferidos.concat(list.filter(p => !preferidos.includes(p))) : list;
+  }
+  // Proveedores con precio negociado propio siempre primero.
+  return [...list].sort((a, b) => (b.fuente === 'tarifario_propio') - (a.fuente === 'tarifario_propio'));
+}
+
+function chip(p) {
+  const esPropio = p.fuente === 'tarifario_propio';
+  const label = p.url ? `<a href="${p.url}" target="_blank" rel="noopener">${p.nombre}</a>` : p.nombre;
+  const tag = esPropio ? '<span class="fuente-tag propio">Acuerdo previo</span>' : '<span class="fuente-tag web">Sugerido</span>';
+  return `<span class="chip${esPropio ? ' tarifario' : ''}">${label}${tag}</span>`;
+}
+
+// Selección de proveedores a los que se les enviará la solicitud de cotización.
+let SELECCION = new Set();
+
+function chipConCheckbox(p) {
+  const marcado = SELECCION.has(p.nombre);
+  const nombreEsc = p.nombre.replace(/'/g, "\\'");
+  return `<label class="chip-select">
+    <input type="checkbox" ${marcado ? 'checked' : ''} onchange="toggleSeleccion('${nombreEsc}', this.checked)">
+    ${chip(p)}
+  </label>`;
+}
+
+function toggleSeleccion(nombre, checked) {
+  if (checked) SELECCION.add(nombre); else SELECCION.delete(nombre);
+  renderCategorias();
+}
+
+let MODULOS = [];
+let DEPTO_ACTUAL = "Nacional";
+let PASO_ACTUAL = 0;
+
+// Motor de BOM: para categorías I-IX, la cantidad de cada ítem es la suma, sobre las 5
+// configuraciones estructurales (C1-C5), de (cantidad de estructuras de esa config) x
+// (cantidad de ese ítem en la lista de materiales de esa config). La categoría X (conductor)
+// se calcula de forma independiente por longitud de línea, esquema trifásico y holgura.
+function generarDesglose() {
+  const km = Math.max(parseFloat(document.getElementById('km').value) || 0, 0);
+  const holgura = Math.max(parseFloat(document.getElementById('holgura').value) || 0, 0);
+  const familiaConductor = document.getElementById('tipoCableado').value;
+  const calibreConductor = document.getElementById('calibreCableado').value;
+  const depto = document.getElementById('depto').value;
+  DEPTO_ACTUAL = depto;
+
+  const cantConfig = {};
+  CONFIGS.forEach(c => {
+    const el = document.getElementById(`cant${c.codigo}`);
+    cantConfig[c.codigo] = Math.max(parseFloat(el && el.value) || 0, 0);
+  });
+
+  const itemsPorCategoria = {};
+  ITEMS_MASTER.filter(m => m.categoria_num !== 'X').forEach(m => {
+    const cantidad = CONFIGS.reduce((acc, c) => acc + cantConfig[c.codigo] * (m.bom_por_config[c.codigo] || 0), 0);
+    const cat = m.categoria_num;
+    if (!itemsPorCategoria[cat]) itemsPorCategoria[cat] = [];
+    itemsPorCategoria[cat].push({
+      id: m.item, nombre: `${m.item} — ${m.descripcion}`, cantidad: Math.round(cantidad * 100) / 100,
+      unidad: m.unidad || 'UN', incluido: cantidad > 0, master: m, marcaOfertada: '', expandido: false,
+      grupo: grupoDeCategoria(cat), catNum: cat
+    });
+  });
+
+  const metrosConductor = Math.round(km * 1000 * 3 * (1 + holgura / 100));
+  const conductorMaster = ITEMS_MASTER.find(m => m.categoria_num === 'X');
+  const itemConductor = {
+    id: conductorMaster.item, nombre: `${conductorMaster.item} — ${conductorMaster.descripcion}`,
+    cantidad: metrosConductor, unidad: 'm', incluido: true, master: conductorMaster, marcaOfertada: '', expandido: false,
+    grupo: 'conductores', catNum: 'X',
+    conductor: { familia: familiaConductor, calibre: calibreConductor }
+  };
+
+  MODULOS = CATEGORIAS.map(c => ({
+    titulo: `${c.num}. ${c.nombre}`,
+    catNum: c.num,
+    grupo: c.grupo,
+    incluido: true,
+    items: c.num === 'X' ? [itemConductor] : (itemsPorCategoria[c.num] || [])
+  }));
+
+  PASO_ACTUAL = 0;
+  renderModulos();
+  document.getElementById('resultado').style.display = 'block';
+  document.getElementById('step3').style.display = 'none';
+  document.getElementById('resultado').scrollIntoView({ behavior: 'smooth' });
+}
+
+function renderModulos() {
+  const total = MODULOS.length;
+  if (PASO_ACTUAL < 0) PASO_ACTUAL = 0;
+  if (PASO_ACTUAL > total - 1) PASO_ACTUAL = Math.max(total - 1, 0);
+  const prog = document.getElementById('wizardProgress');
+  if (prog) {
+    prog.innerHTML = `
+      <div class="wizard-steps">${MODULOS.map((mm, i) => `<span class="wizard-dot ${i === PASO_ACTUAL ? 'activo' : (i < PASO_ACTUAL ? 'hecho' : '')}" title="${escapeHtml(mm.titulo)}" onclick="irAPaso(${i})" style="cursor:pointer;"></span>`).join('')}</div>
+      <div class="wizard-label">Categoría ${PASO_ACTUAL + 1} de ${total}${MODULOS[PASO_ACTUAL] ? ' — ' + escapeHtml(MODULOS[PASO_ACTUAL].titulo) : ''}</div>
+    `;
+  }
+  const cont = document.getElementById('modulos');
+  const mi = PASO_ACTUAL;
+  const m = MODULOS[mi];
+  cont.innerHTML = !m ? '' : `
+    <div class="module">
+      <div class="module-header">
+        <input type="checkbox" id="mod_${mi}" ${m.incluido ? 'checked' : ''} onchange="toggleModulo(${mi}, this.checked)">
+        <label for="mod_${mi}">${m.titulo}</label>
+      </div>
+      ${m.items.length ? m.items.map((it, ii) => `
+        <div class="item-block">
+          <div class="item-row ${it.incluido ? '' : 'disabled'}" id="row_${mi}_${ii}">
+            <input type="checkbox" ${it.incluido ? 'checked' : ''} onchange="toggleItem(${mi}, ${ii}, this.checked)">
+            <div class="item-nombre">${escapeHtml(it.nombre)}</div>
+            <div class="item-qty">
+              <input type="number" value="${it.cantidad}" min="0" step="0.01" onchange="cambiarCantidad(${mi}, ${ii}, this.value)">
+              <span>${it.unidad}</span>
+            </div>
+          </div>
+          ${renderNormasPills(normaTextoDeItem(it))}
+          <div class="spec-toggle" onclick="toggleSpecPanel(${mi}, ${ii})">${it.expandido ? '▲ Ocultar' : '▾ Ver'} ficha técnica${it.catNum === 'X' ? ' y designación del conductor' : ''}</div>
+          ${it.expandido ? renderSpecPanel(mi, ii, it) : ''}
+        </div>
+      `).join('') : `<div class="sub" style="padding:10px 0 0;">Sin ítems para esta categoría con la configuración actual.</div>`}
+    </div>
+  `;
+
+  const btnAtras = document.getElementById('btnPasoAtras');
+  const btnSiguiente = document.getElementById('btnPasoSiguiente');
+  const wizardFinal = document.getElementById('wizardFinal');
+  const esUltimo = PASO_ACTUAL === total - 1;
+  if (btnAtras) btnAtras.disabled = PASO_ACTUAL === 0;
+  if (btnSiguiente) btnSiguiente.style.display = esUltimo ? 'none' : 'inline-block';
+  if (wizardFinal) wizardFinal.style.display = esUltimo ? 'flex' : 'none';
+}
+
+function pasoSiguiente() {
+  if (PASO_ACTUAL < MODULOS.length - 1) {
+    PASO_ACTUAL++;
+    renderModulos();
+    const r = document.getElementById('resultado');
+    if (r) r.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+function pasoAnterior() {
+  if (PASO_ACTUAL > 0) {
+    PASO_ACTUAL--;
+    renderModulos();
+    const r = document.getElementById('resultado');
+    if (r) r.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+function irAPaso(n) {
+  if (n >= 0 && n < MODULOS.length) {
+    PASO_ACTUAL = n;
+    renderModulos();
+    const r = document.getElementById('resultado');
+    if (r) r.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+function generarResumenPDF() {
+  const g = id => { const el = document.getElementById(id); return el ? el.value : ''; };
+  const proyecto = {
+    cliente: g('cliente') || '(sin definir)',
+    depto: g('depto') || '(sin definir)',
+    km: g('km') || '0',
+    kv: g('kv') || '',
+    codigo: g('codigoCotizacion') || '',
+    nombreProyecto: g('nombreProyecto') || ''
+  };
+
+  const bloques = MODULOS.map(m => {
+    const items = m.items.filter(it => it.incluido);
+    if (!items.length) return '';
+    const filas = items.map(it => {
+      let normas, extra;
+      if (it.catNum === 'X') {
+        const spec = CABLES_AEREOS.find(c => c.familia === it.conductor.familia && c.calibre === it.conductor.calibre);
+        normas = escapeHtml((spec && spec.norma) || 'por definir');
+        extra = `Familia/calibre: ${escapeHtml(it.conductor.familia)} ${escapeHtml(it.conductor.calibre)}` + (spec ? ` — Imax ${escapeHtml(spec.imax || '')}, Icc ${escapeHtml(spec.icc || '')}, RBS ${escapeHtml(spec.rbs || '')}, EDS ${escapeHtml(spec.eds || '')}` : '');
+      } else {
+        normas = escapeHtml([it.master.normas_fabricacion, it.master.normas_pruebas].filter(Boolean).join(' / '));
+        extra = escapeHtml(it.master.descripcion_tecnica || '');
+      }
+      return `<tr><td>${escapeHtml(it.nombre)}</td><td>${it.cantidad} ${escapeHtml(it.unidad)}</td><td>${extra}</td><td>${normas}</td><td>${escapeHtml(it.marcaOfertada || '—')}</td></tr>`;
+    }).join('');
+    return `<h3>${escapeHtml(m.titulo)}</h3><table><thead><tr><th>Ítem</th><th>Cantidad</th><th>Descripción técnica</th><th>Normas</th><th>Marca ofertada</th></tr></thead><tbody>${filas}</tbody></table>`;
+  }).join('');
+
+  const win = window.open('', '_blank');
+  if (!win) { alert('El navegador bloqueó la ventana emergente. Habilítala para ver el PDF.'); return; }
+  win.document.write(`<html><head><title>Resumen de materiales — Agente 1</title>
+    <style>
+      body { font-family: Arial, sans-serif; color: #222; padding: 30px; }
+      h1 { color: #1F3864; font-size: 20px; margin-bottom: 4px; }
+      h2 { color: #595959; font-size: 13px; font-weight: normal; margin-top: 0; }
+      h3 { color: #1F3864; font-size: 15px; margin-top: 26px; border-bottom: 2px solid #D9E2F3; padding-bottom: 6px; }
+      table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 8px; }
+      th, td { border: 1px solid #d9d9d9; padding: 6px 8px; text-align: left; }
+      th { background: #1F3864; color: #fff; }
+      .meta { font-size: 12.5px; color: #333; margin-bottom: 18px; }
+      .meta b { color: #1F3864; }
+    </style></head><body>
+    <h1>Resumen técnico de materiales a cotizar</h1>
+    <h2>Agente 1 — RFP Agent (generado ${new Date().toLocaleDateString('es-CO')})</h2>
+    <div class="meta"><b>Código:</b> ${escapeHtml(proyecto.codigo || '—')} &nbsp;|&nbsp; <b>Proyecto:</b> ${escapeHtml(proyecto.nombreProyecto || '—')}<br>
+    <b>Cliente:</b> ${escapeHtml(proyecto.cliente)} &nbsp;|&nbsp; <b>Departamento:</b> ${escapeHtml(proyecto.depto)} &nbsp;|&nbsp; <b>Longitud:</b> ${escapeHtml(proyecto.km)} km &nbsp;|&nbsp; <b>Tensión:</b> ${escapeHtml(proyecto.kv)} kV</div>
+    ${bloques || '<p>No hay ítems seleccionados.</p>'}
+    </body></html>`);
+  win.document.close();
+  win.focus();
+  win.print();
+}
+
+// Panel de ficha técnica de un ítem del paso 3. Dos variantes:
+// - Conductor (categoría X): selects de familia/calibre (CABLES_AEREOS) + marca ofertada.
+// - Resto (categorías I-IX): datos del ítem maestro (ITEMS_MASTER) en solo lectura + marca ofertada editable.
+const OPERADOR_COD_FIELD = {
+  ENEL: 'cod_enel', CELSIA: 'cod_celsia', EPM: 'cod_epm_afinia',
+  ElectroHuila: 'cod_electrohuila_enerca', Enerca: 'cod_electrohuila_enerca'
+};
+function campoCodigoOperadorActivo() {
+  const sel = document.getElementById('operadorLinea');
+  const val = sel ? sel.value : '';
+  return OPERADOR_COD_FIELD[val] || null;
+}
+
+// Mapa de normas -> URL externa. Vacío por ahora: los nombres de norma se
+// muestran como "pill" en cada ítem de la lista de componentes, pero no
+// hacen nada al clic hasta que se cargue aquí su URL oficial.
+// Para activarlas, agregar el código EXACTO de la norma (tal como aparece en
+// el pill) como llave, ej:
+//   'NTC 1329': 'https://tienda.icontec.org/...',
+//   'RETIE': 'https://www.minenergia.gov.co/...',
+const NORMA_LINKS = {};
+
+// Extrae pares {codigo, desc} de un texto de normas concatenado, p. ej.
+// "NTC 1329 (Postes de concreto)NTC 4564 (Postes pretensados)" o, para
+// conductores, una lista simple separada por "/" sin descripciones.
+function parseNormas(texto) {
+  if (!texto) return [];
+  const conParentesis = [];
+  const re = /([^()]+?)\(([^)]*)\)/g;
+  let m;
+  while ((m = re.exec(texto)) !== null) {
+    const codigo = m[1].trim();
+    if (codigo) conParentesis.push({ codigo, desc: m[2].trim() });
+  }
+  if (conParentesis.length) return conParentesis;
+  return texto.split('/').map(s => s.trim()).filter(Boolean).map(codigo => ({ codigo, desc: '' }));
+}
+
+// Norma(s) aplicable(s) a un ítem del wizard: normas_fabricacion con fallback
+// a normas_pruebas para ítems maestros (I-IX); para conductores (X), la
+// norma de la ficha de cable seleccionada (CABLES_AEREOS).
+function normaTextoDeItem(it) {
+  if (it.catNum === 'X') {
+    const spec = CABLES_AEREOS.find(c => c.familia === it.conductor.familia && c.calibre === it.conductor.calibre);
+    return (spec && spec.norma) || '';
+  }
+  const m = it.master;
+  return (m && (m.normas_fabricacion || m.normas_pruebas)) || '';
+}
+
+// Abre el link externo de una norma si ya está cargado en NORMA_LINKS.
+// Mientras no haya URL, no hace nada (preparado para cuando se carguen los links).
+function abrirNorma(codigo) {
+  const url = NORMA_LINKS[codigo];
+  if (url) window.open(url, '_blank', 'noopener');
+}
+
+// Renderiza las normas de un ítem como pills clicables (inertes hasta que
+// NORMA_LINKS tenga su URL).
+function renderNormasPills(texto) {
+  const normas = parseNormas(texto);
+  if (!normas.length) return '';
+  return `<div class="normas-pills">${normas.map(n => {
+    const url = NORMA_LINKS[n.codigo];
+    const tip = n.desc ? `${n.codigo} — ${n.desc}` : n.codigo;
+    return `<span class="norma-pill ${url ? 'con-link' : ''}" title="${escapeHtml(tip)}" onclick="abrirNorma('${n.codigo.replace(/'/g, "\\'")}')">${escapeHtml(n.codigo)}</span>`;
+  }).join('')}</div>`;
+}
+
+function renderSpecPanel(mi, ii, it) {
+  if (it.catNum === 'X') {
+    const familia = it.conductor.familia;
+    const calibre = it.conductor.calibre;
+    const spec = CABLES_AEREOS.find(c => c.familia === familia && c.calibre === calibre);
+    const familias = familiasCable();
+    const calibres = calibresDeFamilia(familia);
+    return `
+    <div class="spec-panel">
+      <div class="spec-grid">
+        <div>
+          <label>Familia de conductor</label>
+          <select onchange="cambiarFamiliaConductor(${mi}, ${ii}, this.value)">
+            ${familias.map(f => `<option value="${f}" ${familia === f ? 'selected' : ''}>${f}</option>`).join('')}
+          </select>
+        </div>
+        <div>
+          <label>Calibre</label>
+          <select onchange="cambiarCalibreConductor(${mi}, ${ii}, this.value)">
+            ${calibres.map(c => `<option value="${c.calibre}" ${calibre === c.calibre ? 'selected' : ''}>${c.calibre}</option>`).join('')}
+          </select>
+        </div>
+        ${spec ? `
+        <div><label>Norma</label><input type="text" value="${escapeHtml(spec.norma || '')}" readonly></div>
+        <div><label>Corriente admisible (Imax)</label><input type="text" value="${escapeHtml(spec.imax || '')}" readonly></div>
+        <div><label>Corriente de cortocircuito (Icc)</label><input type="text" value="${escapeHtml(spec.icc || '')}" readonly></div>
+        <div><label>Carga de rotura (RBS)</label><input type="text" value="${escapeHtml(spec.rbs || '')}" readonly></div>
+        <div><label>EDS</label><input type="text" value="${escapeHtml(spec.eds || '')}" readonly></div>
+        <div class="full"><label>Descripción</label><input type="text" value="${escapeHtml(spec.descripcion || '')}" readonly></div>
+        ` : `<div class="full sub">No hay ficha registrada para esta combinación familia/calibre.</div>`}
+        <div class="full">
+          <label>Marca / referencia ofertada por el proveedor</label>
+          <input type="text" value="${escapeHtml(it.marcaOfertada || '')}" placeholder="Por definir" onchange="actualizarMarcaOfertada(${mi}, ${ii}, this.value)">
+        </div>
+      </div>
+      <div class="spec-norma">${OR_EXIGENCIAS_CABLE}</div>
+    </div>`;
+  }
+  const m = it.master;
+  const campoActivo = campoCodigoOperadorActivo();
+  return `
+    <div class="spec-panel">
+      <div class="spec-grid">
+        <div class="full"><label>Descripción</label><input type="text" value="${escapeHtml(m.descripcion)}" readonly></div>
+        <div class="full"><label>Descripción técnica</label><input type="text" value="${escapeHtml(m.descripcion_tecnica || '')}" readonly></div>
+        <div><label>Normas de fabricación</label><input type="text" value="${escapeHtml(m.normas_fabricacion || '')}" readonly></div>
+        <div><label>Normas de pruebas</label><input type="text" value="${escapeHtml(m.normas_pruebas || '')}" readonly></div>
+        <div class="${campoActivo === 'cod_epm_afinia' ? 'cod-operador-activo' : ''}"><label>Cód. EPM/Afinia</label><input type="text" value="${escapeHtml(m.cod_epm_afinia || '')}" readonly></div>
+        <div class="${campoActivo === 'cod_enel' ? 'cod-operador-activo' : ''}"><label>Cód. ENEL</label><input type="text" value="${escapeHtml(m.cod_enel || '')}" readonly></div>
+        <div class="${campoActivo === 'cod_celsia' ? 'cod-operador-activo' : ''}"><label>Cód. Celsia</label><input type="text" value="${escapeHtml(m.cod_celsia || '')}" readonly></div>
+        <div class="${campoActivo === 'cod_electrohuila_enerca' ? 'cod-operador-activo' : ''}"><label>Cód. Electrohuila/Enerca</label><input type="text" value="${escapeHtml(m.cod_electrohuila_enerca || '')}" readonly></div>
+        <div class="full">
+          <label>Marca / referencia ofertada por el proveedor</label>
+          <input type="text" value="${escapeHtml(it.marcaOfertada || '')}" placeholder="Por definir" onchange="actualizarMarcaOfertada(${mi}, ${ii}, this.value)">
+        </div>
+      </div>
+      <div class="spec-norma">Normas aplicables: <b>${escapeHtml(m.normas_fabricacion || '')}</b> — obligatorio verificar cumplimiento RETIE en Colombia. Estos valores corresponden al código interno de referencia del ítem según operadores de red MT; el proveedor debe indicar la marca/referencia específica que ofrece.</div>
+    </div>
+  `;
+}
+
+function toggleSpecPanel(mi, ii) {
+  MODULOS[mi].items[ii].expandido = !MODULOS[mi].items[ii].expandido;
+  renderModulos();
+}
+
+function cambiarFamiliaConductor(mi, ii, familia) {
+  const it = MODULOS[mi].items[ii];
+  it.conductor.familia = familia;
+  const calibres = calibresDeFamilia(familia);
+  it.conductor.calibre = calibres.length ? calibres[0].calibre : '';
+  it.expandido = true;
+  renderModulos();
+}
+
+function cambiarCalibreConductor(mi, ii, calibre) {
+  const it = MODULOS[mi].items[ii];
+  it.conductor.calibre = calibre;
+  it.expandido = true;
+  renderModulos();
+}
+
+function actualizarMarcaOfertada(mi, ii, valor) {
+  MODULOS[mi].items[ii].marcaOfertada = valor;
+}
+
+function toggleModulo(mi, checked) {
+  MODULOS[mi].incluido = checked;
+  MODULOS[mi].items.forEach(it => it.incluido = checked);
+  renderModulos();
+}
+
+function toggleItem(mi, ii, checked) {
+  MODULOS[mi].items[ii].incluido = checked;
+  const row = document.getElementById(`row_${mi}_${ii}`);
+  if (row) row.classList.toggle('disabled', !checked);
+  const modCheckbox = document.getElementById(`mod_${mi}`);
+  const algunoIncluido = MODULOS[mi].items.some(it => it.incluido);
+  MODULOS[mi].incluido = algunoIncluido;
+  if (modCheckbox) modCheckbox.checked = algunoIncluido;
+}
+
+function cambiarCantidad(mi, ii, valor) {
+  MODULOS[mi].items[ii].cantidad = Math.max(parseFloat(valor) || 0, 0);
+}
+
+function fichaTecnicaHTML(itemsCat) {
+  if (!itemsCat.length) return '';
+  return itemsCat.map((it, si) => {
+    if (it.catNum === 'X') {
+      const spec = CABLES_AEREOS.find(c => c.familia === it.conductor.familia && c.calibre === it.conductor.calibre);
+      return `
+      <div class="ficha-tecnica">
+        <div class="sub" style="margin-bottom:8px;"><b>Ficha técnica — ${escapeHtml(it.conductor.familia)} ${escapeHtml(it.conductor.calibre)}</b> (requisito mínimo para que el proveedor pueda cotizar) <span class="ficha-editable-tag">✎ editable</span></div>
+        <table>
+          <tbody>
+            <tr><td style="width:38%; font-weight:600; color:var(--navy);">Norma</td><td>${escapeHtml((spec && spec.norma) || 'por definir')}</td></tr>
+            <tr><td style="font-weight:600; color:var(--navy);">Corriente admisible (Imax)</td><td>${escapeHtml((spec && spec.imax) || 'por definir')}</td></tr>
+            <tr><td style="font-weight:600; color:var(--navy);">Corriente de cortocircuito (Icc)</td><td>${escapeHtml((spec && spec.icc) || 'por definir')}</td></tr>
+            <tr><td style="font-weight:600; color:var(--navy);">Carga de rotura (RBS)</td><td>${escapeHtml((spec && spec.rbs) || 'por definir')}</td></tr>
+            <tr><td style="font-weight:600; color:var(--navy);">EDS</td><td>${escapeHtml((spec && spec.eds) || 'por definir')}</td></tr>
+            <tr><td style="font-weight:600; color:var(--navy);">Marca / referencia ofertada</td><td class="ficha-valor">
+              <input type="text" value="${escapeHtml(it.marcaOfertada || '')}" placeholder="Por definir"
+                onchange="actualizarMarcaOfertadaCategoria('${it.grupo}', ${si}, this.value)">
+            </td></tr>
+          </tbody>
+        </table>
+      </div>`;
+    }
+    const m = it.master;
+    return `
+    <div class="ficha-tecnica">
+      <div class="sub" style="margin-bottom:8px;"><b>Ficha técnica — ${escapeHtml(m.descripcion)}</b> (requisito mínimo para que el proveedor pueda cotizar) <span class="ficha-editable-tag">✎ editable</span></div>
+      <table>
+        <tbody>
+          <tr><td style="width:38%; font-weight:600; color:var(--navy);">Descripción técnica</td><td>${escapeHtml(m.descripcion_tecnica || 'por definir')}</td></tr>
+          <tr><td style="font-weight:600; color:var(--navy);">Normas de fabricación</td><td>${escapeHtml(m.normas_fabricacion || 'por definir')}</td></tr>
+          <tr><td style="font-weight:600; color:var(--navy);">Normas de pruebas</td><td>${escapeHtml(m.normas_pruebas || 'por definir')}</td></tr>
+          <tr><td style="font-weight:600; color:var(--navy);">Marca / referencia ofertada</td><td class="ficha-valor">
+            <input type="text" value="${escapeHtml(it.marcaOfertada || '')}" placeholder="Por definir"
+              onchange="actualizarMarcaOfertadaCategoria('${it.grupo}', ${si}, this.value)">
+          </td></tr>
+        </tbody>
+      </table>
+    </div>`;
+  }).join('');
+}
+
+let ULTIMOS_SELECCIONADOS = [];
+let ULTIMAS_CATEGORIAS = [];
+// Referencias directas (mismos objetos que MODULOS[mi].items[ii]) a cada ítem mostrado en el
+// paso 3, indexadas por grupo de proveedor y posición, para permitir edición en línea (marca ofertada).
+let ULTIMOS_SPECS_POR_CATEGORIA = {};
+// Estado de expansión de la ficha técnica por grupo (colapsada por defecto para reducir carga visual).
+let FICHA_EXPANDIDA = {};
+
+function actualizarMarcaOfertadaCategoria(grupo, si, valor) {
+  const it = (ULTIMOS_SPECS_POR_CATEGORIA[grupo] || [])[si];
+  if (it) it.marcaOfertada = valor;
+}
+
+function toggleFichaCategoria(grupo) {
+  FICHA_EXPANDIDA[grupo] = !FICHA_EXPANDIDA[grupo];
+  renderCategorias();
+}
+
+function formatoCOP(n) {
+  return '$' + Math.round(n).toLocaleString('es-CO');
+}
+
+function mostrarProveedores() {
+  const seleccionados = [];
+  MODULOS.forEach(m => {
+    m.items.forEach(it => {
+      if (it.incluido) {
+        it.grupo = it.grupo || m.grupo;
+        it.catNum = it.catNum || m.catNum;
+        seleccionados.push(it);
+      }
+    });
+  });
+
+  ULTIMOS_SELECCIONADOS = seleccionados;
+  ULTIMAS_CATEGORIAS = [...new Set(seleccionados.map(s => s.grupo))];
+
+  const cont = document.getElementById('categoriasContainer');
+  if (seleccionados.length === 0) {
+    cont.innerHTML = `<p class="sub">No seleccionaste ningún ítem — vuelve al paso 3 y marca al menos uno para ver los proveedores por categoría.</p>`;
+  } else {
+    renderCategorias();
+  }
+
+  document.getElementById('step3').style.display = 'block';
+  document.getElementById('step3').scrollIntoView({ behavior: 'smooth' });
+}
+
+// Renderiza un módulo independiente por cada grupo de proveedor con ítems seleccionados: ficha
+// técnica, listado de ítems a cotizar, proveedores (acuerdo previo / sugeridos) y su propio botón de envío.
+function renderCategorias() {
+  const cont = document.getElementById('categoriasContainer');
+  cont.innerHTML = ULTIMAS_CATEGORIAS.map((grupo) => {
+    const provs = proveedoresPorCategoria(grupo, DEPTO_ACTUAL);
+    const itemsCat = ULTIMOS_SELECCIONADOS.filter(s => s.grupo === grupo);
+    ULTIMOS_SPECS_POR_CATEGORIA[grupo] = itemsCat;
+    const nAcuerdo = provs.filter(p => p.fuente === 'tarifario_propio').length;
+    const nSugerido = provs.length - nAcuerdo;
+
+    const itemsHTML = itemsCat.length ? `
+      <table style="margin-bottom:12px;">
+        <thead><tr><th>Ítem a cotizar</th><th>Cantidad</th></tr></thead>
+        <tbody>
+          ${itemsCat.map(s => `<tr><td>${escapeHtml(s.nombre)}</td><td>${s.cantidad.toLocaleString('es-CO')} ${s.unidad}</td></tr>`).join('')}
+        </tbody>
+      </table>` : '';
+
+    const coberturaTag = provs.length
+      ? `<span class="cobertura-tag ${nAcuerdo > 0 ? 'completa' : 'ninguna'}">${nAcuerdo} con acuerdo previo · ${nSugerido} sugerido(s)</span>`
+      : `<span class="cobertura-tag ninguna">Sin proveedores registrados</span>`;
+
+    const chipsHTML = provs.length
+      ? `<div class="chips" style="margin-top:10px;">${provs.map(chipConCheckbox).join('')}</div>`
+      : `<div class="sub" style="margin-top:10px;">No hay proveedores registrados para este grupo todavía.</div>`;
+
+    const seleccionadosCat = provs.filter(p => SELECCION.has(p.nombre)).length;
+    const contadorTxt = seleccionadosCat === 0
+      ? 'Sin proveedores marcados para cotizar en este grupo'
+      : (seleccionadosCat === 1 ? '1 proveedor marcado para cotizar' : `${seleccionadosCat} proveedores marcados para cotizar`);
+
+    const exigenciaNote = grupo === 'conductores' ? `<div class="disclaimer" style="margin-top:10px;">${OR_EXIGENCIAS_CABLE}</div>` : '';
+
+    const nItems = itemsCat.length;
+    const fichaToggleHTML = nItems ? `
+      <div class="spec-toggle cat-toggle" onclick="toggleFichaCategoria('${grupo}')">${FICHA_EXPANDIDA[grupo] ? '▲ Ocultar' : '▾ Ver'} ficha técnica completa (${nItems} ítem${nItems > 1 ? 's' : ''})</div>
+      ${FICHA_EXPANDIDA[grupo] ? fichaTecnicaHTML(itemsCat) : ''}` : '';
+
+    return `<div class="module" style="background:#fff;">
+      <h3>${CAT_LABEL[grupo]} ${coberturaTag}</h3>
+      ${itemsHTML}
+      ${fichaToggleHTML}
+      ${exigenciaNote}
+      <div class="sub" style="margin-top:14px; margin-bottom:0; font-weight:600; color:var(--navy);">Proveedores de este grupo</div>
+      <div class="sub">Marca los proveedores — con acuerdo previo o sugeridos — a quienes enviarles la solicitud de cotización de este material.</div>
+      ${chipsHTML}
+      <div class="send-bar">
+        <span>${contadorTxt}</span>
+        <button class="btn" ${provs.length ? '' : 'disabled'} onclick="abrirModalEnvioCategoria('${grupo}')">Enviar solicitud de cotización →</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// Construye asunto y cuerpo de la solicitud de cotización para una categoría específica —
+// va dirigida a los proveedores de esa categoría (con acuerdo previo o sugeridos), pidiéndoles
+// que coticen los ítems de esa categoría en el formato definido. El agente 2 se encargará luego
+// de comparar las cotizaciones que respondan y elegir la mejor según los criterios establecidos.
+function construirTextoCotizacionCategoria(cat) {
+  const kv = document.getElementById('kv').value;
+  const km = document.getElementById('km').value;
+  const depto = document.getElementById('depto').value;
+  const alcance = document.getElementById('alcance').value;
+  const itemsCat = ULTIMOS_SELECCIONADOS.filter(s => s.grupo === cat);
+
+  const codigo = val(document.getElementById('codigoCotizacion').value, 'Código de cotización');
+  const nombreProyecto = val(document.getElementById('nombreProyecto').value, 'Nombre del proyecto');
+  const empresa = val(document.getElementById('empresaSolicitante').value, 'Empresa solicitante');
+  const respNombreCargo = val(document.getElementById('respNombreCargo').value, 'Nombre del responsable – Cargo');
+  const respEmail = val(document.getElementById('respEmail').value, 'correo del responsable');
+  const respTelefono = val(document.getElementById('respTelefono').value, 'teléfono del responsable');
+  const ccInterno = document.getElementById('ccInterno').value.trim();
+  const lugarEntrega = val(document.getElementById('lugarEntrega').value, 'dirección de entrega');
+  const fechaLimite = val(document.getElementById('fechaLimite').value, 'dd/mm/aaaa');
+  const reunionAcl = document.getElementById('reunionAclaraciones').value.trim();
+
+  const asunto = `Solicitud de Cotización — ${CAT_LABEL[cat]} — ${nombreProyecto} (${codigo})`;
+
+  const cuerpo =
+`Asunto: ${asunto}
+
+Para: [Correo del proveedor]${ccInterno ? `\nCC: ${ccInterno}` : ''}
+
+Estimados señores,
+
+Por medio del presente, ${empresa} solicita cotización para el suministro de ${CAT_LABEL[cat].toLowerCase()} correspondiente al proyecto "${nombreProyecto}" — línea de media tensión de ${km} km a ${kv} kV, cobertura/departamento ${depto}. Alcance: ${alcance === 'epc' ? 'suministro e instalación (EPC)' : 'solo suministro de materiales'}.
+
+📌 Requisitos Técnicos (Obligatorios)
+
+${bloqueItemsTecnicos(itemsCat)}
+
+Todos los materiales deben cumplir con las normas técnicas indicadas arriba y con RETIE (Colombia).
+
+📄 Documentación Requerida
+
+${bloqueDocumentacion(cat)}
+
+💰 Condiciones Comerciales de su Oferta
+
+Por favor indique en el formato Excel adjunto (columna "Propuesta del Proveedor"): moneda de cotización, forma de pago, incoterm, validez de la oferta, plazo de entrega máximo, y descuentos o penalizaciones que apliquen.
+
+📥 Entregable
+
+Por favor remitir su cotización en el formato Excel adjunto (precios discriminados por ítem), junto con la documentación de soporte solicitada, en PDF.
+
+📅 Fechas Clave
+
+- Fecha límite de recepción de ofertas: ${fechaLimite}${reunionAcl ? `\n- Reunión de aclaraciones: ${reunionAcl}` : ''}
+
+📍 Lugar de Entrega
+
+${lugarEntrega}
+
+🔍 Criterios de Evaluación
+
+- Cumplimiento técnico: 30%
+- Calidad de materiales: 25%
+- Precio: 20%
+- Plazo de entrega: 10%
+- Experiencia del proveedor: 10%
+- Garantías y soporte: 5%
+(Esquema preliminar — sujeto a confirmación con el equipo de compras/legal.)
+
+📞 Contacto para Aclaraciones
+
+${respNombreCargo}
+${respEmail}
+${respTelefono}
+
+Quedamos atentos a su respuesta.
+
+Cordialmente,
+
+${respNombreCargo}
+${empresa}`;
+
+  return { asunto, cuerpo };
+}
+
+function abrirModalEnvioCategoria(cat) {
+  const provs = proveedoresPorCategoria(cat, DEPTO_ACTUAL);
+  const seleccionados = provs.filter(p => SELECCION.has(p.nombre));
+  if (!seleccionados.length) { alert('Marca al menos un proveedor de esta categoría para enviarle la solicitud de cotización.'); return; }
+
+  const itemsCat = ULTIMOS_SELECCIONADOS.filter(s => s.grupo === cat);
+  const conEmail = seleccionados.filter(p => p.email);
+  const sinEmail = seleccionados.filter(p => !p.email);
+  const correosPrellenados = conEmail.map(p => p.email).join(', ');
+  const { asunto, cuerpo } = construirTextoCotizacionCategoria(cat);
+
+  document.getElementById('modalEnvioTitulo').textContent = `Enviar solicitud de cotización — ${CAT_LABEL[cat]}`;
+  document.getElementById('modalEnvioContenido').innerHTML = `
+    <p class="sub" style="margin-top:0;">Se enviará la solicitud de cotización de <strong>${CAT_LABEL[cat]}</strong> a los proveedores marcados. Revisa y ajusta el asunto y el cuerpo del correo generado abajo antes de enviarlo, y adjunta el formato de cotización en Excel.</p>
+
+    <table class="envio-tabla">
+      <thead><tr><th>Ítem a cotizar</th><th>Cantidad</th></tr></thead>
+      <tbody>${itemsCat.map(s => `<tr><td>${s.nombre}</td><td>${s.cantidad.toLocaleString('es-CO')} ${s.unidad}</td></tr>`).join('')}</tbody>
+    </table>
+
+    <div class="sub" style="margin-top:16px; font-weight:600; color:var(--navy);">Proveedores seleccionados (${seleccionados.length})</div>
+    <table class="envio-tabla">
+      <thead><tr><th>Proveedor</th><th>Correo</th></tr></thead>
+      <tbody>
+        ${seleccionados.map(p => `<tr><td>${p.nombre}${p.fuente === 'tarifario_propio' ? ' <span class="fuente-tag propio">Acuerdo previo</span>' : ''}</td><td>${p.email || '<span class="email-missing">Sin correo registrado</span>'}</td></tr>`).join('')}
+      </tbody>
+    </table>
+    ${sinEmail.length ? `<div class="disclaimer">⚠ ${sinEmail.length} proveedor(es) seleccionados no tienen correo registrado en el directorio — agrégalo manualmente abajo o complétalo en proveedores.json.</div>` : ''}
+
+    <div style="margin-top:16px;">
+      <label>Correo(s) del/de los proveedor(es)</label>
+      <input type="text" id="correosCategoria" value="${correosPrellenados}" placeholder="correo1@proveedor.com, correo2@proveedor.com">
+      <div class="sub" style="margin-top:4px; margin-bottom:0;">Separe varios correos con coma. Completa los que falten antes de enviar.</div>
+    </div>
+
+    <div style="margin-top:16px;">
+      <label>Asunto del correo</label>
+      <input type="text" id="previewAsunto" value="${escapeHtml(asunto)}">
+    </div>
+    <div style="margin-top:12px;">
+      <label>Cuerpo del correo (editable antes de enviar)</label>
+      <textarea id="previewCuerpo" rows="18">${escapeHtml(cuerpo)}</textarea>
+    </div>
+
+    <div class="disclaimer" style="margin-top:16px;">
+      📎 <strong>Pasos para enviar con el formato adjunto:</strong> 1) descarga el Excel abajo, 2) ábrelo desde tu correo cliente y adjúntalo manualmente al mensaje (el enlace "Abrir borrador de correo" no puede adjuntar archivos automáticamente — es una limitación de los enlaces mailto/de los clientes de correo, no de esta app), 3) revisa el asunto y cuerpo antes de enviar.
+    </div>
+
+    <div class="modal-actions">
+      <a class="btn" href="${FORMATO_EXCEL[cat]}" download>Descargar formato de cotización (Excel)</a>
+      <button class="btn btn-secondary" onclick="abrirCorreoCategoria('${cat}')">Abrir borrador de correo →</button>
+      <button class="btn-link" onclick="copiarCorreosCategoria()">Copiar correos</button>
+      <button class="btn-link" onclick="copiarCuerpoCategoria()">Copiar cuerpo del correo</button>
+    </div>
+  `;
+  document.getElementById('modalEnvio').style.display = 'flex';
+}
+
+function abrirCorreoCategoria(cat) {
+  const raw = document.getElementById('correosCategoria').value;
+  const correos = raw.split(/[,;]+/).map(e => e.trim()).filter(e => e);
+  const validos = correos.filter(e => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e));
+  if (!validos.length) { alert('Ingresa al menos un correo válido del proveedor.'); return; }
+
+  const asunto = document.getElementById('previewAsunto').value;
+  const cuerpo = document.getElementById('previewCuerpo').value;
+  const mailto = `mailto:${encodeURIComponent(validos.join(','))}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+  window.location.href = mailto;
+}
+
+function copiarCorreosCategoria() {
+  const raw = document.getElementById('correosCategoria').value.trim();
+  if (!raw) { alert('No has ingresado ningún correo.'); return; }
+  navigator.clipboard.writeText(raw).then(() => alert('Correos copiados al portapapeles.'));
+}
+
+function copiarCuerpoCategoria() {
+  const cuerpo = document.getElementById('previewCuerpo').value;
+  if (!cuerpo) { alert('No hay cuerpo de correo para copiar.'); return; }
+  navigator.clipboard.writeText(cuerpo).then(() => alert('Cuerpo del correo copiado al portapapeles.'));
+}
+
+function cerrarModalEnvio() {
+  document.getElementById('modalEnvio').style.display = 'none';
+}
+
+// Precarga valores por defecto razonables para código de cotización y fecha límite,
+// para que el correo generado no muestre el placeholder entre corchetes en el primer uso.
+(function initDefaultsSolicitud() {
+  const codigoEl = document.getElementById('codigoCotizacion');
+  if (codigoEl && !codigoEl.value) codigoEl.value = `COT-${new Date().getFullYear()}-LMT-001`;
+
+  const fechaEl = document.getElementById('fechaLimite');
+  if (fechaEl && !fechaEl.value) {
+    const d = new Date();
+    d.setDate(d.getDate() + 15);
+    const dd = String(d.getDate()).padStart(2, '0');
+    const mm = String(d.getMonth() + 1).padStart(2, '0');
+    fechaEl.value = `${dd}/${mm}/${d.getFullYear()}`;
+  }
+})();
+
+// Puebla el selector de familia de conductor (Card 1) y, dependientemente, el de calibre,
+// y arma la grilla de cantidades de estructuras por tipo de configuración (C1-C5).
+function initCard1() {
+  const selFamilia = document.getElementById('tipoCableado');
+  const familias = familiasCable();
+  selFamilia.innerHTML = familias.map(f => `<option value="${f}">${f}</option>`).join('');
+  if (familias.length) selFamilia.value = familias[0];
+  actualizarCalibres();
+
+  const grid = document.getElementById('configGrid');
+  grid.innerHTML = CONFIGS.map(c => `
+    <div>
+      <label>${escapeHtml(c.descripcion)}</label>
+      <input type="number" id="cant${c.codigo}" value="0" min="0" step="1">
+    </div>
+  `).join('');
+}
+
+function actualizarCalibres() {
+  const familia = document.getElementById('tipoCableado').value;
+  const selCalibre = document.getElementById('calibreCableado');
+  const calibres = calibresDeFamilia(familia);
+  selCalibre.innerHTML = calibres.map(c => `<option value="${c.calibre}">${c.calibre}</option>`).join('');
+  if (calibres.length) selCalibre.value = calibres[0].calibre;
+}
+
+initCard1();
+cargarProveedores();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,289 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #1F3864;
+  --blue: #2E5395;
+  --blue-light: #D9E2F3;
+  --gray: #595959;
+  --border: #d9d9d9;
+  --bg: #f5f7fb;
+  --ok: #2e7d32;
+  --warn: #b8860b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  background: var(--bg);
+  color: #222;
+}
+
+header {
+  background: var(--navy);
+  color: #fff;
+  padding: 28px 40px;
+}
+
+header h1 {
+  margin: 0 0 6px 0;
+  font-size: 26px;
+}
+
+header p {
+  margin: 0;
+  color: #cbd6ea;
+  font-size: 14px;
+}
+
+.badge {
+  display: inline-block;
+  background: #2E5395;
+  color: #fff;
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-top: 10px;
+  letter-spacing: 0.03em;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 24px 80px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin-bottom: 26px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.card h2 {
+  color: var(--navy);
+  font-size: 19px;
+  margin-top: 0;
+  margin-bottom: 6px;
+  border-bottom: 2px solid var(--blue-light);
+  padding-bottom: 10px;
+}
+
+.card .sub {
+  color: var(--gray);
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px 20px;
+}
+
+label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 5px;
+}
+
+select,
+input[type='number'],
+input[type='text'],
+input[type='password'],
+input[type='email'] {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid #c7cede;
+  border-radius: 6px;
+  font-size: 14px;
+  background: #fbfcfe;
+}
+
+textarea {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid #c7cede;
+  border-radius: 6px;
+  font-size: 12.5px;
+  background: #fbfcfe;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.btn {
+  background: var(--navy);
+  color: #fff;
+  border: none;
+  padding: 11px 22px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 18px;
+  margin-right: 10px;
+}
+
+.btn:hover {
+  background: var(--blue);
+}
+
+.btn-secondary {
+  background: #666;
+}
+
+.btn-secondary:hover {
+  background: #555;
+}
+
+.note {
+  font-size: 12px;
+  color: var(--warn);
+  background: #fff8e6;
+  border: 1px solid #f0dca0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-top: 16px;
+}
+
+.module {
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--blue);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  background: #fcfdff;
+}
+
+.module h3 {
+  margin: 0 0 4px 0;
+  color: var(--navy);
+  font-size: 16px;
+}
+
+.module .spec {
+  font-size: 13.5px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.module .spec b {
+  color: var(--navy);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  background: var(--blue-light);
+  color: var(--navy);
+  font-size: 12.5px;
+  padding: 5px 11px;
+  border-radius: 14px;
+  border: 1px solid #c3d2ec;
+}
+
+.chip a {
+  color: var(--navy);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.chip a:hover {
+  text-decoration: underline;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 9px 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  background: var(--navy);
+  color: #fff;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+}
+
+tr:hover td {
+  background: #f2f6fc;
+}
+
+.cat-tag {
+  display: inline-block;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: var(--blue-light);
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.filter-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.filter-row select,
+.filter-row input {
+  max-width: 240px;
+}
+
+footer {
+  text-align: center;
+  color: var(--gray);
+  font-size: 12px;
+  padding: 20px;
+}
+
+.disclaimer {
+  font-size: 12px;
+  color: var(--gray);
+  font-style: italic;
+  margin-top: 10px;
+}
+
+.module-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.module-header label {
+  margin: 0;
+  font-size: 15px;
+  color: var(--navy);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.module-header input[type='checkbox'] {
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+}

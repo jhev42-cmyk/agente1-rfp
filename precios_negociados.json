@@ -1,0 +1,25 @@
+{
+  "_instrucciones": "Este archivo contiene los precios negociados por proveedor, tipo de ítem y designación (ficha técnica). Cada proveedor comparte un Excel propio con sus precios por unidad, ya incluyendo el margen acordado. Al recibir esos archivos, reemplace las entradas marcadas como DEMO por los datos reales — una entrada por (proveedor, tipo, designación). El campo 'tipo' debe coincidir con las claves de SPEC_REGISTRY en index.html: conductor, poste, aislador, herraje, transformador, seccionador. El campo 'designacion' debe coincidir exactamente con la designación seleccionada en la ficha técnica del ítem (ej. 'ACSR 4/0 AWG').",
+  "precios": [
+    {
+      "proveedor": "Proveedor Demo A (ejemplo)",
+      "tipo": "conductor",
+      "designacion": "ACSR 4/0 AWG",
+      "precio_unitario": 8200,
+      "unidad": "m",
+      "moneda": "COP",
+      "vigencia_hasta": "2026-12-31",
+      "notas": "DEMO — dato de ejemplo, no vinculante. Reemplazar con precio real del tarifario del proveedor."
+    },
+    {
+      "proveedor": "Proveedor Demo B (ejemplo)",
+      "tipo": "poste",
+      "designacion": "Poste concreto 12m / 750 kgf",
+      "precio_unitario": 1450000,
+      "unidad": "un",
+      "moneda": "COP",
+      "vigencia_hasta": "2026-12-31",
+      "notas": "DEMO — dato de ejemplo, no vinculante. Reemplazar con precio real del tarifario del proveedor."
+    }
+  ]
+}
