@@ -40,7 +40,7 @@
   }
   .card .sub { color: var(--gray); font-size: 13px; margin-bottom: 18px; }
   .form-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px 20px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px 20px; align-items: flex-end;
   }
   label { display: block; font-size: 12.5px; font-weight: 600; color: var(--navy); margin-bottom: 5px; }
   select, input[type=number], input[type=text] {
@@ -273,11 +273,11 @@
       </div>
       <div>
         <label>Fecha límite recepción de ofertas</label>
-        <input type="text" id="fechaLimite" placeholder="dd/mm/aaaa">
+        <input type="date" id="fechaLimite">
       </div>
       <div>
         <label>Reunión de aclaraciones (opcional)</label>
-        <input type="text" id="reunionAclaraciones" placeholder="Ej: 12/07/2026, 10:00 AM (Teams/Zoom)">
+        <input type="datetime-local" id="reunionAclaraciones">
       </div>
     </div>
 
@@ -1348,6 +1348,41 @@ window.actualizarCalibres = function() {
     actualizarCalibresOperador();
   } else {
     origActualizarCalibres();
+  }
+};
+
+// Función para obtener el código correcto según operador
+function codigoOperadorCorreto(item, operador) {
+  if (!operador || !item) return '';
+  if (operador === 'EPM') return item.cod_epm_afinia || '';
+  if (operador === 'ENEL') return item.cod_enel || '';
+  if (operador === 'CELSIA') return item.cod_celsia || '';
+  if (operador === 'ElectroHuila' || operador === 'Enerca') return item.cod_electrohuila_enerca || '';
+  return '';
+}
+
+// Parchear renderSpecPanelCable para mostrar solo código del operador
+const origRenderSpec = window.renderSpecPanel;
+window.renderSpecPanel = function(mi, ii) {
+  if (origRenderSpec) origRenderSpec(mi, ii);
+
+  const operador = document.getElementById('operadorLinea')?.value;
+  if (!operador) return;
+
+  const item = ITEMS_MASTER[mi];
+  if (!item || item.categoria_num !== 'X') return; // Solo para conductores
+
+  const panel = document.querySelector(`.spec-panel[data-mi="${mi}"][data-ii="${ii}"]`);
+  if (!panel) return;
+
+  // Reemplazar tabla de códigos con solo el operador
+  const tablaDiv = panel.querySelector('.ficha-tecnica');
+  if (tablaDiv) {
+    const codigoDiv = tablaDiv.querySelector('tr:has(th:contains("Código"))');
+    if (codigoDiv) {
+      const codigo = codigoOperadorCorreto(item, operador);
+      codigoDiv.innerHTML = `<th>Código (${operador})</th><td>${codigo}</td>`;
+    }
   }
 };
 
