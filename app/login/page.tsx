@@ -99,7 +99,7 @@ export default function LoginPage() {
         </form>
 
         <div className="note" style={{ marginTop: '24px', marginBottom: '0' }}>
-          Demo: usa <strong>admin@esmetals.com</strong> / <strong>admin123</strong>
+          Demo: usa <strong>rfpagent@rfp.local</strong> / <strong>rfpagent123</strong>
         </div>
       </div>
     </div>

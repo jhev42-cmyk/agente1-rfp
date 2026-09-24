@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@esmetals.com'
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'admin123'
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'rfpagent@rfp.local'
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'rfpagent123'
 
 export async function POST(request: NextRequest) {
   try {

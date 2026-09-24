@@ -11,10 +11,40 @@ export const NIVELES_TENSION = [
   { value: '230', label: '230 kV' },
 ]
 
-export const TIPOS_CABLEADO = {
-  'Cobre': ['1/0 AWG', '2 AWG', '4 AWG', '6 AWG', '8 AWG'],
-  'Aluminio': ['1/0 AWG', '2 AWG', '4 AWG', '6 AWG', '8 AWG'],
-  'ACSR': ['1/0 AWG', '2 AWG', '4 AWG', '6 AWG', '8 AWG'],
+// Operadores de línea - solo EPM y ENEL activos
+export const OPERADORES_LINEA = [
+  { value: 'EPM', label: 'EPM', active: true },
+  { value: 'ENEL', label: 'ENEL', active: true },
+  { value: 'CELSIA', label: 'CELSIA', active: false },
+  { value: 'ElectroHuila', label: 'ElectroHuila', active: false },
+  { value: 'Enerca', label: 'Enerca', active: false },
+]
+
+export const TIPOS_CABLEADO_EPM = {
+  'ACSR': [
+    { calibre: '2 AWG', norma: 'NTC 309 / ASTM B232', imax: '180 A' },
+    { calibre: '1/0 AWG', norma: 'NTC 309 / ASTM B232', imax: '230 A' },
+    { calibre: '2/0 AWG', norma: 'NTC 309 / ASTM B232', imax: '270 A' },
+    { calibre: '4/0 AWG', norma: 'NTC 309 / ASTM B232', imax: '380 A' },
+  ],
+  'Cu': [
+    { calibre: '2 AWG', norma: 'NTC 2120 / ASTM B3', imax: '95 A' },
+    { calibre: '1/0 AWG', norma: 'NTC 2120 / ASTM B3', imax: '150 A' },
+  ],
+  'AAAC': [
+    { calibre: '2 AWG', norma: 'NTC 2104 / ASTM B399', imax: '150 A' },
+    { calibre: '1/0 AWG', norma: 'NTC 2104 / ASTM B399', imax: '195 A' },
+  ],
+}
+
+export const TIPOS_CABLEADO_ENEL = {
+  'ACSR': [
+    { calibre: '2 AWG', norma: 'NTC 309 / ASTM B232', imax: '180 A' },
+    { calibre: '1/0 AWG', norma: 'NTC 309 / ASTM B232', imax: '230 A' },
+  ],
+  'Cu': [
+    { calibre: '2 AWG', norma: 'NTC 2120 / ASTM B3', imax: '95 A' },
+  ],
 }
 
 export const DEPARTAMENTOS = [
@@ -33,15 +63,6 @@ export const DEPARTAMENTOS = [
   'Sucre',
   'Tolima',
   'Valle del Cauca',
-]
-
-export const OPERADORES = [
-  'Red Eléctrica Nacional (REN)',
-  'Interconexión Eléctrica (ISA)',
-  'Codensa',
-  'Emcali',
-  'Empresas Públicas de Medellín (EPM)',
-  'Otro',
 ]
 
 export const TIPOS_CLIENTE = [
@@ -64,23 +85,65 @@ export const ALCANCES = [
 
 export const MODULOS_DISPONIBLES = [
   {
+    id: 'conductores',
+    titulo: 'Conductores Aéreos',
+    incluido: true,
+    items: [
+      {
+        nombre: 'Conductor ACSR',
+        cantidad: 0,
+        familia: 'ACSR',
+        calibre: '2 AWG',
+        norma: 'NTC 309 / ASTM B232',
+        normaUrl: null
+      },
+      {
+        nombre: 'Conductor Cobre',
+        cantidad: 0,
+        familia: 'Cu',
+        calibre: '2 AWG',
+        norma: 'NTC 2120 / ASTM B3',
+        normaUrl: null
+      },
+      {
+        nombre: 'Conductor AAAC',
+        cantidad: 0,
+        familia: 'AAAC',
+        calibre: '2 AWG',
+        norma: 'NTC 2104 / ASTM B399',
+        normaUrl: null
+      },
+    ]
+  },
+  {
     id: 'aislamiento',
     titulo: 'Aislamiento y Herrajes',
     incluido: true,
     items: [
-      { nombre: 'Aisladores de porcelana', cantidad: 0, especificaciones: 'Según especificación' },
-      { nombre: 'Aisladores poliméricos', cantidad: 0, especificaciones: 'Según especificación' },
-      { nombre: 'Grapas de retención', cantidad: 0, especificaciones: 'Aluminio o acero galvanizado' },
-      { nombre: 'Herrajes de sujeción', cantidad: 0, especificaciones: 'Acero galvanizado' },
-    ]
-  },
-  {
-    id: 'conductores',
-    titulo: 'Conductores',
-    incluido: true,
-    items: [
-      { nombre: 'Conductor principal', cantidad: 0, familia: 'Cobre', calibre: '1/0 AWG' },
-      { nombre: 'Cable de guarda', cantidad: 0, especificaciones: 'Acero galvanizado' },
+      {
+        nombre: 'Aisladores de porcelana',
+        cantidad: 0,
+        norma: 'IEC 60383 / IEC 61109',
+        normaUrl: null
+      },
+      {
+        nombre: 'Aisladores poliméricos',
+        cantidad: 0,
+        norma: 'IEC 61462 / ASTM D4508',
+        normaUrl: null
+      },
+      {
+        nombre: 'Herrajes de sujeción',
+        cantidad: 0,
+        norma: 'ASTM A90 / NTC 1329',
+        normaUrl: null
+      },
+      {
+        nombre: 'Grapas de retención',
+        cantidad: 0,
+        norma: 'ASTM A90 / ASTM E376',
+        normaUrl: null
+      },
     ]
   },
   {
@@ -88,9 +151,24 @@ export const MODULOS_DISPONIBLES = [
     titulo: 'Equipos de Protección',
     incluido: false,
     items: [
-      { nombre: 'Pararrayos', cantidad: 0, especificaciones: 'Según nivel de tensión' },
-      { nombre: 'Seccionadores', cantidad: 0, especificaciones: 'Según especificación' },
-      { nombre: 'Interruptores', cantidad: 0, especificaciones: 'Según carga' },
+      {
+        nombre: 'Pararrayos de óxido metálico',
+        cantidad: 0,
+        norma: 'IEC 60099-4 / NTC 2120',
+        normaUrl: null
+      },
+      {
+        nombre: 'Seccionadores bajo carga',
+        cantidad: 0,
+        norma: 'IEEE C37.41 / IEC 60947-3',
+        normaUrl: null
+      },
+      {
+        nombre: 'Fusibles de protección',
+        cantidad: 0,
+        norma: 'NTC 2120 / ASTM D2000',
+        normaUrl: null
+      },
     ]
   },
   {
@@ -98,9 +176,24 @@ export const MODULOS_DISPONIBLES = [
     titulo: 'Estructura y Soporte',
     incluido: false,
     items: [
-      { nombre: 'Postes de concreto', cantidad: 0, altura: '10 m' },
-      { nombre: 'Torres de acero', cantidad: 0, especificaciones: 'Según diseño' },
-      { nombre: 'Cimentaciones', cantidad: 0, especificaciones: 'Según tipo de poste' },
+      {
+        nombre: 'Postes de concreto',
+        cantidad: 0,
+        norma: 'NTC 1329 / ASTM A615',
+        normaUrl: null
+      },
+      {
+        nombre: 'Torres de acero galvanizado',
+        cantidad: 0,
+        norma: 'ASTM A123 / ISO 1461',
+        normaUrl: null
+      },
+      {
+        nombre: 'Cimentaciones',
+        cantidad: 0,
+        norma: 'NTC 2120 / NSR-10',
+        normaUrl: null
+      },
     ]
   },
 ]

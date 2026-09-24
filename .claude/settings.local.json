@@ -5,7 +5,9 @@
       "Bash(git init *)",
       "Bash(git config *)",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(rm -f read_excel.js read_excel2.js)",
+      "Bash(git commit -m 'Integrate operator-dependent data: EPM/ENEL with standards and norms *)"
     ]
   }
 }

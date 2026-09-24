@@ -3,9 +3,10 @@
 import { useState } from 'react'
 import {
   NIVELES_TENSION,
-  TIPOS_CABLEADO,
+  OPERADORES_LINEA,
+  TIPOS_CABLEADO_EPM,
+  TIPOS_CABLEADO_ENEL,
   DEPARTAMENTOS,
-  OPERADORES,
   TIPOS_CLIENTE,
   ALCANCES,
   MODULOS_DISPONIBLES,
@@ -16,7 +17,7 @@ export default function QuotationForm() {
   const [formData, setFormData] = useState<Partial<FormData>>({
     codigoCotizacion: '',
     nombreProyecto: '',
-    empresaSolicitante: 'Consulting RZ',
+    empresaSolicitante: '',
     respNombreCargo: '',
     respEmail: '',
     respTelefono: '',
@@ -26,11 +27,11 @@ export default function QuotationForm() {
     reunionAclaraciones: '',
     kv: '13.2',
     km: 12,
-    tipoCableado: 'Cobre',
-    calibreCableado: '1/0 AWG',
+    operadorLinea: '',
+    tipoCableado: '',
+    calibreCableado: '',
     holgura: 3,
     depto: 'Boyacá',
-    operadorLinea: '',
     cliente: '',
     alcance: '',
     modulos: MODULOS_DISPONIBLES,
@@ -43,16 +44,50 @@ export default function QuotationForm() {
     setFormData(prev => ({ ...prev, [field]: value }))
   }
 
-  const handleTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const tipoSelected = e.target.value
+  const handleOperadorChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const operador = e.target.value
     setFormData(prev => ({
       ...prev,
-      tipoCableado: tipoSelected,
-      calibreCableado: TIPOS_CABLEADO[tipoSelected as keyof typeof TIPOS_CABLEADO]?.[0] || '',
+      operadorLinea: operador,
+      tipoCableado: '',
+      calibreCableado: '',
     }))
   }
 
+  const handleTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const tipoSelected = e.target.value
+    const tiposDisponibles = formData.operadorLinea === 'EPM' ? TIPOS_CABLEADO_EPM : TIPOS_CABLEADO_ENEL
+    const primercalibre = tiposDisponibles[tipoSelected as keyof typeof tiposDisponibles]?.[0]
+
+    setFormData(prev => ({
+      ...prev,
+      tipoCableado: tipoSelected,
+      calibreCableado: primercalibre?.calibre || '',
+    }))
+  }
+
+  const getTiposDisponibles = () => {
+    if (!formData.operadorLinea) return {}
+    return formData.operadorLinea === 'EPM' ? TIPOS_CABLEADO_EPM : TIPOS_CABLEADO_ENEL
+  }
+
+  const getCalibreSeleccionado = () => {
+    if (!formData.tipoCableado) return null
+    const tipos = getTiposDisponibles()
+    const calibres = tipos[formData.tipoCableado as keyof typeof tipos] || []
+    return calibres.find(c => c.calibre === formData.calibreCableado)
+  }
+
   const handleGenerateCotizacion = async () => {
+    if (!formData.operadorLinea) {
+      setMessage('Error: Debe seleccionar un operador de línea')
+      return
+    }
+    if (!formData.codigoCotizacion || !formData.nombreProyecto) {
+      setMessage('Error: Código y nombre de proyecto son requeridos')
+      return
+    }
+
     setSaving(true)
     setMessage('')
 
@@ -77,11 +112,10 @@ export default function QuotationForm() {
       setMessage('✓ Cotización guardada exitosamente')
       setTimeout(() => setMessage(''), 3000)
 
-      // Reset form
       setFormData({
         codigoCotizacion: '',
         nombreProyecto: '',
-        empresaSolicitante: 'Consulting RZ',
+        empresaSolicitante: '',
         respNombreCargo: '',
         respEmail: '',
         respTelefono: '',
@@ -91,11 +125,11 @@ export default function QuotationForm() {
         reunionAclaraciones: '',
         kv: '13.2',
         km: 12,
-        tipoCableado: 'Cobre',
-        calibreCableado: '1/0 AWG',
+        operadorLinea: '',
+        tipoCableado: '',
+        calibreCableado: '',
         holgura: 3,
         depto: 'Boyacá',
-        operadorLinea: '',
         cliente: '',
         alcance: '',
         modulos: MODULOS_DISPONIBLES,
@@ -106,6 +140,8 @@ export default function QuotationForm() {
       setSaving(false)
     }
   }
+
+  const calibreInfo = getCalibreSeleccionado()
 
   return (
     <div>
@@ -147,6 +183,7 @@ export default function QuotationForm() {
             <label>Empresa solicitante</label>
             <input
               type="text"
+              placeholder="Ej: Consulting RZ"
               value={formData.empresaSolicitante || ''}
               onChange={(e) => handleInputChange('empresaSolicitante', e.target.value)}
             />
@@ -223,6 +260,7 @@ export default function QuotationForm() {
           <div>
             <label>Nivel de tensión</label>
             <select value={formData.kv || ''} onChange={(e) => handleInputChange('kv', e.target.value)}>
+              <option value="">Seleccione...</option>
               {NIVELES_TENSION.map(nt => (
                 <option key={nt.value} value={nt.value}>{nt.label}</option>
               ))}
@@ -239,18 +277,46 @@ export default function QuotationForm() {
             />
           </div>
           <div>
+            <label>Operador de la línea</label>
+            <select value={formData.operadorLinea || ''} onChange={handleOperadorChange}>
+              <option value="">Seleccione operador...</option>
+              {OPERADORES_LINEA.map(op => (
+                <option
+                  key={op.value}
+                  value={op.value}
+                  disabled={!op.active}
+                  style={{
+                    color: op.active ? 'inherit' : '#999',
+                  }}
+                >
+                  {op.label} {!op.active ? '(próximamente)' : ''}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div>
             <label>Tipo de cableado</label>
-            <select value={formData.tipoCableado || ''} onChange={handleTypeChange}>
-              {Object.keys(TIPOS_CABLEADO).map(tipo => (
+            <select
+              value={formData.tipoCableado || ''}
+              onChange={handleTypeChange}
+              disabled={!formData.operadorLinea}
+            >
+              <option value="">Seleccione tipo...</option>
+              {Object.keys(getTiposDisponibles()).map(tipo => (
                 <option key={tipo} value={tipo}>{tipo}</option>
               ))}
             </select>
           </div>
           <div>
             <label>Calibre</label>
-            <select value={formData.calibreCableado || ''} onChange={(e) => handleInputChange('calibreCableado', e.target.value)}>
-              {formData.tipoCableado && TIPOS_CABLEADO[formData.tipoCableado as keyof typeof TIPOS_CABLEADO]?.map(calibre => (
-                <option key={calibre} value={calibre}>{calibre}</option>
+            <select
+              value={formData.calibreCableado || ''}
+              onChange={(e) => handleInputChange('calibreCableado', e.target.value)}
+              disabled={!formData.tipoCableado}
+            >
+              <option value="">Seleccione calibre...</option>
+              {formData.tipoCableado && getTiposDisponibles()[formData.tipoCableado as keyof ReturnType<typeof getTiposDisponibles>]?.map((c: any) => (
+                <option key={c.calibre} value={c.calibre}>{c.calibre}</option>
               ))}
             </select>
           </div>
@@ -267,17 +333,9 @@ export default function QuotationForm() {
           <div>
             <label>Departamento</label>
             <select value={formData.depto || ''} onChange={(e) => handleInputChange('depto', e.target.value)}>
+              <option value="">Seleccione...</option>
               {DEPARTAMENTOS.map(d => (
                 <option key={d} value={d}>{d}</option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <label>Operador de la línea</label>
-            <select value={formData.operadorLinea || ''} onChange={(e) => handleInputChange('operadorLinea', e.target.value)}>
-              <option value="">Seleccione...</option>
-              {OPERADORES.map(o => (
-                <option key={o} value={o}>{o}</option>
               ))}
             </select>
           </div>
@@ -300,20 +358,66 @@ export default function QuotationForm() {
             </select>
           </div>
         </div>
+
+        {calibreInfo && (
+          <div style={{
+            background: '#f0f7ff',
+            border: '1px solid #b3d9ff',
+            borderRadius: '6px',
+            padding: '12px',
+            marginTop: '16px',
+            fontSize: '13px'
+          }}>
+            <div><strong>Norma:</strong> {calibreInfo.norma}</div>
+            <div><strong>Imax (Ampacidad):</strong> {calibreInfo.imax}</div>
+          </div>
+        )}
       </div>
 
       <div className="card">
         <h2>Módulos y Componentes</h2>
-        <p className="sub">Selecciona los módulos que deseas incluir en esta cotización</p>
+        <p className="sub">Los componentes se muestran con sus normas aplicables</p>
         {MODULOS_DISPONIBLES.map((modulo) => (
-          <div key={modulo.id} className="module">
+          <div key={modulo.id} className="module" style={{ marginBottom: '16px' }}>
             <div className="module-header">
               <input type="checkbox" defaultChecked={modulo.incluido} />
               <label>{modulo.titulo}</label>
             </div>
-            <p style={{ fontSize: '13px', color: '#666', margin: '8px 0 12px 0' }}>
-              {modulo.items.length} componentes disponibles
-            </p>
+            <div style={{ marginLeft: '24px', fontSize: '13px' }}>
+              {modulo.items.map((item, idx) => (
+                <div key={idx} style={{
+                  borderBottom: idx < modulo.items.length - 1 ? '1px solid #e0e0e0' : 'none',
+                  paddingBottom: '12px',
+                  marginBottom: '12px'
+                }}>
+                  <div style={{ fontWeight: '600', color: '#1F3864', marginBottom: '4px' }}>
+                    {item.nombre}
+                  </div>
+                  {item.norma && (
+                    <div style={{ color: '#555', marginBottom: '4px' }}>
+                      <strong>Norma:</strong>
+                      {item.normaUrl ? (
+                        <a
+                          href={item.normaUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{ color: '#2E5395', marginLeft: '4px', textDecoration: 'none', fontWeight: '600' }}
+                        >
+                          {item.norma} ↗
+                        </a>
+                      ) : (
+                        <span style={{ marginLeft: '4px', color: '#666' }}>{item.norma}</span>
+                      )}
+                    </div>
+                  )}
+                  {item.familia && (
+                    <div style={{ color: '#666', fontSize: '12px' }}>
+                      Familia: <strong>{item.familia}</strong> | Calibre: <strong>{item.calibre}</strong>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         ))}
       </div>
@@ -325,10 +429,13 @@ export default function QuotationForm() {
           disabled={saving}
           style={{ marginRight: '10px' }}
         >
-          {saving ? 'Guardando...' : '📥 Generar Cotización'}
+          {saving ? 'Guardando...' : '💾 Guardar Cotización'}
         </button>
         <button className="btn btn-secondary">
-          📥 Exportar PDF
+          📄 Exportar PDF
+        </button>
+        <button className="btn btn-secondary" style={{ marginLeft: '10px' }}>
+          📊 Exportar Excel
         </button>
       </div>
     </div>
