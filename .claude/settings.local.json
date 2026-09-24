@@ -21,7 +21,9 @@
       "Bash(git commit -m 'WIP: Preparing to integrate operator-dependent data and norms into full Agente 1 *)",
       "Bash(git commit -m 'Add operator selection with dynamic cable types and norms integration *)",
       "Bash(git commit -m 'Fix: Add operator selector directly to HTML and restore login *)",
-      "Bash(git commit -m 'Remove ESMetals branding from login page *)"
+      "Bash(git commit -m 'Remove ESMetals branding from login page *)",
+      "Bash(git revert *)",
+      "Bash(git commit -m 'Add calendar pickers and fix structure alignment *)"
     ],
     "additionalDirectories": [
       "/tmp"
