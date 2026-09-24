@@ -57,7 +57,7 @@ export default function QuotationForm() {
   const handleTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const tipoSelected = e.target.value
     const tiposDisponibles = formData.operadorLinea === 'EPM' ? TIPOS_CABLEADO_EPM : TIPOS_CABLEADO_ENEL
-    const primercalibre = tiposDisponibles[tipoSelected as keyof typeof tiposDisponibles]?.[0]
+    const primercalibre = (tiposDisponibles as any)[tipoSelected]?.[0]
 
     setFormData(prev => ({
       ...prev,
@@ -66,7 +66,7 @@ export default function QuotationForm() {
     }))
   }
 
-  const getTiposDisponibles = () => {
+  const getTiposDisponibles = (): any => {
     if (!formData.operadorLinea) return {}
     return formData.operadorLinea === 'EPM' ? TIPOS_CABLEADO_EPM : TIPOS_CABLEADO_ENEL
   }
@@ -74,8 +74,8 @@ export default function QuotationForm() {
   const getCalibreSeleccionado = () => {
     if (!formData.tipoCableado) return null
     const tipos = getTiposDisponibles()
-    const calibres = tipos[formData.tipoCableado as keyof typeof tipos] || []
-    return calibres.find(c => c.calibre === formData.calibreCableado)
+    const calibres = tipos[formData.tipoCableado] || []
+    return calibres.find((c: any) => c.calibre === formData.calibreCableado)
   }
 
   const handleGenerateCotizacion = async () => {
@@ -285,9 +285,6 @@ export default function QuotationForm() {
                   key={op.value}
                   value={op.value}
                   disabled={!op.active}
-                  style={{
-                    color: op.active ? 'inherit' : '#999',
-                  }}
                 >
                   {op.label} {!op.active ? '(próximamente)' : ''}
                 </option>
@@ -315,7 +312,7 @@ export default function QuotationForm() {
               disabled={!formData.tipoCableado}
             >
               <option value="">Seleccione calibre...</option>
-              {formData.tipoCableado && getTiposDisponibles()[formData.tipoCableado as keyof ReturnType<typeof getTiposDisponibles>]?.map((c: any) => (
+              {formData.tipoCableado && getTiposDisponibles()[formData.tipoCableado]?.map((c: any) => (
                 <option key={c.calibre} value={c.calibre}>{c.calibre}</option>
               ))}
             </select>
@@ -384,7 +381,7 @@ export default function QuotationForm() {
               <label>{modulo.titulo}</label>
             </div>
             <div style={{ marginLeft: '24px', fontSize: '13px' }}>
-              {modulo.items.map((item, idx) => (
+              {modulo.items.map((item: any, idx: number) => (
                 <div key={idx} style={{
                   borderBottom: idx < modulo.items.length - 1 ? '1px solid #e0e0e0' : 'none',
                   paddingBottom: '12px',
@@ -410,7 +407,7 @@ export default function QuotationForm() {
                       )}
                     </div>
                   )}
-                  {item.familia && (
+                  {item.familia && item.calibre && (
                     <div style={{ color: '#666', fontSize: '12px' }}>
                       Familia: <strong>{item.familia}</strong> | Calibre: <strong>{item.calibre}</strong>
                     </div>
