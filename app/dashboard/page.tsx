@@ -17,6 +17,8 @@ export default function DashboardPage() {
     } else {
       setIsAuthenticated(true)
       setLoading(false)
+      // Redirige automáticamente al agente completo
+      router.push('/agente.html')
     }
   }, [router])
 
