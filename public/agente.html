@@ -301,6 +301,17 @@
         <input type="number" id="km" value="12" min="0.1" step="0.1">
       </div>
       <div>
+        <label>Operador de la línea</label>
+        <select id="operadorLinea" onchange="cambiarOperador()">
+          <option value="">Seleccione operador...</option>
+          <option value="EPM" selected>EPM</option>
+          <option value="ENEL">ENEL (Codensa)</option>
+          <option value="CELSIA" disabled>CELSIA (próximamente)</option>
+          <option value="ElectroHuila" disabled>ElectroHuila (próximamente)</option>
+          <option value="Enerca" disabled>Enerca (próximamente)</option>
+        </select>
+      </div>
+      <div>
         <label>Tipo de cableado (conductor aéreo)</label>
         <select id="tipoCableado" onchange="actualizarCalibres()"></select>
       </div>
@@ -1282,6 +1293,66 @@ function actualizarCalibres() {
   selCalibre.innerHTML = calibres.map(c => `<option value="${c.calibre}">${c.calibre}</option>`).join('');
   if (calibres.length) selCalibre.value = calibres[0].calibre;
 }
+
+// Datos de operadores con tipos de cableado
+const OPERADORES_TIPOS = {
+  EPM: { ACSR: ['2 AWG', '1/0 AWG', '2/0 AWG', '4/0 AWG'], Cu: ['2 AWG', '1/0 AWG'], AAAC: ['2 AWG', '1/0 AWG'] },
+  ENEL: { ACSR: ['2 AWG', '1/0 AWG', '2/0 AWG'], Cu: ['2 AWG'] }
+};
+
+function cambiarOperador() {
+  const operador = document.getElementById('operadorLinea').value;
+  if (!operador) return;
+
+  const tipoCableadoSelect = document.getElementById('tipoCableado');
+  tipoCableadoSelect.innerHTML = '<option value="">Seleccione tipo...</option>';
+
+  const tipos = OPERADORES_TIPOS[operador];
+  if (tipos) {
+    Object.keys(tipos).forEach(tipo => {
+      const opt = document.createElement('option');
+      opt.value = tipo;
+      opt.textContent = tipo;
+      tipoCableadoSelect.appendChild(opt);
+    });
+    tipoCableadoSelect.value = Object.keys(tipos)[0];
+    actualizarCalibresOperador();
+  }
+}
+
+function actualizarCalibresOperador() {
+  const operador = document.getElementById('operadorLinea').value;
+  const tipoCableado = document.getElementById('tipoCableado').value;
+
+  if (!operador || !tipoCableado) return;
+
+  const tipos = OPERADORES_TIPOS[operador];
+  const calibres = tipos[tipoCableado] || [];
+
+  const calibreSelect = document.getElementById('calibreCableado');
+  calibreSelect.innerHTML = '';
+  calibres.forEach(cal => {
+    const opt = document.createElement('option');
+    opt.value = cal;
+    opt.textContent = cal;
+    calibreSelect.appendChild(opt);
+  });
+
+  if (calibres.length) calibreSelect.value = calibres[0];
+}
+
+// Parchear actualizarCalibres para que considere el operador
+const origActualizarCalibres = window.actualizarCalibres;
+window.actualizarCalibres = function() {
+  if (document.getElementById('operadorLinea')?.value) {
+    actualizarCalibresOperador();
+  } else {
+    origActualizarCalibres();
+  }
+};
+
+// Inicializar operador
+cambiarOperador();
 
 initCard1();
 cargarProveedores();

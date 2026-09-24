@@ -17,8 +17,6 @@ export default function DashboardPage() {
     } else {
       setIsAuthenticated(true)
       setLoading(false)
-      // Redirige automáticamente al agente completo
-      router.push('/agente.html')
     }
   }, [router])
 
@@ -82,7 +80,26 @@ export default function DashboardPage() {
         </div>
 
         {activeTab === 'new' ? (
-          <QuotationForm />
+          <div style={{ textAlign: 'center', padding: '40px' }}>
+            <p style={{ marginBottom: '20px', fontSize: '16px', color: '#666' }}>
+              Accede a la herramienta completa de generación de cotizaciones:
+            </p>
+            <a
+              href="/agente.html"
+              style={{
+                display: 'inline-block',
+                background: 'var(--navy)',
+                color: '#fff',
+                padding: '14px 28px',
+                borderRadius: '6px',
+                textDecoration: 'none',
+                fontSize: '16px',
+                fontWeight: '600'
+              }}
+            >
+              → Ir a Agente 1 - Generador de Cotizaciones
+            </a>
+          </div>
         ) : (
           <QuotationsList />
         )}

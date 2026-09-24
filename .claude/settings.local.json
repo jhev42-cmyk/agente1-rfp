@@ -19,7 +19,8 @@
       "Bash(cp /tmp/agente1_old.html \"/Users/jesushernandovillaespinal/Library/CloudStorage/GoogleDrive-jhev42@gmail.com/My Drive/RFP ERCO AGENTE/RFP Agent/Agente1_Mockup_Deploy/app/agente-old.html\")",
       "Bash(git commit -m 'Restore full-featured Agente 1 with wizard, BOM, and provider selection *)",
       "Bash(git commit -m 'WIP: Preparing to integrate operator-dependent data and norms into full Agente 1 *)",
-      "Bash(git commit -m 'Add operator selection with dynamic cable types and norms integration *)"
+      "Bash(git commit -m 'Add operator selection with dynamic cable types and norms integration *)",
+      "Bash(git commit -m 'Fix: Add operator selector directly to HTML and restore login *)"
     ],
     "additionalDirectories": [
       "/tmp"
