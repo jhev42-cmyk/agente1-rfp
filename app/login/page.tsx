@@ -49,7 +49,7 @@ export default function LoginPage() {
       <div className="card" style={{ maxWidth: '400px', width: '100%' }}>
         <header style={{ margin: '-24px -28px 24px -28px', background: 'var(--navy)', padding: '24px 28px' }}>
           <h1>Agente 1 — Login</h1>
-          <p>RFP Agent • ES Metals</p>
+          <p>RFP Agent • Sistema de Cotizaciones</p>
         </header>
 
         <form onSubmit={handleSubmit}>
@@ -59,7 +59,7 @@ export default function LoginPage() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="admin@esmetals.com"
+              placeholder="user@example.com"
               required
             />
           </div>
