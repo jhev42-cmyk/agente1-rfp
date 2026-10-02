@@ -42,3 +42,6 @@ prisma/.env
 # Claude Code mods (estado local)
 .claude/.last-deploy
 .claude/.last-verified
+
+# TypeScript
+*.tsbuildinfo

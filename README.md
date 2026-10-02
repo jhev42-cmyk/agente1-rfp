@@ -52,14 +52,19 @@ vercel
 ```
 app/
 ├── api/
-│   ├── auth/login/          # Autenticación
+│   ├── auth/login/          # Inicio de sesión
+│   ├── auth/me/             # Validación de sesión
 │   └── quotations/          # CRUD de cotizaciones
-├── components/
-│   └── QuotationForm.tsx    # Formulario principal
-├── dashboard/               # Dashboard admin
+├── agente/                  # Redirige a /agente.html
+├── dashboard/               # Dashboard
 ├── login/                   # Página de login
 └── lib/
-    └── quotationData.ts     # Datos técnicos
+    └── auth.ts              # Usuarios y firma de sesiones
+public/
+├── agente.html              # Agente 1 (herramienta principal)
+├── operador-integration.js  # Operadores (EPM/ENEL/CELSIA) y normas
+├── proveedores.json         # Directorio de proveedores
+└── Formato_Cotizacion_*.xlsx
 ```
 
 ## Notas
