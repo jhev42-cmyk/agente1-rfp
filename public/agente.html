@@ -223,6 +223,20 @@
   .envio-tabla { margin-top: 12px; }
   .email-missing { color: var(--warn); font-style: italic; font-size: 12px; }
   .th-check, .td-check { width: 34px; text-align: center; }
+  #step5 { display: none; }
+  .ppto-tabla td.num, .ppto-tabla th.num { text-align: right; white-space: nowrap; }
+  .ppto-tabla input[type=number] { width: 130px; padding: 5px 8px; text-align: right; font-size: 13px; }
+  .ppto-tabla tr.ppto-cat td { background: var(--blue-light); color: var(--navy); font-weight: 700; }
+  .ppto-tabla tr.ppto-subtotal td { font-weight: 700; color: var(--navy); border-bottom: 2px solid var(--blue-light); }
+  .ppto-tabla .sin-precio-row td { background: #fffaf0; }
+  .ppto-fuente { font-size: 11px; color: var(--gray); }
+  .ppto-fuente.negociado { color: var(--ok); font-weight: 600; }
+  .ppto-fuente.faltante { color: var(--warn); font-weight: 600; }
+  .ppto-params { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px 18px; margin: 18px 0 6px; }
+  .ppto-resumen { margin-top: 18px; max-width: 520px; margin-left: auto; }
+  .ppto-resumen td { padding: 7px 10px; }
+  .ppto-resumen tr.total td { font-size: 16px; font-weight: 700; color: #fff; background: var(--navy); }
+  @media (max-width: 760px) { .ppto-params { grid-template-columns: repeat(2, 1fr); } }
 </style>
 </head>
 <body>
@@ -369,6 +383,7 @@
     </div>
     <div class="wizard-final" id="wizardFinal" style="display:none;">
       <button class="btn-link" type="button" onclick="generarResumenPDF()">📄 Ver resumen en PDF</button>
+      <button class="btn btn-secondary" onclick="mostrarPresupuesto()">Presupuesto preliminar</button>
       <button class="btn" onclick="mostrarProveedores()">Ver proveedores de los ítems seleccionados →</button>
     </div>
   </div>
@@ -381,6 +396,46 @@
     <div id="categoriasContainer"></div>
 
     <div class="disclaimer">Fuente de proveedores: investigación web pública, julio 2026 (salvo los marcados como "Acuerdo previo"). Se recomienda validar certificaciones (RETIE/RETILAP/NTC) y condiciones comerciales directamente con cada proveedor antes de invitarlo a cotizar. La "Ficha técnica" de cada categoría define el requisito técnico mínimo que debe cumplir el proveedor — verifíquelo junto con las certificaciones, y complete cualquier campo marcado como "por definir" antes de enviar la solicitud. Los precios de referencia marcados con asterisco (*) son orientativos, no vinculantes, y provienen de investigación web pública — no reflejan negociación directa con proveedores.</div>
+  </div>
+
+  <div class="card" id="step5">
+    <h2>5. Presupuesto preliminar</h2>
+    <div class="sub">Costo estimado de los ítems seleccionados en el paso 3. El precio unitario se toma de los precios negociados vigentes (precios_negociados.json); los ítems sin precio se pueden completar a mano. Todos los valores en COP, sin IVA salvo donde se indica.</div>
+    <div id="preciosStatus" class="sub"></div>
+    <div id="pptoCobertura"></div>
+    <div style="overflow-x:auto;">
+      <table class="ppto-tabla">
+        <thead><tr><th>Ítem</th><th class="num">Cantidad</th><th class="num">Precio unitario</th><th>Fuente</th><th class="num">Subtotal</th></tr></thead>
+        <tbody id="pptoBody"></tbody>
+      </table>
+    </div>
+
+    <div class="sub" style="margin-top:22px; margin-bottom:0; font-weight:600; color:var(--navy);">Parámetros del presupuesto</div>
+    <div class="ppto-params">
+      <div id="pptoInstalacionWrap">
+        <label>Mano de obra e instalación (COP)</label>
+        <input type="number" id="pptoInstalacion" value="0" min="0" step="1000" oninput="renderPresupuesto()">
+      </div>
+      <div class="ppto-aiu">
+        <label>Administración (%)</label>
+        <input type="number" id="pptoA" value="10" min="0" step="0.5" oninput="renderPresupuesto()">
+      </div>
+      <div class="ppto-aiu">
+        <label>Imprevistos (%)</label>
+        <input type="number" id="pptoI" value="5" min="0" step="0.5" oninput="renderPresupuesto()">
+      </div>
+      <div class="ppto-aiu">
+        <label>Utilidad (%)</label>
+        <input type="number" id="pptoU" value="5" min="0" step="0.5" oninput="renderPresupuesto()">
+      </div>
+    </div>
+    <div class="note">Los porcentajes de A/I/U son valores genéricos de referencia y deben reemplazarse por la política interna de márgenes y contingencia. En alcance EPC el IVA (19 %) se liquida sobre la utilidad (régimen AIU); en solo suministro, sobre el total de materiales.</div>
+
+    <table class="ppto-resumen" id="pptoResumen"></table>
+
+    <div class="wizard-final" style="display:flex;">
+      <button class="btn btn-secondary" onclick="exportarPresupuestoCSV()">Descargar presupuesto (Excel/CSV)</button>
+    </div>
   </div>
 
 </main>
@@ -1271,12 +1326,6 @@ function cerrarModalEnvio() {
 // Puebla el selector de familia de conductor (Card 1) y, dependientemente, el de calibre,
 // y arma la grilla de cantidades de estructuras por tipo de configuración (C1-C5).
 function initCard1() {
-  const selFamilia = document.getElementById('tipoCableado');
-  const familias = familiasCable();
-  selFamilia.innerHTML = familias.map(f => `<option value="${f}">${f}</option>`).join('');
-  if (familias.length) selFamilia.value = familias[0];
-  actualizarCalibres();
-
   const grid = document.getElementById('configGrid');
   grid.innerHTML = CONFIGS.map(c => `
     <div>
@@ -1286,80 +1335,222 @@ function initCard1() {
   `).join('');
 }
 
-function actualizarCalibres() {
-  const familia = document.getElementById('tipoCableado').value;
-  const selCalibre = document.getElementById('calibreCableado');
-  const calibres = calibresDeFamilia(familia);
-  selCalibre.innerHTML = calibres.map(c => `<option value="${c.calibre}">${c.calibre}</option>`).join('');
-  if (calibres.length) selCalibre.value = calibres[0].calibre;
-}
-
-// Datos de operadores con tipos de cableado
+// Familias y calibres de conductor que acepta cada operador (clave = nombre corto de la familia).
 const OPERADORES_TIPOS = {
   EPM: { ACSR: ['2 AWG', '1/0 AWG', '2/0 AWG', '4/0 AWG'], Cu: ['2 AWG', '1/0 AWG'], AAAC: ['2 AWG', '1/0 AWG'] },
   ENEL: { ACSR: ['2 AWG', '1/0 AWG', '2/0 AWG'], Cu: ['2 AWG'] }
 };
 
+// El selector de familia usa el nombre completo del catálogo CABLES_AEREOS (ej. "ACSR (Aluminio con
+// Alma de Acero)") para que la ficha técnica del conductor encuentre sus datos; las familias del
+// operador que no están en el catálogo (ej. Cu) se muestran con su nombre corto.
 function cambiarOperador() {
   const operador = document.getElementById('operadorLinea').value;
-  if (!operador) return;
-
-  const tipoCableadoSelect = document.getElementById('tipoCableado');
-  tipoCableadoSelect.innerHTML = '<option value="">Seleccione tipo...</option>';
-
   const tipos = OPERADORES_TIPOS[operador];
-  if (tipos) {
-    Object.keys(tipos).forEach(tipo => {
-      const opt = document.createElement('option');
-      opt.value = tipo;
-      opt.textContent = tipo;
-      tipoCableadoSelect.appendChild(opt);
-    });
-    tipoCableadoSelect.value = Object.keys(tipos)[0];
-    actualizarCalibresOperador();
-  }
+  const selFamilia = document.getElementById('tipoCableado');
+  const familias = tipos
+    ? Object.keys(tipos).map(k => familiasCable().find(f => familiaCorta(f) === k.toUpperCase()) || k)
+    : familiasCable();
+  selFamilia.innerHTML = familias.map(f => `<option value="${escapeHtml(f)}">${escapeHtml(f)}</option>`).join('');
+  if (familias.length) selFamilia.value = familias[0];
+  actualizarCalibresOperador();
 }
 
 function actualizarCalibresOperador() {
   const operador = document.getElementById('operadorLinea').value;
-  const tipoCableado = document.getElementById('tipoCableado').value;
-
-  if (!operador || !tipoCableado) return;
-
+  const familia = document.getElementById('tipoCableado').value;
   const tipos = OPERADORES_TIPOS[operador];
-  const calibres = tipos[tipoCableado] || [];
+  const clave = tipos && Object.keys(tipos).find(k => k.toUpperCase() === familiaCorta(familia));
+  const calibres = tipos ? (clave ? tipos[clave] : []) : calibresDeFamilia(familia).map(c => c.calibre);
 
-  const calibreSelect = document.getElementById('calibreCableado');
-  calibreSelect.innerHTML = '';
-  calibres.forEach(cal => {
-    const opt = document.createElement('option');
-    opt.value = cal;
-    opt.textContent = cal;
-    calibreSelect.appendChild(opt);
-  });
-
-  if (calibres.length) calibreSelect.value = calibres[0];
+  const selCalibre = document.getElementById('calibreCableado');
+  selCalibre.innerHTML = calibres.map(c => `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('');
+  if (calibres.length) selCalibre.value = calibres[0];
 }
 
-// Parchear actualizarCalibres para que considere el operador
-const origActualizarCalibres = window.actualizarCalibres;
-window.actualizarCalibres = function() {
-  if (document.getElementById('operadorLinea')?.value) {
-    actualizarCalibresOperador();
-  } else {
-    origActualizarCalibres();
-  }
-};
+// ============================================================
+// PASO 5 — PRESUPUESTO PRELIMINAR (módulo económico)
+// Precio unitario por ítem: precio negociado vigente más bajo (precios_negociados.json) o,
+// si no hay, el que el usuario ingrese a mano (se recuerda en este navegador).
+// ============================================================
+let PRECIOS = [];
+let PRECIO_MANUAL = {};
+const IVA = 0.19;
+try { PRECIO_MANUAL = JSON.parse(localStorage.getItem('agente1_precios_manuales') || '{}'); } catch (e) { PRECIO_MANUAL = {}; }
 
-// Inicializar operador
-cambiarOperador();
+function cargarPrecios() {
+  fetch('./precios_negociados.json', { cache: 'no-store' })
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(data => {
+      const hoy = new Date().toISOString().slice(0, 10);
+      PRECIOS = (data.precios || []).filter(p => p.item && p.precio_unitario > 0 && (!p.vigencia_hasta || p.vigencia_hasta >= hoy));
+      const el = document.getElementById('preciosStatus');
+      if (el) el.textContent = `Precios negociados vigentes cargados: ${PRECIOS.length}.`;
+      if (document.getElementById('step5').style.display === 'block') renderPresupuesto();
+    })
+    .catch(() => {
+      PRECIOS = [];
+      const el = document.getElementById('preciosStatus');
+      if (el) el.textContent = 'No se pudo cargar precios_negociados.json — ingresa los precios a mano.';
+    });
+}
+
+// Primera palabra de la familia del conductor, para comparar "ACSR" con "ACSR (Aluminio con Alma de Acero)".
+function familiaCorta(f) {
+  return String(f || '').trim().split(/\s+/)[0].toUpperCase();
+}
+
+function clavePrecio(it) {
+  return it.catNum === 'X' && it.conductor
+    ? `${it.id}|${familiaCorta(it.conductor.familia)}|${it.conductor.calibre}`
+    : it.id;
+}
+
+function precioNegociado(it) {
+  const candidatos = PRECIOS.filter(p => p.item === it.id && (it.catNum !== 'X' || !it.conductor ||
+    (familiaCorta(p.familia) === familiaCorta(it.conductor.familia) && p.calibre === it.conductor.calibre)));
+  if (!candidatos.length) return null;
+  return candidatos.reduce((min, p) => p.precio_unitario < min.precio_unitario ? p : min);
+}
+
+function precioDeItem(it) {
+  const clave = clavePrecio(it);
+  if (PRECIO_MANUAL[clave] > 0) return { precio: PRECIO_MANUAL[clave], fuente: 'manual' };
+  const neg = precioNegociado(it);
+  if (neg) return { precio: neg.precio_unitario, fuente: 'negociado', proveedor: neg.proveedor };
+  return { precio: 0, fuente: 'faltante' };
+}
+
+function cambiarPrecioManual(clave, valor) {
+  const v = Math.max(parseFloat(valor) || 0, 0);
+  if (v > 0) PRECIO_MANUAL[clave] = v; else delete PRECIO_MANUAL[clave];
+  try { localStorage.setItem('agente1_precios_manuales', JSON.stringify(PRECIO_MANUAL)); } catch (e) {}
+  renderPresupuesto();
+}
+
+function itemsPresupuesto() {
+  return MODULOS.map(m => ({ titulo: m.titulo, items: m.items.filter(it => it.incluido && it.cantidad > 0) }))
+    .filter(m => m.items.length);
+}
+
+function calcularTotales(cats) {
+  const num = id => Math.max(parseFloat(document.getElementById(id).value) || 0, 0);
+  const epc = document.getElementById('alcance').value === 'epc';
+  const materiales = cats.reduce((acc, c) => acc + c.items.reduce((s, it) => s + it.cantidad * precioDeItem(it).precio, 0), 0);
+  const instalacion = epc ? num('pptoInstalacion') : 0;
+  const costoDirecto = materiales + instalacion;
+  if (!epc) {
+    const iva = materiales * IVA;
+    return { epc, materiales, instalacion, costoDirecto, filas: [['IVA 19 % sobre materiales', iva]], total: materiales + iva };
+  }
+  const a = costoDirecto * num('pptoA') / 100;
+  const i = costoDirecto * num('pptoI') / 100;
+  const u = costoDirecto * num('pptoU') / 100;
+  const iva = u * IVA;
+  return {
+    epc, materiales, instalacion, costoDirecto,
+    filas: [[`Administración (${num('pptoA')} %)`, a], [`Imprevistos (${num('pptoI')} %)`, i], [`Utilidad (${num('pptoU')} %)`, u], ['IVA 19 % sobre utilidad', iva]],
+    total: costoDirecto + a + i + u + iva
+  };
+}
+
+function mostrarPresupuesto() {
+  renderPresupuesto();
+  document.getElementById('step5').style.display = 'block';
+  document.getElementById('step5').scrollIntoView({ behavior: 'smooth' });
+}
+
+function renderPresupuesto() {
+  const cats = itemsPresupuesto();
+  const epc = document.getElementById('alcance').value === 'epc';
+  document.getElementById('pptoInstalacionWrap').style.display = epc ? '' : 'none';
+  document.querySelectorAll('.ppto-aiu').forEach(el => el.style.display = epc ? '' : 'none');
+
+  const body = document.getElementById('pptoBody');
+  if (!cats.length) {
+    body.innerHTML = `<tr><td colspan="5">No hay ítems seleccionados con cantidad mayor a cero — vuelve al paso 3.</td></tr>`;
+  } else {
+    body.innerHTML = cats.map(c => {
+      let subtotalCat = 0;
+      const filas = c.items.map(it => {
+        const p = precioDeItem(it);
+        const subtotal = it.cantidad * p.precio;
+        subtotalCat += subtotal;
+        const clave = clavePrecio(it).replace(/'/g, "\\'");
+        const nombre = it.catNum === 'X' && it.conductor ? `${it.nombre} — ${it.conductor.familia} ${it.conductor.calibre}` : it.nombre;
+        const fuente = p.fuente === 'negociado'
+          ? `<span class="ppto-fuente negociado">Negociado · ${escapeHtml(p.proveedor || '')}</span>`
+          : p.fuente === 'manual' ? `<span class="ppto-fuente">Ingresado a mano</span>`
+          : `<span class="ppto-fuente faltante">Sin precio</span>`;
+        return `<tr class="${p.fuente === 'faltante' ? 'sin-precio-row' : ''}">
+          <td>${escapeHtml(nombre)}</td>
+          <td class="num">${it.cantidad.toLocaleString('es-CO')} ${escapeHtml(it.unidad)}</td>
+          <td class="num"><input type="number" min="0" step="100" value="${p.precio || ''}" placeholder="0" onchange="cambiarPrecioManual('${clave}', this.value)"></td>
+          <td>${fuente}</td>
+          <td class="num">${p.precio ? formatoCOP(subtotal) : '—'}</td>
+        </tr>`;
+      }).join('');
+      return `<tr class="ppto-cat"><td colspan="5">${escapeHtml(c.titulo)}</td></tr>${filas}
+        <tr class="ppto-subtotal"><td colspan="4">Subtotal</td><td class="num">${formatoCOP(subtotalCat)}</td></tr>`;
+    }).join('');
+  }
+
+  const todos = cats.flatMap(c => c.items);
+  const faltantes = todos.filter(it => precioDeItem(it).fuente === 'faltante').length;
+  document.getElementById('pptoCobertura').innerHTML = !todos.length ? '' : faltantes
+    ? `<div class="note" style="margin:0 0 14px;">${todos.length - faltantes} de ${todos.length} ítems tienen precio. El total es parcial hasta completar los ${faltantes} ítems marcados "Sin precio".</div>`
+    : `<div class="sub" style="color:var(--ok); font-weight:600;">Los ${todos.length} ítems tienen precio.</div>`;
+
+  const t = calcularTotales(cats);
+  document.getElementById('pptoResumen').innerHTML = `
+    <tr><td>Materiales</td><td class="num">${formatoCOP(t.materiales)}</td></tr>
+    ${t.epc ? `<tr><td>Mano de obra e instalación</td><td class="num">${formatoCOP(t.instalacion)}</td></tr>
+    <tr><td><b>Costo directo</b></td><td class="num"><b>${formatoCOP(t.costoDirecto)}</b></td></tr>` : ''}
+    ${t.filas.map(([k, v]) => `<tr><td>${k}</td><td class="num">${formatoCOP(v)}</td></tr>`).join('')}
+    <tr class="total"><td>Total${faltantes ? ' (parcial)' : ''}</td><td class="num">${formatoCOP(t.total)}</td></tr>`;
+}
+
+function exportarPresupuestoCSV() {
+  const cats = itemsPresupuesto();
+  const t = calcularTotales(cats);
+  const q = v => `"${String(v).replace(/"/g, '""')}"`;
+  const filas = [['Categoría', 'Ítem', 'Cantidad', 'Unidad', 'Precio unitario (COP)', 'Fuente', 'Subtotal (COP)']];
+  cats.forEach(c => c.items.forEach(it => {
+    const p = precioDeItem(it);
+    const nombre = it.catNum === 'X' && it.conductor ? `${it.nombre} — ${it.conductor.familia} ${it.conductor.calibre}` : it.nombre;
+    const fuente = p.fuente === 'negociado' ? `Negociado (${p.proveedor || ''})` : p.fuente === 'manual' ? 'Manual' : 'Sin precio';
+    filas.push([c.titulo, nombre, it.cantidad, it.unidad, Math.round(p.precio), fuente, Math.round(it.cantidad * p.precio)]);
+  }));
+  filas.push([]);
+  filas.push(['', 'Materiales', '', '', '', '', Math.round(t.materiales)]);
+  if (t.epc) {
+    filas.push(['', 'Mano de obra e instalación', '', '', '', '', Math.round(t.instalacion)]);
+    filas.push(['', 'Costo directo', '', '', '', '', Math.round(t.costoDirecto)]);
+  }
+  t.filas.forEach(([k, v]) => filas.push(['', k, '', '', '', '', Math.round(v)]));
+  filas.push(['', 'Total', '', '', '', '', Math.round(t.total)]);
+
+  // Separador ";" y BOM UTF-8 para que Excel en español abra las columnas y tildes correctamente.
+  const csv = '﻿' + filas.map(f => f.map(q).join(';')).join('\r\n');
+  const codigo = (document.getElementById('codigoCotizacion').value || 'presupuesto').replace(/[^\w-]+/g, '_');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
+  a.download = `${codigo}_presupuesto_preliminar.csv`;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+
+document.getElementById('alcance').addEventListener('change', () => {
+  if (document.getElementById('step5').style.display === 'block') renderPresupuesto();
+});
 
 initCard1();
+// Después de initCard1, para que la lista de familias quede filtrada por el operador seleccionado
+cambiarOperador();
 cargarProveedores();
+cargarPrecios();
 </script>
 
-<!-- Integración de Operadores y Normas Técnicas -->
-<script src="operador-integration.js"></script>
 
 </body>
 </html>

@@ -1,17 +1,22 @@
 # Pendientes — Agente 1
 
-## Estructura
-- [ ] Definir una sola implementación: `public/agente.html` es la versión en producción. Decidir qué hacer con `app/agente-old.html` (sin uso), `index.html` de la raíz (copia desactualizada) y `QuotationForm.tsx` (dashboard).
-- [ ] Archivos servidos por la app viven en `public/` (proveedores.json, Formato_Cotizacion_*.xlsx). Lo que no esté ahí no se publica en Vercel.
+## Acceso
+- [ ] `public/agente.html` es público (decisión: abierto mientras dure la etapa de pruebas). Antes de abrirlo a usuarios reales, exigir sesión también para el agente (middleware o mover el agente detrás del login).
+- [ ] Usuarios en `app/lib/auth.ts` (admin, analista1, analista2). Migrar a la tabla User de Prisma cuando haya base de datos; agregar cambio de contraseña.
 
-## Persistencia y seguridad
+## Persistencia
 - [ ] Cotizaciones en memoria (`app/api/quotations/route.ts`) se pierden en cada deploy → conectar Vercel Postgres con el esquema Prisma existente.
-- [ ] Token de sesión es base64 sin firma → firmar sesiones antes de abrir a usuarios reales.
-- [ ] Quitar credenciales demo visibles en `app/login/page.tsx` cuando salga de demo.
+- [ ] El agente (`agente.html`) no guarda nada en el servidor; conectar "guardar cotización" con el API.
+
+## Presupuesto (paso 5)
+- [ ] Reemplazar las 2 entradas DEMO de `public/precios_negociados.json` por precios reales por ítem (código 1.1 … 10.1).
+- [ ] Reemplazar los % A/I/U genéricos (10/5/5) por la política interna de márgenes y contingencia.
+- [ ] Mano de obra e instalación: hoy es un valor global manual; definir si se desglosa por actividad.
+- [ ] Indicadores VAN / TIR / ROI y flujo de caja (según Agente_1_Borrador_Cotizacion.docx).
 
 ## Funcional (según Agente_1_Borrador_Cotizacion.docx)
-- [ ] Módulo económico: usar `precios_negociados.json` (aún no lo consume la app) como puente al Agente 3.
 - [ ] Módulo legal: checklist normativo (RETIE, CREG, ANLA) por tipo de contratación.
 - [ ] Consolidación y exportación del borrador — definir formato (Word, Excel o ambos).
 - [ ] Rama de implementación (cronograma, comisionamiento, garantías).
 - [ ] Mecanismo de retroalimentación desde el Agente 2 tras adjudicación.
+- [ ] CELSIA, ElectroHuila y Enerca: definir familias/calibres en `OPERADORES_TIPOS` (agente.html) para activarlos.

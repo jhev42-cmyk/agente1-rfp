@@ -6,8 +6,8 @@
   "verifyTimeout": 240,
   "smoke": [
     "agente.html",
-    "operador-integration.js",
     "proveedores.json",
+    "precios_negociados.json",
     "Formato_Cotizacion_Estructura_Soporte.xlsx",
     "Formato_Cotizacion_Aislamiento_Herrajes.xlsx",
     "Formato_Cotizacion_Equipos_Proteccion.xlsx",

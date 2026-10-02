@@ -62,8 +62,8 @@ app/
     └── auth.ts              # Usuarios y firma de sesiones
 public/
 ├── agente.html              # Agente 1 (herramienta principal)
-├── operador-integration.js  # Operadores (EPM/ENEL/CELSIA) y normas
 ├── proveedores.json         # Directorio de proveedores
+├── precios_negociados.json  # Precios por ítem para el presupuesto (paso 5)
 └── Formato_Cotizacion_*.xlsx
 ```
 

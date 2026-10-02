@@ -1,0 +1,25 @@
+{
+  "_instrucciones": "Precios negociados por proveedor, usados por el paso 5 (Presupuesto preliminar) de agente.html. Una entrada por (proveedor, ítem). 'item' es el código del catálogo de materiales (1.1, 2.1, ..., 10.1). 'precio_unitario' va en COP, sin IVA, en la misma unidad del ítem en el catálogo (UN, JGO, RLL, MET; el conductor 10.1 en metros). Para el conductor (10.1) agregue 'familia' (ACSR, AAAC, Cu...) y 'calibre' (ej. '4/0 AWG') tal como aparecen en los selectores del paso 2. Si hay varios proveedores vigentes para el mismo ítem se usa el menor precio. Las entradas con 'vigencia_hasta' vencida se ignoran. Reemplace las entradas DEMO por los datos reales.",
+  "precios": [
+    {
+      "proveedor": "Proveedor Demo A (ejemplo)",
+      "item": "10.1",
+      "familia": "ACSR",
+      "calibre": "4/0 AWG",
+      "precio_unitario": 8200,
+      "unidad": "m",
+      "moneda": "COP",
+      "vigencia_hasta": "2026-12-31",
+      "notas": "DEMO — dato de ejemplo, no vinculante. Reemplazar con precio real del tarifario del proveedor."
+    },
+    {
+      "proveedor": "Proveedor Demo B (ejemplo)",
+      "item": "1.1",
+      "precio_unitario": 1450000,
+      "unidad": "UN",
+      "moneda": "COP",
+      "vigencia_hasta": "2026-12-31",
+      "notas": "DEMO — dato de ejemplo, no vinculante (poste concreto 12 m / 750 kgf). Reemplazar con precio real del tarifario del proveedor."
+    }
+  ]
+}
