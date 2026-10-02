@@ -26,9 +26,7 @@ npm install
 npm run dev
 ```
 
-Accede a `http://localhost:3000` y usa:
-- Email: `rfpagent@rfp.local`
-- Password: `rfpagent123`
+Accede a `http://localhost:3000` con uno de los usuarios definidos en `app/lib/auth.ts` (las contraseñas no están en el repositorio; solo su hash).
 
 ## Variables de entorno
 
@@ -36,9 +34,10 @@ Copia `.env.example` a `.env.local` y configura:
 
 ```
 DATABASE_URL=postgresql://...
-ADMIN_EMAIL=rfpagent@rfp.local
-ADMIN_PASSWORD=changeme
+AUTH_SECRET=<cadena aleatoria larga, firma las sesiones>
 ```
+
+En local, sin `AUTH_SECRET`, se usa una clave de desarrollo. En producción es obligatoria.
 
 ## Despliegue en Vercel
 

@@ -1,7 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'rfpagent@rfp.local'
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'rfpagent123'
+import { authenticate, createToken } from '../../../lib/auth'
 
 export async function POST(request: NextRequest) {
   try {
@@ -14,11 +12,9 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
-      // Token simple en base64 (cambiar en producción)
-      const token = Buffer.from(JSON.stringify({ id: 1, email, role: 'admin', iat: Date.now() })).toString('base64')
-
-      return NextResponse.json({ token, user: { id: 1, email, role: 'admin' } })
+    const user = authenticate(email, password)
+    if (user) {
+      return NextResponse.json({ token: createToken(user), user })
     }
 
     return NextResponse.json(

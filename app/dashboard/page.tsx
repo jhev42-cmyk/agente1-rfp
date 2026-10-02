@@ -2,22 +2,34 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import QuotationForm from '../components/QuotationForm'
 
 export default function DashboardPage() {
   const router = useRouter()
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [loading, setLoading] = useState(true)
+  const [userName, setUserName] = useState('')
   const [activeTab, setActiveTab] = useState<'new' | 'list'>('new')
 
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (!token) {
       router.push('/login')
-    } else {
-      setIsAuthenticated(true)
-      setLoading(false)
+      return
     }
+    // Valida la sesión en el servidor (firma y expiración del token)
+    fetch('/api/auth/me', { headers: { 'Authorization': `Bearer ${token}` } })
+      .then(async (res) => {
+        if (!res.ok) {
+          localStorage.removeItem('token')
+          router.push('/login')
+          return
+        }
+        const { user } = await res.json()
+        setUserName(user.name)
+        setIsAuthenticated(true)
+        setLoading(false)
+      })
+      .catch(() => router.push('/login'))
   }, [router])
 
   const handleLogout = () => {
@@ -39,7 +51,7 @@ export default function DashboardPage() {
         <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div>
             <h1>Agente 1 — Generador de Cotizaciones</h1>
-            <p>RFP Agent • Sistema de Cotizaciones</p>
+            <p>RFP Agent • Sistema de Cotizaciones{userName && ` • ${userName}`}</p>
           </div>
           <button onClick={handleLogout} className="btn btn-secondary">
             Cerrar sesión

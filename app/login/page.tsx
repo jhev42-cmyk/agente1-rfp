@@ -97,10 +97,6 @@ export default function LoginPage() {
             {loading ? 'Ingresando...' : 'Ingresar'}
           </button>
         </form>
-
-        <div className="note" style={{ marginTop: '24px', marginBottom: '0' }}>
-          Demo: usa <strong>rfpagent@rfp.local</strong> / <strong>rfpagent123</strong>
-        </div>
       </div>
     </div>
   )

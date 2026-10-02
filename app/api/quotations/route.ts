@@ -1,17 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { verifyToken } from '../../lib/auth'
 
 // Almacenamiento en memoria (temporal, para ser reemplazado con BD)
 const quotationsStore: any[] = []
 let quotationId = 1
-
-function verifyToken(token: string) {
-  try {
-    const decoded = JSON.parse(Buffer.from(token.replace('Bearer ', ''), 'base64').toString())
-    return decoded
-  } catch (error) {
-    return null
-  }
-}
 
 export async function GET(request: NextRequest) {
   const authHeader = request.headers.get('authorization')
@@ -52,7 +44,7 @@ export async function POST(request: NextRequest) {
 
     const quotation = {
       id: quotationId++,
-      userId: (user as any).id,
+      userId: user.id,
       ...data,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
