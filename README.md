@@ -27,8 +27,8 @@ npm run dev
 ```
 
 Accede a `http://localhost:3000` y usa:
-- Email: `admin@esmetals.com`
-- Password: `admin123`
+- Email: `rfpagent@rfp.local`
+- Password: `rfpagent123`
 
 ## Variables de entorno
 
@@ -36,7 +36,7 @@ Copia `.env.example` a `.env.local` y configura:
 
 ```
 DATABASE_URL=postgresql://...
-ADMIN_EMAIL=admin@esmetals.com
+ADMIN_EMAIL=rfpagent@rfp.local
 ADMIN_PASSWORD=changeme
 ```
 
