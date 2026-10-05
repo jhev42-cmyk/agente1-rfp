@@ -1,22 +1,24 @@
 # Pendientes — Agente 1
 
+## Catálogo de normas (fase 1 de líneas)
+- [ ] Cargar el esquema (foto/plano) de cada norma en /catalogo — hoy ninguna lo tiene.
+- [ ] Importar los precios reales de los 40 materiales (plantilla descargable en /catalogo → Precios).
+- [ ] Validar con ingeniería el catálogo inicial: viene de los consolidados maestros EPM/ENEL, donde ambos operadores comparten la misma lista de materiales por configuración (C1–C5) y solo cambia el código de norma.
+- [ ] Material 8.2 (conductor de bajada a tierra): la fuente dice "12 a 16 m" en C1–C4; se cargó 16 m (límite superior). Confirmar.
+- [ ] Hoy cada norma tiene una sola configuración. Si alguna norma tiene variantes (ej. altura/carga de poste), crearlas desde "Editar materiales (nueva versión)".
+- [ ] Unificar materiales con `agente.html` (RFQ): hoy el agente usa su propio catálogo embebido y conteos C1–C5.
+
 ## Acceso
-- [ ] `public/agente.html` es público (decisión: abierto mientras dure la etapa de pruebas). Antes de abrirlo a usuarios reales, exigir sesión también para el agente (middleware o mover el agente detrás del login).
-- [ ] Usuarios en `app/lib/auth.ts` (admin, analista1, analista2). Migrar a la tabla User de Prisma cuando haya base de datos; agregar cambio de contraseña.
+- [ ] `public/agente.html` es público (decisión: abierto mientras dure la etapa de pruebas).
+- [ ] Usuarios en `app/lib/auth.ts` (admin, analista1, analista2). Migrar a tabla en la base y agregar cambio de contraseña.
+- [ ] Definir quién aprueba líneas: hoy cualquier usuario con sesión puede aprobar (queda registrado).
 
-## Persistencia
-- [ ] Cotizaciones en memoria (`app/api/quotations/route.ts`) se pierden en cada deploy → conectar Vercel Postgres con el esquema Prisma existente.
-- [ ] El agente (`agente.html`) no guarda nada en el servidor; conectar "guardar cotización" con el API.
+## Fases posteriores (fuera de la fase 1 según PLAN.md)
+- [ ] Lectura automática del KMZ y estimación de postes desde el trazado.
+- [ ] Comprobaciones geométricas.
 
-## Presupuesto (paso 5)
-- [ ] Reemplazar las 2 entradas DEMO de `public/precios_negociados.json` por precios reales por ítem (código 1.1 … 10.1).
-- [ ] Reemplazar los % A/I/U genéricos (10/5/5) por la política interna de márgenes y contingencia.
-- [ ] Mano de obra e instalación: hoy es un valor global manual; definir si se desglosa por actividad.
-- [ ] Indicadores VAN / TIR / ROI y flujo de caja (según Agente_1_Borrador_Cotizacion.docx).
-
-## Funcional (según Agente_1_Borrador_Cotizacion.docx)
+## Agente RFQ (agente.html)
+- [ ] Reemplazar las 2 entradas DEMO de `public/precios_negociados.json`.
+- [ ] Reemplazar los % A/I/U genéricos (10/5/5) por la política interna.
 - [ ] Módulo legal: checklist normativo (RETIE, CREG, ANLA) por tipo de contratación.
-- [ ] Consolidación y exportación del borrador — definir formato (Word, Excel o ambos).
-- [ ] Rama de implementación (cronograma, comisionamiento, garantías).
-- [ ] Mecanismo de retroalimentación desde el Agente 2 tras adjudicación.
-- [ ] CELSIA, ElectroHuila y Enerca: definir familias/calibres en `OPERADORES_TIPOS` (agente.html) para activarlos.
+- [ ] CELSIA, ElectroHuila y Enerca: definir familias/calibres en `OPERADORES_TIPOS`.

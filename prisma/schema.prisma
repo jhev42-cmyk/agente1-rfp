@@ -1,61 +1,180 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// Esquema del módulo de líneas (configuración de postes y cotización por trayectos).
+// Los usuarios viven en app/lib/auth.ts; aquí se guarda su correo en los registros de auditoría.
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DATABASE_URL_UNPOOLED")
 }
 
-model User {
-  id        Int     @id @default(autoincrement())
-  email     String  @unique
-  password  String
-  name      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+// ─── Catálogo central ────────────────────────────────────────────────────────
 
-  quotations Quotation[]
+model Material {
+  codigo      String  @id // código del catálogo de materiales (1.1 … 10.1)
+  descripcion String
+  unidad      String
+  categoria   String
+
+  precios Precio[]
 }
 
-model Quotation {
-  id        Int     @id @default(autoincrement())
-  userId    Int
-  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+// Cada fila es una versión inmutable de una norma. Cambiar materiales crea una versión nueva;
+// los postes siguen apuntando a la versión con la que se configuraron.
+model Norma {
+  id          Int      @id @default(autoincrement())
+  operador    String // EPM, ENEL
+  codigo      String // RA2-101, LA 101 …
+  version     Int
+  tipoPoste   String
+  descripcion String
+  vigente     Boolean  @default(true) // false cuando existe una versión posterior
+  imagen      Bytes?
+  imagenTipo  String?
+  creadoPor   String
+  motivo      String
+  createdAt   DateTime @default(now())
 
-  // Datos del proyecto
-  codigoCotizacion  String
-  nombreProyecto    String
-  empresaSolicitante String
-  respNombreCargo   String
-  respEmail         String
-  respTelefono      String
-  ccInterno         String?
-  lugarEntrega      String
-  fechaLimite       String
-  reunionAclaraciones String?
+  configuraciones NormaConfiguracion[]
+  postes          Poste[]
 
-  // Parámetros técnicos
-  kv                Int
-  km                Float
-  tipoCableado      String
-  calibreCableado   String
-  holgura           Float
-  depto             String
-  operadorLinea     String
-  cliente           String
-  alcance           String
+  @@unique([operador, codigo, version])
+  @@index([operador, vigente])
+}
 
-  // Módulos (JSON)
-  modulos           Json
+model NormaConfiguracion {
+  id      Int    @id @default(autoincrement())
+  normaId Int
+  norma   Norma  @relation(fields: [normaId], references: [id], onDelete: Cascade)
+  nombre  String
+  orden   Int    @default(0)
 
-  // Exportación
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  materiales ConfiguracionMaterial[]
+  postes     Poste[]
+}
 
-  @@index([userId])
-  @@index([codigoCotizacion])
+model ConfiguracionMaterial {
+  id              Int                @id @default(autoincrement())
+  configuracionId Int
+  configuracion   NormaConfiguracion @relation(fields: [configuracionId], references: [id], onDelete: Cascade)
+  codigoMaterial  String
+  cantidad        Float
+  observacion     String?
+}
+
+// Precios importados desde Excel/CSV. Nunca se editan: cada importación agrega filas.
+// El precio vigente de un material es el de la importación más reciente.
+model Precio {
+  id             Int      @id @default(autoincrement())
+  codigoMaterial String
+  material       Material @relation(fields: [codigoMaterial], references: [codigo])
+  precioUnitario Float
+  proveedor      String?
+  lote           String // identificador de la importación
+  importadoPor   String
+  motivo         String
+  createdAt      DateTime @default(now())
+
+  @@index([codigoMaterial, createdAt])
+}
+
+// ─── Líneas ──────────────────────────────────────────────────────────────────
+
+enum EstadoLinea {
+  BORRADOR
+  EN_REVISION
+  APROBADA
+}
+
+model Linea {
+  id          Int         @id @default(autoincrement())
+  grupo       String // identifica todas las revisiones de la misma línea
+  revision    Int         @default(1)
+  nombre      String
+  longitudKm  Float
+  operador    String
+  estado      EstadoLinea @default(BORRADOR)
+  kmzNombre   String?
+  kmz         Bytes?
+  creadoPor   String
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  aprobadaPor String?
+  aprobadaAt  DateTime?
+  // Cotización congelada al aprobar: materiales, versiones de norma y precios usados.
+  snapshot    Json?
+
+  trayectos Trayecto[]
+  postes    Poste[]
+  partidas  Partida[]
+  auditoria Auditoria[]
+
+  @@unique([grupo, revision])
+}
+
+model Trayecto {
+  id             Int   @id @default(autoincrement())
+  lineaId        Int
+  linea          Linea @relation(fields: [lineaId], references: [id], onDelete: Cascade)
+  numero         Int // 1 … 10
+  cantidadPostes Int   @default(0)
+
+  postes Poste[]
+
+  @@unique([lineaId, numero])
+}
+
+model Poste {
+  id              Int                 @id @default(autoincrement())
+  lineaId         Int
+  linea           Linea               @relation(fields: [lineaId], references: [id], onDelete: Cascade)
+  trayectoId      Int
+  trayecto        Trayecto            @relation(fields: [trayectoId], references: [id], onDelete: Cascade)
+  numero          Int // consecutivo dentro del trayecto
+  codigo          String // T01-P001
+  normaId         Int?
+  norma           Norma?              @relation(fields: [normaId], references: [id])
+  configuracionId Int?
+  configuracion   NormaConfiguracion? @relation(fields: [configuracionId], references: [id])
+
+  @@unique([trayectoId, numero])
+  @@index([lineaId])
+}
+
+enum TipoPartida {
+  MATERIAL // material del catálogo con cantidad manual (ej. conductor); precio del catálogo
+  MANO_OBRA
+  TRANSPORTE
+  INDIRECTO
+}
+
+model Partida {
+  id             Int         @id @default(autoincrement())
+  lineaId        Int
+  linea          Linea       @relation(fields: [lineaId], references: [id], onDelete: Cascade)
+  tipo           TipoPartida
+  codigoMaterial String?
+  descripcion    String
+  unidad         String
+  cantidad       Float
+  precioUnitario Float? // solo partidas que no son material; los materiales toman el precio del catálogo
+}
+
+model Auditoria {
+  id            Int      @id @default(autoincrement())
+  lineaId       Int?
+  linea         Linea?   @relation(fields: [lineaId], references: [id], onDelete: Cascade)
+  entidad       String // linea, trayecto, poste, partida, norma, precio
+  entidadId     String
+  accion        String
+  valorAnterior String?
+  valorNuevo    String?
+  motivo        String
+  usuario       String
+  fecha         DateTime @default(now())
+
+  @@index([lineaId, fecha])
 }

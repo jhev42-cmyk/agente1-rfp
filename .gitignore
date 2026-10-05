@@ -45,3 +45,6 @@ prisma/.env
 
 # TypeScript
 *.tsbuildinfo
+.vercel
+.env*
+!.env.example

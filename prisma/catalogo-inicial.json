@@ -1,0 +1,2357 @@
+{
+  "materiales": [
+    {
+      "codigo": "1.1",
+      "descripcion": "Postes de Concreto Armado / Pretensado o PRFV (10 m, 12 m, 14 m, 16 m × 510 kgf a 4000 kgf)",
+      "unidad": "UN",
+      "categoria": "I. ESTRUCTURA Y SOPORTE PRINCIPAL"
+    },
+    {
+      "codigo": "1.2",
+      "descripcion": "Cruceta metálica angular (L 75×75×6 mm o 2\"×2\"×1/4\", longitud 2.0 m, 2.5 m, 3.6 m)",
+      "unidad": "UN",
+      "categoria": "I. ESTRUCTURA Y SOPORTE PRINCIPAL"
+    },
+    {
+      "codigo": "1.3",
+      "descripcion": "Cruceta reforzada perfil Canal C (100×50×5 mm o 4\", longitud 2.5 m / 3.0 m)",
+      "unidad": "UN",
+      "categoria": "I. ESTRUCTURA Y SOPORTE PRINCIPAL"
+    },
+    {
+      "codigo": "1.4",
+      "descripcion": "Diagonales angulares metálicas en V / Pieamigos (L 38×38×4.8 mm, long. 1.0 m / 2.4 m)",
+      "unidad": "UN",
+      "categoria": "I. ESTRUCTURA Y SOPORTE PRINCIPAL"
+    },
+    {
+      "codigo": "1.5",
+      "descripcion": "Soporte / puntera metálica para montaje de Cutout y DPS",
+      "unidad": "JGO",
+      "categoria": "I. ESTRUCTURA Y SOPORTE PRINCIPAL"
+    },
+    {
+      "codigo": "2.1",
+      "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100 mm - 4\" a 300 mm - 12\")",
+      "unidad": "UN",
+      "categoria": "II. ABRAZADERAS Y COLLARINES"
+    },
+    {
+      "codigo": "2.2",
+      "descripcion": "Abrazadera de pletina para fijación de bajada de tubería conduit",
+      "unidad": "UN",
+      "categoria": "II. ABRAZADERAS Y COLLARINES"
+    },
+    {
+      "codigo": "3.1",
+      "descripcion": "Pernos de máquina 5/8\" × 10\" / 12\" / 14\" / 16\" con rosca continua",
+      "unidad": "UN",
+      "categoria": "III. TORNILLERÍA Y ELEMENTOS ROSCADOS (GALVANIZADOS EN CALIENTE)"
+    },
+    {
+      "codigo": "3.2",
+      "descripcion": "Pernos de ojo pasantes 5/8\" × 10\" / 12\" / 14\" con rosca",
+      "unidad": "UN",
+      "categoria": "III. TORNILLERÍA Y ELEMENTOS ROSCADOS (GALVANIZADOS EN CALIENTE)"
+    },
+    {
+      "codigo": "3.3",
+      "descripcion": "Pernos espigo para aislador tipo PIN (5/8\" × 7\" o espigo largo)",
+      "unidad": "UN",
+      "categoria": "III. TORNILLERÍA Y ELEMENTOS ROSCADOS (GALVANIZADOS EN CALIENTE)"
+    },
+    {
+      "codigo": "3.4",
+      "descripcion": "Tuercas hexagonales de acero 5/8\" y contratuercas de seguridad",
+      "unidad": "UN",
+      "categoria": "III. TORNILLERÍA Y ELEMENTOS ROSCADOS (GALVANIZADOS EN CALIENTE)"
+    },
+    {
+      "codigo": "3.5",
+      "descripcion": "Tuercas de ojo / Ojos giratorios de 5/8\"",
+      "unidad": "UN",
+      "categoria": "III. TORNILLERÍA Y ELEMENTOS ROSCADOS (GALVANIZADOS EN CALIENTE)"
+    },
+    {
+      "codigo": "3.6",
+      "descripcion": "Arandelas cuadradas planas/curvas de acero 5/8\" × 4\" × 4\" × 3/16\" (o 2\" × 2\")",
+      "unidad": "UN",
+      "categoria": "III. TORNILLERÍA Y ELEMENTOS ROSCADOS (GALVANIZADOS EN CALIENTE)"
+    },
+    {
+      "codigo": "3.7",
+      "descripcion": "Arandelas de presión (Guasa) de 5/8\"",
+      "unidad": "UN",
+      "categoria": "III. TORNILLERÍA Y ELEMENTOS ROSCADOS (GALVANIZADOS EN CALIENTE)"
+    },
+    {
+      "codigo": "4.1",
+      "descripcion": "Aisladores tipo PIN / Line Post poliméricos o porcelana (15 kV / 35 kV / 46 kV)",
+      "unidad": "UN",
+      "categoria": "IV. AISLAMIENTO Y HERRAJES DE CADENA"
+    },
+    {
+      "codigo": "4.2",
+      "descripcion": "Aisladores poliméricos tipo Tensor/Suspensión (15 kV / 35 kV / 46 kV, 70 kN / 120 kN)",
+      "unidad": "UN",
+      "categoria": "IV. AISLAMIENTO Y HERRAJES DE CADENA"
+    },
+    {
+      "codigo": "4.3",
+      "descripcion": "Eslabones de extensión / Clevis / Grilletes de acople",
+      "unidad": "UN",
+      "categoria": "IV. AISLAMIENTO Y HERRAJES DE CADENA"
+    },
+    {
+      "codigo": "5.1",
+      "descripcion": "Grapas de retención tipo pistola de aluminio (3-4 pernos / cuña)",
+      "unidad": "UN",
+      "categoria": "V. SUJECIÓN, RETENCIÓN Y PROTECCIÓN DEL CONDUCTOR"
+    },
+    {
+      "codigo": "5.2",
+      "descripcion": "Grapas de suspensión basculante para ángulo",
+      "unidad": "UN",
+      "categoria": "V. SUJECIÓN, RETENCIÓN Y PROTECCIÓN DEL CONDUCTOR"
+    },
+    {
+      "codigo": "5.3",
+      "descripcion": "Amarres preformados / helicoidales para PIN / Line Post",
+      "unidad": "UN",
+      "categoria": "V. SUJECIÓN, RETENCIÓN Y PROTECCIÓN DEL CONDUCTOR"
+    },
+    {
+      "codigo": "5.4",
+      "descripcion": "Cinta de armar de aluminio / Varillas de Armar (Armor Rods)",
+      "unidad": "RLL",
+      "categoria": "V. SUJECIÓN, RETENCIÓN Y PROTECCIÓN DEL CONDUCTOR"
+    },
+    {
+      "codigo": "6.1",
+      "descripcion": "Cortacircuitos (Cutout) monopolares 15 kV / 27 kV / 38 kV (100 A)",
+      "unidad": "UN",
+      "categoria": "VI. EQUIPOS DE PROTECCIÓN, MANIOBRA Y TRANSICIÓN"
+    },
+    {
+      "codigo": "6.2",
+      "descripcion": "Fusibles tipo chicote / hilo de fusión rápida/lenta (1 A - 100 A)",
+      "unidad": "UN",
+      "categoria": "VI. EQUIPOS DE PROTECCIÓN, MANIOBRA Y TRANSICIÓN"
+    },
+    {
+      "codigo": "6.3",
+      "descripcion": "Descargadores de sobretensión (DPS) ZnO (12 kV / 27 kV / 36 kV - 10 kA)",
+      "unidad": "UN",
+      "categoria": "VI. EQUIPOS DE PROTECCIÓN, MANIOBRA Y TRANSICIÓN"
+    },
+    {
+      "codigo": "6.4",
+      "descripcion": "Kit de terminales termocontraíbles intemperie (3 fases)",
+      "unidad": "JGO",
+      "categoria": "VI. EQUIPOS DE PROTECCIÓN, MANIOBRA Y TRANSICIÓN"
+    },
+    {
+      "codigo": "7.1",
+      "descripcion": "Varilla de anclaje con ojo para viento 3/4\" × 2.4 m con platina",
+      "unidad": "UN",
+      "categoria": "VII. RETENIDAS (VIENTOS) Y ANCLAJES"
+    },
+    {
+      "codigo": "7.2",
+      "descripcion": "Bloque de anclaje en concreto reforzado (o ancla expansiva)",
+      "unidad": "UN",
+      "categoria": "VII. RETENIDAS (VIENTOS) Y ANCLAJES"
+    },
+    {
+      "codigo": "7.3",
+      "descripcion": "Cable de acero galvanizado EHS 5/16\" o 3/8\" para viento",
+      "unidad": "MET",
+      "categoria": "VII. RETENIDAS (VIENTOS) Y ANCLAJES"
+    },
+    {
+      "codigo": "7.4",
+      "descripcion": "Tensor metálico galvanizado con ojo y gancho (5/8\")",
+      "unidad": "UN",
+      "categoria": "VII. RETENIDAS (VIENTOS) Y ANCLAJES"
+    },
+    {
+      "codigo": "7.5",
+      "descripcion": "Preformados de retenida / Guardacabos y grapas prensacables",
+      "unidad": "JGO",
+      "categoria": "VII. RETENIDAS (VIENTOS) Y ANCLAJES"
+    },
+    {
+      "codigo": "7.6",
+      "descripcion": "Aislador de retenida tipo nuez o polimérico (15 kV / 34.5 kV)",
+      "unidad": "UN",
+      "categoria": "VII. RETENIDAS (VIENTOS) Y ANCLAJES"
+    },
+    {
+      "codigo": "7.7",
+      "descripcion": "Protector tubular plástico (Camisa/Manguera amarilla de señalización)",
+      "unidad": "UN",
+      "categoria": "VII. RETENIDAS (VIENTOS) Y ANCLAJES"
+    },
+    {
+      "codigo": "8.1",
+      "descripcion": "Varilla de puesta a tierra Copperweld 5/8\" × 2.4 m",
+      "unidad": "UN",
+      "categoria": "VIII. SISTEMA DE PUESTA A TIERRA (SPT)"
+    },
+    {
+      "codigo": "8.2",
+      "descripcion": "Conductor de bajada (Copperclad Steel 7×No 8 - 58.56 mm², Cu #2 AWG o Cinta de Cobre)",
+      "unidad": "MET",
+      "categoria": "VIII. SISTEMA DE PUESTA A TIERRA (SPT)"
+    },
+    {
+      "codigo": "8.3",
+      "descripcion": "Conector bimetálico / perno partido / soldadura exotérmica para varilla",
+      "unidad": "UN",
+      "categoria": "VIII. SISTEMA DE PUESTA A TIERRA (SPT)"
+    },
+    {
+      "codigo": "8.4",
+      "descripcion": "Grapas de fijación / abrazaderas metálicas para bajante de tierra en poste",
+      "unidad": "UN",
+      "categoria": "VIII. SISTEMA DE PUESTA A TIERRA (SPT)"
+    },
+    {
+      "codigo": "9.1",
+      "descripcion": "Conectores de compresión (C-Tap / H-Tap / Cuña bimetálicos)",
+      "unidad": "UN",
+      "categoria": "IX. CONECTÓRICA Y ACCESORIOS DE CONEXIÓN"
+    },
+    {
+      "codigo": "9.2",
+      "descripcion": "Estribos de línea con conector de cuña (para punto de mantenimiento)",
+      "unidad": "UN",
+      "categoria": "IX. CONECTÓRICA Y ACCESORIOS DE CONEXIÓN"
+    },
+    {
+      "codigo": "9.3",
+      "descripcion": "Grapas de operar en caliente (GOC) en bronce/aluminio",
+      "unidad": "UN",
+      "categoria": "IX. CONECTÓRICA Y ACCESORIOS DE CONEXIÓN"
+    },
+    {
+      "codigo": "10.1",
+      "descripcion": "Conductores Aéreos MT (ACSR, AAC, AAAC, Ecológico / Semiaislado XLPE-HDPE, 1/0 AWG a 500 kcmil)",
+      "unidad": "MET",
+      "categoria": "X. CONDUCTORES AÉREOS DE MEDIA TENSIÓN"
+    }
+  ],
+  "normas": [
+    {
+      "operador": "EPM",
+      "codigo": "RA2-201",
+      "tipoPoste": "Transición aérea-subterránea / Terminal / Protección (Salida hacia ramal, reconectador o seccionador)",
+      "descripcion": "Configuración C1 — Transición aérea-subterránea / Terminal / Protección (Salida hacia ramal, reconectador o seccionador)",
+      "configuraciones": [
+        {
+          "nombre": "C1 estándar",
+          "materiales": [
+            {
+              "codigoMaterial": "1.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "1.2",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "1.4",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "1.5",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "2.1",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "2.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.1",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "3.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.4",
+              "cantidad": 18
+            },
+            {
+              "codigoMaterial": "3.5",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.6",
+              "cantidad": 12
+            },
+            {
+              "codigoMaterial": "3.7",
+              "cantidad": 18
+            },
+            {
+              "codigoMaterial": "4.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "4.3",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "5.1",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "6.1",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "6.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "6.3",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "6.4",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.2",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.3",
+              "cantidad": 15
+            },
+            {
+              "codigoMaterial": "7.4",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.5",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "7.6",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.7",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.2",
+              "cantidad": 16,
+              "observacion": "Rango en la fuente: 12 a16; se toma el límite superior"
+            },
+            {
+              "codigoMaterial": "8.3",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.4",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "9.1",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "9.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "9.3",
+              "cantidad": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "EPM",
+      "codigo": "RA7-013",
+      "tipoPoste": "Transición aérea-subterránea / Terminal / Protección (Salida hacia ramal, reconectador o seccionador)",
+      "descripcion": "Configuración C1 — Transición aérea-subterránea / Terminal / Protección (Salida hacia ramal, reconectador o seccionador)",
+      "configuraciones": [
+        {
+          "nombre": "C1 estándar",
+          "materiales": [
+            {
+              "codigoMaterial": "1.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "1.2",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "1.4",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "1.5",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "2.1",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "2.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.1",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "3.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.4",
+              "cantidad": 18
+            },
+            {
+              "codigoMaterial": "3.5",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.6",
+              "cantidad": 12
+            },
+            {
+              "codigoMaterial": "3.7",
+              "cantidad": 18
+            },
+            {
+              "codigoMaterial": "4.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "4.3",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "5.1",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "6.1",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "6.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "6.3",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "6.4",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.2",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.3",
+              "cantidad": 15
+            },
+            {
+              "codigoMaterial": "7.4",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.5",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "7.6",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.7",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.2",
+              "cantidad": 16,
+              "observacion": "Rango en la fuente: 12 a16; se toma el límite superior"
+            },
+            {
+              "codigoMaterial": "8.3",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.4",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "9.1",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "9.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "9.3",
+              "cantidad": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "EPM",
+      "codigo": "RA2-001",
+      "tipoPoste": "Suspensión Tangente (α<5°)",
+      "descripcion": "Configuración C2 — Suspensión Tangente (α<5°)",
+      "configuraciones": [
+        {
+          "nombre": "C2 estándar",
+          "materiales": [
+            {
+              "codigoMaterial": "1.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "1.2",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "1.4",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "2.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "3.1",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.3",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.4",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "3.6",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "3.7",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "4.1",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "5.3",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "5.4",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.2",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.3",
+              "cantidad": 15
+            },
+            {
+              "codigoMaterial": "7.4",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.5",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "7.6",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.7",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.2",
+              "cantidad": 16,
+              "observacion": "Rango en la fuente: 12 a16; se toma el límite superior"
+            },
+            {
+              "codigoMaterial": "8.3",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.4",
+              "cantidad": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "EPM",
+      "codigo": "RA2-101",
+      "tipoPoste": "Suspensión Tangente (α<5°)",
+      "descripcion": "Configuración C2 — Suspensión Tangente (α<5°)",
+      "configuraciones": [
+        {
+          "nombre": "C2 estándar",
+          "materiales": [
+            {
+              "codigoMaterial": "1.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "1.2",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "1.4",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "2.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "3.1",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.3",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.4",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "3.6",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "3.7",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "4.1",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "5.3",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "5.4",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.2",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.3",
+              "cantidad": 15
+            },
+            {
+              "codigoMaterial": "7.4",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.5",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "7.6",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.7",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.2",
+              "cantidad": 16,
+              "observacion": "Rango en la fuente: 12 a16; se toma el límite superior"
+            },
+            {
+              "codigoMaterial": "8.3",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.4",
+              "cantidad": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "EPM",
+      "codigo": "RA2-102",
+      "tipoPoste": "Suspensión / Retención (5°≤ α <30°)",
+      "descripcion": "Configuración C3 — Suspensión / Retención (5°≤ α <30°)",
+      "configuraciones": [
+        {
+          "nombre": "C3 estándar",
+          "materiales": [
+            {
+              "codigoMaterial": "1.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "1.2",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "1.4",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "2.1",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "3.1",
+              "cantidad": 5
+            },
+            {
+              "codigoMaterial": "3.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.3",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.4",
+              "cantidad": 16
+            },
+            {
+              "codigoMaterial": "3.5",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.6",
+              "cantidad": 10
+            },
+            {
+              "codigoMaterial": "3.7",
+              "cantidad": 11
+            },
+            {
+              "codigoMaterial": "4.1",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "4.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "4.3",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "5.1",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "5.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "5.3",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "5.4",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.2",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.3",
+              "cantidad": 15
+            },
+            {
+              "codigoMaterial": "7.4",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.5",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "7.6",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.7",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.2",
+              "cantidad": 16,
+              "observacion": "Rango en la fuente: 12 a16; se toma el límite superior"
+            },
+            {
+              "codigoMaterial": "8.3",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.4",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "9.1",
+              "cantidad": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "EPM",
+      "codigo": "RA2-103",
+      "tipoPoste": "Suspensión / Retención (5°≤ α <30°)",
+      "descripcion": "Configuración C3 — Suspensión / Retención (5°≤ α <30°)",
+      "configuraciones": [
+        {
+          "nombre": "C3 estándar",
+          "materiales": [
+            {
+              "codigoMaterial": "1.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "1.2",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "1.4",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "2.1",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "3.1",
+              "cantidad": 5
+            },
+            {
+              "codigoMaterial": "3.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.3",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.4",
+              "cantidad": 16
+            },
+            {
+              "codigoMaterial": "3.5",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.6",
+              "cantidad": 10
+            },
+            {
+              "codigoMaterial": "3.7",
+              "cantidad": 11
+            },
+            {
+              "codigoMaterial": "4.1",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "4.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "4.3",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "5.1",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "5.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "5.3",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "5.4",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.2",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.3",
+              "cantidad": 15
+            },
+            {
+              "codigoMaterial": "7.4",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.5",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "7.6",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.7",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.2",
+              "cantidad": 16,
+              "observacion": "Rango en la fuente: 12 a16; se toma el límite superior"
+            },
+            {
+              "codigoMaterial": "8.3",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.4",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "9.1",
+              "cantidad": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "EPM",
+      "codigo": "RA2-104",
+      "tipoPoste": "Retención Ángulo (30°< α <60°)",
+      "descripcion": "Configuración C4 — Retención Ángulo (30°< α <60°)",
+      "configuraciones": [
+        {
+          "nombre": "C4 estándar",
+          "materiales": [
+            {
+              "codigoMaterial": "1.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "1.2",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "1.4",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "2.1",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "3.1",
+              "cantidad": 8
+            },
+            {
+              "codigoMaterial": "3.2",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "3.4",
+              "cantidad": 24
+            },
+            {
+              "codigoMaterial": "3.5",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "3.6",
+              "cantidad": 16
+            },
+            {
+              "codigoMaterial": "3.7",
+              "cantidad": 24
+            },
+            {
+              "codigoMaterial": "4.2",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "4.3",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "5.1",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "7.1",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "7.2",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "7.3",
+              "cantidad": 30
+            },
+            {
+              "codigoMaterial": "7.4",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "7.5",
+              "cantidad": 8
+            },
+            {
+              "codigoMaterial": "7.6",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "7.7",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "8.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.2",
+              "cantidad": 16,
+              "observacion": "Rango en la fuente: 12 a16; se toma el límite superior"
+            },
+            {
+              "codigoMaterial": "8.3",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.4",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "9.1",
+              "cantidad": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "EPM",
+      "codigo": "RA2-105",
+      "tipoPoste": "Doble Retención (α =60° a 90°)",
+      "descripcion": "Configuración C5 — Doble Retención (α =60° a 90°)",
+      "configuraciones": [
+        {
+          "nombre": "C5 estándar",
+          "materiales": [
+            {
+              "codigoMaterial": "1.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "1.3",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "1.4",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "2.1",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.1",
+              "cantidad": 10
+            },
+            {
+              "codigoMaterial": "3.2",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "3.4",
+              "cantidad": 28
+            },
+            {
+              "codigoMaterial": "3.5",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "3.6",
+              "cantidad": 20
+            },
+            {
+              "codigoMaterial": "3.7",
+              "cantidad": 28
+            },
+            {
+              "codigoMaterial": "4.2",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "4.3",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "5.1",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "7.1",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "7.2",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.3",
+              "cantidad": 30
+            },
+            {
+              "codigoMaterial": "7.4",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "7.5",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "7.6",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "7.7",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.2",
+              "cantidad": 12
+            },
+            {
+              "codigoMaterial": "8.3",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.4",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "9.1",
+              "cantidad": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "EPM",
+      "codigo": "RA2-106",
+      "tipoPoste": "Doble Retención (α =60° a 90°)",
+      "descripcion": "Configuración C5 — Doble Retención (α =60° a 90°)",
+      "configuraciones": [
+        {
+          "nombre": "C5 estándar",
+          "materiales": [
+            {
+              "codigoMaterial": "1.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "1.3",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "1.4",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "2.1",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.1",
+              "cantidad": 10
+            },
+            {
+              "codigoMaterial": "3.2",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "3.4",
+              "cantidad": 28
+            },
+            {
+              "codigoMaterial": "3.5",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "3.6",
+              "cantidad": 20
+            },
+            {
+              "codigoMaterial": "3.7",
+              "cantidad": 28
+            },
+            {
+              "codigoMaterial": "4.2",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "4.3",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "5.1",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "7.1",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "7.2",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.3",
+              "cantidad": 30
+            },
+            {
+              "codigoMaterial": "7.4",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "7.5",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "7.6",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "7.7",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.2",
+              "cantidad": 12
+            },
+            {
+              "codigoMaterial": "8.3",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.4",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "9.1",
+              "cantidad": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "ENEL",
+      "codigo": "LA 165",
+      "tipoPoste": "Transición aérea-subterránea / Terminal / Protección (Salida hacia ramal, reconectador o seccionador)",
+      "descripcion": "Configuración C1 — Transición aérea-subterránea / Terminal / Protección (Salida hacia ramal, reconectador o seccionador)",
+      "configuraciones": [
+        {
+          "nombre": "C1 estándar",
+          "materiales": [
+            {
+              "codigoMaterial": "1.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "1.2",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "1.4",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "1.5",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "2.1",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "2.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.1",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "3.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.4",
+              "cantidad": 18
+            },
+            {
+              "codigoMaterial": "3.5",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.6",
+              "cantidad": 12
+            },
+            {
+              "codigoMaterial": "3.7",
+              "cantidad": 18
+            },
+            {
+              "codigoMaterial": "4.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "4.3",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "5.1",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "6.1",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "6.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "6.3",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "6.4",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.2",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.3",
+              "cantidad": 15
+            },
+            {
+              "codigoMaterial": "7.4",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.5",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "7.6",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.7",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.2",
+              "cantidad": 16,
+              "observacion": "Rango en la fuente: 12 a16; se toma el límite superior"
+            },
+            {
+              "codigoMaterial": "8.3",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.4",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "9.1",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "9.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "9.3",
+              "cantidad": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "ENEL",
+      "codigo": "LA 655",
+      "tipoPoste": "Transición aérea-subterránea / Terminal / Protección (Salida hacia ramal, reconectador o seccionador)",
+      "descripcion": "Configuración C1 — Transición aérea-subterránea / Terminal / Protección (Salida hacia ramal, reconectador o seccionador)",
+      "configuraciones": [
+        {
+          "nombre": "C1 estándar",
+          "materiales": [
+            {
+              "codigoMaterial": "1.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "1.2",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "1.4",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "1.5",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "2.1",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "2.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.1",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "3.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.4",
+              "cantidad": 18
+            },
+            {
+              "codigoMaterial": "3.5",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.6",
+              "cantidad": 12
+            },
+            {
+              "codigoMaterial": "3.7",
+              "cantidad": 18
+            },
+            {
+              "codigoMaterial": "4.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "4.3",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "5.1",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "6.1",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "6.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "6.3",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "6.4",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.2",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.3",
+              "cantidad": 15
+            },
+            {
+              "codigoMaterial": "7.4",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.5",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "7.6",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.7",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.2",
+              "cantidad": 16,
+              "observacion": "Rango en la fuente: 12 a16; se toma el límite superior"
+            },
+            {
+              "codigoMaterial": "8.3",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.4",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "9.1",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "9.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "9.3",
+              "cantidad": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "ENEL",
+      "codigo": "LA 010",
+      "tipoPoste": "Suspensión Tangente (α<5°)",
+      "descripcion": "Configuración C2 — Suspensión Tangente (α<5°)",
+      "configuraciones": [
+        {
+          "nombre": "C2 estándar",
+          "materiales": [
+            {
+              "codigoMaterial": "1.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "1.2",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "1.4",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "2.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "3.1",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.3",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.4",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "3.6",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "3.7",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "4.1",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "5.3",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "5.4",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.2",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.3",
+              "cantidad": 15
+            },
+            {
+              "codigoMaterial": "7.4",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.5",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "7.6",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.7",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.2",
+              "cantidad": 16,
+              "observacion": "Rango en la fuente: 12 a16; se toma el límite superior"
+            },
+            {
+              "codigoMaterial": "8.3",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.4",
+              "cantidad": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "ENEL",
+      "codigo": "LA 101",
+      "tipoPoste": "Suspensión Tangente (α<5°)",
+      "descripcion": "Configuración C2 — Suspensión Tangente (α<5°)",
+      "configuraciones": [
+        {
+          "nombre": "C2 estándar",
+          "materiales": [
+            {
+              "codigoMaterial": "1.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "1.2",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "1.4",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "2.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "3.1",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.3",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.4",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "3.6",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "3.7",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "4.1",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "5.3",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "5.4",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.2",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.3",
+              "cantidad": 15
+            },
+            {
+              "codigoMaterial": "7.4",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.5",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "7.6",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.7",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.2",
+              "cantidad": 16,
+              "observacion": "Rango en la fuente: 12 a16; se toma el límite superior"
+            },
+            {
+              "codigoMaterial": "8.3",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.4",
+              "cantidad": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "ENEL",
+      "codigo": "LA 102",
+      "tipoPoste": "Suspensión / Retención (5°≤ α <30°)",
+      "descripcion": "Configuración C3 — Suspensión / Retención (5°≤ α <30°)",
+      "configuraciones": [
+        {
+          "nombre": "C3 estándar",
+          "materiales": [
+            {
+              "codigoMaterial": "1.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "1.2",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "1.4",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "2.1",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "3.1",
+              "cantidad": 5
+            },
+            {
+              "codigoMaterial": "3.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.3",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.4",
+              "cantidad": 16
+            },
+            {
+              "codigoMaterial": "3.5",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.6",
+              "cantidad": 10
+            },
+            {
+              "codigoMaterial": "3.7",
+              "cantidad": 11
+            },
+            {
+              "codigoMaterial": "4.1",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "4.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "4.3",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "5.1",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "5.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "5.3",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "5.4",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.2",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.3",
+              "cantidad": 15
+            },
+            {
+              "codigoMaterial": "7.4",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.5",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "7.6",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.7",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.2",
+              "cantidad": 16,
+              "observacion": "Rango en la fuente: 12 a16; se toma el límite superior"
+            },
+            {
+              "codigoMaterial": "8.3",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.4",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "9.1",
+              "cantidad": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "ENEL",
+      "codigo": "LA 103",
+      "tipoPoste": "Suspensión / Retención (5°≤ α <30°)",
+      "descripcion": "Configuración C3 — Suspensión / Retención (5°≤ α <30°)",
+      "configuraciones": [
+        {
+          "nombre": "C3 estándar",
+          "materiales": [
+            {
+              "codigoMaterial": "1.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "1.2",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "1.4",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "2.1",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "3.1",
+              "cantidad": 5
+            },
+            {
+              "codigoMaterial": "3.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.3",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.4",
+              "cantidad": 16
+            },
+            {
+              "codigoMaterial": "3.5",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.6",
+              "cantidad": 10
+            },
+            {
+              "codigoMaterial": "3.7",
+              "cantidad": 11
+            },
+            {
+              "codigoMaterial": "4.1",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "4.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "4.3",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "5.1",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "5.2",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "5.3",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "5.4",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.2",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.3",
+              "cantidad": 15
+            },
+            {
+              "codigoMaterial": "7.4",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.5",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "7.6",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.7",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.2",
+              "cantidad": 16,
+              "observacion": "Rango en la fuente: 12 a16; se toma el límite superior"
+            },
+            {
+              "codigoMaterial": "8.3",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.4",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "9.1",
+              "cantidad": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "ENEL",
+      "codigo": "LA 104",
+      "tipoPoste": "Retención Ángulo (30°< α <60°)",
+      "descripcion": "Configuración C4 — Retención Ángulo (30°< α <60°)",
+      "configuraciones": [
+        {
+          "nombre": "C4 estándar",
+          "materiales": [
+            {
+              "codigoMaterial": "1.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "1.2",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "1.4",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "2.1",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "3.1",
+              "cantidad": 8
+            },
+            {
+              "codigoMaterial": "3.2",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "3.4",
+              "cantidad": 24
+            },
+            {
+              "codigoMaterial": "3.5",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "3.6",
+              "cantidad": 16
+            },
+            {
+              "codigoMaterial": "3.7",
+              "cantidad": 24
+            },
+            {
+              "codigoMaterial": "4.2",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "4.3",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "5.1",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "7.1",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "7.2",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "7.3",
+              "cantidad": 30
+            },
+            {
+              "codigoMaterial": "7.4",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "7.5",
+              "cantidad": 8
+            },
+            {
+              "codigoMaterial": "7.6",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "7.7",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "8.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.2",
+              "cantidad": 16,
+              "observacion": "Rango en la fuente: 12 a16; se toma el límite superior"
+            },
+            {
+              "codigoMaterial": "8.3",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.4",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "9.1",
+              "cantidad": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "ENEL",
+      "codigo": "LA 105",
+      "tipoPoste": "Doble Retención (α =60° a 90°)",
+      "descripcion": "Configuración C5 — Doble Retención (α =60° a 90°)",
+      "configuraciones": [
+        {
+          "nombre": "C5 estándar",
+          "materiales": [
+            {
+              "codigoMaterial": "1.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "1.3",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "1.4",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "2.1",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "3.1",
+              "cantidad": 10
+            },
+            {
+              "codigoMaterial": "3.2",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "3.4",
+              "cantidad": 28
+            },
+            {
+              "codigoMaterial": "3.5",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "3.6",
+              "cantidad": 20
+            },
+            {
+              "codigoMaterial": "3.7",
+              "cantidad": 28
+            },
+            {
+              "codigoMaterial": "4.2",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "4.3",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "5.1",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "7.1",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "7.2",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.3",
+              "cantidad": 30
+            },
+            {
+              "codigoMaterial": "7.4",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "7.5",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "7.6",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "7.7",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.1",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.2",
+              "cantidad": 12
+            },
+            {
+              "codigoMaterial": "8.3",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "8.4",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "9.1",
+              "cantidad": 6
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -30,7 +30,7 @@ export default function LoginPage() {
       }
 
       localStorage.setItem('token', data.token)
-      router.push('/dashboard')
+      router.push('/lineas')
     } catch (err) {
       setError('Error al conectarse al servidor')
     } finally {
