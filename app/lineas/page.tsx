@@ -3,7 +3,8 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import Marco from '../components/Marco'
+import Marco, { useUsuario } from '../components/Marco'
+import { useDialogo } from '../components/Dialogo'
 import { api, ESTADO_LABEL, fecha, num } from '../lib/cliente'
 
 type FilaLinea = {
@@ -15,8 +16,14 @@ export default function LineasPage() {
   return <Marco><Lineas /></Marco>
 }
 
+type Eliminada = { id: number; entidadId: string; valorAnterior: string | null; motivo: string; usuario: string; fecha: string }
+
 function Lineas() {
   const router = useRouter()
+  const usuario = useUsuario()
+  const { pedir, elemento } = useDialogo()
+  const [eliminadas, setEliminadas] = useState<Eliminada[]>([])
+  const [ok, setOk] = useState('')
   const [lineas, setLineas] = useState<FilaLinea[] | null>(null)
   const [error, setError] = useState('')
   const [form, setForm] = useState({ nombre: '', longitudKm: '', operador: 'EPM' })
@@ -24,9 +31,33 @@ function Lineas() {
   const [guardando, setGuardando] = useState(false)
   const [verTodas, setVerTodas] = useState(false)
 
-  useEffect(() => {
-    api<FilaLinea[]>('/api/lineas').then(setLineas).catch((e) => setError(e.message))
-  }, [])
+  const cargar = () => Promise.all([
+    api<FilaLinea[]>('/api/lineas').then(setLineas),
+    api<Eliminada[]>('/api/lineas/eliminadas').then(setEliminadas),
+  ]).catch((e) => setError(e.message))
+
+  useEffect(() => { cargar() }, [])
+
+  const eliminar = async (l: FilaLinea) => {
+    setError(''); setOk('')
+    const revs = (lineas || []).filter((o) => o.grupo === l.grupo)
+    const motivo = await pedir({
+      titulo: `Eliminar "${l.nombre}"`,
+      mensaje: <>Se borrarán de forma permanente {revs.length > 1 ? `sus ${revs.length} revisiones` : 'la línea'}, con {l.postes} postes, partidas e historial. Esta acción no se puede deshacer; queda registrado quién la eliminó y por qué.</>,
+      lista: revs.length > 1 ? revs.map((r) => `Revisión ${r.revision} — ${ESTADO_LABEL[r.estado]}`) : undefined,
+      pedirMotivo: true, peligro: true, textoConfirmar: 'Eliminar definitivamente',
+    })
+    if (motivo === null) return
+    try {
+      await api(`/api/lineas/${l.id}`, { method: 'DELETE', body: { motivo } })
+      await cargar()
+      setOk(`Línea "${l.nombre}" eliminada.`)
+    } catch (e: any) { setError(e.message) }
+  }
+
+  // Una línea con alguna revisión aprobada solo la elimina un administrador.
+  const puedeEliminar = (l: FilaLinea) =>
+    usuario.role === 'admin' || !(lineas || []).some((o) => o.grupo === l.grupo && o.estado === 'APROBADA')
 
   const crear = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -98,7 +129,7 @@ function Lineas() {
           <div className="tabla-scroll">
             <table>
               <thead>
-                <tr><th>Línea</th><th>Rev.</th><th>Operador</th><th className="num">Longitud</th><th className="num">Postes</th><th>Pendientes</th><th>Estado</th><th>Actualizada</th></tr>
+                <tr><th>Línea</th><th>Rev.</th><th>Operador</th><th className="num">Longitud</th><th className="num">Postes</th><th>Pendientes</th><th>Estado</th><th>Actualizada</th><th></th></tr>
               </thead>
               <tbody>
                 {visibles.map((l) => (
@@ -111,13 +142,47 @@ function Lineas() {
                     <td>{l.pendientes ? <span className="etiqueta-pend">{l.pendientes}</span> : <span className="etiqueta-ok">0</span>}</td>
                     <td><span className={`estado estado-${l.estado}`}>{ESTADO_LABEL[l.estado]}</span></td>
                     <td className="muted">{fecha(l.updatedAt)}</td>
+                    <td>
+                      <button className="btn btn-sm btn-claro" disabled={!puedeEliminar(l)}
+                        title={puedeEliminar(l) ? 'Eliminar la línea y todas sus revisiones' : 'Tiene una revisión aprobada: solo un administrador puede eliminarla'}
+                        onClick={() => eliminar(l)}>Eliminar</button>
+                    </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
         )}
+        {ok && <div className="ok-box">{ok}</div>}
       </div>
+
+      {eliminadas.length > 0 && (
+        <div className="card">
+          <h2>Líneas eliminadas</h2>
+          <div className="sub">Registro de eliminaciones. Los datos de la línea ya no existen; se conserva el resumen, quién la eliminó y el motivo.</div>
+          <div className="tabla-scroll">
+            <table style={{ fontSize: 12.5 }}>
+              <thead><tr><th>Fecha</th><th>Línea</th><th>Detalle</th><th>Eliminada por</th><th>Motivo</th></tr></thead>
+              <tbody>
+                {eliminadas.map((e) => {
+                  let detalle = ''
+                  try {
+                    const d = JSON.parse(e.valorAnterior || '{}')
+                    detalle = `${d.operador} · ${(d.revisiones || []).map((r: any) => `rev. ${r.revision} ${ESTADO_LABEL[r.estado] || r.estado} (${r.postes} postes)`).join(', ')}`
+                  } catch { /* registro sin resumen */ }
+                  return (
+                    <tr key={e.id}>
+                      <td style={{ whiteSpace: 'nowrap' }}>{fecha(e.fecha)}</td><td>{e.entidadId}</td>
+                      <td className="muted">{detalle}</td><td>{e.usuario}</td><td>{e.motivo}</td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+      {elemento}
     </>
   )
 }

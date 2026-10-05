@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { HttpError, handler, parseId, requireUser } from '../../../lib/api'
 import { prisma } from '../../../lib/db'
-import { editarLinea, elegirModoAsignacion } from '../../../lib/lineas'
+import { editarLinea, elegirModoAsignacion, eliminarLinea } from '../../../lib/lineas'
 
 type Ctx = { params: { id: string } }
 
@@ -39,4 +39,11 @@ export const PATCH = handler(async (request, { params }: Ctx) => {
   if (modoAsignacion !== undefined) await elegirModoAsignacion(id, modoAsignacion, user.email)
   if (Object.keys(datos).some((k) => k !== 'motivo')) await editarLinea(id, datos, user.email)
   return NextResponse.json({ ok: true })
+})
+
+// Elimina la línea con todas sus revisiones. Requiere motivo.
+export const DELETE = handler(async (request, { params }: Ctx) => {
+  const user = requireUser(request)
+  const { motivo } = await request.json().catch(() => ({}))
+  return NextResponse.json(await eliminarLinea(parseId(params.id), motivo, user))
 })

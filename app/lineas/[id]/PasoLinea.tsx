@@ -1,6 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { useUsuario } from '../../components/Marco'
 import { api, descargar, fecha, num } from '../../lib/cliente'
 import { PropsPaso } from './tipos'
 
@@ -10,6 +12,24 @@ export default function PasoLinea({ linea, editable, recargar, pedir }: PropsPas
   const [kmz, setKmz] = useState<File | null>(null)
   const [error, setError] = useState('')
   const [ok, setOk] = useState('')
+  const router = useRouter()
+  const usuario = useUsuario()
+  const tieneAprobada = linea.revisiones.some((r) => r.estado === 'APROBADA')
+  const puedeEliminar = usuario.role === 'admin' || !tieneAprobada
+
+  const eliminar = async () => {
+    setError(''); setOk('')
+    const motivo = await pedir({
+      titulo: `Eliminar "${linea.nombre}"`,
+      mensaje: `Se borrarán de forma permanente ${linea.revisiones.length > 1 ? `sus ${linea.revisiones.length} revisiones` : 'la línea'}, con sus postes, partidas e historial. Esta acción no se puede deshacer; queda registrado quién la eliminó y por qué.`,
+      pedirMotivo: true, peligro: true, textoConfirmar: 'Eliminar definitivamente',
+    })
+    if (motivo === null) return
+    try {
+      await api(`/api/lineas/${linea.id}`, { method: 'DELETE', body: { motivo } })
+      router.push('/lineas')
+    } catch (e: any) { setError(e.message) }
+  }
   const totalPostes = linea.trayectos.reduce((a, t) => a + t.cantidadPostes, 0)
   const cambiado = nombre.trim() !== linea.nombre || Number(km) !== linea.longitudKm
 
@@ -83,6 +103,15 @@ export default function PasoLinea({ linea, editable, recargar, pedir }: PropsPas
       {error && <div className="error-box">{error}</div>}
       {ok && <div className="ok-box">{ok}</div>}
       <p className="muted" style={{ marginTop: 18 }}>Creada por {linea.creadoPor} el {fecha(linea.createdAt)}. Última actualización {fecha(linea.updatedAt)}.</p>
+
+      <div style={{ borderTop: '1px solid var(--border)', marginTop: 22, paddingTop: 16 }}>
+        <h3 style={{ color: '#8c1d18', fontSize: 15, margin: '0 0 4px' }}>Eliminar línea</h3>
+        <p className="muted" style={{ marginTop: 0 }}>
+          Para líneas que ya no se van a cotizar o que fueron de prueba. Borra todas las revisiones de forma permanente.
+          {!puedeEliminar && ' Esta línea tiene una revisión aprobada: solo un administrador puede eliminarla.'}
+        </p>
+        <button className="btn btn-sm btn-peligro" disabled={!puedeEliminar} onClick={eliminar}>Eliminar línea</button>
+      </div>
     </div>
   )
 }

@@ -463,3 +463,33 @@ export async function crearRevision(lineaId: number, motivoIn: unknown, usuario:
     return nueva
   }, { timeout: 30000 })
 }
+
+// Borra la línea completa (todas sus revisiones, postes, partidas e historial). Queda un registro de
+// auditoría sin línea asociada con el resumen de lo eliminado. Si alguna revisión está aprobada,
+// solo un administrador puede borrarla.
+export async function eliminarLinea(lineaId: number, motivoIn: unknown, usuario: { email: string; role: string }) {
+  const motivo = requireMotivo(motivoIn)
+  return prisma.$transaction(async (tx) => {
+    const linea = await tx.linea.findUnique({ where: { id: lineaId } })
+    if (!linea) throw new HttpError(404, 'Línea no encontrada')
+    const revisiones = await tx.linea.findMany({
+      where: { grupo: linea.grupo }, orderBy: { revision: 'asc' },
+      select: { id: true, revision: true, estado: true, _count: { select: { postes: true } } },
+    })
+    if (revisiones.some((r) => r.estado === EstadoLinea.APROBADA) && usuario.role !== 'admin') {
+      throw new HttpError(403, 'La línea tiene una revisión aprobada: solo un administrador puede eliminarla')
+    }
+    await tx.auditoria.create({
+      data: {
+        entidad: 'linea', entidadId: linea.nombre, accion: 'eliminar',
+        valorAnterior: JSON.stringify({
+          nombre: linea.nombre, operador: linea.operador, longitudKm: linea.longitudKm, creadoPor: linea.creadoPor,
+          revisiones: revisiones.map((r) => ({ revision: r.revision, estado: r.estado, postes: r._count.postes })),
+        }),
+        motivo, usuario: usuario.email,
+      },
+    })
+    const r = await tx.linea.deleteMany({ where: { grupo: linea.grupo } })
+    return { eliminadas: r.count }
+  })
+}
