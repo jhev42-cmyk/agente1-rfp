@@ -1,5 +1,5 @@
 import { randomUUID } from 'crypto'
-import { EstadoLinea, Prisma, TipoPartida } from '@prisma/client'
+import { EstadoLinea, ModoAsignacion, Prisma, TipoPartida } from '@prisma/client'
 import { prisma } from './db'
 import { HttpError, requireMotivo } from './api'
 
@@ -68,6 +68,20 @@ export async function editarLinea(lineaId: number, input: { nombre?: string; lon
     const anterior = Object.fromEntries(Object.keys(cambios).map((k) => [k, linea[k as keyof typeof cambios]]))
     await auditar(tx, { lineaId, entidad: 'linea', entidadId: lineaId, accion: 'editar', valorAnterior: anterior, valorNuevo: cambios, motivo, usuario })
     return tx.linea.update({ where: { id: lineaId }, data: cambios })
+  })
+}
+
+// Preferencia de trabajo para el paso 3; no cambia materiales ni costos, por eso no exige motivo.
+export async function elegirModoAsignacion(lineaId: number, modo: unknown, usuario: string) {
+  if (!Object.values(ModoAsignacion).includes(modo as ModoAsignacion)) throw new HttpError(400, 'Modo de asignación inválido')
+  return prisma.$transaction(async (tx) => {
+    const linea = await lineaEditable(tx, lineaId)
+    if (linea.modoAsignacion === modo) return linea
+    await auditar(tx, {
+      lineaId, entidad: 'linea', entidadId: lineaId, accion: 'modo_asignacion',
+      valorAnterior: linea.modoAsignacion, valorNuevo: modo, motivo: 'Preferencia de asignación de normas', usuario,
+    })
+    return tx.linea.update({ where: { id: lineaId }, data: { modoAsignacion: modo as ModoAsignacion } })
   })
 }
 
@@ -427,6 +441,7 @@ export async function crearRevision(lineaId: number, motivoIn: unknown, usuario:
       data: {
         grupo: origen.grupo, revision: origen.revision + 1, nombre: origen.nombre, longitudKm: origen.longitudKm,
         operador: origen.operador, kmzNombre: origen.kmzNombre, kmz: origen.kmz, creadoPor: usuario,
+        modoAsignacion: origen.modoAsignacion,
       },
     })
     for (const t of origen.trayectos) {

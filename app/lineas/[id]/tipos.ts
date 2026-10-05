@@ -1,8 +1,11 @@
+export type ModoAsignacion = 'CORRIDO' | 'TRAYECTO'
+
 export type Poste = { id: number; codigo: string; numero: number; trayecto: number; normaId: number | null; configuracionId: number | null }
 
 export type Linea = {
   id: number; grupo: string; revision: number; nombre: string; longitudKm: number; operador: string
   estado: 'BORRADOR' | 'EN_REVISION' | 'APROBADA'
+  modoAsignacion: ModoAsignacion | null
   kmzNombre: string | null; creadoPor: string; createdAt: string; updatedAt: string
   aprobadaPor: string | null; aprobadaAt: string | null
   trayectos: { numero: number; cantidadPostes: number }[]

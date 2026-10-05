@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { api, ApiError } from '../../lib/cliente'
-import { PropsPaso } from './tipos'
+import { ModoAsignacion, PropsPaso } from './tipos'
 
 export default function PasoTrayectos({ linea, editable, recargar, pedir }: PropsPaso) {
   const inicial = Object.fromEntries(linea.trayectos.map((t) => [t.numero, String(t.cantidadPostes)]))
@@ -14,6 +14,14 @@ export default function PasoTrayectos({ linea, editable, recargar, pedir }: Prop
   const cambios = linea.trayectos.filter((t) => Number(valores[t.numero] || 0) !== t.cantidadPostes)
   const total = linea.trayectos.reduce((a, t) => a + (Number(valores[t.numero]) || 0), 0)
   const configuradosPorTrayecto = (n: number) => linea.postes.filter((p) => p.trayecto === n && p.normaId).length
+
+  const elegirModo = async (modo: ModoAsignacion) => {
+    setError(''); setOk('')
+    try {
+      await api(`/api/lineas/${linea.id}`, { method: 'PATCH', body: { modoAsignacion: modo } })
+      await recargar()
+    } catch (e: any) { setError(e.message) }
+  }
 
   const guardar = async () => {
     setError(''); setOk('')
@@ -94,6 +102,26 @@ export default function PasoTrayectos({ linea, editable, recargar, pedir }: Prop
       )}
       {error && <div className="error-box">{error}</div>}
       {ok && <div className="ok-box">{ok}</div>}
+
+      <h3 style={{ color: 'var(--navy)', fontSize: 15, margin: '26px 0 4px' }}>¿Cómo quieres asignar las normas a los postes?</h3>
+      <div className="sub" style={{ marginBottom: 12 }}>Define cómo se abre el paso 3. Ambos modos siguen disponibles allí y puedes cambiar de uno a otro en cualquier momento.</div>
+      <div className="opciones-modo">
+        {OPCIONES.map((o) => (
+          <label key={o.valor} className={`opcion-modo ${linea.modoAsignacion === o.valor ? 'activa' : ''} ${!editable ? 'bloqueada' : ''}`}>
+            <input type="radio" name="modoAsignacion" checked={linea.modoAsignacion === o.valor} disabled={!editable || guardando} onChange={() => elegirModo(o.valor)} />
+            <div>
+              <b>{o.titulo}</b>
+              <div className="muted">{o.texto}</div>
+            </div>
+          </label>
+        ))}
+      </div>
+      {!linea.modoAsignacion && editable && <div className="note">Elige un modo para continuar con la configuración de postes.</div>}
     </div>
   )
 }
+
+const OPCIONES: { valor: ModoAsignacion; titulo: string; texto: string }[] = [
+  { valor: 'CORRIDO', titulo: 'De corrido (poste a poste)', texto: 'Una sola lista con todos los postes de la línea; asignas la norma a cada poste o a una selección.' },
+  { valor: 'TRAYECTO', titulo: 'Por trayecto', texto: 'Una sección por trayecto (3.1, 3.2…) donde puedes asignar una norma a todo el trayecto y ajustar postes puntuales.' },
+]

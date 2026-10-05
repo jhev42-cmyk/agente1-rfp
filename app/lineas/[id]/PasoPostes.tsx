@@ -3,10 +3,16 @@
 import { useEffect, useMemo, useState } from 'react'
 import EsquemaNorma from '../../components/EsquemaNorma'
 import { api, num } from '../../lib/cliente'
-import { NormaDetalle, NormaResumen, Poste, PropsPaso, etiquetaNorma } from './tipos'
+import { ModoAsignacion, NormaDetalle, NormaResumen, Poste, PropsPaso, etiquetaNorma } from './tipos'
 
 export default function PasoPostes({ linea, editable, recargar, pedir, normas }: PropsPaso & { normas: NormaResumen[] }) {
+  const conPostes = linea.trayectos.filter((t) => t.cantidadPostes > 0)
+  // Vista de trabajo: la elegida en el paso 2, pero se puede alternar aquí en cualquier momento.
+  const [modo, setModo] = useState<ModoAsignacion>(linea.modoAsignacion || 'CORRIDO')
+  const [trayectoActivo, setTrayectoActivo] = useState(conPostes[0]?.numero || 1)
   const [filtroTrayecto, setFiltroTrayecto] = useState(0)
+  const [trayectoNorma, setTrayectoNorma] = useState('')
+  const [trayectoConfig, setTrayectoConfig] = useState('')
   const [soloPendientes, setSoloPendientes] = useState(false)
   const [seleccion, setSeleccion] = useState<Set<number>>(new Set())
   const [activo, setActivo] = useState<number | null>(null)
@@ -21,8 +27,12 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
   const normaPorId = useMemo(() => new Map(normas.map((n) => [n.id, n])), [normas])
   const vigentes = normas.filter((n) => n.vigente)
   const pendiente = (p: Poste) => !p.normaId || !p.configuracionId
+  const porTrayecto = modo === 'TRAYECTO'
+  const trayectoVista = porTrayecto ? trayectoActivo : filtroTrayecto
   const visibles = linea.postes.filter((p) =>
-    (!filtroTrayecto || p.trayecto === filtroTrayecto) && (!soloPendientes || pendiente(p)))
+    (!trayectoVista || p.trayecto === trayectoVista) && (!soloPendientes || pendiente(p)))
+  const postesTrayecto = linea.postes.filter((p) => p.trayecto === trayectoActivo)
+  const pendientesDe = (n: number) => linea.postes.filter((p) => p.trayecto === n && pendiente(p)).length
   const totalPendientes = linea.postes.filter(pendiente).length
   const posteActivo = linea.postes.find((p) => p.id === activo) || null
   const normaActiva = posteActivo?.normaId ? normaPorId.get(posteActivo.normaId) : undefined
@@ -97,6 +107,26 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
   }
 
   const normaMasiva = normaPorId.get(Number(masivaNorma))
+  const normaTrayecto = normaPorId.get(Number(trayectoNorma))
+
+  // Aplica una norma a todos los postes del trayecto activo (pide motivo si alguno ya estaba configurado).
+  const aplicarTrayecto = async () => {
+    if (!normaTrayecto) return
+    const conf = normaTrayecto.configuraciones.length === 1 ? normaTrayecto.configuraciones[0].id : Number(trayectoConfig) || null
+    if (await asignar(postesTrayecto.map((p) => p.id), normaTrayecto.id, conf)) { setTrayectoNorma(''); setTrayectoConfig('') }
+  }
+
+  // Al cambiar de vista se limpian la selección, la norma elegida para el trayecto y los mensajes.
+  const reiniciarVista = () => { setSeleccion(new Set()); setActivo(null); setTrayectoNorma(''); setTrayectoConfig(''); setOk(''); setError('') }
+  const cambiarModo = (m: ModoAsignacion) => { setModo(m); reiniciarVista() }
+  const irATrayecto = (n: number) => { setTrayectoActivo(n); reiniciarVista() }
+
+  // Resumen de normas usadas en el trayecto activo.
+  const resumenTrayecto = Object.entries(postesTrayecto.reduce<Record<string, number>>((acc, p) => {
+    const k = p.normaId ? etiquetaPoste(p) : 'Pendiente'
+    acc[k] = (acc[k] || 0) + 1
+    return acc
+  }, {}))
 
   if (!linea.postes.length) {
     return <div className="card"><h2>3. Postes</h2><p className="muted">Primero define la cantidad de postes por trayecto en el paso 2.</p></div>
@@ -105,7 +135,13 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
   return (
     <div className="card">
       <h2>3. Configuración de postes</h2>
-      <div className="sub">Selecciona la norma de cada poste. Al elegirla se muestran el tipo de poste, la versión, el esquema y los materiales. Puedes aplicar una norma o copiar la de un poste a varios a la vez, y editar cada uno individualmente.</div>
+      <div className="sub">Selecciona la norma de cada poste. Al elegirla se muestran el tipo de poste, la versión, el esquema y los materiales. Puedes trabajar de corrido sobre toda la línea o por trayecto; en ambos modos se puede editar cada poste individualmente.</div>
+
+      <div className="modo-toggle">
+        <button className={!porTrayecto ? 'activo' : ''} onClick={() => cambiarModo('CORRIDO')}>De corrido (individual)</button>
+        <button className={porTrayecto ? 'activo' : ''} onClick={() => cambiarModo('TRAYECTO')}>Por trayecto</button>
+      </div>
+      {!linea.modoAsignacion && editable && <div className="muted" style={{ marginTop: -8, marginBottom: 12 }}>Aún no se eligió el modo preferido en el paso 2; se muestra de corrido.</div>}
 
       <div className="kpis">
         <div className="kpi"><div className="v">{linea.postes.length}</div><div className="k">Postes</div></div>
@@ -113,14 +149,53 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
         <div className="kpi"><div className="v">{seleccion.size}</div><div className="k">Seleccionados</div></div>
       </div>
 
+      {porTrayecto && (
+        <>
+          <div className="subpasos">
+            {conPostes.map((t) => (
+              <button key={t.numero} className={trayectoActivo === t.numero ? 'activo' : ''} onClick={() => irATrayecto(t.numero)}>
+                3.{t.numero} · Trayecto {t.numero} ({t.cantidadPostes}){pendientesDe(t.numero) > 0 && <span className="pend"> · {pendientesDe(t.numero)} pend.</span>}
+              </button>
+            ))}
+          </div>
+          <div className="barra-trayecto">
+            <h3>3.{trayectoActivo} Trayecto {trayectoActivo} — {postesTrayecto.length} postes, {pendientesDe(trayectoActivo)} pendientes</h3>
+            <div className="muted" style={{ width: '100%' }}>{resumenTrayecto.map(([k, v]) => `${k}: ${v}`).join(' · ')}</div>
+            {editable && (
+              <>
+                <div style={{ minWidth: 260 }}>
+                  <label>Norma para todo el trayecto</label>
+                  <select value={trayectoNorma} onChange={(e) => { setTrayectoNorma(e.target.value); setTrayectoConfig('') }}>
+                    <option value="">Seleccione…</option>
+                    {vigentes.map((n) => <option key={n.id} value={n.id}>{etiquetaNorma(n)} — {n.tipoPoste}</option>)}
+                  </select>
+                </div>
+                {normaTrayecto && normaTrayecto.configuraciones.length > 1 && (
+                  <div>
+                    <label>Configuración</label>
+                    <select value={trayectoConfig} onChange={(e) => setTrayectoConfig(e.target.value)}>
+                      <option value="">Seleccione…</option>
+                      {normaTrayecto.configuraciones.map((c) => <option key={c.id} value={c.id}>{c.nombre}</option>)}
+                    </select>
+                  </div>
+                )}
+                <button className="btn btn-sm" disabled={!normaTrayecto || ocupado || (normaTrayecto.configuraciones.length > 1 && !trayectoConfig)} onClick={aplicarTrayecto}>
+                  Aplicar a los {postesTrayecto.length} postes del trayecto
+                </button>
+              </>
+            )}
+          </div>
+        </>
+      )}
+
       <div className="filter-row">
-        <div>
+        {!porTrayecto && <div>
           <label>Trayecto</label>
           <select value={filtroTrayecto} onChange={(e) => setFiltroTrayecto(Number(e.target.value))}>
             <option value={0}>Todos</option>
-            {linea.trayectos.filter((t) => t.cantidadPostes).map((t) => <option key={t.numero} value={t.numero}>Trayecto {t.numero} ({t.cantidadPostes})</option>)}
+            {conPostes.map((t) => <option key={t.numero} value={t.numero}>Trayecto {t.numero} ({t.cantidadPostes})</option>)}
           </select>
-        </div>
+        </div>}
         <label style={{ display: 'flex', gap: 6, alignItems: 'center', fontWeight: 400, alignSelf: 'flex-end', marginBottom: 10 }}>
           <input type="checkbox" checked={soloPendientes} onChange={(e) => setSoloPendientes(e.target.checked)} /> Solo pendientes
         </label>

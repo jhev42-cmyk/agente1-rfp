@@ -89,6 +89,12 @@ enum EstadoLinea {
   APROBADA
 }
 
+// Cómo prefiere el ingeniero asignar normas en el paso 3 (se elige en el paso 2).
+enum ModoAsignacion {
+  CORRIDO // poste a poste sobre toda la línea
+  TRAYECTO // por trayecto, con opción de aplicar una norma a todo el trayecto
+}
+
 model Linea {
   id          Int         @id @default(autoincrement())
   grupo       String // identifica todas las revisiones de la misma línea
@@ -97,6 +103,7 @@ model Linea {
   longitudKm  Float
   operador    String
   estado      EstadoLinea @default(BORRADOR)
+  modoAsignacion ModoAsignacion? // null: aún no se ha elegido
   kmzNombre   String?
   kmz         Bytes?
   creadoPor   String

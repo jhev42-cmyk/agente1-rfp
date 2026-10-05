@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { HttpError, handler, parseId, requireUser } from '../../../lib/api'
 import { prisma } from '../../../lib/db'
-import { editarLinea } from '../../../lib/lineas'
+import { editarLinea, elegirModoAsignacion } from '../../../lib/lineas'
 
 type Ctx = { params: { id: string } }
 
@@ -11,7 +11,7 @@ export const GET = handler(async (request, { params }: Ctx) => {
   const linea = await prisma.linea.findUnique({
     where: { id },
     select: {
-      id: true, grupo: true, revision: true, nombre: true, longitudKm: true, operador: true, estado: true,
+      id: true, grupo: true, revision: true, nombre: true, longitudKm: true, operador: true, estado: true, modoAsignacion: true,
       kmzNombre: true, creadoPor: true, createdAt: true, updatedAt: true, aprobadaPor: true, aprobadaAt: true,
       trayectos: { orderBy: { numero: 'asc' }, select: { numero: true, cantidadPostes: true } },
       postes: {
@@ -34,6 +34,9 @@ export const GET = handler(async (request, { params }: Ctx) => {
 
 export const PATCH = handler(async (request, { params }: Ctx) => {
   const user = requireUser(request)
-  await editarLinea(parseId(params.id), await request.json(), user.email)
+  const id = parseId(params.id)
+  const { modoAsignacion, ...datos } = await request.json()
+  if (modoAsignacion !== undefined) await elegirModoAsignacion(id, modoAsignacion, user.email)
+  if (Object.keys(datos).some((k) => k !== 'motivo')) await editarLinea(id, datos, user.email)
   return NextResponse.json({ ok: true })
 })
