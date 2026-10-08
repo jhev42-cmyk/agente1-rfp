@@ -3,7 +3,7 @@ import { handler, requireUser } from '../../../lib/api'
 import { listarMateriales } from '../../../lib/catalogo'
 
 export const GET = handler(async (request) => {
-  requireUser(request)
+  await requireUser(request)
   return NextResponse.json(await listarMateriales())
 })
 

@@ -7,7 +7,7 @@ import { lineaEditable } from '../../../../lib/lineas'
 const MAX_KMZ_BYTES = 4 * 1024 * 1024
 
 export const GET = handler(async (request, { params }: { params: { id: string } }) => {
-  requireUser(request)
+  await requireUser(request)
   const linea = await prisma.linea.findUnique({ where: { id: parseId(params.id) }, select: { kmz: true, kmzNombre: true } })
   if (!linea?.kmz) throw new HttpError(404, 'La línea no tiene KMZ adjunto')
   return new Response(new Uint8Array(linea.kmz), {
@@ -20,7 +20,7 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
 
 // El KMZ es solo referencia del proyecto: se guarda tal cual, sin interpretarlo.
 export const POST = handler(async (request, { params }: { params: { id: string } }) => {
-  const user = requireUser(request)
+  const user = await requireUser(request)
   const lineaId = parseId(params.id)
   const form = await request.formData()
   const archivo = form.get('archivo')

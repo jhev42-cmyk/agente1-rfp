@@ -1,0 +1,4 @@
+{
+  "extends": "next/core-web-vitals",
+  "ignorePatterns": ["public/**", "prisma/generar-catalogo.js", "prisma/seed.js", "scripts/**", "tests/**"]
+}

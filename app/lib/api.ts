@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { SessionUser, verifyToken } from './auth'
+import { Prisma } from '@prisma/client'
+import { RolSesion, SessionUser, getSesion } from './auth'
 
 // Error con código HTTP que los handlers convierten en respuesta JSON.
 export class HttpError extends Error {
@@ -8,16 +9,32 @@ export class HttpError extends Error {
   }
 }
 
-export function requireUser(request: NextRequest): SessionUser {
-  const user = verifyToken(request.headers.get('authorization'))
+// La sesión va en cookie, así que toda petición que modifica datos debe venir de este mismo sitio
+// (protección CSRF además de SameSite=Lax).
+function verificarOrigen(request: NextRequest) {
+  if (['GET', 'HEAD', 'OPTIONS'].includes(request.method)) return
+  const origen = request.headers.get('origin')
+  if (!origen) return
+  let host = ''
+  try { host = new URL(origen).host } catch { /* origen inválido */ }
+  if (host !== request.headers.get('host')) throw new HttpError(403, 'Origen no permitido')
+}
+
+export async function requireUser(request: NextRequest): Promise<SessionUser> {
+  verificarOrigen(request)
+  const user = await getSesion(request)
   if (!user) throw new HttpError(401, 'Sesión inválida o expirada')
   return user
 }
 
-export function requireAdmin(request: NextRequest): SessionUser {
-  const user = requireUser(request)
-  if (user.role !== 'admin') throw new HttpError(403, 'Solo un administrador puede modificar el catálogo')
+export async function requireRol(request: NextRequest, roles: RolSesion[], mensaje: string): Promise<SessionUser> {
+  const user = await requireUser(request)
+  if (!roles.includes(user.role)) throw new HttpError(403, mensaje)
   return user
+}
+
+export function requireAdmin(request: NextRequest): Promise<SessionUser> {
+  return requireRol(request, ['admin'], 'Solo un administrador puede hacer este cambio')
 }
 
 export function requireMotivo(motivo: unknown): string {
@@ -40,6 +57,11 @@ export function handler<C>(fn: (request: NextRequest, ctx: C) => Promise<Respons
     } catch (e) {
       if (e instanceof HttpError) {
         return NextResponse.json({ error: e.message, ...(e.data ? { data: e.data } : {}) }, { status: e.status })
+      }
+      // Dos usuarios modificando lo mismo a la vez (ej. número de poste repetido): conflicto, no error del servidor.
+      if (e instanceof Prisma.PrismaClientKnownRequestError && (e.code === 'P2002' || e.code === 'P2034')) {
+        console.warn('Conflicto de concurrencia', e.code, e.meta)
+        return NextResponse.json({ error: 'Otro usuario modificó estos datos al mismo tiempo. Recarga la página e inténtalo de nuevo.' }, { status: 409 })
       }
       console.error(e)
       return NextResponse.json({ error: 'Error en el servidor' }, { status: 500 })

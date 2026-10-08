@@ -6,7 +6,7 @@ import { editarLinea, elegirModoAsignacion, eliminarLinea } from '../../../lib/l
 type Ctx = { params: { id: string } }
 
 export const GET = handler(async (request, { params }: Ctx) => {
-  requireUser(request)
+  await requireUser(request)
   const id = parseId(params.id)
   const linea = await prisma.linea.findUnique({
     where: { id },
@@ -33,7 +33,7 @@ export const GET = handler(async (request, { params }: Ctx) => {
 })
 
 export const PATCH = handler(async (request, { params }: Ctx) => {
-  const user = requireUser(request)
+  const user = await requireUser(request)
   const id = parseId(params.id)
   const { modoAsignacion, ...datos } = await request.json()
   if (modoAsignacion !== undefined) await elegirModoAsignacion(id, modoAsignacion, user.email)
@@ -43,7 +43,7 @@ export const PATCH = handler(async (request, { params }: Ctx) => {
 
 // Elimina la línea con todas sus revisiones. Requiere motivo.
 export const DELETE = handler(async (request, { params }: Ctx) => {
-  const user = requireUser(request)
+  const user = await requireUser(request)
   const { motivo } = await request.json().catch(() => ({}))
   return NextResponse.json(await eliminarLinea(parseId(params.id), motivo, user))
 })

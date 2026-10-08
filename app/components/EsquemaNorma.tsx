@@ -20,6 +20,8 @@ export default function EsquemaNorma({ normaId, tieneImagen, version = 0 }: { no
 
   return (
     <div className="esquema">
+      {/* Imagen local (blob) descargada con la sesión: next/image no aplica aquí. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       {url ? <img src={url} alt="Esquema de la estructura" /> : tieneImagen && !fallo ? 'Cargando esquema…' : 'Sin esquema cargado en el catálogo'}
     </div>
   )

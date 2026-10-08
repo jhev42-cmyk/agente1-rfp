@@ -97,7 +97,12 @@ export async function ajustarTrayecto(
   }
   return prisma.$transaction(async (tx) => {
     await lineaEditable(tx, lineaId)
-    const trayecto = await tx.trayecto.findUnique({ where: { lineaId_numero: { lineaId, numero } } })
+    // Bloquea la fila del trayecto hasta terminar la transacción (un UPDATE sin cambios toma el bloqueo
+    // de fila): si dos usuarios cambian el mismo trayecto a la vez, el segundo espera y recibe la
+    // cantidad ya actualizada, así no se generan postes con número repetido.
+    const trayecto = await tx.trayecto.update({
+      where: { lineaId_numero: { lineaId, numero } }, data: { cantidadPostes: { increment: 0 } },
+    }).catch(() => null)
     if (!trayecto) throw new HttpError(404, 'Trayecto no encontrado')
     const actual = trayecto.cantidadPostes
     if (cantidad === actual) return { trayecto, retirados: [] as string[] }
@@ -387,7 +392,12 @@ export function erroresAprobacion(c: Calculo): string[] {
 
 // ─── Estados y revisiones ────────────────────────────────────────────────────
 
-export async function cambiarEstado(lineaId: number, input: { estado?: string; motivo?: string }, usuario: string) {
+// Roles que pueden aprobar una línea.
+export const ROLES_APROBACION = ['admin', 'aprobador']
+
+// Al enviar a revisión se congela la cotización: lo que se revisa es exactamente lo que se aprueba,
+// aunque cambien precios o normas del catálogo mientras tanto. Devolver a borrador la descongela.
+export async function cambiarEstado(lineaId: number, input: { estado?: string; motivo?: string }, usuario: { email: string; role: string }) {
   const nuevo = input.estado as EstadoLinea
   const linea = await prisma.linea.findUnique({ where: { id: lineaId } })
   if (!linea) throw new HttpError(404, 'Línea no encontrada')
@@ -402,26 +412,31 @@ export async function cambiarEstado(lineaId: number, input: { estado?: string; m
       ? 'La línea está aprobada. Para modificarla crea una nueva revisión.'
       : `No se puede pasar de ${linea.estado} a ${nuevo}`)
   }
+  if (nuevo === EstadoLinea.APROBADA && !ROLES_APROBACION.includes(usuario.role)) {
+    throw new HttpError(403, 'Solo un aprobador o un administrador puede aprobar líneas')
+  }
   const motivo = nuevo === EstadoLinea.BORRADOR ? requireMotivo(input.motivo) : (input.motivo?.trim() || `Cambio a ${nuevo}`)
 
-  let snapshot: Calculo | undefined
-  if (nuevo === EstadoLinea.APROBADA) {
-    snapshot = await calcular(lineaId)
-    const errores = erroresAprobacion(snapshot)
-    if (errores.length) throw new HttpError(409, 'No se puede aprobar todavía', { errores })
+  let datos: Prisma.LineaUpdateManyMutationInput = { estado: nuevo }
+  if (nuevo === EstadoLinea.EN_REVISION) {
+    datos = { ...datos, snapshot: (await calcular(lineaId)) as unknown as Prisma.InputJsonValue }
+  } else if (nuevo === EstadoLinea.BORRADOR) {
+    datos = { ...datos, snapshot: Prisma.DbNull }
+  } else {
+    // Se aprueba la cotización congelada al enviar a revisión (si una línea antigua no la tiene, se calcula ahora).
+    const congelada = (linea.snapshot as unknown as Calculo | null) || (await calcular(lineaId))
+    const errores = erroresAprobacion(congelada)
+    if (errores.length) {
+      throw new HttpError(409, 'No se puede aprobar: la cotización enviada a revisión está incompleta. Devuélvela a borrador, complétala y reenvíala.', { errores })
+    }
+    datos = { ...datos, snapshot: congelada as unknown as Prisma.InputJsonValue, aprobadaPor: usuario.email, aprobadaAt: new Date() }
   }
 
   return prisma.$transaction(async (tx) => {
     // Evita aprobar dos veces si dos usuarios lo intentan a la vez.
-    const r = await tx.linea.updateMany({
-      where: { id: lineaId, estado: linea.estado },
-      data: {
-        estado: nuevo,
-        ...(snapshot ? { snapshot: snapshot as unknown as Prisma.InputJsonValue, aprobadaPor: usuario, aprobadaAt: new Date() } : {}),
-      },
-    })
+    const r = await tx.linea.updateMany({ where: { id: lineaId, estado: linea.estado }, data: datos })
     if (!r.count) throw new HttpError(409, 'El estado cambió mientras tanto; recarga la página')
-    await auditar(tx, { lineaId, entidad: 'linea', entidadId: lineaId, accion: 'estado', valorAnterior: linea.estado, valorNuevo: nuevo, motivo, usuario })
+    await auditar(tx, { lineaId, entidad: 'linea', entidadId: lineaId, accion: 'estado', valorAnterior: linea.estado, valorNuevo: nuevo, motivo, usuario: usuario.email })
   })
 }
 

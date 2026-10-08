@@ -1,10 +1,9 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { verifyToken } from '../../../lib/auth'
+import { NextResponse } from 'next/server'
+import { handler, requireUser } from '../../../lib/api'
 
-export async function GET(request: NextRequest) {
-  const user = verifyToken(request.headers.get('authorization'))
-  if (!user) {
-    return NextResponse.json({ error: 'Sesión inválida o expirada' }, { status: 401 })
-  }
-  return NextResponse.json({ user })
-}
+export const GET = handler(async (request) => {
+  return NextResponse.json({ user: await requireUser(request) })
+})
+
+// Depende de la sesión del usuario: nunca se pre-renderiza.
+export const dynamic = 'force-dynamic'

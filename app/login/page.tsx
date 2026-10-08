@@ -1,10 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
 
 export default function LoginPage() {
-  const router = useRouter()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
@@ -29,8 +27,9 @@ export default function LoginPage() {
         return
       }
 
-      localStorage.setItem('token', data.token)
-      router.push('/lineas')
+      // La sesión queda en una cookie HttpOnly. Se vuelve a la página que pidió el login, si es de este sitio.
+      const siguiente = new URLSearchParams(window.location.search).get('siguiente') || ''
+      window.location.assign(siguiente.startsWith('/') && !siguiente.startsWith('//') ? siguiente : '/lineas')
     } catch (err) {
       setError('Error al conectarse al servidor')
     } finally {

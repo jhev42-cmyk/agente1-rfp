@@ -17,7 +17,7 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
       <div className="card">
         <h2>4. Materiales consolidados</h2>
         <div className="sub">Cantidades de cada poste según su norma y configuración, consolidadas por código de material y unidad. Abre un material para ver el detalle por trayecto y poste.</div>
-        {calculo.congelado && <div className="info-box">Valores congelados al aprobar la línea ({new Date(calculo.generado).toLocaleString('es-CO')}).</div>}
+        {calculo.congelado && <div className="info-box">Valores congelados al enviar la línea a revisión ({new Date(calculo.generado).toLocaleString('es-CO')}).</div>}
         {calculo.postes.pendientes.length > 0 && (
           <div className="note">{calculo.postes.pendientes.length} poste(s) sin configurar no están incluidos: {calculo.postes.pendientes.slice(0, 12).join(', ')}{calculo.postes.pendientes.length > 12 ? '…' : ''}</div>
         )}

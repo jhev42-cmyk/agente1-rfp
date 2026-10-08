@@ -18,7 +18,7 @@ export default function PasoCotizacion(props: PropsPaso & { calculo: Calculo | n
           Mano de obra, transporte e indirectos se agregan como partidas identificadas. Valores en COP.
         </div>
         {calculo.congelado
-          ? <div className="info-box">Cotización congelada al aprobar: conserva los precios y versiones de norma usados ese día.</div>
+          ? <div className="info-box">Cotización congelada al enviar a revisión ({new Date(calculo.generado).toLocaleString('es-CO')}): conserva los precios y versiones de norma de ese momento.</div>
           : calculo.cotizacion.sinPrecio.length > 0 && (
             <div className="note">{calculo.cotizacion.sinPrecio.length} partida(s) sin precio: {calculo.cotizacion.sinPrecio.join(', ')}. Importa los precios en el catálogo para completarlas.</div>
           )}

@@ -1,58 +1,64 @@
-import { createHmac, scryptSync, timingSafeEqual } from 'crypto'
+import { randomBytes, scryptSync, timingSafeEqual } from 'crypto'
+import { NextRequest, NextResponse } from 'next/server'
+import { Rol } from '@prisma/client'
+import { prisma } from './db'
+import { COOKIE_SESION, SESSION_HOURS, firmarToken, verificarToken } from './token'
 
-// Usuarios de la herramienta. Solo se guarda el hash scrypt de la contraseña (formato scrypt$salt$hash).
-// Para agregar uno: generar salt + hash con crypto.scryptSync(password, salt, 32) y añadirlo aquí.
-// Se migrará a la tabla User de Prisma cuando se conecte la base de datos.
-const USERS = [
-  { id: 1, email: 'admin@rfp.local', name: 'Administrador', role: 'admin', hash: 'scrypt$11f9df3cc6a87df94a27836be0f0177b$52349de1cefeda6f4a1367a1201b4c55adb47c33195ca64c48d3840435f2a7d5' },
-  { id: 2, email: 'analista1@rfp.local', name: 'Analista 1', role: 'analista', hash: 'scrypt$f9db57d6d5421e3e2dcbefa9078292f7$ef503f49ad415dd5eeda9f3f2fec48254dc0cc863af427642f3adffd4a86bb88' },
-  { id: 3, email: 'analista2@rfp.local', name: 'Analista 2', role: 'analista', hash: 'scrypt$e6a18d27bab39f12b5a713555d77647b$ce7575ed3bc20832e7abcbba6d4dc3db86d376334deb87681e2383d7339183fa' },
-]
+export type RolSesion = 'admin' | 'aprobador' | 'analista'
+export type SessionUser = { id: number; email: string; name: string; role: RolSesion }
 
-const SESSION_HOURS = 12
+export const rolSesion = (r: Rol) => r.toLowerCase() as RolSesion
 
-export type SessionUser = { id: number; email: string; name: string; role: string }
+// ─── Contraseñas (formato scrypt$salt$hash) ──────────────────────────────────
 
-function secret(): string {
-  const s = process.env.AUTH_SECRET
-  if (s) return s
-  if (process.env.NODE_ENV !== 'production') return 'dev-only-secret'
-  throw new Error('AUTH_SECRET no está configurado')
+export function hashPassword(password: string) {
+  const salt = randomBytes(16).toString('hex')
+  return `scrypt$${salt}$${scryptSync(password, salt, 32).toString('hex')}`
 }
 
-function sign(data: string): string {
-  return createHmac('sha256', secret()).update(data).digest('base64url')
+export function passwordValido(password: string, hash: string) {
+  const [, salt, h] = hash.split('$')
+  if (!salt || !h) return false
+  const esperado = Buffer.from(h, 'hex')
+  return timingSafeEqual(esperado, scryptSync(password, salt, esperado.length))
 }
 
-export function authenticate(email: string, password: string): SessionUser | null {
-  const user = USERS.find((u) => u.email === email.trim().toLowerCase())
-  if (!user) return null
-  const [, salt, hash] = user.hash.split('$')
-  const expected = Buffer.from(hash, 'hex')
-  const actual = scryptSync(password, salt, expected.length)
-  if (!timingSafeEqual(expected, actual)) return null
-  return { id: user.id, email: user.email, name: user.name, role: user.role }
+export function validarPasswordNueva(password: unknown): string {
+  const p = typeof password === 'string' ? password : ''
+  if (p.length < 10) throw new Error('La contraseña debe tener al menos 10 caracteres')
+  return p
 }
 
-export function createToken(user: SessionUser): string {
-  const payload = Buffer.from(
-    JSON.stringify({ ...user, exp: Date.now() + SESSION_HOURS * 3600 * 1000 })
-  ).toString('base64url')
-  return `${payload}.${sign(payload)}`
+// Contraseña temporal legible (sin caracteres ambiguos) para usuarios nuevos o restablecidos.
+export function passwordTemporal() {
+  const alfabeto = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789'
+  return Array.from(randomBytes(12), (b) => alfabeto[b % alfabeto.length]).join('')
 }
 
-export function verifyToken(authHeader: string | null): SessionUser | null {
-  if (!authHeader) return null
-  const [payload, signature] = authHeader.replace('Bearer ', '').split('.')
-  if (!payload || !signature) return null
-  const expected = Buffer.from(sign(payload))
-  const given = Buffer.from(signature)
-  if (expected.length !== given.length || !timingSafeEqual(expected, given)) return null
-  try {
-    const data = JSON.parse(Buffer.from(payload, 'base64url').toString())
-    if (typeof data.exp !== 'number' || data.exp < Date.now()) return null
-    return { id: data.id, email: data.email, name: data.name, role: data.role }
-  } catch {
-    return null
-  }
+// ─── Sesión ──────────────────────────────────────────────────────────────────
+
+// Usuario de la sesión, o null si no hay cookie, la firma no es válida, venció, el usuario está
+// inactivo o la sesión fue revocada (cambio de contraseña, restablecimiento o desactivación).
+export async function getSesion(request: NextRequest): Promise<SessionUser | null> {
+  const datos = await verificarToken(request.cookies.get(COOKIE_SESION)?.value)
+  if (!datos) return null
+  const u = await prisma.usuario.findUnique({ where: { id: datos.uid } })
+  if (!u || !u.activo || u.sessionVersion !== datos.v) return null
+  return { id: u.id, email: u.email, name: u.nombre, role: rolSesion(u.rol) }
+}
+
+export async function ponerCookieSesion(res: NextResponse, uid: number, version: number) {
+  res.cookies.set(COOKIE_SESION, await firmarToken(uid, version), {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax',
+    path: '/',
+    maxAge: SESSION_HOURS * 3600,
+  })
+  return res
+}
+
+export function borrarCookieSesion(res: NextResponse) {
+  res.cookies.set(COOKIE_SESION, '', { httpOnly: true, secure: process.env.NODE_ENV === 'production', sameSite: 'lax', path: '/', maxAge: 0 })
+  return res
 }

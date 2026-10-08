@@ -6,7 +6,15 @@ Herramienta para configurar y cotizar líneas de media tensión, y para preparar
 
 - **Líneas** (`/lineas`, requiere sesión): registro de la línea (nombre, km, operador, KMZ de referencia), 10 trayectos, configuración poste a poste con normas del catálogo, materiales consolidados, cotización con partidas de mano de obra / transporte / indirectos, estados borrador → en revisión → aprobada, historial de cambios con usuario y motivo, revisiones, exportación a Excel y PDF.
 - **Catálogo** (`/catalogo`): normas por operador con versiones, esquema y materiales; precios de materiales importables desde Excel/CSV. Solo los administradores modifican el catálogo.
-- **Solicitudes a proveedores** (`/agente.html`, abierto durante la etapa de pruebas): desglose de materiales, fichas técnicas y correos RFQ por categoría.
+- **Solicitudes a proveedores** (`/agente.html`): desglose de materiales, fichas técnicas y correos RFQ por categoría. Toma las cantidades por configuración y los precios del mismo catálogo central que Líneas.
+- **Usuarios** (`/usuarios`, solo admin) y **Mi cuenta** (`/cuenta`, cambio de contraseña).
+
+## Acceso y roles
+
+- Todo exige sesión (middleware), incluidos `agente.html`, `proveedores.json` y los formatos Excel; solo `/login` es público.
+- La sesión es una cookie `HttpOnly`, `SameSite=Lax`, firmada (HMAC) y con vencimiento de 12 h. Cada petición a la API comprueba además que el usuario siga activo y que la sesión no haya sido revocada (cambio o restablecimiento de contraseña, desactivación). Las escrituras desde otro origen se rechazan.
+- Roles: **analista** (configura y cotiza), **aprobador** (además aprueba líneas), **admin** (además catálogo y usuarios).
+- Límite de intentos: 5 fallidos en 15 minutos por correo, o 20 por IP.
 
 ## Stack
 
@@ -23,13 +31,21 @@ set -a && source .env.local && set +a
 npm run dev
 ```
 
-Los usuarios están en `app/lib/auth.ts` (solo el hash de la contraseña). Sin `AUTH_SECRET` en local se usa una clave de desarrollo; en producción es obligatoria.
+Los usuarios están en la tabla `Usuario` (solo el hash scrypt de la contraseña) y se gestionan en `/usuarios`. Sin `AUTH_SECRET` en local se usa una clave de desarrollo; en producción es obligatoria.
+
+## Pruebas
+
+```bash
+E2E_ADMIN_PASSWORD=... E2E_ANALISTA_PASSWORD=... npm run test:e2e
+```
+
+Crea un esquema temporal en la base de `.env.local`, aplica migraciones y catálogo, levanta un servidor local y corre `tests/plan`, `modos`, `eliminar` y `seguridad` (API y navegador con Chrome). El esquema se borra al terminar.
 
 ## Base de datos
 
-- Esquema: `prisma/schema.prisma`. Migraciones en `prisma/migrations`; `npm run build` ejecuta `prisma migrate deploy`.
+- Esquema: `prisma/schema.prisma`. Migraciones en `prisma/migrations`. El build solo aplica migraciones en el deploy de **producción** de Vercel (`scripts/migrar-si-produccion.js`); los previews y los builds locales no tocan la base, que es compartida.
 - Catálogo inicial: `prisma/catalogo-inicial.json`, generado desde los consolidados maestros con `node prisma/generar-catalogo.js` y cargado con `npm run db:seed` (idempotente: no duplica normas).
-- Una línea aprobada guarda su cotización congelada (`Linea.snapshot`): cambios posteriores de precios o normas no la alteran. Modificarla exige crear una nueva revisión.
+- Al enviar una línea a revisión se congela su cotización (`Linea.snapshot`): lo que se revisa es exactamente lo que se aprueba, aunque cambien precios o normas. Devolverla a borrador la descongela; una aprobada solo se modifica creando una nueva revisión.
 - Las normas se versionan: editar materiales crea una versión nueva; los postes conservan la versión con la que se configuraron.
 
 ## Estructura
@@ -51,6 +67,5 @@ prisma/                       # esquema, migraciones, catálogo inicial y seed
 public/
 ├── agente.html               # solicitudes a proveedores (RFQ)
 ├── proveedores.json
-├── precios_negociados.json
 └── Formato_Cotizacion_*.xlsx
 ```

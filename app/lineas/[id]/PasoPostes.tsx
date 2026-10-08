@@ -34,6 +34,8 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
   const postesTrayecto = linea.postes.filter((p) => p.trayecto === trayectoActivo)
   const pendientesDe = (n: number) => linea.postes.filter((p) => p.trayecto === n && pendiente(p)).length
   const totalPendientes = linea.postes.filter(pendiente).length
+  // Las acciones masivas solo se aplican a postes seleccionados que están a la vista con el filtro actual.
+  const seleccionVisible = visibles.filter((p) => seleccion.has(p.id)).map((p) => p.id)
   const posteActivo = linea.postes.find((p) => p.id === activo) || null
   const normaActiva = posteActivo?.normaId ? normaPorId.get(posteActivo.normaId) : undefined
 
@@ -89,14 +91,14 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
     const n = normaPorId.get(Number(masivaNorma))
     if (!n) return
     const conf = n.configuraciones.length === 1 ? n.configuraciones[0].id : Number(masivaConfig) || null
-    if (await asignar([...seleccion], n.id, conf)) setSeleccion(new Set())
+    if (await asignar(seleccionVisible, n.id, conf)) setSeleccion(new Set())
   }
 
   const copiarSeleccion = async () => {
     const origen = linea.postes.find((p) => p.codigo === copiarDe.trim().toUpperCase())
     if (!origen) return setError(`No existe el poste ${copiarDe}`)
     if (!origen.normaId) return setError(`El poste ${origen.codigo} no tiene norma para copiar`)
-    if (await asignar([...seleccion].filter((id) => id !== origen.id), origen.normaId, origen.configuracionId)) setSeleccion(new Set())
+    if (await asignar(seleccionVisible.filter((id) => id !== origen.id), origen.normaId, origen.configuracionId)) setSeleccion(new Set())
   }
 
   const alternar = (id: number) => {
@@ -191,13 +193,13 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
       <div className="filter-row">
         {!porTrayecto && <div>
           <label>Trayecto</label>
-          <select value={filtroTrayecto} onChange={(e) => setFiltroTrayecto(Number(e.target.value))}>
+          <select value={filtroTrayecto} onChange={(e) => { setFiltroTrayecto(Number(e.target.value)); setSeleccion(new Set()) }}>
             <option value={0}>Todos</option>
             {conPostes.map((t) => <option key={t.numero} value={t.numero}>Trayecto {t.numero} ({t.cantidadPostes})</option>)}
           </select>
         </div>}
         <label style={{ display: 'flex', gap: 6, alignItems: 'center', fontWeight: 400, alignSelf: 'flex-end', marginBottom: 10 }}>
-          <input type="checkbox" checked={soloPendientes} onChange={(e) => setSoloPendientes(e.target.checked)} /> Solo pendientes
+          <input type="checkbox" checked={soloPendientes} onChange={(e) => { setSoloPendientes(e.target.checked); setSeleccion(new Set()) }} /> Solo pendientes
         </label>
       </div>
 
@@ -219,12 +221,12 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
               </select>
             </div>
           )}
-          <button className="btn btn-sm" disabled={!seleccion.size || !masivaNorma || ocupado || (normaMasiva!.configuraciones.length > 1 && !masivaConfig)} onClick={aplicarMasiva}>Aplicar a {seleccion.size}</button>
+          <button className="btn btn-sm" disabled={!seleccionVisible.length || !masivaNorma || ocupado || (normaMasiva!.configuraciones.length > 1 && !masivaConfig)} onClick={aplicarMasiva}>Aplicar a {seleccionVisible.length}</button>
           <div>
             <label>Copiar norma del poste</label>
             <input type="text" placeholder="T01-P001" value={copiarDe} onChange={(e) => setCopiarDe(e.target.value)} />
           </div>
-          <button className="btn btn-sm btn-claro" disabled={!seleccion.size || !copiarDe.trim() || ocupado} onClick={copiarSeleccion}>Copiar a {seleccion.size}</button>
+          <button className="btn btn-sm btn-claro" disabled={!seleccionVisible.length || !copiarDe.trim() || ocupado} onClick={copiarSeleccion}>Copiar a {seleccionVisible.length}</button>
           <div style={{ minWidth: 0 }}>
             <button className="btn btn-sm btn-claro" onClick={() => setSeleccion(new Set(visibles.map((p) => p.id)))}>Seleccionar visibles ({visibles.length})</button>{' '}
             <button className="btn btn-sm btn-claro" disabled={!seleccion.size} onClick={() => setSeleccion(new Set())}>Limpiar</button>

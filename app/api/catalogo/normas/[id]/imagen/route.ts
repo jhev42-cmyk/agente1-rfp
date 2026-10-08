@@ -6,7 +6,7 @@ import { guardarImagenNorma } from '../../../../../lib/catalogo'
 type Ctx = { params: { id: string } }
 
 export const GET = handler(async (request, { params }: Ctx) => {
-  requireUser(request)
+  await requireUser(request)
   const norma = await prisma.norma.findUnique({ where: { id: parseId(params.id) }, select: { imagen: true, imagenTipo: true } })
   if (!norma?.imagen || !norma.imagenTipo) throw new HttpError(404, 'La norma no tiene esquema')
   return new Response(new Uint8Array(norma.imagen), {
@@ -21,7 +21,7 @@ export const GET = handler(async (request, { params }: Ctx) => {
 })
 
 export const POST = handler(async (request, { params }: Ctx) => {
-  const user = requireAdmin(request)
+  const user = await requireAdmin(request)
   const form = await request.formData()
   const archivo = form.get('archivo')
   if (!(archivo instanceof File)) throw new HttpError(400, 'Adjunta una imagen')

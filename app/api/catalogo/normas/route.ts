@@ -4,7 +4,7 @@ import { listarNormas } from '../../../lib/catalogo'
 
 // Todas las versiones (vigentes y anteriores): los postes pueden apuntar a una versión anterior.
 export const GET = handler(async (request) => {
-  requireUser(request)
+  await requireUser(request)
   const operador = request.nextUrl.searchParams.get('operador') || undefined
   return NextResponse.json(await listarNormas(operador))
 })

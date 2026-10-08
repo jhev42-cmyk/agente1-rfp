@@ -72,7 +72,7 @@ function Espacio({ id }: { id: string }) {
         <div className="info-box">
           {linea.estado === 'APROBADA'
             ? 'Línea aprobada: la cotización está congelada con las versiones de norma y precios usados. Para modificarla crea una nueva revisión en el paso 6.'
-            : 'Línea en revisión: no se puede editar. Devuélvela a borrador en el paso 6 para hacer cambios.'}
+            : 'Línea en revisión: no se puede editar y su cotización quedó congelada al enviarla. Devuélvela a borrador en el paso 6 para hacer cambios.'}
         </div>
       )}
 

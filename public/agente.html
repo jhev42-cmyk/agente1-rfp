@@ -230,7 +230,7 @@
   .ppto-tabla tr.ppto-subtotal td { font-weight: 700; color: var(--navy); border-bottom: 2px solid var(--blue-light); }
   .ppto-tabla .sin-precio-row td { background: #fffaf0; }
   .ppto-fuente { font-size: 11px; color: var(--gray); }
-  .ppto-fuente.negociado { color: var(--ok); font-weight: 600; }
+  .ppto-fuente.catalogo { color: var(--ok); font-weight: 600; }
   .ppto-fuente.faltante { color: var(--warn); font-weight: 600; }
   .ppto-params { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px 18px; margin: 18px 0 6px; }
   .ppto-resumen { margin-top: 18px; max-width: 520px; margin-left: auto; }
@@ -367,6 +367,7 @@
     <div class="sub" style="margin-top:18px; margin-bottom:0; font-weight:600; color:var(--navy);">Cantidad de estructuras por tipo de configuración</div>
     <div class="sub">Indica cuántas estructuras de cada tipo (según ángulo de deflexión / función) tiene la línea. El listado de materiales (categorías I–IX) se calcula sumando, para cada ítem, su cantidad en la lista de materiales de cada tipo de configuración multiplicada por el número de estructuras de ese tipo.</div>
     <div class="form-grid" id="configGrid"></div>
+    <div id="bomStatus" class="sub" style="margin-top:10px;"></div>
 
     <button class="btn" onclick="generarDesglose()">Generar desglose técnico</button>
     <div class="note">Las cantidades de las categorías I–IX se calculan a partir de la lista de materiales (BOM) de cada tipo de configuración estructural (C1–C5) según la codificación de operadores de red MT en Colombia; el conductor (categoría X) se calcula por longitud de línea, esquema trifásico y factor de holgura. Todas las cantidades quedan editables antes de cotizar y no sustituyen el cálculo detallado del equipo técnico.</div>
@@ -400,7 +401,7 @@
 
   <div class="card" id="step5">
     <h2>5. Presupuesto preliminar</h2>
-    <div class="sub">Costo estimado de los ítems seleccionados en el paso 3. El precio unitario se toma de los precios negociados vigentes (precios_negociados.json); los ítems sin precio se pueden completar a mano. Todos los valores en COP, sin IVA salvo donde se indica.</div>
+    <div class="sub">Costo estimado de los ítems seleccionados en el paso 3. El precio unitario se toma del catálogo central de precios (el mismo que usa el módulo de Líneas; se importa en Catálogo → Precios); los ítems sin precio se pueden completar a mano. Todos los valores en COP, sin IVA salvo donde se indica.</div>
     <div id="preciosStatus" class="sub"></div>
     <div id="pptoCobertura"></div>
     <div style="overflow-x:auto;">
@@ -639,7 +640,17 @@ function val(v, placeholder) {
 }
 
 function escapeHtml(str) {
-  return (str || "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  return String(str ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+// Solo enlaces http(s); cualquier otro esquema (javascript:, data:…) se descarta.
+function urlSegura(u) {
+  try { const x = new URL(String(u || '')); return /^https?:$/.test(x.protocol) ? x.href : ''; } catch (e) { return ''; }
+}
+
+// Valor seguro para pasar un texto como argumento JS dentro de un atributo onclick/onchange.
+function argJs(v) {
+  return escapeHtml(JSON.stringify(String(v ?? '')));
 }
 
 // Construye el bloque de "Requisitos Técnicos" del correo de RFQ: por cada ítem seleccionado
@@ -676,7 +687,8 @@ function proveedoresPorCategoria(cat, depto) {
 
 function chip(p) {
   const esPropio = p.fuente === 'tarifario_propio';
-  const label = p.url ? `<a href="${p.url}" target="_blank" rel="noopener">${p.nombre}</a>` : p.nombre;
+  const url = urlSegura(p.url);
+  const label = url ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(p.nombre)}</a>` : escapeHtml(p.nombre);
   const tag = esPropio ? '<span class="fuente-tag propio">Acuerdo previo</span>' : '<span class="fuente-tag web">Sugerido</span>';
   return `<span class="chip${esPropio ? ' tarifario' : ''}">${label}${tag}</span>`;
 }
@@ -686,9 +698,8 @@ let SELECCION = new Set();
 
 function chipConCheckbox(p) {
   const marcado = SELECCION.has(p.nombre);
-  const nombreEsc = p.nombre.replace(/'/g, "\\'");
   return `<label class="chip-select">
-    <input type="checkbox" ${marcado ? 'checked' : ''} onchange="toggleSeleccion('${nombreEsc}', this.checked)">
+    <input type="checkbox" ${marcado ? 'checked' : ''} onchange="toggleSeleccion(${argJs(p.nombre)}, this.checked)">
     ${chip(p)}
   </label>`;
 }
@@ -899,13 +910,13 @@ function renderSpecPanel(mi, ii, it) {
         <div>
           <label>Familia de conductor</label>
           <select onchange="cambiarFamiliaConductor(${mi}, ${ii}, this.value)">
-            ${familias.map(f => `<option value="${f}" ${familia === f ? 'selected' : ''}>${f}</option>`).join('')}
+            ${familias.map(f => `<option value="${escapeHtml(f)}" ${familia === f ? 'selected' : ''}>${escapeHtml(f)}</option>`).join('')}
           </select>
         </div>
         <div>
           <label>Calibre</label>
           <select onchange="cambiarCalibreConductor(${mi}, ${ii}, this.value)">
-            ${calibres.map(c => `<option value="${c.calibre}" ${calibre === c.calibre ? 'selected' : ''}>${c.calibre}</option>`).join('')}
+            ${calibres.map(c => `<option value="${escapeHtml(c.calibre)}" ${calibre === c.calibre ? 'selected' : ''}>${escapeHtml(c.calibre)}</option>`).join('')}
           </select>
         </div>
         ${spec ? `
@@ -1238,21 +1249,21 @@ function abrirModalEnvioCategoria(cat) {
 
     <table class="envio-tabla">
       <thead><tr><th>Ítem a cotizar</th><th>Cantidad</th></tr></thead>
-      <tbody>${itemsCat.map(s => `<tr><td>${s.nombre}</td><td>${s.cantidad.toLocaleString('es-CO')} ${s.unidad}</td></tr>`).join('')}</tbody>
+      <tbody>${itemsCat.map(s => `<tr><td>${escapeHtml(s.nombre)}</td><td>${s.cantidad.toLocaleString('es-CO')} ${escapeHtml(s.unidad)}</td></tr>`).join('')}</tbody>
     </table>
 
     <div class="sub" style="margin-top:16px; font-weight:600; color:var(--navy);">Proveedores seleccionados (${seleccionados.length})</div>
     <table class="envio-tabla">
       <thead><tr><th>Proveedor</th><th>Correo</th></tr></thead>
       <tbody>
-        ${seleccionados.map(p => `<tr><td>${p.nombre}${p.fuente === 'tarifario_propio' ? ' <span class="fuente-tag propio">Acuerdo previo</span>' : ''}</td><td>${p.email || '<span class="email-missing">Sin correo registrado</span>'}</td></tr>`).join('')}
+        ${seleccionados.map(p => `<tr><td>${escapeHtml(p.nombre)}${p.fuente === 'tarifario_propio' ? ' <span class="fuente-tag propio">Acuerdo previo</span>' : ''}</td><td>${p.email ? escapeHtml(p.email) : '<span class="email-missing">Sin correo registrado</span>'}</td></tr>`).join('')}
       </tbody>
     </table>
     ${sinEmail.length ? `<div class="disclaimer">⚠ ${sinEmail.length} proveedor(es) seleccionados no tienen correo registrado en el directorio — agrégalo manualmente abajo o complétalo en proveedores.json.</div>` : ''}
 
     <div style="margin-top:16px;">
       <label>Correo(s) del/de los proveedor(es)</label>
-      <input type="text" id="correosCategoria" value="${correosPrellenados}" placeholder="correo1@proveedor.com, correo2@proveedor.com">
+      <input type="text" id="correosCategoria" value="${escapeHtml(correosPrellenados)}" placeholder="correo1@proveedor.com, correo2@proveedor.com">
       <div class="sub" style="margin-top:4px; margin-bottom:0;">Separe varios correos con coma. Completa los que falten antes de enviar.</div>
     </div>
 
@@ -1354,6 +1365,37 @@ function cambiarOperador() {
   selFamilia.innerHTML = familias.map(f => `<option value="${escapeHtml(f)}">${escapeHtml(f)}</option>`).join('');
   if (familias.length) selFamilia.value = familias[0];
   actualizarCalibresOperador();
+  cargarBomCatalogo(operador);
+}
+
+// Cantidades de materiales por configuración (C1–C5) tomadas del catálogo central, el mismo que usa
+// el módulo de Líneas: para cada configuración se usa la primera norma vigente del operador cuya
+// descripción es "Configuración Cx …" (ordenadas por código). Si la API no responde se conservan las
+// cantidades embebidas en ITEMS_MASTER.
+const BOM_EMBEBIDA = ITEMS_MASTER.map(m => ({ ...m.bom_por_config }));
+async function cargarBomCatalogo(operador) {
+  const el = document.getElementById('bomStatus');
+  if (!operador) return;
+  try {
+    const r = await fetch(`/api/catalogo/normas?operador=${encodeURIComponent(operador)}`, { credentials: 'same-origin' });
+    if (!r.ok) throw new Error(r.status);
+    const normas = (await r.json()).filter(n => n.vigente).sort((a, b) => a.codigo.localeCompare(b.codigo));
+    const usadas = [];
+    for (const c of CONFIGS) {
+      const n = normas.find(x => (x.descripcion || '').startsWith(`Configuración ${c.codigo} `));
+      if (!n) continue;
+      const d = await (await fetch(`/api/catalogo/normas/${n.id}`, { credentials: 'same-origin' })).json();
+      const mats = Object.fromEntries((d.configuraciones[0]?.materiales || []).map(m => [m.codigoMaterial, m.cantidad]));
+      ITEMS_MASTER.forEach(m => { if (m.categoria_num !== 'X') m.bom_por_config[c.codigo] = mats[m.item] || 0; });
+      usadas.push(`${c.codigo}: ${n.codigo} v${n.version}`);
+    }
+    if (el) el.textContent = usadas.length
+      ? `Cantidades por configuración tomadas del catálogo central (${operador}) — ${usadas.join(' · ')}.`
+      : 'El catálogo no tiene normas para este operador; se usan las cantidades de referencia embebidas.';
+  } catch (e) {
+    ITEMS_MASTER.forEach((m, i) => { m.bom_por_config = { ...BOM_EMBEBIDA[i] }; });
+    if (el) el.textContent = 'No se pudo leer el catálogo central; se usan las cantidades de referencia embebidas.';
+  }
 }
 
 function actualizarCalibresOperador() {
@@ -1370,28 +1412,31 @@ function actualizarCalibresOperador() {
 
 // ============================================================
 // PASO 5 — PRESUPUESTO PRELIMINAR (módulo económico)
-// Precio unitario por ítem: precio negociado vigente más bajo (precios_negociados.json) o,
-// si no hay, el que el usuario ingrese a mano (se recuerda en este navegador).
+// Precio unitario por ítem: precio vigente del catálogo central (/api/catalogo/materiales, el mismo
+// que usa el módulo de Líneas) o, si no hay, el que el usuario ingrese a mano (se recuerda en este navegador).
 // ============================================================
-let PRECIOS = [];
+let PRECIOS = {};
 let PRECIO_MANUAL = {};
 const IVA = 0.19;
 try { PRECIO_MANUAL = JSON.parse(localStorage.getItem('agente1_precios_manuales') || '{}'); } catch (e) { PRECIO_MANUAL = {}; }
 
 function cargarPrecios() {
-  fetch('./precios_negociados.json', { cache: 'no-store' })
-    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
-    .then(data => {
-      const hoy = new Date().toISOString().slice(0, 10);
-      PRECIOS = (data.precios || []).filter(p => p.item && p.precio_unitario > 0 && (!p.vigencia_hasta || p.vigencia_hasta >= hoy));
-      const el = document.getElementById('preciosStatus');
-      if (el) el.textContent = `Precios negociados vigentes cargados: ${PRECIOS.length}.`;
+  const el = document.getElementById('preciosStatus');
+  fetch('/api/catalogo/materiales', { cache: 'no-store', credentials: 'same-origin' })
+    .then(r => {
+      if (r.status === 401) { window.location.href = '/login?siguiente=' + encodeURIComponent('/agente.html'); throw new Error('sesión'); }
+      if (!r.ok) throw new Error(r.status);
+      return r.json();
+    })
+    .then(materiales => {
+      PRECIOS = {};
+      materiales.forEach(m => { if (m.precio && m.precio.valor > 0) PRECIOS[m.codigo] = m.precio; });
+      if (el) el.textContent = `Precios del catálogo central cargados: ${Object.keys(PRECIOS).length} de ${materiales.length} materiales.`;
       if (document.getElementById('step5').style.display === 'block') renderPresupuesto();
     })
     .catch(() => {
-      PRECIOS = [];
-      const el = document.getElementById('preciosStatus');
-      if (el) el.textContent = 'No se pudo cargar precios_negociados.json — ingresa los precios a mano.';
+      PRECIOS = {};
+      if (el) el.textContent = 'No se pudo cargar el catálogo de precios — ingresa los precios a mano.';
     });
 }
 
@@ -1400,24 +1445,18 @@ function familiaCorta(f) {
   return String(f || '').trim().split(/\s+/)[0].toUpperCase();
 }
 
+// El precio manual del conductor se recuerda por familia y calibre; el del catálogo es uno por código.
 function clavePrecio(it) {
   return it.catNum === 'X' && it.conductor
     ? `${it.id}|${familiaCorta(it.conductor.familia)}|${it.conductor.calibre}`
     : it.id;
 }
 
-function precioNegociado(it) {
-  const candidatos = PRECIOS.filter(p => p.item === it.id && (it.catNum !== 'X' || !it.conductor ||
-    (familiaCorta(p.familia) === familiaCorta(it.conductor.familia) && p.calibre === it.conductor.calibre)));
-  if (!candidatos.length) return null;
-  return candidatos.reduce((min, p) => p.precio_unitario < min.precio_unitario ? p : min);
-}
-
 function precioDeItem(it) {
   const clave = clavePrecio(it);
   if (PRECIO_MANUAL[clave] > 0) return { precio: PRECIO_MANUAL[clave], fuente: 'manual' };
-  const neg = precioNegociado(it);
-  if (neg) return { precio: neg.precio_unitario, fuente: 'negociado', proveedor: neg.proveedor };
+  const cat = PRECIOS[it.id];
+  if (cat) return { precio: cat.valor, fuente: 'catalogo', proveedor: cat.proveedor };
   return { precio: 0, fuente: 'faltante' };
 }
 
@@ -1476,16 +1515,16 @@ function renderPresupuesto() {
         const p = precioDeItem(it);
         const subtotal = it.cantidad * p.precio;
         subtotalCat += subtotal;
-        const clave = clavePrecio(it).replace(/'/g, "\\'");
+        const clave = clavePrecio(it);
         const nombre = it.catNum === 'X' && it.conductor ? `${it.nombre} — ${it.conductor.familia} ${it.conductor.calibre}` : it.nombre;
-        const fuente = p.fuente === 'negociado'
-          ? `<span class="ppto-fuente negociado">Negociado · ${escapeHtml(p.proveedor || '')}</span>`
+        const fuente = p.fuente === 'catalogo'
+          ? `<span class="ppto-fuente catalogo">Catálogo${p.proveedor ? ' · ' + escapeHtml(p.proveedor) : ''}</span>`
           : p.fuente === 'manual' ? `<span class="ppto-fuente">Ingresado a mano</span>`
           : `<span class="ppto-fuente faltante">Sin precio</span>`;
         return `<tr class="${p.fuente === 'faltante' ? 'sin-precio-row' : ''}">
           <td>${escapeHtml(nombre)}</td>
           <td class="num">${it.cantidad.toLocaleString('es-CO')} ${escapeHtml(it.unidad)}</td>
-          <td class="num"><input type="number" min="0" step="100" value="${p.precio || ''}" placeholder="0" onchange="cambiarPrecioManual('${clave}', this.value)"></td>
+          <td class="num"><input type="number" min="0" step="100" value="${p.precio || ''}" placeholder="0" onchange="cambiarPrecioManual(${argJs(clave)}, this.value)"></td>
           <td>${fuente}</td>
           <td class="num">${p.precio ? formatoCOP(subtotal) : '—'}</td>
         </tr>`;
@@ -1518,7 +1557,7 @@ function exportarPresupuestoCSV() {
   cats.forEach(c => c.items.forEach(it => {
     const p = precioDeItem(it);
     const nombre = it.catNum === 'X' && it.conductor ? `${it.nombre} — ${it.conductor.familia} ${it.conductor.calibre}` : it.nombre;
-    const fuente = p.fuente === 'negociado' ? `Negociado (${p.proveedor || ''})` : p.fuente === 'manual' ? 'Manual' : 'Sin precio';
+    const fuente = p.fuente === 'catalogo' ? `Catálogo${p.proveedor ? ' (' + p.proveedor + ')' : ''}` : p.fuente === 'manual' ? 'Manual' : 'Sin precio';
     filas.push([c.titulo, nombre, it.cantidad, it.unidad, Math.round(p.precio), fuente, Math.round(it.cantidad * p.precio)]);
   }));
   filas.push([]);

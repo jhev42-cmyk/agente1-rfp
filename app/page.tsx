@@ -1,28 +1,6 @@
-'use client'
+import { redirect } from 'next/navigation'
 
-import { useEffect } from 'react'
-import { useRouter } from 'next/navigation'
-
+// El middleware ya exige sesión para llegar aquí.
 export default function Home() {
-  const router = useRouter()
-
-  useEffect(() => {
-    const token = localStorage.getItem('token')
-    if (token) {
-      router.push('/lineas')
-    } else {
-      router.push('/login')
-    }
-  }, [router])
-
-  return (
-    <div style={{
-      minHeight: '100vh',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center'
-    }}>
-      <p>Redirigiendo...</p>
-    </div>
-  )
+  redirect('/lineas')
 }

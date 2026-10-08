@@ -1,5 +1,6 @@
 // Esquema del módulo de líneas (configuración de postes y cotización por trayectos).
-// Los usuarios viven en app/lib/auth.ts; aquí se guarda su correo en los registros de auditoría.
+// Los registros de auditoría guardan el correo del usuario (texto) para conservarse aunque el
+// usuario se desactive.
 
 generator client {
   provider = "prisma-client-js"
@@ -111,7 +112,8 @@ model Linea {
   updatedAt   DateTime    @updatedAt
   aprobadaPor String?
   aprobadaAt  DateTime?
-  // Cotización congelada al aprobar: materiales, versiones de norma y precios usados.
+  // Cotización congelada al enviar a revisión (lo que se revisa es lo que se aprueba): materiales,
+  // versiones de norma y precios usados. Se borra al devolver a borrador.
   snapshot    Json?
 
   trayectos Trayecto[]
@@ -184,4 +186,37 @@ model Auditoria {
   fecha         DateTime @default(now())
 
   @@index([lineaId, fecha])
+}
+
+// ─── Usuarios y acceso ───────────────────────────────────────────────────────
+
+enum Rol {
+  ADMIN // todo, incluido catálogo y usuarios
+  APROBADOR // puede aprobar líneas
+  ANALISTA // configura y cotiza líneas
+}
+
+model Usuario {
+  id             Int      @id @default(autoincrement())
+  email          String   @unique
+  nombre         String
+  rol            Rol
+  passwordHash   String // scrypt$salt$hash
+  activo         Boolean  @default(true)
+  // Se incrementa al cambiar la contraseña, desactivar o restablecer: invalida las sesiones abiertas.
+  sessionVersion Int      @default(1)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+// Cada intento de inicio de sesión (sirve para limitar intentos fallidos y como registro de accesos).
+model IntentoLogin {
+  id     Int      @id @default(autoincrement())
+  email  String
+  ip     String
+  exito  Boolean
+  fecha  DateTime @default(now())
+
+  @@index([email, fecha])
+  @@index([ip, fecha])
 }

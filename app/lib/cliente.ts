@@ -7,12 +7,9 @@ export class ApiError extends Error {
   }
 }
 
-export function token() {
-  return typeof window === 'undefined' ? null : localStorage.getItem('token')
-}
-
 export async function api<T = any>(path: string, opts: { method?: string; body?: unknown; form?: FormData } = {}): Promise<T> {
-  const headers: Record<string, string> = { Authorization: `Bearer ${token()}` }
+  // La sesión viaja en la cookie HttpOnly; no hay token en el navegador.
+  const headers: Record<string, string> = {}
   let body: BodyInit | undefined
   if (opts.form) body = opts.form
   else if (opts.body !== undefined) {
@@ -21,8 +18,7 @@ export async function api<T = any>(path: string, opts: { method?: string; body?:
   }
   const res = await fetch(path, { method: opts.method || (body ? 'POST' : 'GET'), headers, body })
   if (res.status === 401) {
-    localStorage.removeItem('token')
-    window.location.href = '/login'
+    window.location.href = `/login?siguiente=${encodeURIComponent(window.location.pathname)}`
     throw new ApiError(401, 'Sesión expirada')
   }
   if (!res.ok) {

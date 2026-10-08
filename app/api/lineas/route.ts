@@ -4,7 +4,7 @@ import { prisma } from '../../lib/db'
 import { crearLinea } from '../../lib/lineas'
 
 export const GET = handler(async (request) => {
-  requireUser(request)
+  await requireUser(request)
   const lineas = await prisma.linea.findMany({
     orderBy: [{ updatedAt: 'desc' }],
     select: {
@@ -18,7 +18,7 @@ export const GET = handler(async (request) => {
 })
 
 export const POST = handler(async (request) => {
-  const user = requireUser(request)
+  const user = await requireUser(request)
   const linea = await crearLinea(await request.json(), user.email)
   return NextResponse.json({ id: linea.id }, { status: 201 })
 })
