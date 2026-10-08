@@ -63,6 +63,11 @@ export function handler<C>(fn: (request: NextRequest, ctx: C) => Promise<Respons
         console.warn('Conflicto de concurrencia', e.code, e.meta)
         return NextResponse.json({ error: 'Otro usuario modificó estos datos al mismo tiempo. Recarga la página e inténtalo de nuevo.' }, { status: 409 })
       }
+      // La transacción excedió su tiempo (base lenta): no se guardó nada, se puede reintentar.
+      if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === 'P2028') {
+        console.warn('Transacción sin completar por tiempo', e.message)
+        return NextResponse.json({ error: 'La operación tardó demasiado y no se guardó. Inténtalo de nuevo.' }, { status: 503 })
+      }
       console.error(e)
       return NextResponse.json({ error: 'Error en el servidor' }, { status: 500 })
     }

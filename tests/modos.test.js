@@ -58,6 +58,7 @@ async function api(path, { method, body } = {}) {
   const idNorma = await p.evaluate(() => [...document.querySelectorAll('.barra-trayecto select option')].find((o) => o.textContent.startsWith('RA2-101')).value)
   await p.select('.barra-trayecto select', idNorma); await esperar(300)
   await clic('.barra-trayecto button', 'Aplicar a los 6')
+  await p.waitForFunction(() => /6 poste\(s\) actualizados/.test(document.querySelector('.ok-box')?.textContent || ''), { timeout: 20000 })
   let l = await api(`/api/lineas/${l2}`)
   ok(l.postes.filter((x) => x.trayecto === 1).every((x) => x.normaId === Number(idNorma)) && l.postes.filter((x) => x.trayecto === 3).every((x) => !x.normaId), 'aplica la norma solo a los postes del trayecto 1')
   const sinPend = await p.waitForFunction(() => !document.querySelector('.subpasos button').textContent.includes('pend.'), { timeout: 10000 }).then(() => true).catch(() => false)
@@ -69,6 +70,7 @@ async function api(path, { method, body } = {}) {
   await p.waitForSelector('.modal textarea', { timeout: 10000 })
   await p.type('.modal textarea', 'Último poste en ángulo')
   await clic('.modal button', 'Confirmar')
+  await p.waitForFunction(() => /^1 poste\(s\) actualizados/.test(document.querySelector('.ok-box')?.textContent || ''), { timeout: 20000 })
   l = await api(`/api/lineas/${l2}`)
   ok(l.postes.find((x) => x.codigo === 'T01-P006').normaId === Number(idRet), 'ajuste individual dentro del trayecto (con motivo)')
 

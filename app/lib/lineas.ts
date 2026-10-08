@@ -102,8 +102,11 @@ export async function ajustarTrayecto(
     // cantidad ya actualizada, así no se generan postes con número repetido.
     const trayecto = await tx.trayecto.update({
       where: { lineaId_numero: { lineaId, numero } }, data: { cantidadPostes: { increment: 0 } },
-    }).catch(() => null)
-    if (!trayecto) throw new HttpError(404, 'Trayecto no encontrado')
+    }).catch((e) => {
+      // Solo "no existe" se traduce a 404; cualquier otro error (tiempo agotado, conexión) se propaga.
+      if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === 'P2025') throw new HttpError(404, 'Trayecto no encontrado')
+      throw e
+    })
     const actual = trayecto.cantidadPostes
     if (cantidad === actual) return { trayecto, retirados: [] as string[] }
     const motivo = actual === 0 ? (input.motivo?.trim() || 'Definición inicial de postes') : requireMotivo(input.motivo)
