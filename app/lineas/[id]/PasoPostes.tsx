@@ -288,8 +288,8 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
                         </>
                       )}
                       <td onClick={(e) => e.stopPropagation()} style={{ paddingLeft: isFirstNorma ? 16 : 40 }}>
-                        <div style={{ fontSize: 13, fontWeight: pn.seleccionada ? 600 : 400, color: pn.seleccionada ? 'var(--navy)' : 'inherit' }}>
-                          {etiquetaNorma({ ...norma, version: norma.version || 1 })} {pn.seleccionada ? <span style={{ fontSize: 11, color: 'var(--ok)' }}>✓</span> : <span style={{ fontSize: 11, color: '#999' }}>○</span>}
+                        <div style={{ fontSize: 13, fontWeight: 400, color: 'inherit' }}>
+                          {etiquetaNorma({ ...norma, version: norma.version || 1 })}
                         </div>
                       </td>
                       <td onClick={(e) => e.stopPropagation()}>
