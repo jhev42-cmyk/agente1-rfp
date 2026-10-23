@@ -254,42 +254,57 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
               <tr>{editable && <th style={{ width: 34 }}></th>}<th>Poste</th><th>Norma</th><th>Configuración</th><th>Tipo de poste</th><th>Estado</th>{editable && <th style={{ width: 80 }}></th>}</tr>
             </thead>
             <tbody>
-              {visibles.map((p) => {
+              {visibles.flatMap((p, posteIdx) => {
                 const normas = p.normas ?? []
-                const normaPrincipal = normas.find((pn: any) => pn.seleccionada) || normas[0]
-                const n = normaPrincipal?.norma
-                return (
-                  <tr key={p.id} className={`${pendiente(p) ? 'pendiente' : ''} ${activo === p.id ? 'seleccionado' : ''}`} onClick={() => setActivo(p.id)} style={{ cursor: 'pointer' }}>
+
+                if (normas.length === 0) {
+                  return [<tr key={`${p.id}-empty`} className={`${pendiente(p) ? 'pendiente' : ''} ${activo === p.id ? 'seleccionado' : ''}`} onClick={() => setActivo(p.id)} style={{ cursor: 'pointer' }}>
                     {editable && <td onClick={(e) => e.stopPropagation()}><input type="checkbox" checked={seleccion.has(p.id)} onChange={() => alternar(p.id)} /></td>}
                     <td style={{ fontFamily: 'ui-monospace, Menlo, monospace', fontSize: 12.5, whiteSpace: 'nowrap' }}>{p.codigo}</td>
                     <td onClick={(e) => e.stopPropagation()}>
-                      {normas.length === 0 ? (
-                        <select style={{ minWidth: 150 }} value={p.normaId || ''} disabled={!editable || ocupado} onChange={(e) => cambiarNormaFila(p, e.target.value)} onFocus={() => setActivo(p.id)}>
-                          <option value="">— Sin norma —</option>
-                          {vigentes.map((o) => <option key={o.id} value={o.id}>{etiquetaNorma(o)}{o.vigente ? '' : ' (versión anterior)'}</option>)}
-                        </select>
-                      ) : (
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-                          {normas.map((pn: any) => {
-                            const norma = pn?.norma
-                            if (!norma) return null
-                            return (
-                              <div key={pn.id} style={{ fontSize: 13, fontWeight: pn.seleccionada ? 600 : 400, color: pn.seleccionada ? 'var(--navy)' : 'inherit' }}>
-                                {etiquetaNorma({ ...norma, version: norma.version || 1 })} {pn.seleccionada ? <span style={{ fontSize: 11, color: 'var(--ok)' }}>✓ Seleccionado</span> : <span style={{ fontSize: 11, color: '#999' }}>○ No seleccionado</span>}
-                              </div>
-                            )
-                          })}
-                        </div>
-                      )}
+                      <select style={{ minWidth: 150 }} value={p.normaId || ''} disabled={!editable || ocupado} onChange={(e) => cambiarNormaFila(p, e.target.value)} onFocus={() => setActivo(p.id)}>
+                        <option value="">— Sin norma —</option>
+                        {vigentes.map((o) => <option key={o.id} value={o.id}>{etiquetaNorma(o)}{o.vigente ? '' : ' (versión anterior)'}</option>)}
+                      </select>
                     </td>
-                    <td onClick={(e) => e.stopPropagation()}>
-                      {n ? <span className="muted">{(n?.configuraciones || []).find((c: any) => c.id === normaPrincipal.configuracionId)?.nombre || '—'}</span> : <span className="muted">—</span>}
-                    </td>
-                    <td className="muted">{n?.tipoPoste || '—'}</td>
+                    <td></td>
+                    <td className="muted">—</td>
                     <td>{pendiente(p) ? <span className="etiqueta-pend">Pendiente</span> : <span className="etiqueta-ok">Configurado</span>}</td>
                     {editable && <td style={{ textAlign: 'center' }} onClick={(e) => e.stopPropagation()}><button className="btn btn-sm btn-claro" title="Agregar múltiples normas" onClick={() => setPosteEditandoNormas(p.id)}>+ Normas</button></td>}
-                  </tr>
-                )
+                  </tr>]
+                }
+
+                return normas.map((pn: any, normaIdx: number) => {
+                  const norma = pn?.norma
+                  if (!norma) return null
+                  const isFirstNorma = normaIdx === 0
+
+                  return (
+                    <tr key={`${p.id}-${pn.id}`} className={`${pendiente(p) ? 'pendiente' : ''} ${activo === p.id ? 'seleccionado' : ''}`} onClick={() => setActivo(p.id)} style={{ cursor: 'pointer', borderTop: !isFirstNorma ? '1px solid #f0f0f0' : '' }}>
+                      {isFirstNorma && (
+                        <>
+                          {editable && <td onClick={(e) => e.stopPropagation()} rowSpan={normas.length}><input type="checkbox" checked={seleccion.has(p.id)} onChange={() => alternar(p.id)} /></td>}
+                          <td style={{ fontFamily: 'ui-monospace, Menlo, monospace', fontSize: 12.5, whiteSpace: 'nowrap', fontWeight: 600 }} rowSpan={normas.length}>{p.codigo}</td>
+                        </>
+                      )}
+                      <td onClick={(e) => e.stopPropagation()} style={{ paddingLeft: isFirstNorma ? 16 : 40 }}>
+                        <div style={{ fontSize: 13, fontWeight: pn.seleccionada ? 600 : 400, color: pn.seleccionada ? 'var(--navy)' : 'inherit' }}>
+                          {etiquetaNorma({ ...norma, version: norma.version || 1 })} {pn.seleccionada ? <span style={{ fontSize: 11, color: 'var(--ok)' }}>✓</span> : <span style={{ fontSize: 11, color: '#999' }}>○</span>}
+                        </div>
+                      </td>
+                      <td onClick={(e) => e.stopPropagation()}>
+                        <span className="muted">{(norma?.configuraciones || []).find((c: any) => c.id === pn.configuracionId)?.nombre || '—'}</span>
+                      </td>
+                      <td className="muted">{norma?.tipoPoste || '—'}</td>
+                      {isFirstNorma && (
+                        <>
+                          <td rowSpan={normas.length}>{pendiente(p) ? <span className="etiqueta-pend">Pendiente</span> : <span className="etiqueta-ok">Configurado</span>}</td>
+                          {editable && <td style={{ textAlign: 'center' }} rowSpan={normas.length} onClick={(e) => e.stopPropagation()}><button className="btn btn-sm btn-claro" title="Agregar múltiples normas" onClick={() => setPosteEditandoNormas(p.id)}>+ Normas</button></td>}
+                        </>
+                      )}
+                    </tr>
+                  )
+                }).filter(Boolean)
               })}
               {!visibles.length && <tr><td colSpan={7} className="muted">No hay postes con este filtro.</td></tr>}
             </tbody>
