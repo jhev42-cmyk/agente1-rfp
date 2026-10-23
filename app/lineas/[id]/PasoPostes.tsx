@@ -293,10 +293,10 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
                       ) : n && n.configuraciones.length > 1 ? (
                         <select value={p.configuracionId || ''} disabled={!editable || ocupado} onChange={(e) => asignar([p.id], n.id, Number(e.target.value) || null)}>
                           <option value="">Seleccione…</option>
-                          {n.configuraciones.map((c) => <option key={c.id} value={c.id}>{c.nombre}</option>)}
+                          {n.configuraciones.map((c: any) => <option key={c.id} value={c.id}>{c.nombre}</option>)}
                         </select>
                       ) : (
-                        <span className="muted">{n?.configuraciones.find((c) => c.id === p.configuracionId)?.nombre || '—'}</span>
+                        <span className="muted">{n?.configuraciones.find((c: any) => c.id === p.configuracionId)?.nombre || '—'}</span>
                       )}
                     </td>
                     <td className="muted">{n?.tipoPoste || '—'}</td>
