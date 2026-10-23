@@ -2352,6 +2352,666 @@
           ]
         }
       ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "B761",
+      "version": 1,
+      "tipoPoste": "Pato - Bandera Suspensión (13.2 kV)",
+      "descripcion": "Estructura de suspensión con aisladores tipo pato, configuración bandera, para ángulos de alineación 0° a 6° - 13.2 kV",
+      "vigente": true,
+      "creadoPor": "system",
+      "motivo": "Integración de catálogo CELSIA",
+      "configuraciones": [
+        {
+          "nombre": "C1 estándar",
+          "orden": 0,
+          "materiales": [
+            {
+              "codigo": "1.1",
+              "cantidad": 1,
+              "observacion": "Poste CELSIA"
+            },
+            {
+              "codigo": "2.1",
+              "cantidad": 2,
+              "observacion": "Collarines"
+            },
+            {
+              "codigo": "3.1",
+              "cantidad": 6,
+              "observacion": "Pernos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "C761",
+      "version": 1,
+      "tipoPoste": "Pato - Bandera Suspensión (34.5 kV)",
+      "descripcion": "Estructura de suspensión con aisladores tipo pato, configuración bandera, para ángulos de alineación 0° a 6° - 34.5 kV",
+      "vigente": true,
+      "creadoPor": "system",
+      "motivo": "Integración de catálogo CELSIA",
+      "configuraciones": [
+        {
+          "nombre": "C1 estándar",
+          "orden": 0,
+          "materiales": [
+            {
+              "codigo": "1.1",
+              "cantidad": 1,
+              "observacion": "Poste CELSIA"
+            },
+            {
+              "codigo": "2.1",
+              "cantidad": 2,
+              "observacion": "Collarines"
+            },
+            {
+              "codigo": "3.1",
+              "cantidad": 6,
+              "observacion": "Pernos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "B71",
+      "version": 1,
+      "tipoPoste": "Pato - Brazo Tangente (Antibalanceo) (13.2 kV)",
+      "descripcion": "Estructura de brazo tangente con sistema antibalanceo para ángulos 0° a 3° - 13.2 kV",
+      "vigente": true,
+      "creadoPor": "system",
+      "motivo": "Integración de catálogo CELSIA",
+      "configuraciones": [
+        {
+          "nombre": "C1 estándar",
+          "orden": 0,
+          "materiales": [
+            {
+              "codigo": "1.1",
+              "cantidad": 1,
+              "observacion": "Poste CELSIA"
+            },
+            {
+              "codigo": "2.1",
+              "cantidad": 2,
+              "observacion": "Collarines"
+            },
+            {
+              "codigo": "3.1",
+              "cantidad": 6,
+              "observacion": "Pernos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "C71",
+      "version": 1,
+      "tipoPoste": "Pato - Brazo Tangente (Antibalanceo) (34.5 kV)",
+      "descripcion": "Estructura de brazo tangente con sistema antibalanceo para ángulos 0° a 3° - 34.5 kV",
+      "vigente": true,
+      "creadoPor": "system",
+      "motivo": "Integración de catálogo CELSIA",
+      "configuraciones": [
+        {
+          "nombre": "C1 estándar",
+          "orden": 0,
+          "materiales": [
+            {
+              "codigo": "1.1",
+              "cantidad": 1,
+              "observacion": "Poste CELSIA"
+            },
+            {
+              "codigo": "2.1",
+              "cantidad": 2,
+              "observacion": "Collarines"
+            },
+            {
+              "codigo": "3.1",
+              "cantidad": 6,
+              "observacion": "Pernos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "B712",
+      "version": 1,
+      "tipoPoste": "Pato - Brazo Tangente (Múltiples circuitos) (13.2 kV)",
+      "descripcion": "Estructura para doble, triple o cuádruple circuito con brazo tangente - 13.2 kV",
+      "vigente": true,
+      "creadoPor": "system",
+      "motivo": "Integración de catálogo CELSIA",
+      "configuraciones": [
+        {
+          "nombre": "C1 estándar",
+          "orden": 0,
+          "materiales": [
+            {
+              "codigo": "1.1",
+              "cantidad": 1,
+              "observacion": "Poste CELSIA"
+            },
+            {
+              "codigo": "2.1",
+              "cantidad": 2,
+              "observacion": "Collarines"
+            },
+            {
+              "codigo": "3.1",
+              "cantidad": 6,
+              "observacion": "Pernos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "C712",
+      "version": 1,
+      "tipoPoste": "Pato - Brazo Tangente (Múltiples circuitos) (34.5 kV)",
+      "descripcion": "Estructura para doble, triple o cuádruple circuito con brazo tangente - 34.5 kV",
+      "vigente": true,
+      "creadoPor": "system",
+      "motivo": "Integración de catálogo CELSIA",
+      "configuraciones": [
+        {
+          "nombre": "C1 estándar",
+          "orden": 0,
+          "materiales": [
+            {
+              "codigo": "1.1",
+              "cantidad": 1,
+              "observacion": "Poste CELSIA"
+            },
+            {
+              "codigo": "2.1",
+              "cantidad": 2,
+              "observacion": "Collarines"
+            },
+            {
+              "codigo": "3.1",
+              "cantidad": 6,
+              "observacion": "Pernos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "B767",
+      "version": 1,
+      "tipoPoste": "Polimérico - Bandera (13.2 kV)",
+      "descripcion": "Aislador polimérico con terminal doble en configuración bandera - 13.2 kV",
+      "vigente": true,
+      "creadoPor": "system",
+      "motivo": "Integración de catálogo CELSIA",
+      "configuraciones": [
+        {
+          "nombre": "C1 estándar",
+          "orden": 0,
+          "materiales": [
+            {
+              "codigo": "1.1",
+              "cantidad": 1,
+              "observacion": "Poste CELSIA"
+            },
+            {
+              "codigo": "2.1",
+              "cantidad": 2,
+              "observacion": "Collarines"
+            },
+            {
+              "codigo": "3.1",
+              "cantidad": 6,
+              "observacion": "Pernos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "C767",
+      "version": 1,
+      "tipoPoste": "Polimérico - Bandera (34.5 kV)",
+      "descripcion": "Aislador polimérico con terminal doble en configuración bandera - 34.5 kV",
+      "vigente": true,
+      "creadoPor": "system",
+      "motivo": "Integración de catálogo CELSIA",
+      "configuraciones": [
+        {
+          "nombre": "C1 estándar",
+          "orden": 0,
+          "materiales": [
+            {
+              "codigo": "1.1",
+              "cantidad": 1,
+              "observacion": "Poste CELSIA"
+            },
+            {
+              "codigo": "2.1",
+              "cantidad": 2,
+              "observacion": "Collarines"
+            },
+            {
+              "codigo": "3.1",
+              "cantidad": 6,
+              "observacion": "Pernos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "B72C",
+      "version": 1,
+      "tipoPoste": "Pin - Herraje Tipo C (13.2 kV)",
+      "descripcion": "Aislador tipo PIN con herraje Tipo C para ángulos 3° a 30° - 13.2 kV",
+      "vigente": true,
+      "creadoPor": "system",
+      "motivo": "Integración de catálogo CELSIA",
+      "configuraciones": [
+        {
+          "nombre": "C1 estándar",
+          "orden": 0,
+          "materiales": [
+            {
+              "codigo": "1.1",
+              "cantidad": 1,
+              "observacion": "Poste CELSIA"
+            },
+            {
+              "codigo": "2.1",
+              "cantidad": 2,
+              "observacion": "Collarines"
+            },
+            {
+              "codigo": "3.1",
+              "cantidad": 6,
+              "observacion": "Pernos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "C72C",
+      "version": 1,
+      "tipoPoste": "Pin - Herraje Tipo C (34.5 kV)",
+      "descripcion": "Aislador tipo PIN con herraje Tipo C para ángulos 3° a 30° - 34.5 kV",
+      "vigente": true,
+      "creadoPor": "system",
+      "motivo": "Integración de catálogo CELSIA",
+      "configuraciones": [
+        {
+          "nombre": "C1 estándar",
+          "orden": 0,
+          "materiales": [
+            {
+              "codigo": "1.1",
+              "cantidad": 1,
+              "observacion": "Poste CELSIA"
+            },
+            {
+              "codigo": "2.1",
+              "cantidad": 2,
+              "observacion": "Collarines"
+            },
+            {
+              "codigo": "3.1",
+              "cantidad": 6,
+              "observacion": "Pernos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "B72C2",
+      "version": 1,
+      "tipoPoste": "Pin - Herraje C (Múltiples circuitos) (13.2 kV)",
+      "descripcion": "Herraje Tipo C para múltiples circuitos (doble, triple, cuádruple) - 13.2 kV",
+      "vigente": true,
+      "creadoPor": "system",
+      "motivo": "Integración de catálogo CELSIA",
+      "configuraciones": [
+        {
+          "nombre": "C1 estándar",
+          "orden": 0,
+          "materiales": [
+            {
+              "codigo": "1.1",
+              "cantidad": 1,
+              "observacion": "Poste CELSIA"
+            },
+            {
+              "codigo": "2.1",
+              "cantidad": 2,
+              "observacion": "Collarines"
+            },
+            {
+              "codigo": "3.1",
+              "cantidad": 6,
+              "observacion": "Pernos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "C72C2",
+      "version": 1,
+      "tipoPoste": "Pin - Herraje C (Múltiples circuitos) (34.5 kV)",
+      "descripcion": "Herraje Tipo C para múltiples circuitos (doble, triple, cuádruple) - 34.5 kV",
+      "vigente": true,
+      "creadoPor": "system",
+      "motivo": "Integración de catálogo CELSIA",
+      "configuraciones": [
+        {
+          "nombre": "C1 estándar",
+          "orden": 0,
+          "materiales": [
+            {
+              "codigo": "1.1",
+              "cantidad": 1,
+              "observacion": "Poste CELSIA"
+            },
+            {
+              "codigo": "2.1",
+              "cantidad": 2,
+              "observacion": "Collarines"
+            },
+            {
+              "codigo": "3.1",
+              "cantidad": 6,
+              "observacion": "Pernos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "B72E",
+      "version": 1,
+      "tipoPoste": "Pin - Herraje Tipo E (13.2 kV)",
+      "descripcion": "Aislador tipo PIN con herraje Tipo E lateral - 13.2 kV",
+      "vigente": true,
+      "creadoPor": "system",
+      "motivo": "Integración de catálogo CELSIA",
+      "configuraciones": [
+        {
+          "nombre": "C1 estándar",
+          "orden": 0,
+          "materiales": [
+            {
+              "codigo": "1.1",
+              "cantidad": 1,
+              "observacion": "Poste CELSIA"
+            },
+            {
+              "codigo": "2.1",
+              "cantidad": 2,
+              "observacion": "Collarines"
+            },
+            {
+              "codigo": "3.1",
+              "cantidad": 6,
+              "observacion": "Pernos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "C72E",
+      "version": 1,
+      "tipoPoste": "Pin - Herraje Tipo E (34.5 kV)",
+      "descripcion": "Aislador tipo PIN con herraje Tipo E lateral - 34.5 kV",
+      "vigente": true,
+      "creadoPor": "system",
+      "motivo": "Integración de catálogo CELSIA",
+      "configuraciones": [
+        {
+          "nombre": "C1 estándar",
+          "orden": 0,
+          "materiales": [
+            {
+              "codigo": "1.1",
+              "cantidad": 1,
+              "observacion": "Poste CELSIA"
+            },
+            {
+              "codigo": "2.1",
+              "cantidad": 2,
+              "observacion": "Collarines"
+            },
+            {
+              "codigo": "3.1",
+              "cantidad": 6,
+              "observacion": "Pernos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "B76C",
+      "version": 1,
+      "tipoPoste": "Polimérico - Herraje C (Frontal) (13.2 kV)",
+      "descripcion": "Terminal sencillo centrado con herraje Tipo C frontal - 13.2 kV",
+      "vigente": true,
+      "creadoPor": "system",
+      "motivo": "Integración de catálogo CELSIA",
+      "configuraciones": [
+        {
+          "nombre": "C1 estándar",
+          "orden": 0,
+          "materiales": [
+            {
+              "codigo": "1.1",
+              "cantidad": 1,
+              "observacion": "Poste CELSIA"
+            },
+            {
+              "codigo": "2.1",
+              "cantidad": 2,
+              "observacion": "Collarines"
+            },
+            {
+              "codigo": "3.1",
+              "cantidad": 6,
+              "observacion": "Pernos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "C76C",
+      "version": 1,
+      "tipoPoste": "Polimérico - Herraje C (Frontal) (34.5 kV)",
+      "descripcion": "Terminal sencillo centrado con herraje Tipo C frontal - 34.5 kV",
+      "vigente": true,
+      "creadoPor": "system",
+      "motivo": "Integración de catálogo CELSIA",
+      "configuraciones": [
+        {
+          "nombre": "C1 estándar",
+          "orden": 0,
+          "materiales": [
+            {
+              "codigo": "1.1",
+              "cantidad": 1,
+              "observacion": "Poste CELSIA"
+            },
+            {
+              "codigo": "2.1",
+              "cantidad": 2,
+              "observacion": "Collarines"
+            },
+            {
+              "codigo": "3.1",
+              "cantidad": 6,
+              "observacion": "Pernos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "B76C2",
+      "version": 1,
+      "tipoPoste": "Polimérico - Herraje C (Lateral) (13.2 kV)",
+      "descripcion": "Terminal sencillo doble circuito con herraje Tipo C lateral - 13.2 kV",
+      "vigente": true,
+      "creadoPor": "system",
+      "motivo": "Integración de catálogo CELSIA",
+      "configuraciones": [
+        {
+          "nombre": "C1 estándar",
+          "orden": 0,
+          "materiales": [
+            {
+              "codigo": "1.1",
+              "cantidad": 1,
+              "observacion": "Poste CELSIA"
+            },
+            {
+              "codigo": "2.1",
+              "cantidad": 2,
+              "observacion": "Collarines"
+            },
+            {
+              "codigo": "3.1",
+              "cantidad": 6,
+              "observacion": "Pernos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "C76C2",
+      "version": 1,
+      "tipoPoste": "Polimérico - Herraje C (Lateral) (34.5 kV)",
+      "descripcion": "Terminal sencillo doble circuito con herraje Tipo C lateral - 34.5 kV",
+      "vigente": true,
+      "creadoPor": "system",
+      "motivo": "Integración de catálogo CELSIA",
+      "configuraciones": [
+        {
+          "nombre": "C1 estándar",
+          "orden": 0,
+          "materiales": [
+            {
+              "codigo": "1.1",
+              "cantidad": 1,
+              "observacion": "Poste CELSIA"
+            },
+            {
+              "codigo": "2.1",
+              "cantidad": 2,
+              "observacion": "Collarines"
+            },
+            {
+              "codigo": "3.1",
+              "cantidad": 6,
+              "observacion": "Pernos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "B77",
+      "version": 1,
+      "tipoPoste": "Polimérico - Delta Centrada en V (13.2 kV)",
+      "descripcion": "Configuración compacta delta centrada en V con aislador polimérico - 13.2 kV",
+      "vigente": true,
+      "creadoPor": "system",
+      "motivo": "Integración de catálogo CELSIA",
+      "configuraciones": [
+        {
+          "nombre": "C1 estándar",
+          "orden": 0,
+          "materiales": [
+            {
+              "codigo": "1.1",
+              "cantidad": 1,
+              "observacion": "Poste CELSIA"
+            },
+            {
+              "codigo": "2.1",
+              "cantidad": 2,
+              "observacion": "Collarines"
+            },
+            {
+              "codigo": "3.1",
+              "cantidad": 6,
+              "observacion": "Pernos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "C77",
+      "version": 1,
+      "tipoPoste": "Polimérico - Delta Centrada en V (34.5 kV)",
+      "descripcion": "Configuración compacta delta centrada en V con aislador polimérico - 34.5 kV",
+      "vigente": true,
+      "creadoPor": "system",
+      "motivo": "Integración de catálogo CELSIA",
+      "configuraciones": [
+        {
+          "nombre": "C1 estándar",
+          "orden": 0,
+          "materiales": [
+            {
+              "codigo": "1.1",
+              "cantidad": 1,
+              "observacion": "Poste CELSIA"
+            },
+            {
+              "codigo": "2.1",
+              "cantidad": 2,
+              "observacion": "Collarines"
+            },
+            {
+              "codigo": "3.1",
+              "cantidad": 6,
+              "observacion": "Pernos"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

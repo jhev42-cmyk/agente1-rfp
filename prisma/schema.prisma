@@ -27,8 +27,8 @@ model Material {
 // los postes siguen apuntando a la versión con la que se configuraron.
 model Norma {
   id          Int      @id @default(autoincrement())
-  operador    String // EPM, ENEL
-  codigo      String // RA2-101, LA 101 …
+  operador    String // EPM, ENEL, CELSIA, ElectroHuila, Enerca
+  codigo      String // RA2-101, LA 101, B761, C761 …
   version     Int
   tipoPoste   String
   descripcion String
@@ -40,7 +40,7 @@ model Norma {
   createdAt   DateTime @default(now())
 
   configuraciones NormaConfiguracion[]
-  postes          Poste[]
+  postes          PosteNorma[] // relación many-to-many a través de PosteNorma
 
   @@unique([operador, codigo, version])
   @@index([operador, vigente])
@@ -54,7 +54,7 @@ model NormaConfiguracion {
   orden   Int    @default(0)
 
   materiales ConfiguracionMaterial[]
-  postes     Poste[]
+  posteNormas PosteNorma[] // relación a los postes que usan esta configuración
 }
 
 model ConfiguracionMaterial {
@@ -144,13 +144,28 @@ model Poste {
   trayecto        Trayecto            @relation(fields: [trayectoId], references: [id], onDelete: Cascade)
   numero          Int // consecutivo dentro del trayecto
   codigo          String // T01-P001
-  normaId         Int?
-  norma           Norma?              @relation(fields: [normaId], references: [id])
-  configuracionId Int?
-  configuracion   NormaConfiguracion? @relation(fields: [configuracionId], references: [id])
+  // Relación many-to-many: un poste puede tener múltiples normas, una norma puede estar en múltiples postes
+  normas          PosteNorma[]
 
   @@unique([trayectoId, numero])
   @@index([lineaId])
+}
+
+// Tabla de unión: permite que un poste tenga múltiples normas
+model PosteNorma {
+  id             Int      @id @default(autoincrement())
+  posteId        Int
+  poste          Poste    @relation(fields: [posteId], references: [id], onDelete: Cascade)
+  normaId        Int
+  norma          Norma    @relation(fields: [normaId], references: [id], onDelete: Cascade)
+  configuracionId Int?
+  configuracion  NormaConfiguracion? @relation(fields: [configuracionId], references: [id])
+  seleccionada   Boolean  @default(false) // la norma actualmente seleccionada para cotización
+  createdAt      DateTime @default(now())
+
+  @@unique([posteId, normaId]) // No duplicar la misma norma en un poste
+  @@index([posteId])
+  @@index([normaId])
 }
 
 enum TipoPartida {
