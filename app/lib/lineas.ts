@@ -5,7 +5,7 @@ import { HttpError, requireMotivo } from './api'
 
 export const NUM_TRAYECTOS = 10
 export const MAX_POSTES_TRAYECTO = 999
-export const OPERADORES = ['EPM', 'ENEL']
+export const OPERADORES = ['EPM', 'ENEL', 'CELSIA', 'ElectroHuila', 'Enerca']
 
 export function codigoPoste(trayecto: number, numero: number) {
   return `T${String(trayecto).padStart(2, '0')}-P${String(numero).padStart(3, '0')}`
