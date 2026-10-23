@@ -26,9 +26,9 @@ export const GET = handler(async (request, { params }: Ctx) => {
     })
   }
 
-  // Si no hay imagen en BD, intenta buscar en /CELSIA/images/
+  // Si no hay imagen en BD, intenta buscar en /public/CELSIA/images/
   if (norma?.operador === 'CELSIA' && norma?.codigo) {
-    const imagesDir = join(process.cwd(), 'CELSIA', 'images')
+    const imagesDir = join(process.cwd(), 'public', 'CELSIA', 'images')
     const codigo = norma.codigo
 
     try {
