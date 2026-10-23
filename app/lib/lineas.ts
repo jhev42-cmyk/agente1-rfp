@@ -355,7 +355,7 @@ export async function calcular(lineaId: number): Promise<Calculo> {
   ])
   if (!linea) throw new HttpError(404, 'Línea no encontrada')
 
-  const configIds = [...new Set(postes.flatMap((p) => p.normas.map((n) => n.configuracionId).filter((x): x is number => !!x))]
+  const configIds = [...new Set(postes.flatMap((p) => p.normas.map((n) => n.configuracionId).filter((x): x is number => !!x)))]
   const configs = await prisma.normaConfiguracion.findMany({
     where: { id: { in: configIds } }, include: { materiales: true, norma: true },
   })
