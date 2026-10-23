@@ -253,29 +253,51 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
               <tr>{editable && <th style={{ width: 34 }}></th>}<th>Poste</th><th>Norma</th><th>Configuración</th><th>Tipo de poste</th><th>Estado</th>{editable && <th style={{ width: 80 }}></th>}</tr>
             </thead>
             <tbody>
-              {visibles.map((p) => {
-                const n = p.normaId ? normaPorId.get(p.normaId) : undefined
+              {visibles.flatMap((p) => {
+                // Si tiene normas asignadas, crea una fila por cada norma
+                // Si no, crea una fila vacía
+                if (!p.normas || p.normas.length === 0) {
+                  return [{
+                    poste: p,
+                    posteNorma: null,
+                    norma: undefined,
+                  }]
+                }
+                return p.normas.map((pn: any) => ({
+                  poste: p,
+                  posteNorma: pn,
+                  norma: pn.norma,
+                }))
+              }).map((row: any, idx: number) => {
+                const { poste: p, posteNorma: pn, norma: n } = row
                 const opciones = n && !n.vigente ? [n, ...vigentes] : vigentes
                 return (
-                  <tr key={p.id} className={`${pendiente(p) ? 'pendiente' : ''} ${activo === p.id ? 'seleccionado' : ''}`} onClick={() => setActivo(p.id)} style={{ cursor: 'pointer' }}>
+                  <tr key={`${p.id}-${pn?.id || 'empty'}`} className={`${pendiente(p) ? 'pendiente' : ''} ${activo === p.id ? 'seleccionado' : ''}`} onClick={() => setActivo(p.id)} style={{ cursor: 'pointer' }}>
                     {editable && <td onClick={(e) => e.stopPropagation()}><input type="checkbox" checked={seleccion.has(p.id)} onChange={() => alternar(p.id)} /></td>}
                     <td style={{ fontFamily: 'ui-monospace, Menlo, monospace', fontSize: 12.5, whiteSpace: 'nowrap' }}>{p.codigo}</td>
                     <td onClick={(e) => e.stopPropagation()}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                      {pn ? (
+                        <div style={{ fontWeight: pn.seleccionada ? 600 : 400, color: pn.seleccionada ? 'var(--navy)' : 'inherit' }}>
+                          {etiquetaNorma({ ...n, version: n.version || 1 })}
+                        </div>
+                      ) : (
                         <select style={{ minWidth: 150 }} value={p.normaId || ''} disabled={!editable || ocupado} onChange={(e) => cambiarNormaFila(p, e.target.value)} onFocus={() => setActivo(p.id)}>
                           <option value="">— Sin norma —</option>
                           {opciones.map((o) => <option key={o.id} value={o.id}>{etiquetaNorma(o)}{o.vigente ? '' : ' (versión anterior)'}</option>)}
                         </select>
-                        {p.normas && p.normas.length > 1 && <span style={{ fontSize: 12, color: '#666', whiteSpace: 'nowrap' }}>+{p.normas.length - 1}</span>}
-                      </div>
+                      )}
                     </td>
                     <td onClick={(e) => e.stopPropagation()}>
-                      {n && n.configuraciones.length > 1 ? (
+                      {pn ? (
+                        <span className="muted">{n?.configuraciones.find((c: any) => c.id === pn.configuracionId)?.nombre || '—'}</span>
+                      ) : n && n.configuraciones.length > 1 ? (
                         <select value={p.configuracionId || ''} disabled={!editable || ocupado} onChange={(e) => asignar([p.id], n.id, Number(e.target.value) || null)}>
                           <option value="">Seleccione…</option>
                           {n.configuraciones.map((c) => <option key={c.id} value={c.id}>{c.nombre}</option>)}
                         </select>
-                      ) : <span className="muted">{n?.configuraciones.find((c) => c.id === p.configuracionId)?.nombre || '—'}</span>}
+                      ) : (
+                        <span className="muted">{n?.configuraciones.find((c) => c.id === p.configuracionId)?.nombre || '—'}</span>
+                      )}
                     </td>
                     <td className="muted">{n?.tipoPoste || '—'}</td>
                     <td>{pendiente(p) ? <span className="etiqueta-pend">Pendiente</span> : <span className="etiqueta-ok">Configurado</span>}</td>
