@@ -11,7 +11,13 @@ export const GET = handler(async (request) => {
       id: true, grupo: true, revision: true, nombre: true, longitudKm: true, operador: true, estado: true,
       creadoPor: true, createdAt: true, updatedAt: true, aprobadaPor: true, aprobadaAt: true,
       _count: { select: { postes: true } },
-      postes: { where: { OR: [{ normaId: null }, { configuracionId: null }] }, select: { id: true } },
+      // Postes sin norma asignada: los que no tienen ninguna relación en PosteNorma
+      postes: {
+        where: {
+          normas: { none: {} }
+        },
+        select: { id: true }
+      },
     },
   })
   return NextResponse.json(lineas.map(({ postes, _count, ...l }) => ({ ...l, postes: _count.postes, pendientes: postes.length })))

@@ -16,7 +16,21 @@ export const GET = handler(async (request, { params }: Ctx) => {
       trayectos: { orderBy: { numero: 'asc' }, select: { numero: true, cantidadPostes: true } },
       postes: {
         orderBy: [{ trayecto: { numero: 'asc' } }, { numero: 'asc' }],
-        select: { id: true, codigo: true, numero: true, normaId: true, configuracionId: true, trayecto: { select: { numero: true } } },
+        select: {
+          id: true,
+          codigo: true,
+          numero: true,
+          trayecto: { select: { numero: true } },
+          normas: {
+            select: {
+              id: true,
+              normaId: true,
+              configuracionId: true,
+              seleccionada: true,
+              norma: { select: { codigo: true, operador: true } },
+            },
+          },
+        },
       },
       partidas: { orderBy: { id: 'asc' } },
     },
@@ -27,7 +41,14 @@ export const GET = handler(async (request, { params }: Ctx) => {
   })
   return NextResponse.json({
     ...linea,
-    postes: linea.postes.map(({ trayecto, ...p }) => ({ ...p, trayecto: trayecto.numero })),
+    postes: linea.postes.map(({ trayecto, normas, ...p }) => ({
+      ...p,
+      trayecto: trayecto.numero,
+      // Para compatibilidad: normaId y configuracionId de la norma seleccionada (o la primera)
+      normaId: normas.find((n) => n.seleccionada)?.normaId || normas[0]?.normaId || null,
+      configuracionId: normas.find((n) => n.seleccionada)?.configuracionId || normas[0]?.configuracionId || null,
+      normas,
+    })),
     revisiones,
   })
 })
