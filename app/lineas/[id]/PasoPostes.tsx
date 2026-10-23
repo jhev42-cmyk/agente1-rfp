@@ -272,7 +272,8 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
                   </tr>]
                 }
                 return normas.map((pn: any) => {
-                  const n = pn.norma
+                  const n = pn?.norma
+                  if (!n) return null
                   return <tr key={`${p.id}-${pn.id}`} className={`${pendiente(p) ? 'pendiente' : ''} ${activo === p.id ? 'seleccionado' : ''}`} onClick={() => setActivo(p.id)} style={{ cursor: 'pointer' }}>
                     {editable && <td onClick={(e) => e.stopPropagation()}><input type="checkbox" checked={seleccion.has(p.id)} onChange={() => alternar(p.id)} /></td>}
                     <td style={{ fontFamily: 'ui-monospace, Menlo, monospace', fontSize: 12.5, whiteSpace: 'nowrap' }}>{p.codigo}</td>
@@ -280,13 +281,13 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
                       <div style={{ fontWeight: pn.seleccionada ? 600 : 400, color: pn.seleccionada ? 'var(--navy)' : 'inherit' }}>{etiquetaNorma({ ...n, version: n.version || 1 })}</div>
                     </td>
                     <td onClick={(e) => e.stopPropagation()}>
-                      <span className="muted">{n?.configuraciones.find((c: any) => c.id === pn.configuracionId)?.nombre || '—'}</span>
+                      <span className="muted">{(n?.configuraciones || []).find((c: any) => c.id === pn.configuracionId)?.nombre || '—'}</span>
                     </td>
                     <td className="muted">{n?.tipoPoste || '—'}</td>
                     <td>{pn.seleccionada ? <span className="etiqueta-ok">Seleccionado</span> : <span className="etiqueta-pend">No seleccionado</span>}</td>
                     {editable && <td style={{ textAlign: 'center' }} onClick={(e) => e.stopPropagation()}><button className="btn btn-sm btn-claro" title="Agregar múltiples normas" onClick={() => setPosteEditandoNormas(p.id)}>+ Normas</button></td>}
                   </tr>
-                })
+                }).filter(Boolean)
               })}
               {!visibles.length && <tr><td colSpan={7} className="muted">No hay postes con este filtro.</td></tr>}
             </tbody>
