@@ -253,10 +253,13 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
                     {editable && <td onClick={(e) => e.stopPropagation()}><input type="checkbox" checked={seleccion.has(p.id)} onChange={() => alternar(p.id)} /></td>}
                     <td style={{ fontFamily: 'ui-monospace, Menlo, monospace', fontSize: 12.5, whiteSpace: 'nowrap' }}>{p.codigo}</td>
                     <td onClick={(e) => e.stopPropagation()}>
-                      <select style={{ minWidth: 150 }} value={p.normaId || ''} disabled={!editable || ocupado} onChange={(e) => cambiarNormaFila(p, e.target.value)} onFocus={() => setActivo(p.id)}>
-                        <option value="">— Sin norma —</option>
-                        {opciones.map((o) => <option key={o.id} value={o.id}>{etiquetaNorma(o)}{o.vigente ? '' : ' (versión anterior)'}</option>)}
-                      </select>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                        <select style={{ minWidth: 150 }} value={p.normaId || ''} disabled={!editable || ocupado} onChange={(e) => cambiarNormaFila(p, e.target.value)} onFocus={() => setActivo(p.id)}>
+                          <option value="">— Sin norma —</option>
+                          {opciones.map((o) => <option key={o.id} value={o.id}>{etiquetaNorma(o)}{o.vigente ? '' : ' (versión anterior)'}</option>)}
+                        </select>
+                        {p.normas && p.normas.length > 1 && <span style={{ fontSize: 12, color: '#666', whiteSpace: 'nowrap' }}>+{p.normas.length - 1}</span>}
+                      </div>
                     </td>
                     <td onClick={(e) => e.stopPropagation()}>
                       {n && n.configuraciones.length > 1 ? (
@@ -289,7 +292,7 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
                     return (
                       <div key={posteNorma.id} style={{ paddingBottom: 16, borderBottom: '1px solid #eee' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
-                          {posteNorma.seleccionada && <span style={{ display: 'inline-block', width: 8, height: 8, borderRadius: '50%', backgroundColor: 'var(--ok)', title: 'Norma seleccionada' }}></span>}
+                          {posteNorma.seleccionada && <span style={{ display: 'inline-block', width: 8, height: 8, borderRadius: '50%', backgroundColor: 'var(--ok)' }} title="Norma seleccionada"></span>}
                           <h4 style={{ margin: 0 }}>{etiquetaNorma(n)} {!n.vigente && <span className="etiqueta-pend">(versión anterior)</span>}</h4>
                         </div>
                         <div style={{ fontSize: 13 }}><b>Tipo de poste:</b> {n.tipoPoste}</div>
