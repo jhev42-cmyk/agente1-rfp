@@ -28,5 +28,45 @@
     "additionalDirectories": [
       "/tmp"
     ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ~/.claude/mods/guard.py",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ~/.claude/mods/stop_verify.py",
+            "timeout": 300,
+            "statusMessage": "Verificando build y términos prohibidos..."
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Bash(git push*)",
+            "command": "python3 ~/.claude/mods/deploy_watch.py",
+            "async": true,
+            "timeout": 400
+          }
+        ]
+      }
+    ]
   }
 }
