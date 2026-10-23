@@ -242,7 +242,7 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
         <div className="tabla-scroll alto">
           <table>
             <thead>
-              <tr>{editable && <th style={{ width: 34 }}></th>}<th>Poste</th><th>Norma</th><th>Configuración</th><th>Tipo de poste</th><th>Estado</th></tr>
+              <tr>{editable && <th style={{ width: 34 }}></th>}<th>Poste</th><th>Norma</th><th>Configuración</th><th>Tipo de poste</th><th>Estado</th>{editable && <th style={{ width: 80 }}></th>}</tr>
             </thead>
             <tbody>
               {visibles.map((p) => {
@@ -253,13 +253,10 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
                     {editable && <td onClick={(e) => e.stopPropagation()}><input type="checkbox" checked={seleccion.has(p.id)} onChange={() => alternar(p.id)} /></td>}
                     <td style={{ fontFamily: 'ui-monospace, Menlo, monospace', fontSize: 12.5, whiteSpace: 'nowrap' }}>{p.codigo}</td>
                     <td onClick={(e) => e.stopPropagation()}>
-                      <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
-                        <select style={{ minWidth: 150, flex: 1 }} value={p.normaId || ''} disabled={!editable || ocupado} onChange={(e) => cambiarNormaFila(p, e.target.value)} onFocus={() => setActivo(p.id)}>
-                          <option value="">— Sin norma —</option>
-                          {opciones.map((o) => <option key={o.id} value={o.id}>{etiquetaNorma(o)}{o.vigente ? '' : ' (versión anterior)'}</option>)}
-                        </select>
-                        {editable && <button className="btn btn-sm btn-claro" title="Agregar más normas" onClick={() => setPosteEditandoNormas(p.id)} style={{ whiteSpace: 'nowrap' }}>+ Normas</button>}
-                      </div>
+                      <select style={{ minWidth: 150 }} value={p.normaId || ''} disabled={!editable || ocupado} onChange={(e) => cambiarNormaFila(p, e.target.value)} onFocus={() => setActivo(p.id)}>
+                        <option value="">— Sin norma —</option>
+                        {opciones.map((o) => <option key={o.id} value={o.id}>{etiquetaNorma(o)}{o.vigente ? '' : ' (versión anterior)'}</option>)}
+                      </select>
                     </td>
                     <td onClick={(e) => e.stopPropagation()}>
                       {n && n.configuraciones.length > 1 ? (
@@ -271,6 +268,7 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
                     </td>
                     <td className="muted">{n?.tipoPoste || '—'}</td>
                     <td>{pendiente(p) ? <span className="etiqueta-pend">Pendiente</span> : <span className="etiqueta-ok">Configurado</span>}</td>
+                    {editable && <td style={{ textAlign: 'center' }} onClick={(e) => e.stopPropagation()}><button className="btn btn-sm btn-claro" title="Agregar múltiples normas" onClick={() => setPosteEditandoNormas(p.id)}>+ Normas</button></td>}
                   </tr>
                 )
               })}
