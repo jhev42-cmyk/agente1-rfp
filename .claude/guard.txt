@@ -1,0 +1,11 @@
+# Guardia del proyecto (mod 1 y mod 3). Edita libremente.
+# deny: <regex>                    -> nunca debe aparecer en código nuevo
+# keep: <ruta> :: <regex>          -> arreglo aceptado que no se puede eliminar
+
+deny: es[ _-]?metals
+deny: esmetals\.com
+
+keep: public/agente.html :: id="operadorLinea"
+keep: public/agente.html :: id="fechaLimite"
+keep: public/agente.html :: type="date"
+keep: app/agente/page.tsx :: redirect\(

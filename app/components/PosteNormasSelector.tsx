@@ -18,7 +18,7 @@ interface PosteNorma extends Norma {
 }
 
 interface Props {
-  lineaId: number
+  id: number
   posteId: number
   posteNumero: string
   operador?: string
@@ -26,7 +26,7 @@ interface Props {
 }
 
 export default function PosteNormasSelector({
-  lineaId,
+  id,
   posteId,
   posteNumero,
   operador,
@@ -43,11 +43,11 @@ export default function PosteNormasSelector({
   useEffect(() => {
     cargarNormasAsignadas()
     cargarNormasDisponibles()
-  }, [lineaId, posteId, operador])
+  }, [id, posteId, operador])
 
   const cargarNormasAsignadas = async () => {
     try {
-      const res = await fetch(`/api/lineas/${lineaId}/postes/${posteId}/normas`)
+      const res = await fetch(`/api/lineas/${id}/postes/${posteId}/normas`)
       if (!res.ok) throw new Error('Error al cargar normas')
       const data = await res.json()
       setNormasAsignadas(data)
@@ -59,8 +59,8 @@ export default function PosteNormasSelector({
   const cargarNormasDisponibles = async () => {
     try {
       const url = operador
-        ? `/api/lineas/${lineaId}/postes/${posteId}/normas-disponibles?operador=${operador}`
-        : `/api/lineas/${lineaId}/postes/${posteId}/normas-disponibles`
+        ? `/api/lineas/${id}/postes/${posteId}/normas-disponibles?operador=${operador}`
+        : `/api/lineas/${id}/postes/${posteId}/normas-disponibles`
       const res = await fetch(url)
       if (!res.ok) throw new Error('Error al cargar normas disponibles')
       const data = await res.json()
@@ -80,7 +80,7 @@ export default function PosteNormasSelector({
     setError(null)
 
     try {
-      const res = await fetch(`/api/lineas/${lineaId}/postes/${posteId}/normas`, {
+      const res = await fetch(`/api/lineas/${id}/postes/${posteId}/normas`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -107,7 +107,7 @@ export default function PosteNormasSelector({
 
   const cambiarNormaSeleccionada = async (posteNormaId: number, normaId: number) => {
     try {
-      const res = await fetch(`/api/lineas/${lineaId}/postes/${posteId}/normas/${normaId}`, {
+      const res = await fetch(`/api/lineas/${id}/postes/${posteId}/normas/${normaId}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ seleccionada: true }),
@@ -123,7 +123,7 @@ export default function PosteNormasSelector({
 
   const cambiarConfiguracion = async (posteNormaId: number, normaId: number, configId: number | null) => {
     try {
-      const res = await fetch(`/api/lineas/${lineaId}/postes/${posteId}/normas/${normaId}`, {
+      const res = await fetch(`/api/lineas/${id}/postes/${posteId}/normas/${normaId}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ configuracionId: configId }),
@@ -141,7 +141,7 @@ export default function PosteNormasSelector({
     if (!confirm('¿Eliminar esta norma del poste?')) return
 
     try {
-      const res = await fetch(`/api/lineas/${lineaId}/postes/${posteId}/normas/${normaId}`, {
+      const res = await fetch(`/api/lineas/${id}/postes/${posteId}/normas/${normaId}`, {
         method: 'DELETE',
       })
 
