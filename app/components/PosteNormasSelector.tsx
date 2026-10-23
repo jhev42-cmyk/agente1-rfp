@@ -76,6 +76,12 @@ export default function PosteNormasSelector({
       return
     }
 
+    // Validar que no sea duplicada
+    if (normasAsignadas.some((n) => n.normaId === normaSeleccionada)) {
+      setError('Esta norma ya está asignada a este poste')
+      return
+    }
+
     setCargando(true)
     setError(null)
 
