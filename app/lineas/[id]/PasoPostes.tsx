@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import EsquemaNorma from '../../components/EsquemaNorma'
+import PosteNormasSelector from '../../components/PosteNormasSelector'
 import { api, num } from '../../lib/cliente'
 import { ModoAsignacion, NormaDetalle, NormaResumen, Poste, PropsPaso, etiquetaNorma } from './tipos'
 
@@ -23,6 +24,7 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
   const [ok, setOk] = useState('')
   const [ocupado, setOcupado] = useState(false)
   const [detalles, setDetalles] = useState<Record<number, NormaDetalle>>({})
+  const [posteEditandoNormas, setPosteEditandoNormas] = useState<number | null>(null)
 
   const normaPorId = useMemo(() => new Map(normas.map((n) => [n.id, n])), [normas])
   const vigentes = normas.filter((n) => n.vigente)
@@ -251,10 +253,13 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
                     {editable && <td onClick={(e) => e.stopPropagation()}><input type="checkbox" checked={seleccion.has(p.id)} onChange={() => alternar(p.id)} /></td>}
                     <td style={{ fontFamily: 'ui-monospace, Menlo, monospace', fontSize: 12.5, whiteSpace: 'nowrap' }}>{p.codigo}</td>
                     <td onClick={(e) => e.stopPropagation()}>
-                      <select style={{ minWidth: 150 }} value={p.normaId || ''} disabled={!editable || ocupado} onChange={(e) => cambiarNormaFila(p, e.target.value)} onFocus={() => setActivo(p.id)}>
-                        <option value="">— Sin norma —</option>
-                        {opciones.map((o) => <option key={o.id} value={o.id}>{etiquetaNorma(o)}{o.vigente ? '' : ' (versión anterior)'}</option>)}
-                      </select>
+                      <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
+                        <select style={{ minWidth: 150, flex: 1 }} value={p.normaId || ''} disabled={!editable || ocupado} onChange={(e) => cambiarNormaFila(p, e.target.value)} onFocus={() => setActivo(p.id)}>
+                          <option value="">— Sin norma —</option>
+                          {opciones.map((o) => <option key={o.id} value={o.id}>{etiquetaNorma(o)}{o.vigente ? '' : ' (versión anterior)'}</option>)}
+                        </select>
+                        {editable && <button className="btn btn-sm btn-claro" title="Agregar más normas" onClick={() => setPosteEditandoNormas(p.id)} style={{ whiteSpace: 'nowrap' }}>+ Normas</button>}
+                      </div>
                     </td>
                     <td onClick={(e) => e.stopPropagation()}>
                       {n && n.configuraciones.length > 1 ? (
@@ -315,6 +320,38 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
           )}
         </div>
       </div>
+
+      {posteEditandoNormas !== null && (() => {
+        const poste = linea.postes.find((p) => p.id === posteEditandoNormas)
+        return (
+          <div style={{
+            position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
+            background: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center',
+            zIndex: 1000
+          }} onClick={() => setPosteEditandoNormas(null)}>
+            <div style={{
+              background: 'white', borderRadius: 8, padding: 24, maxWidth: 600, maxHeight: '90vh',
+              overflowY: 'auto', boxShadow: '0 10px 40px rgba(0,0,0,0.3)'
+            }} onClick={(e) => e.stopPropagation()}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
+                <h3 style={{ margin: 0 }}>Normas para {poste?.codigo}</h3>
+                <button onClick={() => setPosteEditandoNormas(null)} style={{
+                  background: 'none', border: 'none', fontSize: 24, cursor: 'pointer', color: '#999'
+                }}>×</button>
+              </div>
+              {poste && (
+                <PosteNormasSelector
+                  id={linea.id}
+                  posteId={poste.id}
+                  posteNumero={poste.codigo}
+                  operador={linea.operador}
+                  onNormasChange={() => recargar()}
+                />
+              )}
+            </div>
+          </div>
+        )
+      })()}
     </div>
   )
 }

@@ -2384,7 +2384,9 @@
             }
           ]
         }
-      ]
+      ],
+      "tieneImagen": true,
+      "imagen": "01-Celsia-B761-01.png"
     },
     {
       "operador": "CELSIA",
@@ -2417,7 +2419,9 @@
             }
           ]
         }
-      ]
+      ],
+      "tieneImagen": true,
+      "imagen": "01-Celsia-C761-01.png"
     },
     {
       "operador": "CELSIA",
@@ -2450,7 +2454,9 @@
             }
           ]
         }
-      ]
+      ],
+      "tieneImagen": true,
+      "imagen": "02-Celsia-B71-03.png"
     },
     {
       "operador": "CELSIA",
@@ -2483,7 +2489,9 @@
             }
           ]
         }
-      ]
+      ],
+      "tieneImagen": true,
+      "imagen": "03-Celsia-C712-01.png"
     },
     {
       "operador": "CELSIA",
@@ -2516,7 +2524,9 @@
             }
           ]
         }
-      ]
+      ],
+      "tieneImagen": true,
+      "imagen": "03-Celsia-B712-01.png"
     },
     {
       "operador": "CELSIA",
@@ -2549,7 +2559,9 @@
             }
           ]
         }
-      ]
+      ],
+      "tieneImagen": true,
+      "imagen": "03-Celsia-C712-01.png"
     },
     {
       "operador": "CELSIA",
@@ -2582,7 +2594,9 @@
             }
           ]
         }
-      ]
+      ],
+      "tieneImagen": true,
+      "imagen": "04-Celsia-B767-03.png"
     },
     {
       "operador": "CELSIA",
@@ -2615,7 +2629,9 @@
             }
           ]
         }
-      ]
+      ],
+      "tieneImagen": true,
+      "imagen": "04-Celsia-C767-03.png"
     },
     {
       "operador": "CELSIA",
@@ -2648,7 +2664,9 @@
             }
           ]
         }
-      ]
+      ],
+      "tieneImagen": true,
+      "imagen": "06-Celsia-B72C2-01.png"
     },
     {
       "operador": "CELSIA",
@@ -2681,7 +2699,9 @@
             }
           ]
         }
-      ]
+      ],
+      "tieneImagen": true,
+      "imagen": "05-Celsia-C72C-03.png"
     },
     {
       "operador": "CELSIA",
@@ -2714,7 +2734,9 @@
             }
           ]
         }
-      ]
+      ],
+      "tieneImagen": true,
+      "imagen": "06-Celsia-B72C2-01.png"
     },
     {
       "operador": "CELSIA",
@@ -2747,7 +2769,9 @@
             }
           ]
         }
-      ]
+      ],
+      "tieneImagen": true,
+      "imagen": "06-Celsia-C72C2-01.png"
     },
     {
       "operador": "CELSIA",
@@ -2780,7 +2804,9 @@
             }
           ]
         }
-      ]
+      ],
+      "tieneImagen": true,
+      "imagen": "07-Celsia-B72E2-01.png"
     },
     {
       "operador": "CELSIA",
@@ -2813,7 +2839,9 @@
             }
           ]
         }
-      ]
+      ],
+      "tieneImagen": true,
+      "imagen": "07-Celsia-C72E2-01.png"
     },
     {
       "operador": "CELSIA",
@@ -2846,7 +2874,9 @@
             }
           ]
         }
-      ]
+      ],
+      "tieneImagen": true,
+      "imagen": "08-Celsia-B76C-02.png"
     },
     {
       "operador": "CELSIA",
@@ -2879,7 +2909,9 @@
             }
           ]
         }
-      ]
+      ],
+      "tieneImagen": true,
+      "imagen": "09-Celsia-C76C2-02.png"
     },
     {
       "operador": "CELSIA",
@@ -2912,7 +2944,9 @@
             }
           ]
         }
-      ]
+      ],
+      "tieneImagen": true,
+      "imagen": "09-Celsia-B76C2-02.png"
     },
     {
       "operador": "CELSIA",
@@ -2945,7 +2979,9 @@
             }
           ]
         }
-      ]
+      ],
+      "tieneImagen": true,
+      "imagen": "09-Celsia-C76C2-02.png"
     },
     {
       "operador": "CELSIA",
@@ -2978,7 +3014,9 @@
             }
           ]
         }
-      ]
+      ],
+      "tieneImagen": true,
+      "imagen": "09-Celsia-B77C2-02.png"
     },
     {
       "operador": "CELSIA",
@@ -3011,7 +3049,9 @@
             }
           ]
         }
-      ]
+      ],
+      "tieneImagen": true,
+      "imagen": "09-Celsia-C77C2-02.png"
     }
   ]
 }

@@ -1,4 +1,6 @@
 import { NextResponse } from 'next/server'
+import { readFileSync } from 'fs'
+import { join } from 'path'
 import { HttpError, handler, parseId, requireAdmin, requireUser } from '../../../../../lib/api'
 import { prisma } from '../../../../../lib/db'
 import { guardarImagenNorma } from '../../../../../lib/catalogo'
@@ -7,17 +9,49 @@ type Ctx = { params: { id: string } }
 
 export const GET = handler(async (request, { params }: Ctx) => {
   await requireUser(request)
-  const norma = await prisma.norma.findUnique({ where: { id: parseId(params.id) }, select: { imagen: true, imagenTipo: true } })
-  if (!norma?.imagen || !norma.imagenTipo) throw new HttpError(404, 'La norma no tiene esquema')
-  return new Response(new Uint8Array(norma.imagen), {
-    headers: {
-      'Content-Type': norma.imagenTipo,
-      'Cache-Control': 'private, max-age=300',
-      // Un SVG subido no debe poder ejecutar scripts si se abre directamente.
-      'Content-Security-Policy': "default-src 'none'; style-src 'unsafe-inline'; sandbox",
-      'X-Content-Type-Options': 'nosniff',
-    },
+  const norma = await prisma.norma.findUnique({
+    where: { id: parseId(params.id) },
+    select: { imagen: true, imagenTipo: true, codigo: true, operador: true }
   })
+
+  // Primero intenta servir la imagen de la BD
+  if (norma?.imagen && norma.imagenTipo) {
+    return new Response(new Uint8Array(norma.imagen), {
+      headers: {
+        'Content-Type': norma.imagenTipo,
+        'Cache-Control': 'private, max-age=300',
+        'Content-Security-Policy': "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+        'X-Content-Type-Options': 'nosniff',
+      },
+    })
+  }
+
+  // Si no hay imagen en BD, intenta buscar en /CELSIA/images/
+  if (norma?.operador === 'CELSIA' && norma?.codigo) {
+    const imagesDir = join(process.cwd(), 'CELSIA', 'images')
+    const codigo = norma.codigo
+
+    try {
+      const fs = require('fs').promises
+      const files = await fs.readdir(imagesDir)
+      const match = files.find((f: string) => f.includes(codigo) && f.endsWith('.png'))
+      if (match) {
+        const imagePath = join(imagesDir, match)
+        const imageBuffer = readFileSync(imagePath)
+        return new Response(imageBuffer, {
+          headers: {
+            'Content-Type': 'image/png',
+            'Cache-Control': 'public, max-age=86400',
+            'X-Content-Type-Options': 'nosniff',
+          },
+        })
+      }
+    } catch (err) {
+      // Si no encuentra la imagen, continúa hacia el error al final
+    }
+  }
+
+  throw new HttpError(404, 'La norma no tiene esquema')
 })
 
 export const POST = handler(async (request, { params }: Ctx) => {
