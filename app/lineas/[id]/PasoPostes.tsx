@@ -309,7 +309,7 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
                         </div>
                         <div style={{ fontSize: 13 }}><b>Tipo de poste:</b> {n.tipoPoste || '—'}</div>
                         <div className="muted" style={{ fontSize: 12, marginBottom: 8 }}>{n.descripcion || '—'}</div>
-                        <EsquemaNorma normaId={normaId} tieneImagen={!!n.imagenTipo} />
+                        <EsquemaNorma normaId={normaId} tieneImagen={!!n.imagenTipo || n.operador === 'CELSIA'} />
                         {!d ? (
                           <p className="muted" style={{ fontSize: 12 }}>Cargando materiales…</p>
                         ) : !conf ? (
