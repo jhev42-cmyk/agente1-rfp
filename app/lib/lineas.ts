@@ -514,15 +514,42 @@ export async function crearRevision(lineaId: number, motivoIn: unknown, usuario:
         modoAsignacion: origen.modoAsignacion,
       },
     })
+    // Mapeo de postes antiguos a nuevos para copiar normas
+    const mapeoPostes = new Map<number, number>()
+
     for (const t of origen.trayectos) {
       const tr = await tx.trayecto.create({ data: { lineaId: nueva.id, numero: t.numero, cantidadPostes: t.cantidadPostes } })
       if (t.postes.length) {
-        await tx.poste.createMany({
+        const nuevosPostes = await tx.poste.createMany({
           data: t.postes.map((p) => ({
-            lineaId: nueva.id, trayectoId: tr.id, numero: p.numero, codigo: p.codigo, normaId: p.normaId, configuracionId: p.configuracionId,
+            lineaId: nueva.id, trayectoId: tr.id, numero: p.numero, codigo: p.codigo,
           })),
+          skipDuplicates: false,
         })
+        // Mapear postes antiguos a nuevos
+        const postesNuevos = await tx.poste.findMany({
+          where: { trayectoId: tr.id }, select: { id: true, numero: true },
+        })
+        for (const p of t.postes) {
+          const pn = postesNuevos.find((x) => x.numero === p.numero)
+          if (pn) mapeoPostes.set(p.id, pn.id)
+        }
       }
+    }
+
+    // Copiar relaciones PosteNorma de la línea antigua a la nueva
+    const posteNormasAntiguos = await tx.posteNorma.findMany({
+      where: { poste: { lineaId: origen.id } },
+    })
+    if (posteNormasAntiguos.length) {
+      await tx.posteNorma.createMany({
+        data: posteNormasAntiguos.map((pn) => ({
+          posteId: mapeoPostes.get(pn.posteId) || 0,
+          normaId: pn.normaId,
+          configuracionId: pn.configuracionId,
+          seleccionada: pn.seleccionada,
+        })).filter((pn) => pn.posteId > 0),
+      })
     }
     if (origen.partidas.length) {
       await tx.partida.createMany({

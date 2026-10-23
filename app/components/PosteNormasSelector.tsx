@@ -193,7 +193,7 @@ export default function PosteNormasSelector({
                         className="w-full text-xs px-2 py-1 border rounded bg-white"
                       >
                         <option value="">-- Selecciona configuración --</option>
-                        {pn.norma.configuraciones.map((cfg) => (
+                        {pn.norma.configuraciones.map((cfg: any) => (
                           <option key={cfg.id} value={cfg.id}>
                             {cfg.nombre}
                           </option>
@@ -247,7 +247,7 @@ export default function PosteNormasSelector({
                 <option value="">-- Configuración (opcional) --</option>
                 {normasDisponibles
                   .find((n) => n.id === normaSeleccionada)
-                  ?.configuraciones.map((cfg) => (
+                  ?.configuraciones.map((cfg: any) => (
                     <option key={cfg.id} value={cfg.id}>
                       {cfg.nombre}
                     </option>
