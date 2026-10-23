@@ -121,12 +121,15 @@ export async function ajustarTrayecto(
     } else {
       const sobrantes = await tx.poste.findMany({
         where: { trayectoId: trayecto.id, numero: { gt: cantidad } }, orderBy: { numero: 'asc' },
-        include: { norma: { select: { codigo: true, version: true } } },
+        include: { normas: { select: { norma: { select: { codigo: true, version: true } } } } },
       })
-      const configurados = sobrantes.filter((p) => p.normaId)
+      const configurados = sobrantes.filter((p) => p.normas.length > 0)
       if (configurados.length && !input.confirmar) {
         throw new HttpError(409, `Se retirarían ${configurados.length} poste(s) ya configurado(s). Confirma para continuar.`, {
-          afectados: configurados.map((p) => ({ codigo: p.codigo, norma: p.norma ? `${p.norma.codigo} v${p.norma.version}` : null })),
+          afectados: configurados.map((p) => {
+            const norma = p.normas[0]?.norma
+            return { codigo: p.codigo, norma: norma ? `${norma.codigo} v${norma.version}` : null }
+          }),
         })
       }
       retirados = sobrantes.map((p) => p.codigo)
@@ -174,22 +177,63 @@ export async function asignarNorma(
 
     const postes = await tx.poste.findMany({
       where: { id: { in: posteIds }, lineaId },
-      include: { norma: { select: { codigo: true, version: true } }, configuracion: { select: { nombre: true } } },
+      include: {
+        normas: {
+          include: { norma: { select: { codigo: true, version: true } }, configuracion: { select: { nombre: true } } },
+        },
+      },
     })
     if (postes.length !== posteIds.length) throw new HttpError(400, 'Algún poste no pertenece a la línea')
 
-    const cambian = postes.filter((p) => p.normaId !== normaId || p.configuracionId !== configuracionId)
+    // Detectar cambios: obtener norma seleccionada actual (o la primera)
+    const cambian = postes.filter((p) => {
+      const actual = p.normas.find((pn) => pn.seleccionada) || p.normas[0]
+      return !actual || actual.normaId !== normaId || actual.configuracionId !== configuracionId
+    })
+
     if (!cambian.length) return { actualizados: 0 }
-    const modificaConfigurados = cambian.some((p) => p.normaId)
+
+    const modificaConfigurados = cambian.some((p) => p.normas.length > 0)
     const motivo = modificaConfigurados ? requireMotivo(input.motivo) : (input.motivo?.trim() || 'Configuración inicial')
 
-    await tx.poste.updateMany({ where: { id: { in: cambian.map((p) => p.id) } }, data: { normaId, configuracionId } })
+    // Actualizar o crear PosteNorma para cada poste que cambia
+    for (const poste of cambian) {
+      if (normaId) {
+        // Crear o actualizar la relación PosteNorma, marcándola como seleccionada
+        await tx.posteNorma.upsert({
+          where: { posteId_normaId: { posteId: poste.id, normaId } },
+          create: { posteId: poste.id, normaId, configuracionId, seleccionada: true },
+          update: { configuracionId, seleccionada: true },
+        })
+        // Deseleccionar las demás
+        await tx.posteNorma.updateMany({
+          where: { posteId: poste.id, normaId: { not: normaId } },
+          data: { seleccionada: false },
+        })
+      } else {
+        // Si se asigna null, solo marcar todas como no seleccionadas
+        await tx.posteNorma.updateMany({
+          where: { posteId: poste.id },
+          data: { seleccionada: false },
+        })
+      }
+    }
+
+    // Auditoría
     await tx.auditoria.createMany({
-      data: cambian.map((p) => ({
-        lineaId, entidad: 'poste', entidadId: p.codigo, accion: 'norma',
-        valorAnterior: p.norma ? `${p.norma.codigo} v${p.norma.version}${p.configuracion ? ` · ${p.configuracion.nombre}` : ''}` : null,
-        valorNuevo: etiqueta, motivo, usuario,
-      })),
+      data: cambian.map((p) => {
+        const actual = p.normas.find((pn) => pn.seleccionada) || p.normas[0]
+        return {
+          lineaId,
+          entidad: 'poste',
+          entidadId: p.codigo,
+          accion: 'norma',
+          valorAnterior: actual ? `${actual.norma.codigo} v${actual.norma.version}${actual.configuracion ? ` · ${actual.configuracion.nombre}` : ''}` : null,
+          valorNuevo: etiqueta,
+          motivo,
+          usuario,
+        }
+      }),
     })
     return { actualizados: cambian.length }
   })
@@ -299,7 +343,11 @@ export async function calcular(lineaId: number): Promise<Calculo> {
     prisma.linea.findUnique({ where: { id: lineaId } }),
     prisma.poste.findMany({
       where: { lineaId }, orderBy: [{ trayecto: { numero: 'asc' } }, { numero: 'asc' }],
-      select: { codigo: true, normaId: true, configuracionId: true, trayecto: { select: { numero: true } } },
+      select: {
+        codigo: true,
+        trayecto: { select: { numero: true } },
+        normas: { select: { normaId: true, configuracionId: true, seleccionada: true } },
+      },
     }),
     prisma.partida.findMany({ where: { lineaId }, orderBy: { id: 'asc' } }),
     prisma.material.findMany(),
@@ -307,7 +355,7 @@ export async function calcular(lineaId: number): Promise<Calculo> {
   ])
   if (!linea) throw new HttpError(404, 'Línea no encontrada')
 
-  const configIds = [...new Set(postes.map((p) => p.configuracionId).filter((x): x is number => !!x))]
+  const configIds = [...new Set(postes.flatMap((p) => p.normas.map((n) => n.configuracionId).filter((x): x is number => !!x))]
   const configs = await prisma.normaConfiguracion.findMany({
     where: { id: { in: configIds } }, include: { materiales: true, norma: true },
   })
@@ -331,8 +379,12 @@ export async function calcular(lineaId: number): Promise<Calculo> {
   const pendientes: string[] = []
   const usoNormas = new Map<number, number>()
   for (const p of postes) {
-    const conf = p.configuracionId ? configPorId.get(p.configuracionId) : undefined
-    if (!p.normaId || !conf) { pendientes.push(p.codigo); continue }
+    // Obtener la norma seleccionada (o la primera si no hay seleccionada)
+    const pn = p.normas.find((n) => n.seleccionada) || p.normas[0]
+    const conf = pn && pn.configuracionId ? configPorId.get(pn.configuracionId) : undefined
+
+    if (!pn || !conf) { pendientes.push(p.codigo); continue }
+
     usoNormas.set(conf.normaId, (usoNormas.get(conf.normaId) || 0) + 1)
     const etiqueta = `${conf.norma.codigo} v${conf.norma.version}`
     for (const mat of conf.materiales) {
