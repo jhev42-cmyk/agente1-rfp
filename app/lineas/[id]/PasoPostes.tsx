@@ -7,6 +7,7 @@ import { api, num } from '../../lib/cliente'
 import { ModoAsignacion, NormaDetalle, NormaResumen, Poste, PropsPaso, etiquetaNorma } from './tipos'
 
 export default function PasoPostes({ linea, editable, recargar, pedir, normas }: PropsPaso & { normas: NormaResumen[] }) {
+  console.log('PasoPostes recibió linea.postes:', linea.postes.map(p => ({ codigo: p.codigo, normasLength: (p.normas || []).length, normasData: p.normas })))
   const conPostes = linea.trayectos.filter((t) => t.cantidadPostes > 0)
   // Vista de trabajo: la elegida en el paso 2, pero se puede alternar aquí en cualquier momento.
   const [modo, setModo] = useState<ModoAsignacion>(linea.modoAsignacion || 'CORRIDO')
