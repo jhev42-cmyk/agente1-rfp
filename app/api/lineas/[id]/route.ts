@@ -47,14 +47,19 @@ export const GET = handler(async (request, { params }: Ctx) => {
   })
   return NextResponse.json({
     ...linea,
-    postes: linea.postes.map(({ trayecto, normas, ...p }) => ({
-      ...p,
-      trayecto: trayecto.numero,
-      // Para compatibilidad: normaId y configuracionId de la norma seleccionada (o la primera)
-      normaId: normas.find((n) => n.seleccionada)?.normaId || normas[0]?.normaId || null,
-      configuracionId: normas.find((n) => n.seleccionada)?.configuracionId || normas[0]?.configuracionId || null,
-      normas,
-    })),
+    postes: linea.postes.map(({ trayecto, normas, ...p }) => {
+      const normasArray = normas || []
+      const seleccionada = normasArray.find((n) => n.seleccionada)
+      const primera = normasArray[0]
+      return {
+        ...p,
+        trayecto: trayecto.numero,
+        // Para compatibilidad: normaId y configuracionId de la norma seleccionada (o la primera)
+        normaId: seleccionada?.normaId ?? primera?.normaId ?? null,
+        configuracionId: seleccionada?.configuracionId ?? primera?.configuracionId ?? null,
+        normas: normasArray,
+      }
+    }),
     revisiones,
   })
 })
