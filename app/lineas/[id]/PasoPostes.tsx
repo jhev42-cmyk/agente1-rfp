@@ -328,16 +328,16 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
             zIndex: 1000
           }} onClick={() => setPosteEditandoNormas(null)}>
             <div style={{
-              background: 'white', borderRadius: 8, padding: 24, maxWidth: 700, width: '90vw', maxHeight: '85vh',
+              background: 'white', borderRadius: 8, maxWidth: 700, width: '90vw', maxHeight: '85vh',
               display: 'flex', flexDirection: 'column', boxShadow: '0 10px 40px rgba(0,0,0,0.3)'
             }} onClick={(e) => e.stopPropagation()}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
+              <div style={{ padding: 24, paddingBottom: 16, display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #eee' }}>
                 <h3 style={{ margin: 0 }}>Normas para {poste?.codigo}</h3>
                 <button onClick={() => setPosteEditandoNormas(null)} style={{
                   background: 'none', border: 'none', fontSize: 24, cursor: 'pointer', color: '#999'
                 }}>×</button>
               </div>
-              <div style={{ overflowY: 'auto', flex: 1 }}>
+              <div style={{ overflowY: 'auto', flex: 1, padding: 24 }}>
                 {poste && (
                   <PosteNormasSelector
                     id={linea.id}

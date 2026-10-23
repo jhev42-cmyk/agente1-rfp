@@ -58,9 +58,8 @@ export default function PosteNormasSelector({
 
   const cargarNormasDisponibles = async () => {
     try {
-      const url = operador
-        ? `/api/lineas/${id}/postes/${posteId}/normas-disponibles?operador=${operador}`
-        : `/api/lineas/${id}/postes/${posteId}/normas-disponibles`
+      // Cargar TODAS las normas del operador (no solo las no asignadas)
+      const url = `/api/catalogo/normas?operador=${operador}`
       const res = await fetch(url)
       if (!res.ok) throw new Error('Error al cargar normas disponibles')
       const data = await res.json()
