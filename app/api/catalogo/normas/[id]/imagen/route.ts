@@ -30,11 +30,14 @@ export const GET = handler(async (request, { params }: Ctx) => {
   if (norma?.operador === 'CELSIA' && norma?.codigo) {
     const imagesDir = join(process.cwd(), 'public', 'CELSIA', 'images')
     const codigo = norma.codigo
+    const url = new URL(request.url)
+    const num = url.searchParams.get('num') || '01'
 
     try {
       const fs = require('fs').promises
       const files = await fs.readdir(imagesDir)
-      const match = files.find((f: string) => f.includes(codigo) && f.endsWith('.png'))
+      // Busca imágenes que contengan el código Y el número (01, 02, 03)
+      const match = files.find((f: string) => f.includes(codigo) && f.includes(`-${num}.png`))
       if (match) {
         const imagePath = join(imagesDir, match)
         const imageBuffer = readFileSync(imagePath)

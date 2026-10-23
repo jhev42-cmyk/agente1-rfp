@@ -3,26 +3,65 @@
 import { useEffect, useState } from 'react'
 import { api } from '../lib/cliente'
 
-// La imagen requiere sesión, así que se descarga con el token y se muestra como blob.
+// Carga múltiples imágenes (01, 02, 03) para una norma
 export default function EsquemaNorma({ normaId, tieneImagen, version = 0 }: { normaId: number; tieneImagen: boolean; version?: number }) {
-  const [url, setUrl] = useState<string | null>(null)
+  const [urls, setUrls] = useState<(string | null)[]>([])
   const [fallo, setFallo] = useState(false)
 
   useEffect(() => {
-    setUrl(null); setFallo(false)
+    setUrls([]); setFallo(false)
     if (!tieneImagen) return
-    let actual: string | null = null
-    api<Blob>(`/api/catalogo/normas/${normaId}/imagen`)
-      .then((b) => { actual = URL.createObjectURL(b); setUrl(actual) })
-      .catch(() => setFallo(true))
-    return () => { if (actual) URL.revokeObjectURL(actual) }
+
+    const numeros = ['01', '02', '03']
+    const actuales: (string | null)[] = []
+    let cargadas = 0
+    let errores = 0
+
+    Promise.all(
+      numeros.map((num) =>
+        api<Blob>(`/api/catalogo/normas/${normaId}/imagen?num=${num}`)
+          .then((b) => {
+            const url = URL.createObjectURL(b)
+            actuales[numeros.indexOf(num)] = url
+            cargadas++
+          })
+          .catch(() => {
+            actuales[numeros.indexOf(num)] = null
+            errores++
+          })
+      )
+    ).then(() => {
+      setUrls(actuales)
+      if (cargadas === 0) setFallo(true)
+    })
+
+    return () => {
+      actuales.forEach((url) => { if (url) URL.revokeObjectURL(url) })
+    }
   }, [normaId, tieneImagen, version])
 
   return (
-    <div className="esquema">
-      {/* Imagen local (blob) descargada con la sesión: next/image no aplica aquí. */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      {url ? <img src={url} alt="Esquema de la estructura" /> : tieneImagen && !fallo ? 'Cargando esquema…' : 'Sin esquema cargado en el catálogo'}
+    <div className="esquema" style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+      {!tieneImagen ? (
+        <p>Sin esquema cargado en el catálogo</p>
+      ) : urls.length === 0 ? (
+        <p>Cargando esquemas…</p>
+      ) : urls.every((u) => !u) ? (
+        <p>Sin esquema cargado en el catálogo</p>
+      ) : (
+        urls.map((url, idx) =>
+          url ? (
+            <div key={idx} style={{ textAlign: 'center' }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={url}
+                alt={`Esquema ${idx + 1} de la estructura`}
+                style={{ maxWidth: '100%', height: 'auto', border: '1px solid #eee', borderRadius: 4 }}
+              />
+            </div>
+          ) : null
+        )
+      )}
     </div>
   )
 }
