@@ -41,12 +41,20 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
   const posteActivo = linea.postes.find((p) => p.id === activo) || null
   const normaActiva = posteActivo?.normaId ? normaPorId.get(posteActivo.normaId) : undefined
 
-  // Detalle (materiales) de la norma del poste activo, con caché por versión.
+  // Cargar detalles de TODAS las normas del poste activo, con caché por versión
   useEffect(() => {
-    const id = posteActivo?.normaId
-    if (!id || detalles[id]) return
-    api<NormaDetalle>(`/api/catalogo/normas/${id}`).then((d) => setDetalles((x) => ({ ...x, [id]: d }))).catch(() => {})
-  }, [posteActivo?.normaId]) // eslint-disable-line react-hooks/exhaustive-deps
+    if (!posteActivo?.normas) return
+    const normasACargar = posteActivo.normas.filter((pn: any) => !detalles[pn.normaId])
+    if (normasACargar.length === 0) return
+
+    Promise.all(
+      normasACargar.map((pn: any) =>
+        api<NormaDetalle>(`/api/catalogo/normas/${pn.normaId}`)
+          .then((d) => setDetalles((x) => ({ ...x, [pn.normaId]: d })))
+          .catch(() => {})
+      )
+    )
+  }, [posteActivo?.id]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const asignar = async (posteIds: number[], normaId: number | null, configuracionId: number | null) => {
     setError(''); setOk('')
