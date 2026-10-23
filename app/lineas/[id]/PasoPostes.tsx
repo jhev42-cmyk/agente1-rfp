@@ -254,41 +254,42 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
               <tr>{editable && <th style={{ width: 34 }}></th>}<th>Poste</th><th>Norma</th><th>Configuración</th><th>Tipo de poste</th><th>Estado</th>{editable && <th style={{ width: 80 }}></th>}</tr>
             </thead>
             <tbody>
-              {visibles.flatMap((p) => {
+              {visibles.map((p) => {
                 const normas = p.normas ?? []
-                if (normas.length === 0) {
-                  return [<tr key={`${p.id}-empty`} className={`${pendiente(p) ? 'pendiente' : ''} ${activo === p.id ? 'seleccionado' : ''}`} onClick={() => setActivo(p.id)} style={{ cursor: 'pointer' }}>
+                const normaPrincipal = normas.find((pn: any) => pn.seleccionada) || normas[0]
+                const n = normaPrincipal?.norma
+                return (
+                  <tr key={p.id} className={`${pendiente(p) ? 'pendiente' : ''} ${activo === p.id ? 'seleccionado' : ''}`} onClick={() => setActivo(p.id)} style={{ cursor: 'pointer' }}>
                     {editable && <td onClick={(e) => e.stopPropagation()}><input type="checkbox" checked={seleccion.has(p.id)} onChange={() => alternar(p.id)} /></td>}
                     <td style={{ fontFamily: 'ui-monospace, Menlo, monospace', fontSize: 12.5, whiteSpace: 'nowrap' }}>{p.codigo}</td>
                     <td onClick={(e) => e.stopPropagation()}>
-                      <select style={{ minWidth: 150 }} value={p.normaId || ''} disabled={!editable || ocupado} onChange={(e) => cambiarNormaFila(p, e.target.value)} onFocus={() => setActivo(p.id)}>
-                        <option value="">— Sin norma —</option>
-                        {vigentes.map((o) => <option key={o.id} value={o.id}>{etiquetaNorma(o)}{o.vigente ? '' : ' (versión anterior)'}</option>)}
-                      </select>
+                      {normas.length === 0 ? (
+                        <select style={{ minWidth: 150 }} value={p.normaId || ''} disabled={!editable || ocupado} onChange={(e) => cambiarNormaFila(p, e.target.value)} onFocus={() => setActivo(p.id)}>
+                          <option value="">— Sin norma —</option>
+                          {vigentes.map((o) => <option key={o.id} value={o.id}>{etiquetaNorma(o)}{o.vigente ? '' : ' (versión anterior)'}</option>)}
+                        </select>
+                      ) : (
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                          {normas.map((pn: any) => {
+                            const norma = pn?.norma
+                            if (!norma) return null
+                            return (
+                              <div key={pn.id} style={{ fontSize: 13, fontWeight: pn.seleccionada ? 600 : 400, color: pn.seleccionada ? 'var(--navy)' : 'inherit' }}>
+                                {etiquetaNorma({ ...norma, version: norma.version || 1 })} {pn.seleccionada ? <span style={{ fontSize: 11, color: 'var(--ok)' }}>✓ Seleccionado</span> : <span style={{ fontSize: 11, color: '#999' }}>○ No seleccionado</span>}
+                              </div>
+                            )
+                          })}
+                        </div>
+                      )}
                     </td>
-                    <td></td>
-                    <td className="muted">—</td>
-                    <td><span className="etiqueta-pend">Pendiente</span></td>
-                    {editable && <td style={{ textAlign: 'center' }} onClick={(e) => e.stopPropagation()}><button className="btn btn-sm btn-claro" title="Agregar múltiples normas" onClick={() => setPosteEditandoNormas(p.id)}>+ Normas</button></td>}
-                  </tr>]
-                }
-                return normas.map((pn: any) => {
-                  const n = pn?.norma
-                  if (!n) return null
-                  return <tr key={`${p.id}-${pn.id}`} className={`${pendiente(p) ? 'pendiente' : ''} ${activo === p.id ? 'seleccionado' : ''}`} onClick={() => setActivo(p.id)} style={{ cursor: 'pointer' }}>
-                    {editable && <td onClick={(e) => e.stopPropagation()}><input type="checkbox" checked={seleccion.has(p.id)} onChange={() => alternar(p.id)} /></td>}
-                    <td style={{ fontFamily: 'ui-monospace, Menlo, monospace', fontSize: 12.5, whiteSpace: 'nowrap' }}>{p.codigo}</td>
                     <td onClick={(e) => e.stopPropagation()}>
-                      <div style={{ fontWeight: pn.seleccionada ? 600 : 400, color: pn.seleccionada ? 'var(--navy)' : 'inherit' }}>{etiquetaNorma({ ...n, version: n.version || 1 })}</div>
-                    </td>
-                    <td onClick={(e) => e.stopPropagation()}>
-                      <span className="muted">{(n?.configuraciones || []).find((c: any) => c.id === pn.configuracionId)?.nombre || '—'}</span>
+                      {n ? <span className="muted">{(n?.configuraciones || []).find((c: any) => c.id === normaPrincipal.configuracionId)?.nombre || '—'}</span> : <span className="muted">—</span>}
                     </td>
                     <td className="muted">{n?.tipoPoste || '—'}</td>
-                    <td>{pn.seleccionada ? <span className="etiqueta-ok">Seleccionado</span> : <span className="etiqueta-pend">No seleccionado</span>}</td>
+                    <td>{pendiente(p) ? <span className="etiqueta-pend">Pendiente</span> : <span className="etiqueta-ok">Configurado</span>}</td>
                     {editable && <td style={{ textAlign: 'center' }} onClick={(e) => e.stopPropagation()}><button className="btn btn-sm btn-claro" title="Agregar múltiples normas" onClick={() => setPosteEditandoNormas(p.id)}>+ Normas</button></td>}
                   </tr>
-                }).filter(Boolean)
+                )
               })}
               {!visibles.length && <tr><td colSpan={7} className="muted">No hay postes con este filtro.</td></tr>}
             </tbody>
