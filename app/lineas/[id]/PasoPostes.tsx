@@ -43,8 +43,9 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
 
   // Cargar detalles de TODAS las normas del poste activo, con caché por versión
   useEffect(() => {
-    if (!posteActivo?.normas) return
-    const normasACargar = posteActivo.normas.filter((pn: any) => !detalles[pn.normaId])
+    const normas = posteActivo?.normas ?? []
+    if (normas.length === 0) return
+    const normasACargar = normas.filter((pn: any) => !detalles[pn.normaId])
     if (normasACargar.length === 0) return
 
     Promise.all(
@@ -298,9 +299,9 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
           {!posteActivo ? <p className="muted">Selecciona un poste para ver su estructura y materiales.</p> : (
             <>
               <div className="muted">Poste {posteActivo.codigo} · Trayecto {posteActivo.trayecto}</div>
-              {!posteActivo.normas || posteActivo.normas.length === 0 ? <p className="etiqueta-pend">Sin normas asignadas.</p> : (
+              {((posteActivo?.normas ?? []).length === 0) ? <p className="etiqueta-pend">Sin normas asignadas.</p> : (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-                  {posteActivo.normas.map((posteNorma: any) => {
+                  {(posteActivo?.normas ?? []).map((posteNorma: any) => {
                     const n = posteNorma.norma
                     if (!n) return null
                     const normaId = n.id || posteNorma.normaId
