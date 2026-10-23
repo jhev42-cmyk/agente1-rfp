@@ -288,7 +288,7 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
                         </>
                       )}
                       <td onClick={(e) => e.stopPropagation()} style={{ paddingLeft: isFirstNorma ? 16 : 40 }}>
-                        <div style={{ fontSize: 13, fontWeight: 400, color: 'inherit' }}>
+                        <div style={{ fontSize: 13, fontWeight: 400, color: 'inherit', fontFamily: 'ui-monospace, Menlo, monospace', minWidth: 80, textAlign: 'left' }}>
                           {etiquetaNorma({ ...norma, version: norma.version || 1 })}
                         </div>
                       </td>
