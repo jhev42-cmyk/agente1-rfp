@@ -297,18 +297,19 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
                   {posteActivo.normas.map((posteNorma: any) => {
                     const n = posteNorma.norma
                     if (!n) return null
-                    const d = detalles[n.id]
+                    const normaId = n.id || posteNorma.normaId
+                    const d = detalles[normaId]
                     const conf = d?.configuraciones.find((c: any) => c.id === posteNorma.configuracionId)
 
                     return (
                       <div key={posteNorma.id} style={{ paddingBottom: 16, borderBottom: '1px solid #eee' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
                           {posteNorma.seleccionada && <span style={{ display: 'inline-block', width: 8, height: 8, borderRadius: '50%', backgroundColor: 'var(--ok)' }} title="Norma seleccionada"></span>}
-                          <h4 style={{ margin: 0 }}>{etiquetaNorma(n)} {!n.vigente && <span className="etiqueta-pend">(versión anterior)</span>}</h4>
+                          <h4 style={{ margin: 0 }}>{etiquetaNorma({ ...n, version: n.version || 1 })} {!n.vigente && <span className="etiqueta-pend">(versión anterior)</span>}</h4>
                         </div>
-                        <div style={{ fontSize: 13 }}><b>Tipo de poste:</b> {n.tipoPoste}</div>
-                        <div className="muted" style={{ fontSize: 12, marginBottom: 8 }}>{n.descripcion}</div>
-                        <EsquemaNorma normaId={n.id} tieneImagen={!!n.imagenTipo} />
+                        <div style={{ fontSize: 13 }}><b>Tipo de poste:</b> {n.tipoPoste || '—'}</div>
+                        <div className="muted" style={{ fontSize: 12, marginBottom: 8 }}>{n.descripcion || '—'}</div>
+                        <EsquemaNorma normaId={normaId} tieneImagen={!!n.imagenTipo} />
                         {!d ? (
                           <p className="muted" style={{ fontSize: 12 }}>Cargando materiales…</p>
                         ) : !conf ? (
