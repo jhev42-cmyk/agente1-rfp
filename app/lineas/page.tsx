@@ -26,7 +26,7 @@ function Lineas() {
   const [ok, setOk] = useState('')
   const [lineas, setLineas] = useState<FilaLinea[] | null>(null)
   const [error, setError] = useState('')
-  const [form, setForm] = useState({ nombre: '', longitudKm: '', operador: 'EPM' })
+  const [form, setForm] = useState({ nombre: '', longitudKm: '', operador: 'CELSIA' })
   const [kmz, setKmz] = useState<File | null>(null)
   const [guardando, setGuardando] = useState(false)
   const [verTodas, setVerTodas] = useState(false)
@@ -106,11 +106,7 @@ function Lineas() {
             <div>
               <label>Operador de red</label>
               <select value={form.operador} onChange={(e) => setForm({ ...form, operador: e.target.value })}>
-                <option value="EPM">EPM (normas RA)</option>
-                <option value="ENEL">ENEL (normas LA)</option>
                 <option value="CELSIA">CELSIA</option>
-                <option value="ElectroHuila">ElectroHuila</option>
-                <option value="Enerca">Enerca</option>
               </select>
             </div>
             <div>
