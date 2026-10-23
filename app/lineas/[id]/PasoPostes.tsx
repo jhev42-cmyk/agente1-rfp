@@ -287,8 +287,8 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
                           <td style={{ fontFamily: 'ui-monospace, Menlo, monospace', fontSize: 12.5, whiteSpace: 'nowrap', fontWeight: 600 }} rowSpan={normas.length}>{p.codigo}</td>
                         </>
                       )}
-                      <td onClick={(e) => e.stopPropagation()} style={{ paddingLeft: isFirstNorma ? 16 : 40 }}>
-                        <div style={{ fontSize: 13, fontWeight: 400, color: 'inherit', fontFamily: 'ui-monospace, Menlo, monospace', minWidth: 80, textAlign: 'left' }}>
+                      <td onClick={(e) => e.stopPropagation()} style={{ paddingLeft: isFirstNorma ? 16 : 40, width: 140 }}>
+                        <div style={{ fontSize: 13, fontWeight: 400, color: 'inherit', fontFamily: 'ui-monospace, Menlo, monospace', whiteSpace: 'nowrap' }}>
                           {etiquetaNorma({ ...norma, version: norma.version || 1 })}
                         </div>
                       </td>
