@@ -27,7 +27,13 @@ export const GET = handler(async (request, { params }: Ctx) => {
               normaId: true,
               configuracionId: true,
               seleccionada: true,
-              norma: { select: { codigo: true, operador: true } },
+              norma: {
+                select: {
+                  id: true, codigo: true, version: true, operador: true, tipoPoste: true,
+                  descripcion: true, vigente: true, tieneImagen: true, creadoPor: true,
+                  motivo: true, createdAt: true
+                }
+              },
             },
           },
         },

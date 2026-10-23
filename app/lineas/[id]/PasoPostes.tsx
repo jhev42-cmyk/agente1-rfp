@@ -297,6 +297,9 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
                   {posteActivo.normas.map((posteNorma: any) => {
                     const n = posteNorma.norma
                     if (!n) return null
+                    const d = detalles[n.id]
+                    const conf = d?.configuraciones.find((c: any) => c.id === posteNorma.configuracionId)
+
                     return (
                       <div key={posteNorma.id} style={{ paddingBottom: 16, borderBottom: '1px solid #eee' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
@@ -306,31 +309,29 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
                         <div style={{ fontSize: 13 }}><b>Tipo de poste:</b> {n.tipoPoste}</div>
                         <div className="muted" style={{ fontSize: 12, marginBottom: 8 }}>{n.descripcion}</div>
                         <EsquemaNorma normaId={n.id} tieneImagen={n.tieneImagen} />
-                        {(() => {
-                          const d = detalles[n.id]
-                          const conf = d?.configuraciones.find((c: any) => c.id === posteNorma.configuracionId)
-                          if (!d) return <p className="muted" style={{ fontSize: 12 }}>Cargando materiales…</p>
-                          if (!conf) return <p className="etiqueta-pend" style={{ fontSize: 12 }}>Configuración pendiente.</p>
-                          return (
-                            <>
-                              <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--navy)', margin: '6px 0' }}>Materiales · {conf.nombre}</div>
-                              <div className="tabla-scroll" style={{ maxHeight: 200, overflowY: 'auto' }}>
-                                <table style={{ fontSize: 11 }}>
-                                  <thead><tr><th>Código</th><th>Material</th><th className="num">Cant.</th></tr></thead>
-                                  <tbody>
-                                    {conf.materiales.map((m: any) => (
-                                      <tr key={m.codigoMaterial}>
-                                        <td>{m.codigoMaterial}</td>
-                                        <td title={m.observacion || ''}>{m.descripcion.length > 50 ? m.descripcion.slice(0, 50) + '…' : m.descripcion}</td>
-                                        <td className="num">{num(m.cantidad)} {m.unidad}</td>
-                                      </tr>
-                                    ))}
-                                  </tbody>
-                                </table>
-                              </div>
-                            </>
-                          )
-                        })()}
+                        {!d ? (
+                          <p className="muted" style={{ fontSize: 12 }}>Cargando materiales…</p>
+                        ) : !conf ? (
+                          <p className="etiqueta-pend" style={{ fontSize: 12 }}>Configuración pendiente.</p>
+                        ) : (
+                          <>
+                            <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--navy)', margin: '6px 0' }}>Materiales · {conf.nombre}</div>
+                            <div className="tabla-scroll" style={{ maxHeight: 200, overflowY: 'auto' }}>
+                              <table style={{ fontSize: 11 }}>
+                                <thead><tr><th>Código</th><th>Material</th><th className="num">Cant.</th></tr></thead>
+                                <tbody>
+                                  {conf.materiales.map((m: any) => (
+                                    <tr key={m.codigoMaterial}>
+                                      <td>{m.codigoMaterial}</td>
+                                      <td title={m.observacion || ''}>{m.descripcion.length > 50 ? m.descripcion.slice(0, 50) + '…' : m.descripcion}</td>
+                                      <td className="num">{num(m.cantidad)} {m.unidad}</td>
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            </div>
+                          </>
+                        )}
                       </div>
                     )
                   })}
