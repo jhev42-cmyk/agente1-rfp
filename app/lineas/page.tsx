@@ -108,6 +108,9 @@ function Lineas() {
               <select value={form.operador} onChange={(e) => setForm({ ...form, operador: e.target.value })}>
                 <option value="EPM">EPM (normas RA)</option>
                 <option value="ENEL">ENEL (normas LA)</option>
+                <option value="CELSIA">CELSIA</option>
+                <option value="ElectroHuila">ElectroHuila</option>
+                <option value="Enerca">Enerca</option>
               </select>
             </div>
             <div>
