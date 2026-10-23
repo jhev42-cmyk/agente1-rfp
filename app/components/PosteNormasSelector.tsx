@@ -222,10 +222,10 @@ export default function PosteNormasSelector({
 
       {/* Agregar nueva norma */}
       {normasDisponibles.length > 0 && (
-        <div className="border-t pt-4">
-          <label className="text-xs font-semibold text-gray-600 block mb-2">Agregar norma:</label>
+        <div style={{ borderTop: '1px solid #ddd', paddingTop: 16, marginTop: 16 }}>
+          <label style={{ fontSize: 13, fontWeight: 600, color: '#333', display: 'block', marginBottom: 8 }}>Agregar norma:</label>
 
-          <div className="space-y-2">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
             <select
               value={normaSeleccionada || ''}
               onChange={(e) => {
@@ -233,7 +233,7 @@ export default function PosteNormasSelector({
                 setNormaSeleccionada(normaId)
                 setConfiguracionSeleccionada(null)
               }}
-              className="w-full text-xs px-2 py-1 border rounded"
+              style={{ width: '100%', padding: '8px 12px', border: '1px solid #ddd', borderRadius: 4, fontSize: 13 }}
             >
               <option value="">-- Selecciona una norma --</option>
               {normasDisponibles.map((norma) => (
@@ -247,7 +247,7 @@ export default function PosteNormasSelector({
               <select
                 value={configuracionSeleccionada || ''}
                 onChange={(e) => setConfiguracionSeleccionada(e.target.value ? parseInt(e.target.value) : null)}
-                className="w-full text-xs px-2 py-1 border rounded"
+                style={{ width: '100%', padding: '8px 12px', border: '1px solid #ddd', borderRadius: 4, fontSize: 13 }}
               >
                 <option value="">-- Configuración (opcional) --</option>
                 {normasDisponibles
@@ -263,13 +263,34 @@ export default function PosteNormasSelector({
             <button
               onClick={agregarNorma}
               disabled={cargando || !normaSeleccionada}
-              className="w-full px-3 py-2 text-xs bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50"
+              style={{
+                width: '100%',
+                padding: '10px 16px',
+                fontSize: 14,
+                fontWeight: 600,
+                backgroundColor: cargando || !normaSeleccionada ? '#ccc' : '#1e3a8a',
+                color: 'white',
+                border: 'none',
+                borderRadius: 4,
+                cursor: cargando || !normaSeleccionada ? 'not-allowed' : 'pointer',
+                transition: 'background-color 0.2s'
+              }}
+              onMouseEnter={(e) => {
+                if (!cargando && normaSeleccionada) {
+                  (e.target as HTMLButtonElement).style.backgroundColor = '#1e40af'
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!cargando && normaSeleccionada) {
+                  (e.target as HTMLButtonElement).style.backgroundColor = '#1e3a8a'
+                }
+              }}
             >
               {cargando ? 'Agregando...' : 'Agregar Norma'}
             </button>
           </div>
 
-          {error && <p className="text-xs text-red-600 mt-2">{error}</p>}
+          {error && <p style={{ fontSize: 12, color: '#dc2626', marginTop: 8 }}>{error}</p>}
         </div>
       )}
     </div>
