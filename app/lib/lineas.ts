@@ -379,16 +379,29 @@ export async function calcular(lineaId: number): Promise<Calculo> {
   const pendientes: string[] = []
   const usoNormas = new Map<number, number>()
   for (const p of postes) {
-    // Obtener la norma seleccionada (o la primera si no hay seleccionada)
-    const pn = p.normas.find((n) => n.seleccionada) || p.normas[0]
-    const conf = pn && pn.configuracionId ? configPorId.get(pn.configuracionId) : undefined
+    // Si el poste no tiene normas, marcar como pendiente
+    if (!p.normas || p.normas.length === 0) {
+      pendientes.push(p.codigo)
+      continue
+    }
 
-    if (!pn || !conf) { pendientes.push(p.codigo); continue }
+    // Iterar sobre TODAS las normas asignadas al poste
+    let tieneConfiguracion = false
+    for (const pn of p.normas) {
+      const conf = pn.configuracionId ? configPorId.get(pn.configuracionId) : undefined
+      if (!conf) continue
 
-    usoNormas.set(conf.normaId, (usoNormas.get(conf.normaId) || 0) + 1)
-    const etiqueta = `${conf.norma.codigo} v${conf.norma.version}`
-    for (const mat of conf.materiales) {
-      sumar(mat.codigoMaterial, null, { trayecto: p.trayecto.numero, poste: p.codigo, norma: etiqueta, cantidad: mat.cantidad })
+      tieneConfiguracion = true
+      usoNormas.set(conf.normaId, (usoNormas.get(conf.normaId) || 0) + 1)
+      const etiqueta = `${conf.norma.codigo} v${conf.norma.version}`
+      for (const mat of conf.materiales) {
+        sumar(mat.codigoMaterial, null, { trayecto: p.trayecto.numero, poste: p.codigo, norma: etiqueta, cantidad: mat.cantidad })
+      }
+    }
+
+    // Si ninguna norma tiene configuración, marcar como pendiente
+    if (!tieneConfiguracion) {
+      pendientes.push(p.codigo)
     }
   }
   for (const pa of partidas.filter((x) => x.tipo === TipoPartida.MATERIAL && x.codigoMaterial)) {
