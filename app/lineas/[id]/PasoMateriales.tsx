@@ -60,7 +60,7 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
                                     <Fragment key={k}>
                                       <tr className="grupo"><td colSpan={2}>{k}</td><td className="num">{num(v)} {m.unidad}</td></tr>
                                       {verPostes && m.detalle.filter((d) => (d.trayecto ? `Trayecto ${d.trayecto}` : d.poste) === k).map((d) => (
-                                        <tr key={d.poste}><td>{d.poste}</td><td className="muted">{d.norma}</td><td className="num">{num(d.cantidad)}</td></tr>
+                                        <tr key={`${d.poste}-${d.norma}`}><td>{d.poste}</td><td className="muted">{d.norma}</td><td className="num">{num(d.cantidad)}</td></tr>
                                       ))}
                                     </Fragment>
                                   ))}
