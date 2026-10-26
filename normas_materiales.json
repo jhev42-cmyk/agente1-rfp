@@ -1,0 +1,904 @@
+{
+  "B712": {
+    "codigo": "B712",
+    "voltaje": "13.2kV",
+    "materiales": [
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Poste de concreto, fibra vidrio o metalico 10m /12"
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Collar\u00edn / Abrazadera de 2 o 4 v\u00edas para poste (10"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Cruceta met\u00e1lica galv. 76 x 76 x 7,9 x 2400 mm (3\""
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Pieamigo - Diagonal en L para bandera, 51 x 51 x 6"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Grapa de suspensi\u00f3n aluminio 4 AWG - 2/0 AWG (1/4\""
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Tornillo de m\u00e1quina hexagonal acero galvanizado 5/"
+      },
+      {
+        "cantidad": 4,
+        "observacion": "",
+        "codigoMaterial": "Tuercas hexagonales de acero 5/8\u2032\u2032"
+      },
+      {
+        "cantidad": 4,
+        "observacion": "",
+        "codigoMaterial": "Arandelas de presi\u00f3n (Guasa) Galv. \u00d815,9 mm (5/8\")"
+      },
+      {
+        "cantidad": 4,
+        "observacion": "",
+        "codigoMaterial": "Arandelas redondas planas de acero \u00d815,9 mm (5/8\u2032\u2032"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Tuercas de ojo alargada acero galv. / Ojos girator"
+      }
+    ]
+  },
+  "C712": {
+    "codigo": "C712",
+    "voltaje": "34.5kV",
+    "materiales": [
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Poste de concreto, fibra vidrio o metalico 10m /12"
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Collar\u00edn / Abrazadera de 2 o 4 v\u00edas para poste (10"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Cruceta met\u00e1lica galv. 76 x 76 x 7,9 x 2400 mm (3\""
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Pieamigo - Diagonal en L para bandera, 51 x 51 x 6"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Grapa de suspensi\u00f3n aluminio 4 AWG - 2/0 AWG (1/4\""
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Tornillo de m\u00e1quina hexagonal acero galvanizado 5/"
+      },
+      {
+        "cantidad": 4,
+        "observacion": "",
+        "codigoMaterial": "Tuercas hexagonales de acero 5/8\u2032\u2032"
+      },
+      {
+        "cantidad": 4,
+        "observacion": "",
+        "codigoMaterial": "Arandelas de presi\u00f3n (Guasa) Galv. \u00d815,9 mm (5/8\")"
+      },
+      {
+        "cantidad": 4,
+        "observacion": "",
+        "codigoMaterial": "Arandelas redondas planas de acero \u00d815,9 mm (5/8\u2032\u2032"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Tuercas de ojo alargada acero galv. / Ojos girator"
+      }
+    ]
+  },
+  "B71": {
+    "codigo": "B71",
+    "voltaje": "13.2kV",
+    "materiales": [
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Poste de concreto, fibra vidrio o metalico 10m /12"
+      },
+      {
+        "cantidad": 3,
+        "observacion": "",
+        "codigoMaterial": "Collar\u00edn / Abrazadera de 2 o 4 v\u00edas para poste (10"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Brazo tangente tipo L 15kV con grapa prensora y\nes"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Brazo anti-balanceo polim\u00e9rico red compacta 15 kV"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Estribo para soporte tangencial"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Espaciador poligonal polim\u00e9rico 15 kV 10 kA cable "
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Tuercas hexagonales de acero 5/8\u2032\u2032"
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Arandelas de presi\u00f3n (Guasa) Galv. \u00d815,9 mm (5/8\")"
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Arandelas redondas planas de acero \u00d815,9 mm (5/8\u2032\u2032"
+      }
+    ]
+  },
+  "C71": {
+    "codigo": "C71",
+    "voltaje": "34.5kV",
+    "materiales": [
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Poste de concreto, fibra vidrio o metalico 10m /12"
+      },
+      {
+        "cantidad": 3,
+        "observacion": "",
+        "codigoMaterial": "Collar\u00edn / Abrazadera de 2 o 4 v\u00edas para poste (10"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Brazo tangente tipo L 15kV con grapa prensora y\nes"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Brazo anti-balanceo polim\u00e9rico red compacta 15 kV"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Estribo para soporte tangencial"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Espaciador poligonal polim\u00e9rico 15 kV 10 kA cable "
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Tuercas hexagonales de acero 5/8\u2032\u2032"
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Arandelas de presi\u00f3n (Guasa) Galv. \u00d815,9 mm (5/8\")"
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Arandelas redondas planas de acero \u00d815,9 mm (5/8\u2032\u2032"
+      }
+    ]
+  },
+  "B72C2": {
+    "codigo": "B72C2",
+    "voltaje": "13.2kV",
+    "materiales": [
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Poste de concreto, fibra vidrio o metalico 10m /12"
+      },
+      {
+        "cantidad": 4,
+        "observacion": "",
+        "codigoMaterial": "Collar\u00edn / Abrazadera de 2 o 4 v\u00edas para poste (10"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Brazo tangente tipo L 15kV con grapa prensora y\nes"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Grapa Suspension para soporte mensajero red compac"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Brazo angular tipo C acero red compacta 15kV"
+      },
+      {
+        "cantidad": 3,
+        "observacion": "",
+        "codigoMaterial": "Aislador pin polim\u00e9rico 15 kV ANSI C29.5 clase 55-"
+      },
+      {
+        "cantidad": 3,
+        "observacion": "",
+        "codigoMaterial": "Grapa amarre preformado aislado tipo \"Z\" para red "
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Tornillo de m\u00e1quina hexagonal acero galvanizado 5/"
+      },
+      {
+        "cantidad": 3,
+        "observacion": "",
+        "codigoMaterial": "Perno Espigo corto para aislador tipo pin 10\u201dx1 3/"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Tuercas de ojo alargada acero galv. / Ojos girator"
+      },
+      {
+        "cantidad": 10,
+        "observacion": "",
+        "codigoMaterial": "Tuercas hexagonales de acero 5/8\u2032\u2032"
+      },
+      {
+        "cantidad": 8,
+        "observacion": "",
+        "codigoMaterial": "Arandelas de presi\u00f3n (Guasa) Galv. \u00d815,9 mm (5/8\")"
+      },
+      {
+        "cantidad": 4,
+        "observacion": "",
+        "codigoMaterial": "Arandelas redondas planas de acero \u00d815,9 mm (5/8\u2032\u2032"
+      }
+    ]
+  },
+  "C72C2": {
+    "codigo": "C72C2",
+    "voltaje": "34.5kV",
+    "materiales": [
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Poste de concreto, fibra vidrio o metalico 10m /12"
+      },
+      {
+        "cantidad": 4,
+        "observacion": "",
+        "codigoMaterial": "Collar\u00edn / Abrazadera de 2 o 4 v\u00edas para poste (10"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Brazo tangente tipo L 15kV con grapa prensora y\nes"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Grapa Suspension para soporte mensajero red compac"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Brazo angular tipo C acero red compacta 15kV"
+      },
+      {
+        "cantidad": 3,
+        "observacion": "",
+        "codigoMaterial": "Aislador pin polim\u00e9rico 15 kV ANSI C29.5 clase 55-"
+      },
+      {
+        "cantidad": 3,
+        "observacion": "",
+        "codigoMaterial": "Grapa amarre preformado aislado tipo \"Z\" para red "
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Tornillo de m\u00e1quina hexagonal acero galvanizado 5/"
+      },
+      {
+        "cantidad": 3,
+        "observacion": "",
+        "codigoMaterial": "Perno Espigo corto para aislador tipo pin 10\u201dx1 3/"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Tuercas de ojo alargada acero galv. / Ojos girator"
+      },
+      {
+        "cantidad": 10,
+        "observacion": "",
+        "codigoMaterial": "Tuercas hexagonales de acero 5/8\u2032\u2032"
+      },
+      {
+        "cantidad": 8,
+        "observacion": "",
+        "codigoMaterial": "Arandelas de presi\u00f3n (Guasa) Galv. \u00d815,9 mm (5/8\")"
+      },
+      {
+        "cantidad": 4,
+        "observacion": "",
+        "codigoMaterial": "Arandelas redondas planas de acero \u00d815,9 mm (5/8\u2032\u2032"
+      }
+    ]
+  },
+  "B72E": {
+    "codigo": "B72E",
+    "voltaje": "13.2kV",
+    "materiales": [
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Poste de concreto, fibra vidrio o metalico 10m /12"
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Collar\u00edn / Abrazadera de 2 o 4 v\u00edas para poste (10"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Brazo angular tipo E acero red compacta 15kV"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Estribo para soporte tangencial"
+      },
+      {
+        "cantidad": 3,
+        "observacion": "",
+        "codigoMaterial": "Aislador pin polim\u00e9rico 15 kV ANSI C29.5 clase 55-"
+      },
+      {
+        "cantidad": 3,
+        "observacion": "",
+        "codigoMaterial": "Grapa amarre preformado aislado tipo \"Z\" para red "
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Tornillo de m\u00e1quina hexagonal acero galvanizado 5/"
+      },
+      {
+        "cantidad": 3,
+        "observacion": "",
+        "codigoMaterial": "Perno Espigo corto para aislador tipo pin 10\u201dx1 3/"
+      },
+      {
+        "cantidad": 6,
+        "observacion": "",
+        "codigoMaterial": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x "
+      },
+      {
+        "cantidad": 4,
+        "observacion": "",
+        "codigoMaterial": "Tuercas de ojo alargada acero galv. / Ojos girator"
+      },
+      {
+        "cantidad": 4,
+        "observacion": "",
+        "codigoMaterial": "Tuercas hexagonales de acero 5/8\u2032\u2032"
+      }
+    ]
+  },
+  "C72E": {
+    "codigo": "C72E",
+    "voltaje": "34.5kV",
+    "materiales": [
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Poste de concreto, fibra vidrio o metalico 10m /12"
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Collar\u00edn / Abrazadera de 2 o 4 v\u00edas para poste (10"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Brazo angular tipo E acero red compacta 15kV"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Estribo para soporte tangencial"
+      },
+      {
+        "cantidad": 3,
+        "observacion": "",
+        "codigoMaterial": "Aislador pin polim\u00e9rico 15 kV ANSI C29.5 clase 55-"
+      },
+      {
+        "cantidad": 3,
+        "observacion": "",
+        "codigoMaterial": "Grapa amarre preformado aislado tipo \"Z\" para red "
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Tornillo de m\u00e1quina hexagonal acero galvanizado 5/"
+      },
+      {
+        "cantidad": 3,
+        "observacion": "",
+        "codigoMaterial": "Perno Espigo corto para aislador tipo pin 10\u201dx1 3/"
+      },
+      {
+        "cantidad": 6,
+        "observacion": "",
+        "codigoMaterial": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x "
+      },
+      {
+        "cantidad": 4,
+        "observacion": "",
+        "codigoMaterial": "Tuercas de ojo alargada acero galv. / Ojos girator"
+      },
+      {
+        "cantidad": 4,
+        "observacion": "",
+        "codigoMaterial": "Tuercas hexagonales de acero 5/8\u2032\u2032"
+      }
+    ]
+  },
+  "B76C2": {
+    "codigo": "B76C2",
+    "voltaje": "13.2kV",
+    "materiales": [
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Poste de concreto, fibra vidrio o metalico 10m /12"
+      },
+      {
+        "cantidad": 4,
+        "observacion": "",
+        "codigoMaterial": "Collar\u00edn / Abrazadera de 2 o 4 v\u00edas para poste (10"
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Cruceta angular met\u00e1lica en T autosoportada, 1400 "
+      },
+      {
+        "cantidad": 6,
+        "observacion": "",
+        "codigoMaterial": "Soporte para dos aisladores en angulo red compacta"
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Brazo angular tipo C acero red compacta 15kV"
+      },
+      {
+        "cantidad": 12,
+        "observacion": "",
+        "codigoMaterial": "Aislador suspensi\u00f3n polim\u00e9rico 15 kV ANSI C29.13 c"
+      },
+      {
+        "cantidad": 6,
+        "observacion": "",
+        "codigoMaterial": "Grapa preformada aleaci\u00f3n de aluminio 2 AWG a 312."
+      },
+      {
+        "cantidad": 8,
+        "observacion": "",
+        "codigoMaterial": "Eslab\u00f3n en U 5/8\" forjado galvanizado"
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Grapa de retenci\u00f3n aluminio tipo pistola (3\u20134 pern"
+      },
+      {
+        "cantidad": 4,
+        "observacion": "",
+        "codigoMaterial": "Tornillo de m\u00e1quina hexagonal acero galvanizado 5/"
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x "
+      },
+      {
+        "cantidad": 18,
+        "observacion": "",
+        "codigoMaterial": "Tuercas hexagonales de acero 5/8\u2032\u2032"
+      },
+      {
+        "cantidad": 16,
+        "observacion": "",
+        "codigoMaterial": "Arandelas de presi\u00f3n (Guasa) Galv. \u00d815,9 mm (5/8\")"
+      },
+      {
+        "cantidad": 16,
+        "observacion": "",
+        "codigoMaterial": "Arandelas redondas planas de acero \u00d815,9 mm (5/8\u2032\u2032"
+      },
+      {
+        "cantidad": 6,
+        "observacion": "",
+        "codigoMaterial": "Guardacabo acero galvanizad \u00d815,9 mm (5/8\u2032\u2032)"
+      },
+      {
+        "cantidad": 6,
+        "observacion": "",
+        "codigoMaterial": "Pararrayos polimerico DPS 12 kV 10 kA"
+      },
+      {
+        "cantidad": 17,
+        "observacion": "",
+        "codigoMaterial": "Cable de cobre desnudo #2 AWG"
+      },
+      {
+        "cantidad": 6,
+        "observacion": "",
+        "codigoMaterial": "Conector empalme conector DBH Y REPOSICION AISLAMI"
+      },
+      {
+        "cantidad": 6,
+        "observacion": "",
+        "codigoMaterial": "Conexi\u00f3n estribo a cable semiaislado con conector "
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Conectores de compresi\u00f3n (C-Tap / H-Tap / Cu\u00f1a)"
+      },
+      {
+        "cantidad": 3,
+        "observacion": "",
+        "codigoMaterial": "Conectores tipo Cu\u00f1a Cu - Cu #2 a #2"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Conector cu\u00f1a a presi\u00f3n p/ varilla PAT \u00d815,9 mm (5"
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Grapa conexi\u00f3n doble cable tierra"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Varilla puesta a tierra \u00d8 15,9 x 2400 mm (5/8\" x 8"
+      }
+    ]
+  },
+  "C76C2": {
+    "codigo": "C76C2",
+    "voltaje": "34.5kV",
+    "materiales": [
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Poste de concreto, fibra vidrio o metalico 10m /12"
+      },
+      {
+        "cantidad": 4,
+        "observacion": "",
+        "codigoMaterial": "Collar\u00edn / Abrazadera de 2 o 4 v\u00edas para poste (10"
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Cruceta angular met\u00e1lica en T autosoportada, 1400 "
+      },
+      {
+        "cantidad": 6,
+        "observacion": "",
+        "codigoMaterial": "Soporte para dos aisladores en angulo red compacta"
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Brazo angular tipo C acero red compacta 15kV"
+      },
+      {
+        "cantidad": 12,
+        "observacion": "",
+        "codigoMaterial": "Aislador suspensi\u00f3n polim\u00e9rico 15 kV ANSI C29.13 c"
+      },
+      {
+        "cantidad": 6,
+        "observacion": "",
+        "codigoMaterial": "Grapa preformada aleaci\u00f3n de aluminio 2 AWG a 312."
+      },
+      {
+        "cantidad": 8,
+        "observacion": "",
+        "codigoMaterial": "Eslab\u00f3n en U 5/8\" forjado galvanizado"
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Grapa de retenci\u00f3n aluminio tipo pistola (3\u20134 pern"
+      },
+      {
+        "cantidad": 4,
+        "observacion": "",
+        "codigoMaterial": "Tornillo de m\u00e1quina hexagonal acero galvanizado 5/"
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x "
+      },
+      {
+        "cantidad": 18,
+        "observacion": "",
+        "codigoMaterial": "Tuercas hexagonales de acero 5/8\u2032\u2032"
+      },
+      {
+        "cantidad": 16,
+        "observacion": "",
+        "codigoMaterial": "Arandelas de presi\u00f3n (Guasa) Galv. \u00d815,9 mm (5/8\")"
+      },
+      {
+        "cantidad": 16,
+        "observacion": "",
+        "codigoMaterial": "Arandelas redondas planas de acero \u00d815,9 mm (5/8\u2032\u2032"
+      },
+      {
+        "cantidad": 6,
+        "observacion": "",
+        "codigoMaterial": "Guardacabo acero galvanizad \u00d815,9 mm (5/8\u2032\u2032)"
+      },
+      {
+        "cantidad": 6,
+        "observacion": "",
+        "codigoMaterial": "Pararrayos polimerico DPS 12 kV 10 kA"
+      },
+      {
+        "cantidad": 17,
+        "observacion": "",
+        "codigoMaterial": "Cable de cobre desnudo #2 AWG"
+      },
+      {
+        "cantidad": 6,
+        "observacion": "",
+        "codigoMaterial": "Conector empalme conector DBH Y REPOSICION AISLAMI"
+      },
+      {
+        "cantidad": 6,
+        "observacion": "",
+        "codigoMaterial": "Conexi\u00f3n estribo a cable semiaislado con conector "
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Conectores de compresi\u00f3n (C-Tap / H-Tap / Cu\u00f1a)"
+      },
+      {
+        "cantidad": 3,
+        "observacion": "",
+        "codigoMaterial": "Conectores tipo Cu\u00f1a Cu - Cu #2 a #2"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Conector cu\u00f1a a presi\u00f3n p/ varilla PAT \u00d815,9 mm (5"
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Grapa conexi\u00f3n doble cable tierra"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Varilla puesta a tierra \u00d8 15,9 x 2400 mm (5/8\" x 8"
+      }
+    ]
+  },
+  "B77": {
+    "codigo": "B77",
+    "voltaje": "13.2kV",
+    "materiales": [
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Poste de concreto, fibra vidrio o metalico 10m /12"
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Cruceta met\u00e1lica 1500 mm 3\" X 3\" X 1/4\""
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Cruceta met\u00e1lica retenci\u00f3n 600mm  3\" X 3\" X 1/4\" /"
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Diagonal met\u00e1lica en V 1 1/2\" x 1 1/2\" x 3/16\" de "
+      },
+      {
+        "cantidad": 3,
+        "observacion": "",
+        "codigoMaterial": "Aislador suspensi\u00f3n polim\u00e9rico 15 kV ANSI C29.13 c"
+      },
+      {
+        "cantidad": 3,
+        "observacion": "",
+        "codigoMaterial": "Grapa preformada aleaci\u00f3n de aluminio 2 AWG a 312."
+      },
+      {
+        "cantidad": 4,
+        "observacion": "",
+        "codigoMaterial": "Tornillo de m\u00e1quina hexagonal acero galvanizado 5/"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Grapa de retenci\u00f3n aluminio tipo pistola (3\u20134 pern"
+      },
+      {
+        "cantidad": 4,
+        "observacion": "",
+        "codigoMaterial": "Tornillo de m\u00e1quina hexagonal acero galvanizado 5/"
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x "
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Tuercas de ojo alargada acero galv. / Ojos girator"
+      },
+      {
+        "cantidad": 16,
+        "observacion": "",
+        "codigoMaterial": "Tuercas hexagonales de acero 5/8\u2032\u2032"
+      },
+      {
+        "cantidad": 14,
+        "observacion": "",
+        "codigoMaterial": "Arandelas de presi\u00f3n (Guasa) Galv. \u00d815,9 mm (5/8\")"
+      },
+      {
+        "cantidad": 14,
+        "observacion": "",
+        "codigoMaterial": "Arandelas redondas planas de acero \u00d815,9 mm (5/8\u2032\u2032"
+      },
+      {
+        "cantidad": 3,
+        "observacion": "",
+        "codigoMaterial": "Guardacabo acero galvanizado \u00d819,5 mm (3/4\")"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Retenidas (Vientos)"
+      }
+    ]
+  },
+  "C77": {
+    "codigo": "C77",
+    "voltaje": "34.5kV",
+    "materiales": [
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Poste de concreto, fibra vidrio o metalico 10m /12"
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Cruceta met\u00e1lica 1500 mm 3\" X 3\" X 1/4\""
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Cruceta met\u00e1lica retenci\u00f3n 600mm  3\" X 3\" X 1/4\" /"
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Diagonal met\u00e1lica en V 1 1/2\" x 1 1/2\" x 3/16\" de "
+      },
+      {
+        "cantidad": 3,
+        "observacion": "",
+        "codigoMaterial": "Aislador suspensi\u00f3n polim\u00e9rico 15 kV ANSI C29.13 c"
+      },
+      {
+        "cantidad": 3,
+        "observacion": "",
+        "codigoMaterial": "Grapa preformada aleaci\u00f3n de aluminio 2 AWG a 312."
+      },
+      {
+        "cantidad": 4,
+        "observacion": "",
+        "codigoMaterial": "Tornillo de m\u00e1quina hexagonal acero galvanizado 5/"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Grapa de retenci\u00f3n aluminio tipo pistola (3\u20134 pern"
+      },
+      {
+        "cantidad": 4,
+        "observacion": "",
+        "codigoMaterial": "Tornillo de m\u00e1quina hexagonal acero galvanizado 5/"
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x "
+      },
+      {
+        "cantidad": 2,
+        "observacion": "",
+        "codigoMaterial": "Tuercas de ojo alargada acero galv. / Ojos girator"
+      },
+      {
+        "cantidad": 16,
+        "observacion": "",
+        "codigoMaterial": "Tuercas hexagonales de acero 5/8\u2032\u2032"
+      },
+      {
+        "cantidad": 14,
+        "observacion": "",
+        "codigoMaterial": "Arandelas de presi\u00f3n (Guasa) Galv. \u00d815,9 mm (5/8\")"
+      },
+      {
+        "cantidad": 14,
+        "observacion": "",
+        "codigoMaterial": "Arandelas redondas planas de acero \u00d815,9 mm (5/8\u2032\u2032"
+      },
+      {
+        "cantidad": 3,
+        "observacion": "",
+        "codigoMaterial": "Guardacabo acero galvanizado \u00d819,5 mm (3/4\")"
+      },
+      {
+        "cantidad": 1,
+        "observacion": "",
+        "codigoMaterial": "Retenidas (Vientos)"
+      }
+    ]
+  }
+}

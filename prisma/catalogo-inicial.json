@@ -2438,19 +2438,14 @@
           "orden": 0,
           "materiales": [
             {
-              "cantidad": 1,
-              "observacion": "Poste CELSIA",
-              "codigoMaterial": "1.1"
-            },
-            {
-              "cantidad": 2,
-              "observacion": "Collarines",
+              "cantidad": 3,
+              "observacion": "CXX",
               "codigoMaterial": "2.1"
             },
             {
-              "cantidad": 6,
-              "observacion": "Pernos",
-              "codigoMaterial": "3.1"
+              "cantidad": 2,
+              "observacion": "",
+              "codigoMaterial": "3.4"
             }
           ]
         }
@@ -2473,19 +2468,14 @@
           "orden": 0,
           "materiales": [
             {
-              "cantidad": 1,
-              "observacion": "Poste CELSIA",
-              "codigoMaterial": "1.1"
-            },
-            {
-              "cantidad": 2,
-              "observacion": "Collarines",
+              "cantidad": 3,
+              "observacion": "CXX",
               "codigoMaterial": "2.1"
             },
             {
-              "cantidad": 6,
-              "observacion": "Pernos",
-              "codigoMaterial": "3.1"
+              "cantidad": 2,
+              "observacion": "",
+              "codigoMaterial": "3.4"
             }
           ]
         }
@@ -2508,19 +2498,14 @@
           "orden": 0,
           "materiales": [
             {
-              "cantidad": 1,
-              "observacion": "Poste CELSIA",
-              "codigoMaterial": "1.1"
-            },
-            {
               "cantidad": 2,
-              "observacion": "Collarines",
+              "observacion": "CXX",
               "codigoMaterial": "2.1"
             },
             {
-              "cantidad": 6,
-              "observacion": "Pernos",
-              "codigoMaterial": "3.1"
+              "cantidad": 4,
+              "observacion": "",
+              "codigoMaterial": "3.4"
             }
           ]
         }
@@ -2543,19 +2528,14 @@
           "orden": 0,
           "materiales": [
             {
-              "cantidad": 1,
-              "observacion": "Poste CELSIA",
-              "codigoMaterial": "1.1"
-            },
-            {
               "cantidad": 2,
-              "observacion": "Collarines",
+              "observacion": "CXX",
               "codigoMaterial": "2.1"
             },
             {
-              "cantidad": 6,
-              "observacion": "Pernos",
-              "codigoMaterial": "3.1"
+              "cantidad": 4,
+              "observacion": "",
+              "codigoMaterial": "3.4"
             }
           ]
         }
@@ -2718,19 +2698,14 @@
           "orden": 0,
           "materiales": [
             {
-              "cantidad": 1,
-              "observacion": "Poste CELSIA",
-              "codigoMaterial": "1.1"
-            },
-            {
-              "cantidad": 2,
-              "observacion": "Collarines",
+              "cantidad": 4,
+              "observacion": "CXX (2  salidas) Diametro según norma RA05",
               "codigoMaterial": "2.1"
             },
             {
-              "cantidad": 6,
-              "observacion": "Pernos",
-              "codigoMaterial": "3.1"
+              "cantidad": 10,
+              "observacion": "",
+              "codigoMaterial": "3.4"
             }
           ]
         }
@@ -2753,19 +2728,14 @@
           "orden": 0,
           "materiales": [
             {
-              "cantidad": 1,
-              "observacion": "Poste CELSIA",
-              "codigoMaterial": "1.1"
-            },
-            {
-              "cantidad": 2,
-              "observacion": "Collarines",
+              "cantidad": 4,
+              "observacion": "CXX (2  salidas) Diametro según norma RA05",
               "codigoMaterial": "2.1"
             },
             {
-              "cantidad": 6,
-              "observacion": "Pernos",
-              "codigoMaterial": "3.1"
+              "cantidad": 10,
+              "observacion": "",
+              "codigoMaterial": "3.4"
             }
           ]
         }
@@ -2788,19 +2758,14 @@
           "orden": 0,
           "materiales": [
             {
-              "cantidad": 1,
-              "observacion": "Poste CELSIA",
-              "codigoMaterial": "1.1"
-            },
-            {
               "cantidad": 2,
-              "observacion": "Collarines",
+              "observacion": "CXX (2 a 4  salidas) Diametro según Norma RA05",
               "codigoMaterial": "2.1"
             },
             {
-              "cantidad": 6,
-              "observacion": "Pernos",
-              "codigoMaterial": "3.1"
+              "cantidad": 4,
+              "observacion": "K9",
+              "codigoMaterial": "3.4"
             }
           ]
         }
@@ -2823,19 +2788,14 @@
           "orden": 0,
           "materiales": [
             {
-              "cantidad": 1,
-              "observacion": "Poste CELSIA",
-              "codigoMaterial": "1.1"
-            },
-            {
               "cantidad": 2,
-              "observacion": "Collarines",
+              "observacion": "CXX (2 a 4  salidas) Diametro según Norma RA05",
               "codigoMaterial": "2.1"
             },
             {
-              "cantidad": 6,
-              "observacion": "Pernos",
-              "codigoMaterial": "3.1"
+              "cantidad": 4,
+              "observacion": "K9",
+              "codigoMaterial": "3.4"
             }
           ]
         }
@@ -2928,19 +2888,19 @@
           "orden": 0,
           "materiales": [
             {
-              "cantidad": 1,
-              "observacion": "Poste CELSIA",
-              "codigoMaterial": "1.1"
-            },
-            {
-              "cantidad": 2,
-              "observacion": "Collarines",
+              "cantidad": 4,
+              "observacion": "CXX (2  salidas) Diametro según norma RA05",
               "codigoMaterial": "2.1"
             },
             {
-              "cantidad": 6,
-              "observacion": "Pernos",
-              "codigoMaterial": "3.1"
+              "cantidad": 18,
+              "observacion": "",
+              "codigoMaterial": "3.4"
+            },
+            {
+              "cantidad": 2,
+              "observacion": "WACX",
+              "codigoMaterial": "9.1"
             }
           ]
         }
@@ -2963,19 +2923,19 @@
           "orden": 0,
           "materiales": [
             {
-              "cantidad": 1,
-              "observacion": "Poste CELSIA",
-              "codigoMaterial": "1.1"
-            },
-            {
-              "cantidad": 2,
-              "observacion": "Collarines",
+              "cantidad": 4,
+              "observacion": "CXX (2  salidas) Diametro según norma RA05",
               "codigoMaterial": "2.1"
             },
             {
-              "cantidad": 6,
-              "observacion": "Pernos",
-              "codigoMaterial": "3.1"
+              "cantidad": 18,
+              "observacion": "",
+              "codigoMaterial": "3.4"
+            },
+            {
+              "cantidad": 2,
+              "observacion": "WACX",
+              "codigoMaterial": "9.1"
             }
           ]
         }
@@ -2998,19 +2958,9 @@
           "orden": 0,
           "materiales": [
             {
-              "cantidad": 1,
-              "observacion": "Poste CELSIA",
-              "codigoMaterial": "1.1"
-            },
-            {
-              "cantidad": 2,
-              "observacion": "Collarines",
-              "codigoMaterial": "2.1"
-            },
-            {
-              "cantidad": 6,
-              "observacion": "Pernos",
-              "codigoMaterial": "3.1"
+              "cantidad": 16,
+              "observacion": "",
+              "codigoMaterial": "3.4"
             }
           ]
         }
@@ -3033,19 +2983,9 @@
           "orden": 0,
           "materiales": [
             {
-              "cantidad": 1,
-              "observacion": "Poste CELSIA",
-              "codigoMaterial": "1.1"
-            },
-            {
-              "cantidad": 2,
-              "observacion": "Collarines",
-              "codigoMaterial": "2.1"
-            },
-            {
-              "cantidad": 6,
-              "observacion": "Pernos",
-              "codigoMaterial": "3.1"
+              "cantidad": 16,
+              "observacion": "",
+              "codigoMaterial": "3.4"
             }
           ]
         }
