@@ -446,16 +446,19 @@ function generarDesglocePoFamilia(materiales: MaterialConsolidado[]): DesglocePo
     return null
   }
 
-  // Agrupar materiales por familia encontrada en regla
+  // Agrupar materiales por familia
   const porFamilia = new Map<string, MaterialConsolidado[]>()
-  const noMatcheados: string[] = []
 
   for (const mat of materiales) {
-    const familiaKey = encontrarFamilia(mat.descripcion)
-    if (!familiaKey) {
-      noMatcheados.push(mat.descripcion)
-      continue // Material no está en regla
-    }
+    // Mapear por el código del material (ej "1-Pos" → "Pos")
+    // El código ya define la familia directamente
+    const familiaKey = Object.keys(FAMILIA_MAP).find(key => {
+      const familiaCode = key.split('-').slice(1).join('-')
+      const matFamiliaCode = mat.codigo.split('-').slice(1).join('-')
+      return familiaCode === matFamiliaCode
+    })
+
+    if (!familiaKey) continue // No encontrada
 
     if (!porFamilia.has(familiaKey)) {
       porFamilia.set(familiaKey, [])
