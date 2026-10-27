@@ -323,6 +323,7 @@ export type Calculo = {
   postes: { total: number; configurados: number; pendientes: string[] }
   normasUsadas: { normaId: number; operador: string; codigo: string; version: number; tipoPoste: string; vigente: boolean; postes: number }[]
   materiales: MaterialConsolidado[]
+  desglocePoFamilia?: DesglocePoFamilia[]
   cotizacion: {
     items: ItemCotizacion[]
     subtotales: Record<TipoPartida, number>
@@ -331,11 +332,87 @@ export type Calculo = {
   }
 }
 
+
+// Estructura para desgloce de materiales por familia
+export type MaterialPorFamilia = {
+  codigo: string
+  descripcion: string
+  cantidad: number
+  presenteEn: { norma: string; postes: string[] }[]
+}
+
+export type DesglocePoFamilia = {
+  familia: string
+  familiaDescripcion: string
+  itemsUnicos: number
+  unidadesTotales: number
+  materiales: MaterialPorFamilia[]
+}
+
+
 export async function preciosVigentes() {
   const filas = await prisma.precio.findMany({
     distinct: ['codigoMaterial'], orderBy: [{ codigoMaterial: 'asc' }, { createdAt: 'desc' }, { id: 'desc' }],
   })
   return new Map(filas.map((p) => [p.codigoMaterial, p]))
+}
+
+
+function generarDesglocePoFamilia(materiales: MaterialConsolidado[]): DesglocePoFamilia[] {
+  const FAMILIA_MAP: Record<string, { numero: number; descripcion: string }> = {
+    '1-Pos': { numero: 1, descripcion: 'Estructura de soporte principal' },
+    '2-F.Po': { numero: 2, descripcion: 'Fijación al poste' },
+    '3-Ais': { numero: 3, descripcion: 'Aisladores' },
+    '4-Esp': { numero: 4, descripcion: 'Espaciamiento de red compacta' },
+    '5-Cond': { numero: 5, descripcion: 'Conductores y cableado' },
+    '6-Suj': { numero: 6, descripcion: 'Sujeción y amarre del conductor' },
+    '7-Torni': { numero: 7, descripcion: 'Tornillería y herrajes de unión' },
+    '8-Cone': { numero: 8, descripcion: 'Conectores y empalmes eléctricos' },
+    '9-P.Ele': { numero: 9, descripcion: 'Protección eléctrica y puesta a tierra' },
+    '10-Vien': { numero: 10, descripcion: 'Anclaje y retención mecánica' },
+  }
+
+  const porFamilia = new Map<string, MaterialConsolidado[]>()
+  for (const mat of materiales) {
+    const familia = Object.keys(FAMILIA_MAP).find(f => mat.codigo.startsWith(f))
+    if (familia) {
+      if (!porFamilia.has(familia)) porFamilia.set(familia, [])
+      porFamilia.get(familia)!.push(mat)
+    }
+  }
+
+  const desgloce: DesglocePoFamilia[] = []
+  for (const [familia, mats] of porFamilia) {
+    const info = FAMILIA_MAP[familia]
+    const materiales_familia: MaterialPorFamilia[] = mats.map(mat => {
+      const normasMap = new Map<string, Set<string>>()
+      for (const d of mat.detalle) {
+        if (!normasMap.has(d.norma)) normasMap.set(d.norma, new Set())
+        normasMap.get(d.norma)!.add(d.poste)
+      }
+      return {
+        codigo: mat.codigo,
+        descripcion: mat.descripcion,
+        cantidad: mat.cantidad,
+        presenteEn: Array.from(normasMap.entries()).map(([norma, postes]) => ({
+          norma,
+          postes: Array.from(postes).sort()
+        }))
+      }
+    })
+
+    desgloce.push({
+      familia,
+      familiaDescripcion: info.descripcion,
+      itemsUnicos: materiales_familia.length,
+      unidadesTotales: Math.round(materiales_familia.reduce((sum, m) => sum + m.cantidad, 0) * 1000) / 1000,
+      materiales: materiales_familia
+    })
+  }
+
+  return desgloce.sort((a, b) => 
+    FAMILIA_MAP[a.familia].numero - FAMILIA_MAP[b.familia].numero
+  )
 }
 
 export async function calcular(lineaId: number): Promise<Calculo> {
@@ -442,6 +519,7 @@ export async function calcular(lineaId: number): Promise<Calculo> {
       normaId: n.id, operador: n.operador, codigo: n.codigo, version: n.version, tipoPoste: n.tipoPoste, vigente: n.vigente, postes: usoNormas.get(n.id) || 0,
     })).sort((a, b) => a.codigo.localeCompare(b.codigo)),
     materiales,
+    desglocePoFamilia: generarDesglocePoFamilia(materiales),
     cotizacion: {
       items, subtotales,
       total: Object.values(subtotales).reduce((a, b) => a + b, 0),
