@@ -558,10 +558,13 @@ export async function calcular(lineaId: number): Promise<Calculo> {
   const sumar = (codigo: string, unidadFuente: string | null, d: DetalleMaterial, descripcionFallback?: string | null) => {
     const m = catPorCodigo.get(codigo)
     const unidad = m?.unidad || unidadFuente || 'UN'
-    const clave = `${codigo}|${unidad}`
+    const descripcion = m?.descripcion || descripcionFallback || codigo
+    // Clave: usar descripción para consolidar, no solo código. Esto permite
+    // que materiales diferentes con el mismo código se mantengan separados.
+    const clave = `${descripcion}|${unidad}`
     let item = consolidado.get(clave)
     if (!item) {
-      item = { codigo, descripcion: m?.descripcion || descripcionFallback || codigo, unidad, categoria: m?.categoria || '', cantidad: 0, detalle: [] }
+      item = { codigo, descripcion, unidad, categoria: m?.categoria || '', cantidad: 0, detalle: [] }
       consolidado.set(clave, item)
     }
     item.cantidad += d.cantidad
