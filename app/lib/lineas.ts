@@ -448,10 +448,14 @@ function generarDesglocePoFamilia(materiales: MaterialConsolidado[]): DesglocePo
 
   // Agrupar materiales por familia encontrada en regla
   const porFamilia = new Map<string, MaterialConsolidado[]>()
+  const noMatcheados: string[] = []
 
   for (const mat of materiales) {
     const familiaKey = encontrarFamilia(mat.descripcion)
-    if (!familiaKey) continue // Material no está en regla
+    if (!familiaKey) {
+      noMatcheados.push(mat.descripcion)
+      continue // Material no está en regla
+    }
 
     if (!porFamilia.has(familiaKey)) {
       porFamilia.set(familiaKey, [])
@@ -520,6 +524,12 @@ function generarDesglocePoFamilia(materiales: MaterialConsolidado[]): DesglocePo
       unidadesTotales: Math.round(materiales_familia.reduce((sum, m) => sum + m.cantidad, 0) * 1000) / 1000,
       materiales: materiales_familia
     })
+  }
+
+  // Debug: log de materiales no matcheados
+  if (noMatcheados.length > 0) {
+    console.warn(`[generarDesglocePoFamilia] ${noMatcheados.length} materiales NO matcheados:`)
+    noMatcheados.slice(0, 5).forEach(desc => console.warn(`  - ${desc.substring(0, 80)}`))
   }
 
   return desgloce.sort((a, b) => {
