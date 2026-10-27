@@ -409,7 +409,7 @@ function generarDesglocePoFamilia(materiales: MaterialConsolidado[]): DesglocePo
 
         // Match exacto (perfecto)
         if (elemNorm === descNorm) {
-          const familiaCompleta = Object.keys(FAMILIA_MAP).find(k => k.endsWith(`-${familiaCorta}`))
+          const familiaCompleta = Object.keys(FAMILIA_MAP).find(k => k.split('-')[1] === familiaCorta)
           return familiaCompleta || null
         }
 
@@ -424,7 +424,7 @@ function generarDesglocePoFamilia(materiales: MaterialConsolidado[]): DesglocePo
           }
         }
 
-        // Contar palabras comunes (al menos 75% de similitud)
+        // Contar palabras comunes (al menos 40% de similitud)
         const palabrasDesc = descNorm.split(/\s+/).filter(p => p.length > 2)
         const palabrasElem = elemNorm.split(/\s+/).filter(p => p.length > 2)
         if (palabrasDesc.length > 0 && palabrasElem.length > 0) {
@@ -432,7 +432,7 @@ function generarDesglocePoFamilia(materiales: MaterialConsolidado[]): DesglocePo
             palabrasElem.some(e => p === e || p.includes(e) || e.includes(p))
           ).length
           const similitud = comunes / Math.max(palabrasDesc.length, palabrasElem.length)
-          if (similitud > 0.75 && (!mejorMatch || similitud > mejorMatch.similitud)) {
+          if (similitud > 0.4 && (!mejorMatch || similitud > mejorMatch.similitud)) {
             mejorMatch = { familia: familiaCorta, similitud }
           }
         }
@@ -440,7 +440,7 @@ function generarDesglocePoFamilia(materiales: MaterialConsolidado[]): DesglocePo
     }
 
     if (mejorMatch) {
-      const familiaCompleta = Object.keys(FAMILIA_MAP).find(k => k.endsWith(`-${mejorMatch.familia}`))
+      const familiaCompleta = Object.keys(FAMILIA_MAP).find(k => k.split('-')[1] === mejorMatch.familia)
       return familiaCompleta || null
     }
     return null

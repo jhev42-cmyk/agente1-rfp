@@ -93,16 +93,8 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
                       color: '#0f172a',
                       fontFamily: 'ui-monospace, Menlo, monospace'
                     }}>
-                      {f.key}
-                    </h3>
-                    <p style={{
-                      margin: '0',
-                      fontSize: '14px',
-                      color: '#475569',
-                      fontWeight: '500'
-                    }}>
                       {f.desc}
-                    </p>
+                    </h3>
                   </div>
                   <div style={{
                     textAlign: 'right',
@@ -201,7 +193,7 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
                       {/* Fila de total */}
                       {familia && familia.materiales?.length > 0 && (
                         <tr style={{ background: '#0f172a', color: '#ffffff', fontWeight: '700' }}>
-                          <td style={{ padding: '14px 16px' }}>Total {f.key}</td>
+                          <td style={{ padding: '14px 16px' }}>Total {f.desc}</td>
                           <td style={{ padding: '14px 16px', textAlign: 'center', fontSize: '16px' }}>{num(familia.unidadesTotales)}</td>
                           <td style={{ padding: '14px 16px' }}></td>
                         </tr>
