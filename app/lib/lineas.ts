@@ -374,7 +374,7 @@ function generarDesglocePoFamilia(materiales: MaterialConsolidado[]): DesglocePo
     '10-Vien': { numero: 10, descripcion: 'Anclaje y retención mecánica' },
   }
 
-  // Cargar la regla con todos los elementos
+  // Cargar la regla
   let regla: Record<string, Array<{ elemento: string }>> = {}
   try {
     const rutaRegla = path.join(process.cwd(), 'regla_elementos.json')
@@ -383,10 +383,10 @@ function generarDesglocePoFamilia(materiales: MaterialConsolidado[]): DesglocePo
       regla = JSON.parse(contenido)
     }
   } catch (e) {
-    console.warn('No se pudo cargar regla_elementos.json, usando agrupación simple')
+    console.warn('No se pudo cargar regla_elementos.json')
   }
 
-  // Función para calcular similitud Levenshtein simplificada
+  // Función para calcular similitud
   function calcularSimilitud(str1: string, str2: string): number {
     const s1 = str1.toLowerCase().trim()
     const s2 = str2.toLowerCase().trim()
@@ -408,56 +408,88 @@ function generarDesglocePoFamilia(materiales: MaterialConsolidado[]): DesglocePo
     return coincidencias / Math.max(palabras1.length, palabras2.length)
   }
 
-  const desgloce: DesglocePoFamilia[] = []
+  // Crear estructura para acumular por familia y elemento
+  type ElementoConCantidad = {
+    elemento: string
+    cantidad: number
+    normas: Set<string>
+    postes: Set<string>
+  }
 
-  // Procesar cada familia
+  const acumulador = new Map<string, Map<string, ElementoConCantidad>>() // familia -> elemento -> {cantidad, etc}
+
+  // Inicializar acumulador con la regla
   for (const familiaKey of Object.keys(FAMILIA_MAP)) {
-    const familiaCorta = familiaKey.split('-')[1] // Ej: "Pos" de "1-Pos"
+    const familiaCorta = familiaKey.split('-')[1]
     const elementosRegla = regla[familiaCorta] || []
-    const info = FAMILIA_MAP[familiaKey]
-
-    // Para cada elemento de la regla, buscar el MEJOR material que coincida
-    const elementosConCantidad: MaterialPorFamilia[] = []
+    const mapaElementos = new Map<string, ElementoConCantidad>()
 
     for (const elem of elementosRegla) {
-      let mejorMaterial: MaterialConsolidado | null = null
-      let mejorSimilitud = 0
+      mapaElementos.set(elem.elemento, {
+        elemento: elem.elemento,
+        cantidad: 0,
+        normas: new Set(),
+        postes: new Set()
+      })
+    }
 
-      // Buscar el material que mejor coincida con este elemento
-      for (const mat of materiales) {
-        const similitud = calcularSimilitud(mat.descripcion, elem.elemento)
-        if (similitud > mejorSimilitud) {
+    if (mapaElementos.size > 0) {
+      acumulador.set(familiaKey, mapaElementos)
+    }
+  }
+
+  // Procesar cada material consolidado
+  for (const mat of materiales) {
+    let mejorFamilia: string | null = null
+    let mejorElemento: string | null = null
+    let mejorSimilitud = 0
+
+    // Buscar la mejor coincidencia en la regla
+    for (const [familiaKey, mapaElementos] of acumulador) {
+      for (const [elemento, _] of mapaElementos) {
+        const similitud = calcularSimilitud(mat.descripcion, elemento)
+        if (similitud > mejorSimilitud && similitud > 0.25) {
           mejorSimilitud = similitud
-          mejorMaterial = mat
+          mejorFamilia = familiaKey
+          mejorElemento = elemento
         }
-      }
-
-      // Si hay coincidencia suficiente, incluir
-      if (mejorMaterial && mejorSimilitud > 0.3) {
-        const normasSet = new Set<string>()
-        const postesSet = new Set<string>()
-
-        for (const d of mejorMaterial.detalle) {
-          normasSet.add(d.norma)
-          if (d.poste !== 'Partida general') {
-            postesSet.add(d.poste)
-          }
-        }
-
-        elementosConCantidad.push({
-          codigo: mejorMaterial.codigo,
-          descripcion: elem.elemento,
-          cantidad: mejorMaterial.cantidad,
-          presenteEn: Array.from(normasSet).map(norma => ({
-            norma,
-            postes: Array.from(postesSet).sort()
-          }))
-        })
       }
     }
 
-    // Ordenar por cantidad descendente
-    elementosConCantidad.sort((a, b) => b.cantidad - a.cantidad)
+    // Si encontró coincidencia, sumar en ese elemento
+    if (mejorFamilia && mejorElemento) {
+      const elem = acumulador.get(mejorFamilia)!.get(mejorElemento)!
+      elem.cantidad += mat.cantidad
+      for (const d of mat.detalle) {
+        elem.normas.add(d.norma)
+        if (d.poste !== 'Partida general') {
+          elem.postes.add(d.poste)
+        }
+      }
+    }
+  }
+
+  // Construir desgloce final
+  const desgloce: DesglocePoFamilia[] = []
+
+  for (const familiaKey of Object.keys(FAMILIA_MAP)) {
+    const info = FAMILIA_MAP[familiaKey]
+    const mapaElementos = acumulador.get(familiaKey)
+    if (!mapaElementos) continue
+
+    // Filtrar elementos con cantidad > 0
+    const elementosConCantidad: MaterialPorFamilia[] = Array.from(mapaElementos.values())
+      .filter(e => e.cantidad > 0)
+      .sort((a, b) => b.cantidad - a.cantidad)
+      .map(e => ({
+        codigo: '',
+        descripcion: e.elemento,
+        cantidad: e.cantidad,
+        presenteEn: Array.from(e.normas).map(norma => ({
+          norma,
+          postes: Array.from(e.postes).sort()
+        }))
+      }))
 
     if (elementosConCantidad.length > 0) {
       desgloce.push({
