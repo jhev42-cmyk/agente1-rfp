@@ -374,20 +374,40 @@ function generarDesglocePoFamilia(materiales: MaterialConsolidado[]): DesglocePo
     '10-Vien': { numero: 10, descripcion: 'Anclaje y retención mecánica' },
   }
 
-  // Agrupar materiales por familia (extraída del código o por categoría) y descripción
+  // Cargar la regla para mapear descripciones a familias
+  let regla: Record<string, Array<{ elemento: string }>> = {}
+  try {
+    const rutaRegla = path.join(process.cwd(), 'regla_elementos.json')
+    if (fs.existsSync(rutaRegla)) {
+      const contenido = fs.readFileSync(rutaRegla, 'utf-8')
+      regla = JSON.parse(contenido)
+    }
+  } catch (e) {
+    console.warn('No se pudo cargar regla_elementos.json')
+  }
+
+  // Función para encontrar familia buscando descripción del material en la regla
+  function encontrarFamilia(descripcion: string): string | null {
+    const descLower = descripcion.toLowerCase()
+    for (const [familiaCorta, elementos] of Object.entries(regla)) {
+      for (const elem of elementos) {
+        const elemLower = elem.elemento.toLowerCase()
+        // Match exacto o primeros 40 caracteres iguales
+        if (elemLower === descLower || elemLower.substring(0, 40) === descLower.substring(0, 40)) {
+          const familiaCompleta = Object.keys(FAMILIA_MAP).find(k => k.endsWith(`-${familiaCorta}`))
+          return familiaCompleta || null
+        }
+      }
+    }
+    return null
+  }
+
+  // Agrupar materiales por familia encontrada en regla
   const porFamilia = new Map<string, MaterialConsolidado[]>()
 
   for (const mat of materiales) {
-    // Intentar extraer familia del código (formato: "1-Pos-XXX" o similar)
-    let familiaKey: string | null = null
-    const codigoMatch = mat.codigo.match(/^(\d+-[A-Za-z.]+)/)
-    if (codigoMatch) {
-      familiaKey = codigoMatch[1]
-    } else {
-      // Si no hay familia en el código, intentar inferir de la categoría o primera letra
-      // Por ahora, agrupar por categoría
-      familiaKey = mat.categoria || 'Sin categoría'
-    }
+    const familiaKey = encontrarFamilia(mat.descripcion)
+    if (!familiaKey) continue // Material no está en regla
 
     if (!porFamilia.has(familiaKey)) {
       porFamilia.set(familiaKey, [])
