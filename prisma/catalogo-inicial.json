@@ -1,391 +1,391 @@
 {
   "materiales": [
     {
-      "codigo": "1.P",
+      "codigo": "1-Pos",
       "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
       "unidad": "UN",
       "categoria": "Estructura de soporte principal"
     },
     {
-      "codigo": "2.F",
+      "codigo": "2-F.Po",
       "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
       "unidad": "UN",
       "categoria": "Fijación al poste"
     },
     {
-      "codigo": "3.P",
+      "codigo": "1-Pos",
       "descripcion": "Cruceta angular metálica en T autosoportada, 1400 mm",
       "unidad": "UN",
       "categoria": "Estructura de soporte principal"
     },
     {
-      "codigo": "4.P",
+      "codigo": "1-Pos",
       "descripcion": "Soporte para dos aisladores en angulo red compacta (15kV / 35kV)",
       "unidad": "UN",
       "categoria": "Estructura de soporte principal"
     },
     {
-      "codigo": "5.P",
+      "codigo": "1-Pos",
       "descripcion": "Brazo angular tipo C acero red compacta 15kV",
       "unidad": "UN",
       "categoria": "Estructura de soporte principal"
     },
     {
-      "codigo": "6.A",
+      "codigo": "3-Ais",
       "descripcion": "Aislador suspensión polimérico 15 kV ANSI C29.13 clase DS-15 clevis-lengüeta",
       "unidad": "UN",
       "categoria": "Aisladores"
     },
     {
-      "codigo": "7.S",
+      "codigo": "6-Suj",
       "descripcion": "Grapa preformada aleación de aluminio 2 AWG a 312.8 kcmil 15 kV  / 38 kV cable cubierto  (Amarre Preformado)",
       "unidad": "UN",
       "categoria": "Sujeción y amarre del conductor"
     },
     {
-      "codigo": "8.T",
+      "codigo": "7-Torni",
       "descripcion": "Eslabón en U 5/8\" forjado galvanizado",
       "unidad": "UN",
       "categoria": "Tornillería y herrajes de unión"
     },
     {
-      "codigo": "9.S",
+      "codigo": "6-Suj",
       "descripcion": "Grapa de retención aluminio tipo pistola (3–4 pernos) 2/0AWG-266.8KCMIL",
       "unidad": "UN",
       "categoria": "Sujeción y amarre del conductor"
     },
     {
-      "codigo": "10.T",
+      "codigo": "7-Torni",
       "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 31/2\"",
       "unidad": "UN",
       "categoria": "Tornillería y herrajes de unión"
     },
     {
-      "codigo": "11.T",
+      "codigo": "7-Torni",
       "descripcion": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x 14\")",
       "unidad": "UN",
       "categoria": "Tornillería y herrajes de unión"
     },
     {
-      "codigo": "12.T",
+      "codigo": "7-Torni",
       "descripcion": "Tuercas hexagonales de acero 5/8′′",
       "unidad": "UN",
       "categoria": "Tornillería y herrajes de unión"
     },
     {
-      "codigo": "13.T",
+      "codigo": "7-Torni",
       "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
       "unidad": "UN",
       "categoria": "Tornillería y herrajes de unión"
     },
     {
-      "codigo": "14.T",
+      "codigo": "7-Torni",
       "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
       "unidad": "UN",
       "categoria": "Tornillería y herrajes de unión"
     },
     {
-      "codigo": "15.P",
+      "codigo": "9-P.Ele",
       "descripcion": "Pararrayos polimerico DPS 12 kV 10 kA",
       "unidad": "UN",
       "categoria": "Protección eléctrica y puesta a tierra"
     },
     {
-      "codigo": "16.C",
+      "codigo": "5-Cond",
       "descripcion": "Cable de cobre desnudo #2 AWG",
       "unidad": "UN",
       "categoria": "Conductores y cableado"
     },
     {
-      "codigo": "17.C",
+      "codigo": "8-Cone",
       "descripcion": "Conector empalme conector DBH Y REPOSICION AISLAMIENTO Cable Simieaislado",
       "unidad": "UN",
       "categoria": "Conectores y empalmes eléctricos"
     },
     {
-      "codigo": "18.C",
+      "codigo": "8-Cone",
       "descripcion": "Conexión estribo a cable semiaislado con conector DBH y reposición de aislamiento del cable semiaislado",
       "unidad": "UN",
       "categoria": "Conectores y empalmes eléctricos"
     },
     {
-      "codigo": "19.C",
+      "codigo": "8-Cone",
       "descripcion": "Conectores de compresión (C-Tap / H-Tap / Cuña)",
       "unidad": "UN",
       "categoria": "Conectores y empalmes eléctricos"
     },
     {
-      "codigo": "20.C",
+      "codigo": "8-Cone",
       "descripcion": "Conectores tipo Cuña Cu - Cu #2 a #2",
       "unidad": "UN",
       "categoria": "Conectores y empalmes eléctricos"
     },
     {
-      "codigo": "21.P",
+      "codigo": "9-P.Ele",
       "descripcion": "Conector cuña a presión p/ varilla PAT Ø15,9 mm (5/8\") a Cu #2 AWG",
       "unidad": "UN",
       "categoria": "Protección eléctrica y puesta a tierra"
     },
     {
-      "codigo": "22.P",
+      "codigo": "9-P.Ele",
       "descripcion": "Grapa conexión doble cable tierra",
       "unidad": "UN",
       "categoria": "Protección eléctrica y puesta a tierra"
     },
     {
-      "codigo": "23.P",
+      "codigo": "9-P.Ele",
       "descripcion": "Varilla puesta a tierra Ø 15,9 x 2400 mm (5/8\" x 8') Copperweld",
       "unidad": "UN",
       "categoria": "Protección eléctrica y puesta a tierra"
     },
     {
-      "codigo": "24.T",
+      "codigo": "7-Torni",
       "descripcion": "Guardacabo acero galvanizad Ø15,9 mm (5/8′′)",
       "unidad": "UN",
       "categoria": "Tornillería y herrajes de unión"
     },
     {
-      "codigo": "25.P",
+      "codigo": "1-Pos",
       "descripcion": "Brazo tangente tipo L 15kV con grapa prensora y\nestribo",
       "unidad": "UN",
       "categoria": "Estructura de soporte principal"
     },
     {
-      "codigo": "26.P",
+      "codigo": "1-Pos",
       "descripcion": "Brazo anti-balanceo polimérico red compacta 15 kV",
       "unidad": "UN",
       "categoria": "Estructura de soporte principal"
     },
     {
-      "codigo": "27.S",
+      "codigo": "6-Suj",
       "descripcion": "Estribo para soporte tangencial",
       "unidad": "UN",
       "categoria": "Sujeción y amarre del conductor"
     },
     {
-      "codigo": "28.E",
+      "codigo": "4-Esp",
       "descripcion": "Espaciador poligonal polimérico 15 kV 10 kA cable cubierto (Tipo Pato)",
       "unidad": "UN",
       "categoria": "Espaciamiento de red compacta"
     },
     {
-      "codigo": "29.E",
+      "codigo": "4-Esp",
       "descripcion": "Espaciador poligonal polimérico 15 kV 10 kA cable cubierto",
       "unidad": "UN",
       "categoria": "Espaciamiento de red compacta"
     },
     {
-      "codigo": "30.S",
+      "codigo": "6-Suj",
       "descripcion": "Grapa Suspension para soporte mensajero red compacta",
       "unidad": "UN",
       "categoria": "Sujeción y amarre del conductor"
     },
     {
-      "codigo": "31.A",
+      "codigo": "3-Ais",
       "descripcion": "Aislador pin polimérico 15 kV ANSI C29.5 clase 55-4",
       "unidad": "UN",
       "categoria": "Aisladores"
     },
     {
-      "codigo": "32.S",
+      "codigo": "6-Suj",
       "descripcion": "Grapa amarre preformado aislado tipo \"Z\" para red semiaislada. De acuerdo al calibre del conductor  (Amarre Preformado)",
       "unidad": "UN",
       "categoria": "Sujeción y amarre del conductor"
     },
     {
-      "codigo": "33.T",
+      "codigo": "7-Torni",
       "descripcion": "Perno Espigo corto para aislador tipo pin 10”x1 3/4”x3/4” rosca nailon 1 3/8” cruceta metálica (13,2 kV)",
       "unidad": "UN",
       "categoria": "Tornillería y herrajes de unión"
     },
     {
-      "codigo": "34.T",
+      "codigo": "7-Torni",
       "descripcion": "Tuercas de ojo alargada acero galv. / Ojos giratorios de Ø15,9 mm (5/8\")",
       "unidad": "UN",
       "categoria": "Tornillería y herrajes de unión"
     },
     {
-      "codigo": "35.T",
+      "codigo": "7-Torni",
       "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 3\"",
       "unidad": "UN",
       "categoria": "Tornillería y herrajes de unión"
     },
     {
-      "codigo": "36.T",
+      "codigo": "7-Torni",
       "descripcion": "Tornillo de máquina hexagonal acero galvanizado1/2\" x 3\"",
       "unidad": "UN",
       "categoria": "Tornillería y herrajes de unión"
     },
     {
-      "codigo": "37.S",
+      "codigo": "6-Suj",
       "descripcion": "Grapa de retención aluminio tipo pistola (3–4 pernos) 4AWG a 2/0 AWG",
       "unidad": "UN",
       "categoria": "Sujeción y amarre del conductor"
     },
     {
-      "codigo": "38.T",
+      "codigo": "7-Torni",
       "descripcion": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x 12\")",
       "unidad": "UN",
       "categoria": "Tornillería y herrajes de unión"
     },
     {
-      "codigo": "39.P",
+      "codigo": "1-Pos",
       "descripcion": "Brazo angular tipo E acero red compacta 15kV",
       "unidad": "UN",
       "categoria": "Estructura de soporte principal"
     },
     {
-      "codigo": "40.F",
+      "codigo": "2-F.Po",
       "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma RA05",
       "unidad": "UN",
       "categoria": "Fijación al poste"
     },
     {
-      "codigo": "41.P",
+      "codigo": "1-Pos",
       "descripcion": "Cruceta metálica galv. 76 x 76 x 7,9 x 2400 mm (3\"x3\"x5/16\" x 2,40 m)",
       "unidad": "UN",
       "categoria": "Estructura de soporte principal"
     },
     {
-      "codigo": "42.P",
+      "codigo": "1-Pos",
       "descripcion": "Pieamigo - Diagonal en L para bandera, 51 x 51 x 6 x 2.337 mm (2\"x2\"x1/4\" x 92\")  p/cruceta 2400 mm",
       "unidad": "UN",
       "categoria": "Estructura de soporte principal"
     },
     {
-      "codigo": "43.S",
+      "codigo": "6-Suj",
       "descripcion": "Grapa de suspensión aluminio 4 AWG - 2/0 AWG (1/4\" - 3/8\")",
       "unidad": "UN",
       "categoria": "Sujeción y amarre del conductor"
     },
     {
-      "codigo": "44.T",
+      "codigo": "7-Torni",
       "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" X 1 1/2\"",
       "unidad": "UN",
       "categoria": "Tornillería y herrajes de unión"
     },
     {
-      "codigo": "45.P",
+      "codigo": "1-Pos",
       "descripcion": "Cruceta metálica retención 600mm  3\" X 3\" X 1/4\" / 2 1/2\" x 2 1/2\" x 1/4\"",
       "unidad": "UN",
       "categoria": "Estructura de soporte principal"
     },
     {
-      "codigo": "46.P",
+      "codigo": "1-Pos",
       "descripcion": "Cubo metalico galvanizado 3\" X 3\" para soporte de protecciones",
       "unidad": "UN",
       "categoria": "Estructura de soporte principal"
     },
     {
-      "codigo": "47.S",
+      "codigo": "6-Suj",
       "descripcion": "Estribos de línea con conector de cuña",
       "unidad": "UN",
       "categoria": "Sujeción y amarre del conductor"
     },
     {
-      "codigo": "48.T",
+      "codigo": "7-Torni",
       "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" X 2\"",
       "unidad": "UN",
       "categoria": "Tornillería y herrajes de unión"
     },
     {
-      "codigo": "49.C",
+      "codigo": "5-Cond",
       "descripcion": "Alambre aluminio aislado #8 AWG, 600V",
       "unidad": "UN",
       "categoria": "Conductores y cableado"
     },
     {
-      "codigo": "50.A",
+      "codigo": "3-Ais",
       "descripcion": "Aislador polietileno tipo pin ANSI 55-4, 15kV",
       "unidad": "UN",
       "categoria": "Aisladores"
     },
     {
-      "codigo": "51.T",
+      "codigo": "7-Torni",
       "descripcion": "Pernos espigo para aislador tipo PIN 15kV",
       "unidad": "UN",
       "categoria": "Tornillería y herrajes de unión"
     },
     {
-      "codigo": "52.T",
+      "codigo": "7-Torni",
       "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 2\"",
       "unidad": "UN",
       "categoria": "Tornillería y herrajes de unión"
     },
     {
-      "codigo": "53.P",
+      "codigo": "1-Pos",
       "descripcion": "Brazo angular tipo C acero red compacta 38kV",
       "unidad": "UN",
       "categoria": "Estructura de soporte principal"
     },
     {
-      "codigo": "54.A",
+      "codigo": "3-Ais",
       "descripcion": "Aislador suspensión polimérico 38kV ANSI C29.13 clase DS-35 clevis-lengüeta",
       "unidad": "UN",
       "categoria": "Aisladores"
     },
     {
-      "codigo": "55.P",
+      "codigo": "9-P.Ele",
       "descripcion": "Pararrayos polimerico DPS 30 kV 10 kA",
       "unidad": "UN",
       "categoria": "Protección eléctrica y puesta a tierra"
     },
     {
-      "codigo": "56.P",
+      "codigo": "1-Pos",
       "descripcion": "Brazo tangente tipo L 38 – 48 kV con grapa prensora y estribo",
       "unidad": "UN",
       "categoria": "Estructura de soporte principal"
     },
     {
-      "codigo": "57.P",
+      "codigo": "1-Pos",
       "descripcion": "Brazo anti-balanceo polimérico red compacta 38kV",
       "unidad": "UN",
       "categoria": "Estructura de soporte principal"
     },
     {
-      "codigo": "58.E",
+      "codigo": "4-Esp",
       "descripcion": "Espaciador poligonal polimérico 38 kV 16 kA cable cubierto (Tipo Pato)",
       "unidad": "UN",
       "categoria": "Espaciamiento de red compacta"
     },
     {
-      "codigo": "59.E",
+      "codigo": "4-Esp",
       "descripcion": "Espaciador poligonal polimérico 38 kV 16 kA cable cubierto",
       "unidad": "UN",
       "categoria": "Espaciamiento de red compacta"
     },
     {
-      "codigo": "60.A",
+      "codigo": "3-Ais",
       "descripcion": "Aislador pin polimérico 35 kV ANSI C29.5 clase 55-6",
       "unidad": "UN",
       "categoria": "Aisladores"
     },
     {
-      "codigo": "61.T",
+      "codigo": "7-Torni",
       "descripcion": "Perno Espigo corto para aislador tipo pin 10”x1 3/4”x3/4” rosca nailon 1 3/8” cruceta metálica (34,5 kV)",
       "unidad": "UN",
       "categoria": "Tornillería y herrajes de unión"
     },
     {
-      "codigo": "62.P",
+      "codigo": "1-Pos",
       "descripcion": "Brazo angular tipo E acero red compacta 38kV",
       "unidad": "UN",
       "categoria": "Estructura de soporte principal"
     },
     {
-      "codigo": "63.A",
+      "codigo": "3-Ais",
       "descripcion": "Aislador polietileno tipo pin ANSI 55-6, 34.5 kV",
       "unidad": "UN",
       "categoria": "Aisladores"
     },
     {
-      "codigo": "64.T",
+      "codigo": "7-Torni",
       "descripcion": "Pernos espigo para aislador tipo PIN 35kV",
       "unidad": "UN",
       "categoria": "Tornillería y herrajes de unión"
     },
     {
-      "codigo": "65.A",
+      "codigo": "3-Ais",
       "descripcion": "Aislador pin polimérico 38-48 kV ANSI C29.5 clase 55-6",
       "unidad": "UN",
       "categoria": "Aisladores"
@@ -402,95 +402,95 @@
           "nombre": "B176C2 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "3.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "4.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "5.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "6.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "7.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "8.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 8
             },
             {
-              "codigoMaterial": "9.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "10.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "11.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 18
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 16
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 16
             },
             {
-              "codigoMaterial": "15.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "16.C",
+              "codigoMaterial": "5-Cond",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "17.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "18.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "19.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "20.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "21.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "22.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "23.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 1
             }
           ]
@@ -507,67 +507,67 @@
           "nombre": "B177C2 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "3.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "4.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "5.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "6.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "7.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "8.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 16
             },
             {
-              "codigoMaterial": "9.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "10.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "11.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 14
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "24.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "19.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 2
             }
           ]
@@ -584,39 +584,39 @@
           "nombre": "B71 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "25.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "26.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "27.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "28.E",
+              "codigoMaterial": "4-Esp",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             }
           ]
@@ -633,39 +633,39 @@
           "nombre": "B712 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "25.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "26.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "27.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "29.E",
+              "codigoMaterial": "4-Esp",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             }
           ]
@@ -682,55 +682,55 @@
           "nombre": "B72C - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "25.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "30.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "5.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "31.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "32.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "10.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "33.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "34.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 10
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 8
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             }
           ]
@@ -747,55 +747,55 @@
           "nombre": "B72C2 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "25.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "30.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "5.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "31.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "32.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "35.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "10.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "33.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "34.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 24
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 22
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 22
             }
           ]
@@ -812,55 +812,55 @@
           "nombre": "B72CD - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "25.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "30.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "5.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "31.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "32.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "10.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "33.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "34.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 10
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 8
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             }
           ]
@@ -877,67 +877,67 @@
           "nombre": "B72CD2 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "3.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "4.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "5.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "31.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "7.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "35.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "36.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "37.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "33.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "38.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 36
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 32
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 32
             },
             {
-              "codigoMaterial": "19.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 2
             }
           ]
@@ -954,47 +954,47 @@
           "nombre": "B72E - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "39.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "27.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "31.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "32.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "10.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "33.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "11.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "34.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             }
           ]
@@ -1011,47 +1011,47 @@
           "nombre": "B72E2 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "39.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "27.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "31.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "32.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "10.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "33.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "11.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 14
             },
             {
-              "codigoMaterial": "34.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 12
             }
           ]
@@ -1068,55 +1068,55 @@
           "nombre": "B72ED - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "4.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "30.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "39.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "31.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "7.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "8.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "10.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "33.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "11.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "34.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             }
           ]
@@ -1133,43 +1133,43 @@
           "nombre": "B761 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "40.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "41.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "42.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "43.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "44.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "34.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 1
             }
           ]
@@ -1186,99 +1186,99 @@
           "nombre": "B766 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "40.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "41.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "42.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "45.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "46.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "7.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "8.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "37.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "47.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "17.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "19.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "20.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "6.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "48.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "38.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 5
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 28
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 24
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 24
             },
             {
-              "codigoMaterial": "34.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "24.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "49.C",
+              "codigoMaterial": "5-Cond",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "16.C",
+              "codigoMaterial": "5-Cond",
               "cantidad": 14
             },
             {
-              "codigoMaterial": "15.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 3
             }
           ]
@@ -1295,79 +1295,79 @@
           "nombre": "B767 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "40.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "41.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "42.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "45.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "7.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "37.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "19.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "6.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "50.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "51.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "48.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "38.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 5
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 28
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 22
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 22
             },
             {
-              "codigoMaterial": "34.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "24.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "49.C",
+              "codigoMaterial": "5-Cond",
               "cantidad": 2
             }
           ]
@@ -1384,95 +1384,95 @@
           "nombre": "B76C - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "45.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "5.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "6.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "7.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "8.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "52.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "9.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "10.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "34.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 16
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "24.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "15.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "16.C",
+              "codigoMaterial": "5-Cond",
               "cantidad": 16
             },
             {
-              "codigoMaterial": "17.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "18.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "19.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "20.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "21.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "22.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "23.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 1
             }
           ]
@@ -1489,99 +1489,99 @@
           "nombre": "B76C2 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "3.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "4.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "5.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "6.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "7.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "8.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 8
             },
             {
-              "codigoMaterial": "9.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "10.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "38.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 18
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 16
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 16
             },
             {
-              "codigoMaterial": "24.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "15.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "16.C",
+              "codigoMaterial": "5-Cond",
               "cantidad": 17
             },
             {
-              "codigoMaterial": "17.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "18.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "19.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "20.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "21.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "22.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "23.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 1
             }
           ]
@@ -1598,67 +1598,67 @@
           "nombre": "B77C2 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "3.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "4.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "5.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "6.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "7.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "8.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 16
             },
             {
-              "codigoMaterial": "9.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "10.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "38.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 14
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "24.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "19.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 2
             }
           ]
@@ -1675,75 +1675,75 @@
           "nombre": "B79 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "45.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "5.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "31.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "6.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "32.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "7.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "8.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "9.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "10.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "33.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "34.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 18
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 16
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 16
             },
             {
-              "codigoMaterial": "17.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "18.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "19.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 2
             }
           ]
@@ -1760,95 +1760,95 @@
           "nombre": "C176C2 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "3.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "4.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "53.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "54.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "7.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "8.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 8
             },
             {
-              "codigoMaterial": "9.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "10.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "11.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 18
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 16
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 16
             },
             {
-              "codigoMaterial": "55.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "16.C",
+              "codigoMaterial": "5-Cond",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "17.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "18.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "19.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "20.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "21.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "22.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "23.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 1
             }
           ]
@@ -1865,67 +1865,67 @@
           "nombre": "C177C2 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "3.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "4.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "53.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "54.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "7.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "8.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 16
             },
             {
-              "codigoMaterial": "9.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "10.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "11.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 14
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "24.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "19.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 2
             }
           ]
@@ -1942,39 +1942,39 @@
           "nombre": "C71 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "56.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "57.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "27.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "58.E",
+              "codigoMaterial": "4-Esp",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             }
           ]
@@ -1991,39 +1991,39 @@
           "nombre": "C712 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "56.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "57.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "27.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "59.E",
+              "codigoMaterial": "4-Esp",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             }
           ]
@@ -2040,55 +2040,55 @@
           "nombre": "C72C - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "56.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "30.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "53.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "60.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "32.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "10.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "61.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "34.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 10
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 8
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             }
           ]
@@ -2105,55 +2105,55 @@
           "nombre": "C72C2 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "25.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "30.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "5.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "31.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "32.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "35.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "10.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "33.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "34.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 24
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 22
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 22
             }
           ]
@@ -2170,51 +2170,51 @@
           "nombre": "C72CD - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "4.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "30.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "53.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "60.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "7.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "61.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "34.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 14
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 12
             }
           ]
@@ -2231,67 +2231,67 @@
           "nombre": "C72CD2 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "3.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "4.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "53.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "60.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "7.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "35.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "36.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "9.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "61.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "38.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 36
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 32
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 32
             },
             {
-              "codigoMaterial": "19.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 2
             }
           ]
@@ -2308,47 +2308,47 @@
           "nombre": "C72E - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "62.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "27.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "60.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "32.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "10.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "61.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "11.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "34.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             }
           ]
@@ -2365,47 +2365,47 @@
           "nombre": "C72E2 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "62.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "27.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "60.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "32.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "10.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "61.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "11.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 14
             },
             {
-              "codigoMaterial": "34.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 12
             }
           ]
@@ -2422,55 +2422,55 @@
           "nombre": "C72ED - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "4.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "30.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "62.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "60.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "7.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "8.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "10.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "61.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "11.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "34.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             }
           ]
@@ -2487,43 +2487,43 @@
           "nombre": "C761 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "40.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "41.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "42.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "43.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "44.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "34.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 1
             }
           ]
@@ -2540,99 +2540,99 @@
           "nombre": "C766 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "40.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "41.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "42.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "45.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "46.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "7.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "8.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "9.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "47.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "17.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "19.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "20.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "54.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "48.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "38.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 5
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 28
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 24
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 24
             },
             {
-              "codigoMaterial": "34.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "24.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "49.C",
+              "codigoMaterial": "5-Cond",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "16.C",
+              "codigoMaterial": "5-Cond",
               "cantidad": 14
             },
             {
-              "codigoMaterial": "55.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 3
             }
           ]
@@ -2649,79 +2649,79 @@
           "nombre": "C767 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "40.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "41.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "42.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "45.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "7.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "9.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "19.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "54.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "63.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "64.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "48.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "38.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 5
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 28
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 22
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 22
             },
             {
-              "codigoMaterial": "34.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "24.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "49.C",
+              "codigoMaterial": "5-Cond",
               "cantidad": 2
             }
           ]
@@ -2738,95 +2738,95 @@
           "nombre": "C76C - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "45.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "53.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "54.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "7.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "8.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "52.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "9.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "10.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "34.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 10
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "24.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "55.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "16.C",
+              "codigoMaterial": "5-Cond",
               "cantidad": 20
             },
             {
-              "codigoMaterial": "17.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "18.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "19.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "20.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "21.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "22.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "23.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 1
             }
           ]
@@ -2843,99 +2843,99 @@
           "nombre": "C76C2 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "3.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "4.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "53.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "54.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "7.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "8.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 8
             },
             {
-              "codigoMaterial": "9.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "10.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "38.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 18
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 16
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 16
             },
             {
-              "codigoMaterial": "24.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "55.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "16.C",
+              "codigoMaterial": "5-Cond",
               "cantidad": 17
             },
             {
-              "codigoMaterial": "17.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "18.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "19.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "20.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "21.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "22.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "23.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 1
             }
           ]
@@ -2952,67 +2952,67 @@
           "nombre": "C77C2 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "3.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "4.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "53.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "54.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "7.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "8.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 16
             },
             {
-              "codigoMaterial": "9.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "10.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "38.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 14
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "24.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "19.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 2
             }
           ]
@@ -3029,71 +3029,71 @@
           "nombre": "C79 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "45.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "53.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "65.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "32.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "7.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "8.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "9.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "10.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "61.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "34.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 18
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 16
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 16
             },
             {
-              "codigoMaterial": "17.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "18.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "19.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 2
             }
           ]
@@ -3110,91 +3110,91 @@
           "nombre": "PB31C - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "25.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "4.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "30.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "5.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "31.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "32.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "10.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "33.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "34.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 10
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "15.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "16.C",
+              "codigoMaterial": "5-Cond",
               "cantidad": 14
             },
             {
-              "codigoMaterial": "17.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "19.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "20.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "21.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "22.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "23.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 1
             }
           ]
@@ -3211,91 +3211,91 @@
           "nombre": "PC31C - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "1.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "2-F.Po",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "56.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "4.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "30.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "53.P",
+              "codigoMaterial": "1-Pos",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "60.A",
+              "codigoMaterial": "3-Ais",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "32.S",
+              "codigoMaterial": "6-Suj",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "10.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "61.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "34.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "12.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 10
             },
             {
-              "codigoMaterial": "13.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "14.T",
+              "codigoMaterial": "7-Torni",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "55.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "16.C",
+              "codigoMaterial": "5-Cond",
               "cantidad": 14
             },
             {
-              "codigoMaterial": "17.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "19.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "20.C",
+              "codigoMaterial": "8-Cone",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "21.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "22.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "23.P",
+              "codigoMaterial": "9-P.Ele",
               "cantidad": 1
             }
           ]
