@@ -529,12 +529,6 @@ function generarDesglocePoFamilia(materiales: MaterialConsolidado[]): DesglocePo
     })
   }
 
-  // Debug: log de materiales no matcheados
-  if (noMatcheados.length > 0) {
-    console.warn(`[generarDesglocePoFamilia] ${noMatcheados.length} materiales NO matcheados:`)
-    noMatcheados.slice(0, 5).forEach(desc => console.warn(`  - ${desc.substring(0, 80)}`))
-  }
-
   return desgloce.sort((a, b) => {
     const numA = FAMILIA_MAP[a.familia as keyof typeof FAMILIA_MAP]?.numero || 999
     const numB = FAMILIA_MAP[b.familia as keyof typeof FAMILIA_MAP]?.numero || 999
