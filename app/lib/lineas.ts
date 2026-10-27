@@ -562,13 +562,47 @@ export async function calcular(lineaId: number): Promise<Calculo> {
   const catPorCodigo = new Map(materialesCat.map((m) => [m.codigo, m]))
 
   const consolidado = new Map<string, MaterialConsolidado>()
+
+  // Cargar mapeo de descripciones desde el archivo generado de Excels CELSIA
+  let materialDescriptions: Record<string, string[]> = {}
+  const materialCounter = new Map<string, number>()
+  try {
+    const descPath = path.join(process.cwd(), 'public', 'material-descriptions.json')
+    if (fs.existsSync(descPath)) {
+      const descData = JSON.parse(fs.readFileSync(descPath, 'utf-8'))
+      materialDescriptions = descData.materiales || {}
+    }
+  } catch (e) {
+    // Si no existe, continuar sin él
+  }
+
   const sumar = (codigo: string, unidadFuente: string | null, d: DetalleMaterial, descripcionFallback?: string | null) => {
     const m = catPorCodigo.get(codigo)
     const unidad = m?.unidad || unidadFuente || 'UN'
-    // Preferir observacion (descripción técnica específica) sobre catálogo genérico
-    const descripcion = descripcionFallback || m?.descripcion || codigo
-    // Clave: usar descripción para consolidar, no solo código. Esto permite
-    // que materiales diferentes con el mismo código se mantengan separados.
+
+    // Obtener descripción en orden de prioridad:
+    // 1. Del mapeo de Excels (usando contador por norma)
+    // 2. De observacion
+    // 3. Del catálogo
+    // 4. Del código
+    let descripcion = codigo
+    const counterKey = `${codigo}|${d.norma}`
+    const idx = materialCounter.get(counterKey) || 0
+
+    if (materialDescriptions[codigo]) {
+      // Usar descripción del mapeo de Excels (ciclando si es necesario)
+      const desc = materialDescriptions[codigo][idx % materialDescriptions[codigo].length]
+      if (desc) {
+        descripcion = desc
+        materialCounter.set(counterKey, idx + 1)
+      }
+    } else if (descripcionFallback) {
+      descripcion = descripcionFallback
+    } else if (m?.descripcion) {
+      descripcion = m.descripcion
+    }
+
+    // Clave: usar descripción para consolidar
     const clave = `${descripcion}|${unidad}`
     let item = consolidado.get(clave)
     if (!item) {
