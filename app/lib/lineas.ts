@@ -2,6 +2,8 @@ import { randomUUID } from 'crypto'
 import { EstadoLinea, ModoAsignacion, Prisma, TipoPartida } from '@prisma/client'
 import { prisma } from './db'
 import { HttpError, requireMotivo } from './api'
+import * as fs from 'fs'
+import * as path from 'path'
 
 export const NUM_TRAYECTOS = 10
 export const MAX_POSTES_TRAYECTO = 999
@@ -372,57 +374,109 @@ function generarDesglocePoFamilia(materiales: MaterialConsolidado[]): DesglocePo
     '10-Vien': { numero: 10, descripcion: 'Anclaje y retención mecánica' },
   }
 
-  const porFamilia = new Map<string, MaterialConsolidado[]>()
-  for (const mat of materiales) {
-    const familia = Object.keys(FAMILIA_MAP).find(f => mat.codigo.startsWith(f))
-    if (familia) {
-      if (!porFamilia.has(familia)) porFamilia.set(familia, [])
-      porFamilia.get(familia)!.push(mat)
+  // Cargar la regla (mapeo de familias a elementos)
+  let regla: Record<string, Array<{ elemento: string }>> = {}
+  try {
+    const rutaRegla = path.join(process.cwd(), 'regla_elementos.json')
+    if (fs.existsSync(rutaRegla)) {
+      const contenido = fs.readFileSync(rutaRegla, 'utf-8')
+      regla = JSON.parse(contenido)
     }
+  } catch (e) {
+    console.error('Error al cargar regla_elementos.json:', e)
+  }
+
+  // Función para calcular similitud entre dos strings
+  function calcularSimilitud(str1: string, str2: string): number {
+    const s1 = str1.toLowerCase().trim()
+    const s2 = str2.toLowerCase().trim()
+
+    // Si son exactamente iguales, retorna 1
+    if (s1 === s2) return 1
+
+    // Dividir en palabras y buscar coincidencias
+    const palabras1 = s1.split(/\s+/).filter(p => p.length > 2)
+    const palabras2 = s2.split(/\s+/).filter(p => p.length > 2)
+
+    if (palabras1.length === 0 || palabras2.length === 0) return 0
+
+    let coincidencias = 0
+    for (const p1 of palabras1) {
+      for (const p2 of palabras2) {
+        if (p1.includes(p2) || p2.includes(p1)) {
+          coincidencias++
+          break
+        }
+      }
+    }
+
+    return coincidencias / Math.max(palabras1.length, palabras2.length)
   }
 
   const desgloce: DesglocePoFamilia[] = []
-  for (const [familia, mats] of porFamilia) {
-    const info = FAMILIA_MAP[familia]
-    const componentesMap = new Map<string, { codigo: string; cantidad: number; normas: Set<string>; postes: Set<string> }>()
-    
-    for (const mat of mats) {
-      const key = mat.descripcion
-      if (!componentesMap.has(key)) {
-        componentesMap.set(key, { codigo: mat.codigo, cantidad: 0, normas: new Set(), postes: new Set() })
+
+  // Iterar por cada familia en orden
+  for (const familiaKey of Object.keys(FAMILIA_MAP).sort()) {
+    const familia = familiaKey.split('-')[1]
+    const elementosRegla = regla[familia] || []
+
+    if (elementosRegla.length === 0) continue
+
+    // Para cada elemento de la regla, buscar materiales que coincidan
+    const elementosConCantidad: MaterialPorFamilia[] = []
+
+    for (const elem of elementosRegla) {
+      let cantidadTotal = 0
+      const normasSet = new Set<string>()
+      const postesSet = new Set<string>()
+
+      // Buscar en todos los materiales una coincidencia
+      for (const mat of materiales) {
+        const similitud = calcularSimilitud(mat.descripcion, elem.elemento)
+
+        // Si hay suficiente similitud, sumar
+        if (similitud > 0.4) {
+          cantidadTotal += mat.cantidad
+
+          // Rastrear en qué normas y postes está presente
+          for (const d of mat.detalle) {
+            normasSet.add(d.norma)
+            if (d.poste !== 'Partida general') {
+              postesSet.add(d.poste)
+            }
+          }
+        }
       }
-      const comp = componentesMap.get(key)!
-      comp.cantidad += mat.cantidad
-      for (const d of mat.detalle) {
-        comp.normas.add(d.norma)
-        comp.postes.add(d.poste)
+
+      // Incluir elementos con cantidad > 0
+      if (cantidadTotal > 0) {
+        elementosConCantidad.push({
+          codigo: '',
+          descripcion: elem.elemento,
+          cantidad: cantidadTotal,
+          presenteEn: Array.from(normasSet).map(norma => ({
+            norma,
+            postes: Array.from(postesSet).sort()
+          }))
+        })
       }
     }
 
-    const materiales_familia: MaterialPorFamilia[] = Array.from(componentesMap.entries())
-      .sort((a, b) => b[1].cantidad - a[1].cantidad)
-      .map(([descripcion, data]) => ({
-        codigo: data.codigo,
-        descripcion,
-        cantidad: data.cantidad,
-        presenteEn: Array.from(data.normas).map(norma => ({
-          norma,
-          postes: Array.from(data.postes).filter(p => p !== 'Partida general').sort()
-        }))
-      }))
+    // Ordenar por cantidad descendente
+    elementosConCantidad.sort((a, b) => b.cantidad - a.cantidad)
 
-    desgloce.push({
-      familia,
-      familiaDescripcion: info.descripcion,
-      itemsUnicos: materiales_familia.length,
-      unidadesTotales: Math.round(materiales_familia.reduce((sum, m) => sum + m.cantidad, 0) * 1000) / 1000,
-      materiales: materiales_familia
-    })
+    if (elementosConCantidad.length > 0) {
+      desgloce.push({
+        familia: familiaKey,
+        familiaDescripcion: FAMILIA_MAP[familiaKey].descripcion,
+        itemsUnicos: elementosConCantidad.length,
+        unidadesTotales: Math.round(elementosConCantidad.reduce((sum, m) => sum + m.cantidad, 0) * 1000) / 1000,
+        materiales: elementosConCantidad
+      })
+    }
   }
 
-  return desgloce.sort((a, b) => 
-    FAMILIA_MAP[a.familia].numero - FAMILIA_MAP[b.familia].numero
-  )
+  return desgloce
 }
 
 
