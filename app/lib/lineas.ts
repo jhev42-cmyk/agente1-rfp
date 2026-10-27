@@ -384,22 +384,32 @@ function generarDesglocePoFamilia(materiales: MaterialConsolidado[]): DesglocePo
   const desgloce: DesglocePoFamilia[] = []
   for (const [familia, mats] of porFamilia) {
     const info = FAMILIA_MAP[familia]
-    const materiales_familia: MaterialPorFamilia[] = mats.map(mat => {
-      const normasMap = new Map<string, Set<string>>()
+    const componentesMap = new Map<string, { codigo: string; cantidad: number; normas: Set<string>; postes: Set<string> }>()
+    
+    for (const mat of mats) {
+      const key = mat.descripcion
+      if (!componentesMap.has(key)) {
+        componentesMap.set(key, { codigo: mat.codigo, cantidad: 0, normas: new Set(), postes: new Set() })
+      }
+      const comp = componentesMap.get(key)!
+      comp.cantidad += mat.cantidad
       for (const d of mat.detalle) {
-        if (!normasMap.has(d.norma)) normasMap.set(d.norma, new Set())
-        normasMap.get(d.norma)!.add(d.poste)
+        comp.normas.add(d.norma)
+        comp.postes.add(d.poste)
       }
-      return {
-        codigo: mat.codigo,
-        descripcion: mat.descripcion,
-        cantidad: mat.cantidad,
-        presenteEn: Array.from(normasMap.entries()).map(([norma, postes]) => ({
+    }
+
+    const materiales_familia: MaterialPorFamilia[] = Array.from(componentesMap.entries())
+      .sort((a, b) => b[1].cantidad - a[1].cantidad)
+      .map(([descripcion, data]) => ({
+        codigo: data.codigo,
+        descripcion,
+        cantidad: data.cantidad,
+        presenteEn: Array.from(data.normas).map(norma => ({
           norma,
-          postes: Array.from(postes).sort()
+          postes: Array.from(data.postes).filter(p => p !== 'Partida general').sort()
         }))
-      }
-    })
+      }))
 
     desgloce.push({
       familia,
@@ -414,6 +424,7 @@ function generarDesglocePoFamilia(materiales: MaterialConsolidado[]): DesglocePo
     FAMILIA_MAP[a.familia].numero - FAMILIA_MAP[b.familia].numero
   )
 }
+
 
 export async function calcular(lineaId: number): Promise<Calculo> {
   const [linea, postes, partidas, materialesCat, precios] = await Promise.all([
