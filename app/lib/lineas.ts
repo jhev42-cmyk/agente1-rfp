@@ -558,7 +558,8 @@ export async function calcular(lineaId: number): Promise<Calculo> {
   const sumar = (codigo: string, unidadFuente: string | null, d: DetalleMaterial, descripcionFallback?: string | null) => {
     const m = catPorCodigo.get(codigo)
     const unidad = m?.unidad || unidadFuente || 'UN'
-    const descripcion = m?.descripcion || descripcionFallback || codigo
+    // Preferir observacion (descripción técnica específica) sobre catálogo genérico
+    const descripcion = descripcionFallback || m?.descripcion || codigo
     // Clave: usar descripción para consolidar, no solo código. Esto permite
     // que materiales diferentes con el mismo código se mantengan separados.
     const clave = `${descripcion}|${unidad}`
