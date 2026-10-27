@@ -1,3 +1,19 @@
+// Desgloce por familia
+export type MaterialPorFamilia = {
+  codigo: string
+  descripcion: string
+  cantidad: number
+  presenteEn: { norma: string; postes: string[] }[]
+}
+
+export type DesglocePoFamilia = {
+  familia: string
+  familiaDescripcion: string
+  itemsUnicos: number
+  unidadesTotales: number
+  materiales: MaterialPorFamilia[]
+}
+
 export type ModoAsignacion = 'CORRIDO' | 'TRAYECTO'
 
 export type Poste = {
@@ -42,6 +58,7 @@ export type Calculo = {
     codigo: string; descripcion: string; unidad: string; categoria: string; cantidad: number
     detalle: { trayecto: number | null; poste: string; norma: string; cantidad: number }[]
   }[]
+  desglocePoFamilia?: DesglocePoFamilia[]
   cotizacion: {
     items: {
       tipo: 'MATERIAL' | 'MANO_OBRA' | 'TRANSPORTE' | 'INDIRECTO'; codigo: string | null; descripcion: string; unidad: string
