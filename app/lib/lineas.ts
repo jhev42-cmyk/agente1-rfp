@@ -555,13 +555,13 @@ export async function calcular(lineaId: number): Promise<Calculo> {
   const catPorCodigo = new Map(materialesCat.map((m) => [m.codigo, m]))
 
   const consolidado = new Map<string, MaterialConsolidado>()
-  const sumar = (codigo: string, unidadFuente: string | null, d: DetalleMaterial) => {
+  const sumar = (codigo: string, unidadFuente: string | null, d: DetalleMaterial, descripcionFallback?: string | null) => {
     const m = catPorCodigo.get(codigo)
     const unidad = m?.unidad || unidadFuente || 'UN'
     const clave = `${codigo}|${unidad}`
     let item = consolidado.get(clave)
     if (!item) {
-      item = { codigo, descripcion: m?.descripcion || codigo, unidad, categoria: m?.categoria || '', cantidad: 0, detalle: [] }
+      item = { codigo, descripcion: m?.descripcion || descripcionFallback || codigo, unidad, categoria: m?.categoria || '', cantidad: 0, detalle: [] }
       consolidado.set(clave, item)
     }
     item.cantidad += d.cantidad
@@ -587,7 +587,7 @@ export async function calcular(lineaId: number): Promise<Calculo> {
       usoNormas.set(conf.normaId, (usoNormas.get(conf.normaId) || 0) + 1)
       const etiqueta = `${conf.norma.codigo} v${conf.norma.version}`
       for (const mat of conf.materiales) {
-        sumar(mat.codigoMaterial, null, { trayecto: p.trayecto.numero, poste: p.codigo, norma: etiqueta, cantidad: mat.cantidad })
+        sumar(mat.codigoMaterial, null, { trayecto: p.trayecto.numero, poste: p.codigo, norma: etiqueta, cantidad: mat.cantidad }, mat.observacion)
       }
     }
 
