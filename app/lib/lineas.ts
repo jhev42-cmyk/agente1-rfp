@@ -386,35 +386,47 @@ function generarDesglocePoFamilia(materiales: MaterialConsolidado[]): DesglocePo
     console.warn('No se pudo cargar regla_elementos.json')
   }
 
+  // Normalizar descripción: remover caracteres especiales, saltos de línea, comillas raras, etc.
+  function normalizar(str: string): string {
+    return str
+      .toLowerCase()
+      .trim()
+      .replace(/[\n\r\t]/g, ' ')  // Saltos de línea y tabs → espacios
+      .replace(/\s+/g, ' ')  // Múltiples espacios → un espacio
+      .replace(/[""]/g, '"')  // Comillas curvas → rectas
+      .replace(/['']/g, "'")  // Apóstrofos raros → normal
+      .replace(/–—/g, '-')  // Guiones especiales → normal
+  }
+
   // Función para encontrar familia buscando descripción del material en la regla
   function encontrarFamilia(descripcion: string): string | null {
-    const descLower = descripcion.toLowerCase().trim()
+    const descNorm = normalizar(descripcion)
     let mejorMatch: { familia: string; similitud: number } | null = null
 
     for (const [familiaCorta, elementos] of Object.entries(regla)) {
       for (const elem of elementos) {
-        const elemLower = elem.elemento.toLowerCase().trim()
+        const elemNorm = normalizar(elem.elemento)
 
         // Match exacto (perfecto)
-        if (elemLower === descLower) {
+        if (elemNorm === descNorm) {
           const familiaCompleta = Object.keys(FAMILIA_MAP).find(k => k.endsWith(`-${familiaCorta}`))
           return familiaCompleta || null
         }
 
         // Si uno contiene al otro (maneja truncamientos)
-        if (elemLower.includes(descLower) || descLower.includes(elemLower)) {
+        if (elemNorm.includes(descNorm) || descNorm.includes(elemNorm)) {
           const similitud = Math.max(
-            descLower.length / elemLower.length,
-            elemLower.length / descLower.length
+            descNorm.length / elemNorm.length,
+            elemNorm.length / descNorm.length
           )
           if (similitud > 0.8 && (!mejorMatch || similitud > mejorMatch.similitud)) {
             mejorMatch = { familia: familiaCorta, similitud }
           }
         }
 
-        // Contar palabras comunes (al menos 80% de similitud)
-        const palabrasDesc = descLower.split(/\s+/).filter(p => p.length > 2)
-        const palabrasElem = elemLower.split(/\s+/).filter(p => p.length > 2)
+        // Contar palabras comunes (al menos 75% de similitud)
+        const palabrasDesc = descNorm.split(/\s+/).filter(p => p.length > 2)
+        const palabrasElem = elemNorm.split(/\s+/).filter(p => p.length > 2)
         if (palabrasDesc.length > 0 && palabrasElem.length > 0) {
           const comunes = palabrasDesc.filter(p =>
             palabrasElem.some(e => p === e || p.includes(e) || e.includes(p))
