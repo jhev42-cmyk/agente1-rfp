@@ -399,50 +399,15 @@
       "descripcion": "CELSIA B176C2",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
-          "materiales": [
-            {
-              "codigoMaterial": "6.A",
-              "cantidad": 6
-            }
-          ]
-        },
-        {
-          "nombre": "Conductores y cableado",
-          "materiales": [
-            {
-              "codigoMaterial": "16.C",
-              "cantidad": 6
-            }
-          ]
-        },
-        {
-          "nombre": "Conectores y empalmes eléctricos",
-          "materiales": [
-            {
-              "codigoMaterial": "17.C",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "18.C",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "19.C",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "20.C",
-              "cantidad": 4
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "B176C2 - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
+            },
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 4
             },
             {
               "codigoMaterial": "3.P",
@@ -455,58 +420,22 @@
             {
               "codigoMaterial": "5.P",
               "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
+            },
             {
-              "codigoMaterial": "2.F",
-              "cantidad": 4
-            }
-          ]
-        },
-        {
-          "nombre": "Protección eléctrica y puesta a tierra",
-          "materiales": [
-            {
-              "codigoMaterial": "15.P",
+              "codigoMaterial": "6.A",
               "cantidad": 6
             },
-            {
-              "codigoMaterial": "21.P",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "22.P",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "23.P",
-              "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
             {
               "codigoMaterial": "7.S",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "9.S",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
-            {
               "codigoMaterial": "8.T",
               "cantidad": 8
+            },
+            {
+              "codigoMaterial": "9.S",
+              "cantidad": 2
             },
             {
               "codigoMaterial": "10.T",
@@ -527,6 +456,42 @@
             {
               "codigoMaterial": "14.T",
               "cantidad": 16
+            },
+            {
+              "codigoMaterial": "15.P",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "16.C",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "17.C",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "18.C",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "20.C",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "21.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "22.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "23.P",
+              "cantidad": 1
             }
           ]
         }
@@ -539,29 +504,15 @@
       "descripcion": "CELSIA B177C2",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
-          "materiales": [
-            {
-              "codigoMaterial": "6.A",
-              "cantidad": 12
-            }
-          ]
-        },
-        {
-          "nombre": "Conectores y empalmes eléctricos",
-          "materiales": [
-            {
-              "codigoMaterial": "19.C",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "B177C2 - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
+            },
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 4
             },
             {
               "codigoMaterial": "3.P",
@@ -574,37 +525,22 @@
             {
               "codigoMaterial": "5.P",
               "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
+            },
             {
-              "codigoMaterial": "2.F",
-              "cantidad": 4
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
+              "codigoMaterial": "6.A",
+              "cantidad": 12
+            },
             {
               "codigoMaterial": "7.S",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "9.S",
-              "cantidad": 4
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
-            {
               "codigoMaterial": "8.T",
               "cantidad": 16
+            },
+            {
+              "codigoMaterial": "9.S",
+              "cantidad": 4
             },
             {
               "codigoMaterial": "10.T",
@@ -629,6 +565,10 @@
             {
               "codigoMaterial": "24.T",
               "cantidad": 12
+            },
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 2
             }
           ]
         }
@@ -641,20 +581,15 @@
       "descripcion": "CELSIA B71",
       "configuraciones": [
         {
-          "nombre": "Espaciamiento de red compacta",
-          "materiales": [
-            {
-              "codigoMaterial": "28.E",
-              "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "B71 - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
+            },
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 3
             },
             {
               "codigoMaterial": "25.P",
@@ -663,30 +598,15 @@
             {
               "codigoMaterial": "26.P",
               "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
-            {
-              "codigoMaterial": "2.F",
-              "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
+            },
             {
               "codigoMaterial": "27.S",
               "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
+            },
+            {
+              "codigoMaterial": "28.E",
+              "cantidad": 1
+            },
             {
               "codigoMaterial": "12.T",
               "cantidad": 2
@@ -710,20 +630,15 @@
       "descripcion": "CELSIA B712",
       "configuraciones": [
         {
-          "nombre": "Espaciamiento de red compacta",
-          "materiales": [
-            {
-              "codigoMaterial": "29.E",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "B712 - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
+            },
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 3
             },
             {
               "codigoMaterial": "25.P",
@@ -732,30 +647,15 @@
             {
               "codigoMaterial": "26.P",
               "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
-            {
-              "codigoMaterial": "2.F",
-              "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
+            },
             {
               "codigoMaterial": "27.S",
               "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
+            },
+            {
+              "codigoMaterial": "29.E",
+              "cantidad": 2
+            },
             {
               "codigoMaterial": "12.T",
               "cantidad": 4
@@ -779,56 +679,36 @@
       "descripcion": "CELSIA B72C",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
-          "materiales": [
-            {
-              "codigoMaterial": "31.A",
-              "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "B72C - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
             },
             {
+              "codigoMaterial": "2.F",
+              "cantidad": 4
+            },
+            {
               "codigoMaterial": "25.P",
               "cantidad": 1
             },
-            {
-              "codigoMaterial": "5.P",
-              "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
-            {
-              "codigoMaterial": "2.F",
-              "cantidad": 4
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
             {
               "codigoMaterial": "30.S",
               "cantidad": 1
             },
             {
+              "codigoMaterial": "5.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "31.A",
+              "cantidad": 3
+            },
+            {
               "codigoMaterial": "32.S",
               "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
+            },
             {
               "codigoMaterial": "10.T",
               "cantidad": 2
@@ -864,52 +744,32 @@
       "descripcion": "CELSIA B72C2",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
+          "nombre": "B72C2 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "31.A",
-              "cantidad": 6
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
-          "materiales": [
+              "codigoMaterial": "2.F",
+              "cantidad": 4
+            },
             {
               "codigoMaterial": "25.P",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "5.P",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
-            {
-              "codigoMaterial": "2.F",
-              "cantidad": 4
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
-            {
               "codigoMaterial": "30.S",
               "cantidad": 2
             },
             {
+              "codigoMaterial": "5.P",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "31.A",
+              "cantidad": 6
+            },
+            {
               "codigoMaterial": "32.S",
               "cantidad": 6
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
+            },
             {
               "codigoMaterial": "35.T",
               "cantidad": 1
@@ -949,56 +809,36 @@
       "descripcion": "CELSIA B72CD",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
-          "materiales": [
-            {
-              "codigoMaterial": "31.A",
-              "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "B72CD - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
             },
             {
+              "codigoMaterial": "2.F",
+              "cantidad": 4
+            },
+            {
               "codigoMaterial": "25.P",
               "cantidad": 1
             },
-            {
-              "codigoMaterial": "5.P",
-              "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
-            {
-              "codigoMaterial": "2.F",
-              "cantidad": 4
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
             {
               "codigoMaterial": "30.S",
               "cantidad": 1
             },
             {
+              "codigoMaterial": "5.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "31.A",
+              "cantidad": 3
+            },
+            {
               "codigoMaterial": "32.S",
               "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
+            },
             {
               "codigoMaterial": "10.T",
               "cantidad": 2
@@ -1034,29 +874,15 @@
       "descripcion": "CELSIA B72CD2",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
-          "materiales": [
-            {
-              "codigoMaterial": "31.A",
-              "cantidad": 12
-            }
-          ]
-        },
-        {
-          "nombre": "Conectores y empalmes eléctricos",
-          "materiales": [
-            {
-              "codigoMaterial": "19.C",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "B72CD2 - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
+            },
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 4
             },
             {
               "codigoMaterial": "3.P",
@@ -1069,34 +895,15 @@
             {
               "codigoMaterial": "5.P",
               "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
+            },
             {
-              "codigoMaterial": "2.F",
-              "cantidad": 4
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
+              "codigoMaterial": "31.A",
+              "cantidad": 12
+            },
             {
               "codigoMaterial": "7.S",
               "cantidad": 6
             },
-            {
-              "codigoMaterial": "37.S",
-              "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
             {
               "codigoMaterial": "35.T",
               "cantidad": 4
@@ -1104,6 +911,10 @@
             {
               "codigoMaterial": "36.T",
               "cantidad": 2
+            },
+            {
+              "codigoMaterial": "37.S",
+              "cantidad": 1
             },
             {
               "codigoMaterial": "33.T",
@@ -1124,6 +935,10 @@
             {
               "codigoMaterial": "14.T",
               "cantidad": 32
+            },
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 2
             }
           ]
         }
@@ -1136,52 +951,32 @@
       "descripcion": "CELSIA B72E",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
-          "materiales": [
-            {
-              "codigoMaterial": "31.A",
-              "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "B72E - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "39.P",
-              "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
-            {
               "codigoMaterial": "2.F",
               "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
+            },
+            {
+              "codigoMaterial": "39.P",
+              "cantidad": 1
+            },
             {
               "codigoMaterial": "27.S",
               "cantidad": 1
             },
             {
+              "codigoMaterial": "31.A",
+              "cantidad": 3
+            },
+            {
               "codigoMaterial": "32.S",
               "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
+            },
             {
               "codigoMaterial": "10.T",
               "cantidad": 2
@@ -1213,52 +1008,32 @@
       "descripcion": "CELSIA B72E2",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
-          "materiales": [
-            {
-              "codigoMaterial": "31.A",
-              "cantidad": 6
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "B72E2 - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "39.P",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
-            {
               "codigoMaterial": "2.F",
               "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
+            },
+            {
+              "codigoMaterial": "39.P",
+              "cantidad": 2
+            },
             {
               "codigoMaterial": "27.S",
               "cantidad": 2
             },
             {
+              "codigoMaterial": "31.A",
+              "cantidad": 6
+            },
+            {
               "codigoMaterial": "32.S",
               "cantidad": 6
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
+            },
             {
               "codigoMaterial": "10.T",
               "cantidad": 4
@@ -1290,56 +1065,36 @@
       "descripcion": "CELSIA B72ED",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
-          "materiales": [
-            {
-              "codigoMaterial": "31.A",
-              "cantidad": 6
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "B72ED - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
             },
             {
+              "codigoMaterial": "2.F",
+              "cantidad": 2
+            },
+            {
               "codigoMaterial": "4.P",
               "cantidad": 3
             },
-            {
-              "codigoMaterial": "39.P",
-              "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
-            {
-              "codigoMaterial": "2.F",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
             {
               "codigoMaterial": "30.S",
               "cantidad": 1
             },
             {
+              "codigoMaterial": "39.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "31.A",
+              "cantidad": 6
+            },
+            {
               "codigoMaterial": "7.S",
               "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
+            },
             {
               "codigoMaterial": "8.T",
               "cantidad": 1
@@ -1375,11 +1130,15 @@
       "descripcion": "CELSIA B761",
       "configuraciones": [
         {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "B761 - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
+            },
+            {
+              "codigoMaterial": "40.F",
+              "cantidad": 2
             },
             {
               "codigoMaterial": "41.P",
@@ -1388,30 +1147,11 @@
             {
               "codigoMaterial": "42.P",
               "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
-            {
-              "codigoMaterial": "40.F",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
+            },
             {
               "codigoMaterial": "43.S",
               "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
+            },
             {
               "codigoMaterial": "44.T",
               "cantidad": 1
@@ -1443,50 +1183,15 @@
       "descripcion": "CELSIA B766",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
-          "materiales": [
-            {
-              "codigoMaterial": "6.A",
-              "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Conductores y cableado",
-          "materiales": [
-            {
-              "codigoMaterial": "49.C",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "16.C",
-              "cantidad": 14
-            }
-          ]
-        },
-        {
-          "nombre": "Conectores y empalmes eléctricos",
-          "materiales": [
-            {
-              "codigoMaterial": "17.C",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "19.C",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "20.C",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "B766 - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
+            },
+            {
+              "codigoMaterial": "40.F",
+              "cantidad": 2
             },
             {
               "codigoMaterial": "41.P",
@@ -1503,33 +1208,14 @@
             {
               "codigoMaterial": "46.P",
               "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
-            {
-              "codigoMaterial": "40.F",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Protección eléctrica y puesta a tierra",
-          "materiales": [
-            {
-              "codigoMaterial": "15.P",
-              "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
+            },
             {
               "codigoMaterial": "7.S",
               "cantidad": 3
+            },
+            {
+              "codigoMaterial": "8.T",
+              "cantidad": 4
             },
             {
               "codigoMaterial": "37.S",
@@ -1538,15 +1224,22 @@
             {
               "codigoMaterial": "47.S",
               "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
+            },
             {
-              "codigoMaterial": "8.T",
-              "cantidad": 4
+              "codigoMaterial": "17.C",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "20.C",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "6.A",
+              "cantidad": 3
             },
             {
               "codigoMaterial": "48.T",
@@ -1575,6 +1268,18 @@
             {
               "codigoMaterial": "24.T",
               "cantidad": 3
+            },
+            {
+              "codigoMaterial": "49.C",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "16.C",
+              "cantidad": 14
+            },
+            {
+              "codigoMaterial": "15.P",
+              "cantidad": 3
             }
           ]
         }
@@ -1587,42 +1292,15 @@
       "descripcion": "CELSIA B767",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
-          "materiales": [
-            {
-              "codigoMaterial": "6.A",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "50.A",
-              "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Conductores y cableado",
-          "materiales": [
-            {
-              "codigoMaterial": "49.C",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Conectores y empalmes eléctricos",
-          "materiales": [
-            {
-              "codigoMaterial": "19.C",
-              "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "B767 - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
+            },
+            {
+              "codigoMaterial": "40.F",
+              "cantidad": 2
             },
             {
               "codigoMaterial": "41.P",
@@ -1635,21 +1313,7 @@
             {
               "codigoMaterial": "45.P",
               "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
-            {
-              "codigoMaterial": "40.F",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
+            },
             {
               "codigoMaterial": "7.S",
               "cantidad": 6
@@ -1657,12 +1321,19 @@
             {
               "codigoMaterial": "37.S",
               "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
+            },
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "6.A",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "50.A",
+              "cantidad": 3
+            },
             {
               "codigoMaterial": "51.T",
               "cantidad": 3
@@ -1694,6 +1365,10 @@
             {
               "codigoMaterial": "24.T",
               "cantidad": 6
+            },
+            {
+              "codigoMaterial": "49.C",
+              "cantidad": 2
             }
           ]
         }
@@ -1706,47 +1381,12 @@
       "descripcion": "CELSIA B76C",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
+          "nombre": "B76C - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "6.A",
-              "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Conductores y cableado",
-          "materiales": [
-            {
-              "codigoMaterial": "16.C",
-              "cantidad": 16
-            }
-          ]
-        },
-        {
-          "nombre": "Conectores y empalmes eléctricos",
-          "materiales": [
-            {
-              "codigoMaterial": "17.C",
+              "codigoMaterial": "2.F",
               "cantidad": 3
             },
-            {
-              "codigoMaterial": "18.C",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "19.C",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "20.C",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
-          "materiales": [
             {
               "codigoMaterial": "45.P",
               "cantidad": 1
@@ -1754,61 +1394,25 @@
             {
               "codigoMaterial": "5.P",
               "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
+            },
             {
-              "codigoMaterial": "2.F",
-              "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Protección eléctrica y puesta a tierra",
-          "materiales": [
-            {
-              "codigoMaterial": "15.P",
+              "codigoMaterial": "6.A",
               "cantidad": 3
             },
-            {
-              "codigoMaterial": "21.P",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "22.P",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "23.P",
-              "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
             {
               "codigoMaterial": "7.S",
               "cantidad": 3
             },
-            {
-              "codigoMaterial": "9.S",
-              "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
             {
               "codigoMaterial": "8.T",
               "cantidad": 3
             },
             {
               "codigoMaterial": "52.T",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "9.S",
               "cantidad": 1
             },
             {
@@ -1834,6 +1438,42 @@
             {
               "codigoMaterial": "24.T",
               "cantidad": 3
+            },
+            {
+              "codigoMaterial": "15.P",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "16.C",
+              "cantidad": 16
+            },
+            {
+              "codigoMaterial": "17.C",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "18.C",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "20.C",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "21.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "22.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "23.P",
+              "cantidad": 1
             }
           ]
         }
@@ -1846,50 +1486,15 @@
       "descripcion": "CELSIA B76C2",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
-          "materiales": [
-            {
-              "codigoMaterial": "6.A",
-              "cantidad": 12
-            }
-          ]
-        },
-        {
-          "nombre": "Conductores y cableado",
-          "materiales": [
-            {
-              "codigoMaterial": "16.C",
-              "cantidad": 17
-            }
-          ]
-        },
-        {
-          "nombre": "Conectores y empalmes eléctricos",
-          "materiales": [
-            {
-              "codigoMaterial": "17.C",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "18.C",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "19.C",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "20.C",
-              "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "B76C2 - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
+            },
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 4
             },
             {
               "codigoMaterial": "3.P",
@@ -1902,58 +1507,22 @@
             {
               "codigoMaterial": "5.P",
               "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
-            {
-              "codigoMaterial": "2.F",
-              "cantidad": 4
-            }
-          ]
-        },
-        {
-          "nombre": "Protección eléctrica y puesta a tierra",
-          "materiales": [
-            {
-              "codigoMaterial": "15.P",
-              "cantidad": 6
             },
             {
-              "codigoMaterial": "21.P",
-              "cantidad": 1
+              "codigoMaterial": "6.A",
+              "cantidad": 12
             },
-            {
-              "codigoMaterial": "22.P",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "23.P",
-              "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
             {
               "codigoMaterial": "7.S",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "9.S",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
-            {
               "codigoMaterial": "8.T",
               "cantidad": 8
+            },
+            {
+              "codigoMaterial": "9.S",
+              "cantidad": 2
             },
             {
               "codigoMaterial": "10.T",
@@ -1978,6 +1547,42 @@
             {
               "codigoMaterial": "24.T",
               "cantidad": 6
+            },
+            {
+              "codigoMaterial": "15.P",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "16.C",
+              "cantidad": 17
+            },
+            {
+              "codigoMaterial": "17.C",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "18.C",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "20.C",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "21.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "22.P",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "23.P",
+              "cantidad": 1
             }
           ]
         }
@@ -1990,29 +1595,15 @@
       "descripcion": "CELSIA B77C2",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
-          "materiales": [
-            {
-              "codigoMaterial": "6.A",
-              "cantidad": 12
-            }
-          ]
-        },
-        {
-          "nombre": "Conectores y empalmes eléctricos",
-          "materiales": [
-            {
-              "codigoMaterial": "19.C",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "B77C2 - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
+            },
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 4
             },
             {
               "codigoMaterial": "3.P",
@@ -2025,37 +1616,22 @@
             {
               "codigoMaterial": "5.P",
               "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
+            },
             {
-              "codigoMaterial": "2.F",
-              "cantidad": 4
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
+              "codigoMaterial": "6.A",
+              "cantidad": 12
+            },
             {
               "codigoMaterial": "7.S",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "9.S",
-              "cantidad": 4
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
-            {
               "codigoMaterial": "8.T",
               "cantidad": 16
+            },
+            {
+              "codigoMaterial": "9.S",
+              "cantidad": 4
             },
             {
               "codigoMaterial": "10.T",
@@ -2080,6 +1656,10 @@
             {
               "codigoMaterial": "24.T",
               "cantidad": 12
+            },
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 2
             }
           ]
         }
@@ -2092,38 +1672,12 @@
       "descripcion": "CELSIA B79",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
+          "nombre": "B79 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "31.A",
+              "codigoMaterial": "2.F",
               "cantidad": 3
             },
-            {
-              "codigoMaterial": "6.A",
-              "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Conectores y empalmes eléctricos",
-          "materiales": [
-            {
-              "codigoMaterial": "17.C",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "18.C",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "19.C",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
-          "materiales": [
             {
               "codigoMaterial": "45.P",
               "cantidad": 1
@@ -2131,21 +1685,15 @@
             {
               "codigoMaterial": "5.P",
               "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
+            },
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "31.A",
               "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
+            },
+            {
+              "codigoMaterial": "6.A",
+              "cantidad": 3
+            },
             {
               "codigoMaterial": "32.S",
               "cantidad": 3
@@ -2155,17 +1703,12 @@
               "cantidad": 3
             },
             {
-              "codigoMaterial": "9.S",
-              "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
-            {
               "codigoMaterial": "8.T",
               "cantidad": 3
+            },
+            {
+              "codigoMaterial": "9.S",
+              "cantidad": 1
             },
             {
               "codigoMaterial": "10.T",
@@ -2190,6 +1733,18 @@
             {
               "codigoMaterial": "14.T",
               "cantidad": 16
+            },
+            {
+              "codigoMaterial": "17.C",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "18.C",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 2
             }
           ]
         }
@@ -2202,50 +1757,15 @@
       "descripcion": "CELSIA C176C2",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
-          "materiales": [
-            {
-              "codigoMaterial": "54.A",
-              "cantidad": 6
-            }
-          ]
-        },
-        {
-          "nombre": "Conductores y cableado",
-          "materiales": [
-            {
-              "codigoMaterial": "16.C",
-              "cantidad": 6
-            }
-          ]
-        },
-        {
-          "nombre": "Conectores y empalmes eléctricos",
-          "materiales": [
-            {
-              "codigoMaterial": "17.C",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "18.C",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "19.C",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "20.C",
-              "cantidad": 4
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "C176C2 - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
+            },
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 4
             },
             {
               "codigoMaterial": "3.P",
@@ -2258,58 +1778,22 @@
             {
               "codigoMaterial": "53.P",
               "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
+            },
             {
-              "codigoMaterial": "2.F",
-              "cantidad": 4
-            }
-          ]
-        },
-        {
-          "nombre": "Protección eléctrica y puesta a tierra",
-          "materiales": [
-            {
-              "codigoMaterial": "55.P",
+              "codigoMaterial": "54.A",
               "cantidad": 6
             },
-            {
-              "codigoMaterial": "21.P",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "22.P",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "23.P",
-              "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
             {
               "codigoMaterial": "7.S",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "9.S",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
-            {
               "codigoMaterial": "8.T",
               "cantidad": 8
+            },
+            {
+              "codigoMaterial": "9.S",
+              "cantidad": 2
             },
             {
               "codigoMaterial": "10.T",
@@ -2330,6 +1814,42 @@
             {
               "codigoMaterial": "14.T",
               "cantidad": 16
+            },
+            {
+              "codigoMaterial": "55.P",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "16.C",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "17.C",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "18.C",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "20.C",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "21.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "22.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "23.P",
+              "cantidad": 1
             }
           ]
         }
@@ -2342,29 +1862,15 @@
       "descripcion": "CELSIA C177C2",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
-          "materiales": [
-            {
-              "codigoMaterial": "54.A",
-              "cantidad": 12
-            }
-          ]
-        },
-        {
-          "nombre": "Conectores y empalmes eléctricos",
-          "materiales": [
-            {
-              "codigoMaterial": "19.C",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "C177C2 - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
+            },
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 4
             },
             {
               "codigoMaterial": "3.P",
@@ -2377,37 +1883,22 @@
             {
               "codigoMaterial": "53.P",
               "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
+            },
             {
-              "codigoMaterial": "2.F",
-              "cantidad": 4
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
+              "codigoMaterial": "54.A",
+              "cantidad": 12
+            },
             {
               "codigoMaterial": "7.S",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "9.S",
-              "cantidad": 4
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
-            {
               "codigoMaterial": "8.T",
               "cantidad": 16
+            },
+            {
+              "codigoMaterial": "9.S",
+              "cantidad": 4
             },
             {
               "codigoMaterial": "10.T",
@@ -2432,6 +1923,10 @@
             {
               "codigoMaterial": "24.T",
               "cantidad": 12
+            },
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 2
             }
           ]
         }
@@ -2444,20 +1939,15 @@
       "descripcion": "CELSIA C71",
       "configuraciones": [
         {
-          "nombre": "Espaciamiento de red compacta",
-          "materiales": [
-            {
-              "codigoMaterial": "58.E",
-              "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "C71 - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
+            },
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 3
             },
             {
               "codigoMaterial": "56.P",
@@ -2466,30 +1956,15 @@
             {
               "codigoMaterial": "57.P",
               "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
-            {
-              "codigoMaterial": "2.F",
-              "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
+            },
             {
               "codigoMaterial": "27.S",
               "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
+            },
+            {
+              "codigoMaterial": "58.E",
+              "cantidad": 1
+            },
             {
               "codigoMaterial": "12.T",
               "cantidad": 2
@@ -2513,20 +1988,15 @@
       "descripcion": "CELSIA C712",
       "configuraciones": [
         {
-          "nombre": "Espaciamiento de red compacta",
-          "materiales": [
-            {
-              "codigoMaterial": "59.E",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "C712 - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
+            },
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 3
             },
             {
               "codigoMaterial": "56.P",
@@ -2535,30 +2005,15 @@
             {
               "codigoMaterial": "57.P",
               "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
-            {
-              "codigoMaterial": "2.F",
-              "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
+            },
             {
               "codigoMaterial": "27.S",
               "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
+            },
+            {
+              "codigoMaterial": "59.E",
+              "cantidad": 2
+            },
             {
               "codigoMaterial": "12.T",
               "cantidad": 4
@@ -2582,56 +2037,36 @@
       "descripcion": "CELSIA C72C",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
-          "materiales": [
-            {
-              "codigoMaterial": "60.A",
-              "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "C72C - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
             },
             {
+              "codigoMaterial": "2.F",
+              "cantidad": 4
+            },
+            {
               "codigoMaterial": "56.P",
               "cantidad": 1
             },
-            {
-              "codigoMaterial": "53.P",
-              "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
-            {
-              "codigoMaterial": "2.F",
-              "cantidad": 4
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
             {
               "codigoMaterial": "30.S",
               "cantidad": 1
             },
             {
+              "codigoMaterial": "53.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "60.A",
+              "cantidad": 3
+            },
+            {
               "codigoMaterial": "32.S",
               "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
+            },
             {
               "codigoMaterial": "10.T",
               "cantidad": 2
@@ -2667,52 +2102,32 @@
       "descripcion": "CELSIA C72C2",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
+          "nombre": "C72C2 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "31.A",
-              "cantidad": 6
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
-          "materiales": [
+              "codigoMaterial": "2.F",
+              "cantidad": 4
+            },
             {
               "codigoMaterial": "25.P",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "5.P",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
-            {
-              "codigoMaterial": "2.F",
-              "cantidad": 4
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
-            {
               "codigoMaterial": "30.S",
               "cantidad": 2
             },
             {
+              "codigoMaterial": "5.P",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "31.A",
+              "cantidad": 6
+            },
+            {
               "codigoMaterial": "32.S",
               "cantidad": 6
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
+            },
             {
               "codigoMaterial": "35.T",
               "cantidad": 1
@@ -2752,56 +2167,36 @@
       "descripcion": "CELSIA C72CD",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
-          "materiales": [
-            {
-              "codigoMaterial": "60.A",
-              "cantidad": 6
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "C72CD - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
             },
             {
+              "codigoMaterial": "2.F",
+              "cantidad": 2
+            },
+            {
               "codigoMaterial": "4.P",
               "cantidad": 3
             },
-            {
-              "codigoMaterial": "53.P",
-              "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
-            {
-              "codigoMaterial": "2.F",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
             {
               "codigoMaterial": "30.S",
               "cantidad": 1
             },
             {
+              "codigoMaterial": "53.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "60.A",
+              "cantidad": 6
+            },
+            {
               "codigoMaterial": "7.S",
               "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
+            },
             {
               "codigoMaterial": "61.T",
               "cantidad": 6
@@ -2833,29 +2228,15 @@
       "descripcion": "CELSIA C72CD2",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
-          "materiales": [
-            {
-              "codigoMaterial": "60.A",
-              "cantidad": 12
-            }
-          ]
-        },
-        {
-          "nombre": "Conectores y empalmes eléctricos",
-          "materiales": [
-            {
-              "codigoMaterial": "19.C",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "C72CD2 - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
+            },
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 4
             },
             {
               "codigoMaterial": "3.P",
@@ -2868,34 +2249,15 @@
             {
               "codigoMaterial": "53.P",
               "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
+            },
             {
-              "codigoMaterial": "2.F",
-              "cantidad": 4
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
+              "codigoMaterial": "60.A",
+              "cantidad": 12
+            },
             {
               "codigoMaterial": "7.S",
               "cantidad": 6
             },
-            {
-              "codigoMaterial": "9.S",
-              "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
             {
               "codigoMaterial": "35.T",
               "cantidad": 4
@@ -2903,6 +2265,10 @@
             {
               "codigoMaterial": "36.T",
               "cantidad": 2
+            },
+            {
+              "codigoMaterial": "9.S",
+              "cantidad": 1
             },
             {
               "codigoMaterial": "61.T",
@@ -2923,6 +2289,10 @@
             {
               "codigoMaterial": "14.T",
               "cantidad": 32
+            },
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 2
             }
           ]
         }
@@ -2935,52 +2305,32 @@
       "descripcion": "CELSIA C72E",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
-          "materiales": [
-            {
-              "codigoMaterial": "60.A",
-              "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "C72E - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "62.P",
-              "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
-            {
               "codigoMaterial": "2.F",
               "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
+            },
+            {
+              "codigoMaterial": "62.P",
+              "cantidad": 1
+            },
             {
               "codigoMaterial": "27.S",
               "cantidad": 1
             },
             {
+              "codigoMaterial": "60.A",
+              "cantidad": 3
+            },
+            {
               "codigoMaterial": "32.S",
               "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
+            },
             {
               "codigoMaterial": "10.T",
               "cantidad": 2
@@ -3012,52 +2362,32 @@
       "descripcion": "CELSIA C72E2",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
-          "materiales": [
-            {
-              "codigoMaterial": "60.A",
-              "cantidad": 6
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "C72E2 - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "62.P",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
-            {
               "codigoMaterial": "2.F",
               "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
+            },
+            {
+              "codigoMaterial": "62.P",
+              "cantidad": 2
+            },
             {
               "codigoMaterial": "27.S",
               "cantidad": 2
             },
             {
+              "codigoMaterial": "60.A",
+              "cantidad": 6
+            },
+            {
               "codigoMaterial": "32.S",
               "cantidad": 6
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
+            },
             {
               "codigoMaterial": "10.T",
               "cantidad": 4
@@ -3089,56 +2419,36 @@
       "descripcion": "CELSIA C72ED",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
-          "materiales": [
-            {
-              "codigoMaterial": "60.A",
-              "cantidad": 6
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "C72ED - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
             },
             {
+              "codigoMaterial": "2.F",
+              "cantidad": 2
+            },
+            {
               "codigoMaterial": "4.P",
               "cantidad": 3
             },
-            {
-              "codigoMaterial": "62.P",
-              "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
-            {
-              "codigoMaterial": "2.F",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
             {
               "codigoMaterial": "30.S",
               "cantidad": 1
             },
             {
+              "codigoMaterial": "62.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "60.A",
+              "cantidad": 6
+            },
+            {
               "codigoMaterial": "7.S",
               "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
+            },
             {
               "codigoMaterial": "8.T",
               "cantidad": 1
@@ -3174,11 +2484,15 @@
       "descripcion": "CELSIA C761",
       "configuraciones": [
         {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "C761 - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
+            },
+            {
+              "codigoMaterial": "40.F",
+              "cantidad": 2
             },
             {
               "codigoMaterial": "41.P",
@@ -3187,30 +2501,11 @@
             {
               "codigoMaterial": "42.P",
               "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
-            {
-              "codigoMaterial": "40.F",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
+            },
             {
               "codigoMaterial": "43.S",
               "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
+            },
             {
               "codigoMaterial": "44.T",
               "cantidad": 1
@@ -3242,50 +2537,15 @@
       "descripcion": "CELSIA C766",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
-          "materiales": [
-            {
-              "codigoMaterial": "54.A",
-              "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Conductores y cableado",
-          "materiales": [
-            {
-              "codigoMaterial": "49.C",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "16.C",
-              "cantidad": 14
-            }
-          ]
-        },
-        {
-          "nombre": "Conectores y empalmes eléctricos",
-          "materiales": [
-            {
-              "codigoMaterial": "17.C",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "19.C",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "20.C",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "C766 - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
+            },
+            {
+              "codigoMaterial": "40.F",
+              "cantidad": 2
             },
             {
               "codigoMaterial": "41.P",
@@ -3302,33 +2562,14 @@
             {
               "codigoMaterial": "46.P",
               "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
-            {
-              "codigoMaterial": "40.F",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Protección eléctrica y puesta a tierra",
-          "materiales": [
-            {
-              "codigoMaterial": "55.P",
-              "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
+            },
             {
               "codigoMaterial": "7.S",
               "cantidad": 3
+            },
+            {
+              "codigoMaterial": "8.T",
+              "cantidad": 4
             },
             {
               "codigoMaterial": "9.S",
@@ -3337,15 +2578,22 @@
             {
               "codigoMaterial": "47.S",
               "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
+            },
             {
-              "codigoMaterial": "8.T",
-              "cantidad": 4
+              "codigoMaterial": "17.C",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "20.C",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "54.A",
+              "cantidad": 3
             },
             {
               "codigoMaterial": "48.T",
@@ -3374,6 +2622,18 @@
             {
               "codigoMaterial": "24.T",
               "cantidad": 3
+            },
+            {
+              "codigoMaterial": "49.C",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "16.C",
+              "cantidad": 14
+            },
+            {
+              "codigoMaterial": "55.P",
+              "cantidad": 3
             }
           ]
         }
@@ -3386,42 +2646,15 @@
       "descripcion": "CELSIA C767",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
-          "materiales": [
-            {
-              "codigoMaterial": "54.A",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "63.A",
-              "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Conductores y cableado",
-          "materiales": [
-            {
-              "codigoMaterial": "49.C",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Conectores y empalmes eléctricos",
-          "materiales": [
-            {
-              "codigoMaterial": "19.C",
-              "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "C767 - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
+            },
+            {
+              "codigoMaterial": "40.F",
+              "cantidad": 2
             },
             {
               "codigoMaterial": "41.P",
@@ -3434,21 +2667,7 @@
             {
               "codigoMaterial": "45.P",
               "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
-            {
-              "codigoMaterial": "40.F",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
+            },
             {
               "codigoMaterial": "7.S",
               "cantidad": 6
@@ -3456,12 +2675,19 @@
             {
               "codigoMaterial": "9.S",
               "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
+            },
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "54.A",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "63.A",
+              "cantidad": 3
+            },
             {
               "codigoMaterial": "64.T",
               "cantidad": 3
@@ -3493,6 +2719,10 @@
             {
               "codigoMaterial": "24.T",
               "cantidad": 6
+            },
+            {
+              "codigoMaterial": "49.C",
+              "cantidad": 2
             }
           ]
         }
@@ -3505,47 +2735,12 @@
       "descripcion": "CELSIA C76C",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
+          "nombre": "C76C - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "54.A",
-              "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Conductores y cableado",
-          "materiales": [
-            {
-              "codigoMaterial": "16.C",
-              "cantidad": 20
-            }
-          ]
-        },
-        {
-          "nombre": "Conectores y empalmes eléctricos",
-          "materiales": [
-            {
-              "codigoMaterial": "17.C",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "18.C",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "19.C",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "20.C",
+              "codigoMaterial": "2.F",
               "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
-          "materiales": [
+            },
             {
               "codigoMaterial": "45.P",
               "cantidad": 1
@@ -3553,61 +2748,25 @@
             {
               "codigoMaterial": "53.P",
               "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
+            },
             {
-              "codigoMaterial": "2.F",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Protección eléctrica y puesta a tierra",
-          "materiales": [
-            {
-              "codigoMaterial": "55.P",
+              "codigoMaterial": "54.A",
               "cantidad": 3
             },
-            {
-              "codigoMaterial": "21.P",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "22.P",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "23.P",
-              "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
             {
               "codigoMaterial": "7.S",
               "cantidad": 3
             },
-            {
-              "codigoMaterial": "9.S",
-              "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
             {
               "codigoMaterial": "8.T",
               "cantidad": 3
             },
             {
               "codigoMaterial": "52.T",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "9.S",
               "cantidad": 1
             },
             {
@@ -3633,6 +2792,42 @@
             {
               "codigoMaterial": "24.T",
               "cantidad": 3
+            },
+            {
+              "codigoMaterial": "55.P",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "16.C",
+              "cantidad": 20
+            },
+            {
+              "codigoMaterial": "17.C",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "18.C",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "20.C",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "21.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "22.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "23.P",
+              "cantidad": 1
             }
           ]
         }
@@ -3645,50 +2840,15 @@
       "descripcion": "CELSIA C76C2",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
-          "materiales": [
-            {
-              "codigoMaterial": "54.A",
-              "cantidad": 12
-            }
-          ]
-        },
-        {
-          "nombre": "Conductores y cableado",
-          "materiales": [
-            {
-              "codigoMaterial": "16.C",
-              "cantidad": 17
-            }
-          ]
-        },
-        {
-          "nombre": "Conectores y empalmes eléctricos",
-          "materiales": [
-            {
-              "codigoMaterial": "17.C",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "18.C",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "19.C",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "20.C",
-              "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "C76C2 - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
+            },
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 4
             },
             {
               "codigoMaterial": "3.P",
@@ -3701,58 +2861,22 @@
             {
               "codigoMaterial": "53.P",
               "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
-            {
-              "codigoMaterial": "2.F",
-              "cantidad": 4
-            }
-          ]
-        },
-        {
-          "nombre": "Protección eléctrica y puesta a tierra",
-          "materiales": [
-            {
-              "codigoMaterial": "55.P",
-              "cantidad": 6
             },
             {
-              "codigoMaterial": "21.P",
-              "cantidad": 1
+              "codigoMaterial": "54.A",
+              "cantidad": 12
             },
-            {
-              "codigoMaterial": "22.P",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "23.P",
-              "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
             {
               "codigoMaterial": "7.S",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "9.S",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
-            {
               "codigoMaterial": "8.T",
               "cantidad": 8
+            },
+            {
+              "codigoMaterial": "9.S",
+              "cantidad": 2
             },
             {
               "codigoMaterial": "10.T",
@@ -3777,6 +2901,42 @@
             {
               "codigoMaterial": "24.T",
               "cantidad": 6
+            },
+            {
+              "codigoMaterial": "55.P",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "16.C",
+              "cantidad": 17
+            },
+            {
+              "codigoMaterial": "17.C",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "18.C",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "20.C",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "21.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "22.P",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "23.P",
+              "cantidad": 1
             }
           ]
         }
@@ -3789,29 +2949,15 @@
       "descripcion": "CELSIA C77C2",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
-          "materiales": [
-            {
-              "codigoMaterial": "54.A",
-              "cantidad": 12
-            }
-          ]
-        },
-        {
-          "nombre": "Conectores y empalmes eléctricos",
-          "materiales": [
-            {
-              "codigoMaterial": "19.C",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "C77C2 - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
+            },
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 4
             },
             {
               "codigoMaterial": "3.P",
@@ -3824,37 +2970,22 @@
             {
               "codigoMaterial": "53.P",
               "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
+            },
             {
-              "codigoMaterial": "2.F",
-              "cantidad": 4
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
+              "codigoMaterial": "54.A",
+              "cantidad": 12
+            },
             {
               "codigoMaterial": "7.S",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "9.S",
-              "cantidad": 4
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
-            {
               "codigoMaterial": "8.T",
               "cantidad": 16
+            },
+            {
+              "codigoMaterial": "9.S",
+              "cantidad": 4
             },
             {
               "codigoMaterial": "10.T",
@@ -3879,6 +3010,10 @@
             {
               "codigoMaterial": "24.T",
               "cantidad": 12
+            },
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 2
             }
           ]
         }
@@ -3891,34 +3026,12 @@
       "descripcion": "CELSIA C79",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
+          "nombre": "C79 - Configuración Estándar",
           "materiales": [
             {
-              "codigoMaterial": "65.A",
-              "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Conectores y empalmes eléctricos",
-          "materiales": [
-            {
-              "codigoMaterial": "17.C",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "18.C",
+              "codigoMaterial": "2.F",
               "cantidad": 3
             },
-            {
-              "codigoMaterial": "19.C",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
-          "materiales": [
             {
               "codigoMaterial": "45.P",
               "cantidad": 1
@@ -3926,21 +3039,11 @@
             {
               "codigoMaterial": "53.P",
               "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
+            },
             {
-              "codigoMaterial": "2.F",
+              "codigoMaterial": "65.A",
               "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
+            },
             {
               "codigoMaterial": "32.S",
               "cantidad": 3
@@ -3950,17 +3053,12 @@
               "cantidad": 3
             },
             {
-              "codigoMaterial": "9.S",
-              "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
-            {
               "codigoMaterial": "8.T",
               "cantidad": 3
+            },
+            {
+              "codigoMaterial": "9.S",
+              "cantidad": 1
             },
             {
               "codigoMaterial": "10.T",
@@ -3985,6 +3083,18 @@
             {
               "codigoMaterial": "14.T",
               "cantidad": 16
+            },
+            {
+              "codigoMaterial": "17.C",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "18.C",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 2
             }
           ]
         }
@@ -3997,46 +3107,15 @@
       "descripcion": "CELSIA PB31C",
       "configuraciones": [
         {
-          "nombre": "Aisladores",
-          "materiales": [
-            {
-              "codigoMaterial": "31.A",
-              "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Conductores y cableado",
-          "materiales": [
-            {
-              "codigoMaterial": "16.C",
-              "cantidad": 14
-            }
-          ]
-        },
-        {
-          "nombre": "Conectores y empalmes eléctricos",
-          "materiales": [
-            {
-              "codigoMaterial": "17.C",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "19.C",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "20.C",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
+          "nombre": "PB31C - Configuración Estándar",
           "materiales": [
             {
               "codigoMaterial": "1.P",
               "cantidad": 1
+            },
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 2
             },
             {
               "codigoMaterial": "25.P",
@@ -4047,57 +3126,21 @@
               "cantidad": 2
             },
             {
-              "codigoMaterial": "5.P",
-              "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
-            {
-              "codigoMaterial": "2.F",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Protección eléctrica y puesta a tierra",
-          "materiales": [
-            {
-              "codigoMaterial": "15.P",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "21.P",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "22.P",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "23.P",
-              "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Sujeción y amarre del conductor",
-          "materiales": [
-            {
               "codigoMaterial": "30.S",
               "cantidad": 1
             },
             {
+              "codigoMaterial": "5.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "31.A",
+              "cantidad": 3
+            },
+            {
               "codigoMaterial": "32.S",
               "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
+            },
             {
               "codigoMaterial": "10.T",
               "cantidad": 2
@@ -4121,38 +3164,15 @@
             {
               "codigoMaterial": "14.T",
               "cantidad": 2
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "operador": "CELSIA",
-      "codigo": "PC31C",
-      "tipoPoste": "Poste",
-      "descripcion": "CELSIA PC31C",
-      "configuraciones": [
-        {
-          "nombre": "Aisladores",
-          "materiales": [
+            },
             {
-              "codigoMaterial": "60.A",
+              "codigoMaterial": "15.P",
               "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Conductores y cableado",
-          "materiales": [
+            },
             {
               "codigoMaterial": "16.C",
               "cantidad": 14
-            }
-          ]
-        },
-        {
-          "nombre": "Conectores y empalmes eléctricos",
-          "materiales": [
+            },
             {
               "codigoMaterial": "17.C",
               "cantidad": 3
@@ -4164,45 +3184,6 @@
             {
               "codigoMaterial": "20.C",
               "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Estructura de soporte principal",
-          "materiales": [
-            {
-              "codigoMaterial": "1.P",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "56.P",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "4.P",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "53.P",
-              "cantidad": 1
-            }
-          ]
-        },
-        {
-          "nombre": "Fijación al poste",
-          "materiales": [
-            {
-              "codigoMaterial": "2.F",
-              "cantidad": 2
-            }
-          ]
-        },
-        {
-          "nombre": "Protección eléctrica y puesta a tierra",
-          "materiales": [
-            {
-              "codigoMaterial": "55.P",
-              "cantidad": 3
             },
             {
               "codigoMaterial": "21.P",
@@ -4217,23 +3198,50 @@
               "cantidad": 1
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "PC31C",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA PC31C",
+      "configuraciones": [
         {
-          "nombre": "Sujeción y amarre del conductor",
+          "nombre": "PC31C - Configuración Estándar",
           "materiales": [
+            {
+              "codigoMaterial": "1.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "56.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "4.P",
+              "cantidad": 2
+            },
             {
               "codigoMaterial": "30.S",
               "cantidad": 1
             },
             {
+              "codigoMaterial": "53.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "60.A",
+              "cantidad": 3
+            },
+            {
               "codigoMaterial": "32.S",
               "cantidad": 3
-            }
-          ]
-        },
-        {
-          "nombre": "Tornillería y herrajes de unión",
-          "materiales": [
+            },
             {
               "codigoMaterial": "10.T",
               "cantidad": 2
@@ -4257,6 +3265,38 @@
             {
               "codigoMaterial": "14.T",
               "cantidad": 2
+            },
+            {
+              "codigoMaterial": "55.P",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "16.C",
+              "cantidad": 14
+            },
+            {
+              "codigoMaterial": "17.C",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "20.C",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "21.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "22.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "23.P",
+              "cantidad": 1
             }
           ]
         }
