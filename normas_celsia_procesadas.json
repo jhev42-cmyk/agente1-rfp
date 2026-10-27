@@ -1,0 +1,4764 @@
+{
+  "B176C2": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 4,
+        "referencia": "CXX (2  salidas) Diametro según norma RA05",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Cruceta angular metálica en T autosoportada, 1400 mm",
+        "cantidad": 2,
+        "referencia": "A14G",
+        "numero_item": 10004139
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Soporte para dos aisladores en angulo red compacta (15kV / 35kV)",
+        "cantidad": 6,
+        "referencia": "H229 ",
+        "numero_item": 10006413
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo angular tipo C acero red compacta 15kV",
+        "cantidad": 2,
+        "referencia": "H226 ",
+        "numero_item": 10006422
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador suspensión polimérico 15 kV ANSI C29.13 clase DS-15 clevis-lengüeta",
+        "cantidad": 6,
+        "referencia": "DS10 ",
+        "numero_item": 10002432
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa preformada aleación de aluminio 2 AWG a 312.8 kcmil 15 kV  / 38 kV cable cubierto  (Amarre Preformado)",
+        "cantidad": 6,
+        "referencia": "RP03",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Eslabón en U 5/8\" forjado galvanizado",
+        "cantidad": 8,
+        "referencia": "M10",
+        "numero_item": 10004959
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa de retención aluminio tipo pistola (3–4 pernos) 2/0AWG-266.8KCMIL",
+        "cantidad": 2,
+        "referencia": "RA",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 31/2\"",
+        "cantidad": 4,
+        "referencia": "I21 ",
+        "numero_item": 10005724
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x 14\")",
+        "cantidad": 2,
+        "referencia": "IXX",
+        "numero_item": "Tornillo armazón doble (espárrago) Ø5/8\". Longitud según diámetro del poste. Ver norma RA05A."
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 18,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 16,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 16,
+        "referencia": "K9",
+        "numero_item": 10002610
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Pararrayos polimerico DPS 12 kV 10 kA",
+        "cantidad": 6,
+        "referencia": "Q2 ",
+        "numero_item": 10005663
+      },
+      {
+        "familia": "Cond",
+        "descripcion": "Cable de cobre desnudo #2 AWG",
+        "cantidad": 6,
+        "referencia": "UC24 Metros",
+        "numero_item": 10003243
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conector empalme conector DBH Y REPOSICION AISLAMIENTO Cable Simieaislado",
+        "cantidad": 6,
+        "referencia": "WACCX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conexión estribo a cable semiaislado con conector DBH y reposición de aislamiento del cable semiaislado",
+        "cantidad": 6,
+        "referencia": "WACCEX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores de compresión (C-Tap / H-Tap / Cuña)",
+        "cantidad": 2,
+        "referencia": "WACX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores tipo Cuña Cu - Cu #2 a #2",
+        "cantidad": 4,
+        "referencia": "WC4",
+        "numero_item": null
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Conector cuña a presión p/ varilla PAT Ø15,9 mm (5/8\") a Cu #2 AWG",
+        "cantidad": 1,
+        "referencia": "WAST2 ",
+        "numero_item": 10003904
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Grapa conexión doble cable tierra",
+        "cantidad": 1,
+        "referencia": "SPT1",
+        "numero_item": null
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Varilla puesta a tierra Ø 15,9 x 2400 mm (5/8\" x 8') Copperweld",
+        "cantidad": 1,
+        "referencia": "N11A",
+        "numero_item": 10008084
+      }
+    ],
+    "familias": [
+      "Ais",
+      "Cond",
+      "Cone",
+      "F.Po",
+      "P.Ele",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "B177C2": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 4,
+        "referencia": "CXX (2  salidas) Diametro según norma RA05",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Cruceta angular metálica en T autosoportada, 1400 mm",
+        "cantidad": 2,
+        "referencia": "A14G",
+        "numero_item": 10004139
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Soporte para dos aisladores en angulo red compacta (15kV / 35kV)",
+        "cantidad": 6,
+        "referencia": "H229 ",
+        "numero_item": 10006413
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo angular tipo C acero red compacta 15kV",
+        "cantidad": 2,
+        "referencia": "H226 ",
+        "numero_item": 10006422
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador suspensión polimérico 15 kV ANSI C29.13 clase DS-15 clevis-lengüeta",
+        "cantidad": 12,
+        "referencia": "DS10 ",
+        "numero_item": 10002432
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa preformada aleación de aluminio 2 AWG a 312.8 kcmil 15 kV  / 38 kV cable cubierto  (Amarre Preformado)",
+        "cantidad": 12,
+        "referencia": "RP03",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Eslabón en U 5/8\" forjado galvanizado",
+        "cantidad": 16,
+        "referencia": "M10",
+        "numero_item": 10004959
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa de retención aluminio tipo pistola (3–4 pernos) 2/0AWG-266.8KCMIL",
+        "cantidad": 4,
+        "referencia": "RA",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 31/2\"",
+        "cantidad": 4,
+        "referencia": "I21 ",
+        "numero_item": 10005724
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x 14\")",
+        "cantidad": 2,
+        "referencia": "IXX",
+        "numero_item": "Tornillo armazón doble (espárrago) Ø5/8\". Longitud según diámetro del poste. Ver norma RA05A."
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 14,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 12,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 12,
+        "referencia": "K9",
+        "numero_item": 10002610
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Guardacabo acero galvanizad Ø15,9 mm (5/8′′)",
+        "cantidad": 12,
+        "referencia": "M11",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores de compresión (C-Tap / H-Tap / Cuña)",
+        "cantidad": 2,
+        "referencia": "WACX",
+        "numero_item": null
+      }
+    ],
+    "familias": [
+      "Ais",
+      "Cone",
+      "F.Po",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "B71": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 3,
+        "referencia": "CXX",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo tangente tipo L 15kV con grapa prensora y\nestribo",
+        "cantidad": 1,
+        "referencia": "H220",
+        "numero_item": 10006438
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo anti-balanceo polimérico red compacta 15 kV",
+        "cantidad": 1,
+        "referencia": "H224 ",
+        "numero_item": 10003019
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Estribo para soporte tangencial",
+        "cantidad": 1,
+        "referencia": "RA223 (Ver tablas)",
+        "numero_item": null
+      },
+      {
+        "familia": "Esp",
+        "descripcion": "Espaciador poligonal polimérico 15 kV 10 kA cable cubierto (Tipo Pato)",
+        "cantidad": 1,
+        "referencia": "H222 ",
+        "numero_item": 10004479
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 2,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 2,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 2,
+        "referencia": "K9",
+        "numero_item": 10002610
+      }
+    ],
+    "familias": [
+      "Esp",
+      "F.Po",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "B712": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 3,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo tangente tipo L 15kV con grapa prensora y\nestribo",
+        "cantidad": 2,
+        "referencia": "H220",
+        "numero_item": 10006438
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo anti-balanceo polimérico red compacta 15 kV",
+        "cantidad": 2,
+        "referencia": "H224 ",
+        "numero_item": 10003019
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Estribo para soporte tangencial",
+        "cantidad": 2,
+        "referencia": "RA223 (Ver tablas)",
+        "numero_item": null
+      },
+      {
+        "familia": "Esp",
+        "descripcion": "Espaciador poligonal polimérico 15 kV 10 kA cable cubierto",
+        "cantidad": 2,
+        "referencia": "H222 ",
+        "numero_item": 10004479
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 4,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 4,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 4,
+        "referencia": "K9",
+        "numero_item": 10002610
+      }
+    ],
+    "familias": [
+      "Esp",
+      "F.Po",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "B72C": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 4,
+        "referencia": "CXX (2  salidas) Diametro según norma RA05",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo tangente tipo L 15kV con grapa prensora y\nestribo",
+        "cantidad": 1,
+        "referencia": "H220",
+        "numero_item": 10006438
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa Suspension para soporte mensajero red compacta",
+        "cantidad": 1,
+        "referencia": "UA225 ",
+        "numero_item": 10004892
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo angular tipo C acero red compacta 15kV",
+        "cantidad": 1,
+        "referencia": "H226 ",
+        "numero_item": 10006422
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador pin polimérico 15 kV ANSI C29.5 clase 55-4",
+        "cantidad": 3,
+        "referencia": "DP3 ",
+        "numero_item": 10002434
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa amarre preformado aislado tipo \"Z\" para red semiaislada. De acuerdo al calibre del conductor  (Amarre Preformado)",
+        "cantidad": 3,
+        "referencia": "RP01",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 31/2\"",
+        "cantidad": 2,
+        "referencia": "I21 ",
+        "numero_item": 10005724
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno Espigo corto para aislador tipo pin 10”x1 3/4”x3/4” rosca nailon 1 3/8” cruceta metálica (13,2 kV)",
+        "cantidad": 3,
+        "referencia": "EP1 ",
+        "numero_item": 10005775
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas de ojo alargada acero galv. / Ojos giratorios de Ø15,9 mm (5/8\")",
+        "cantidad": 1,
+        "referencia": "H10",
+        "numero_item": 10007764
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 10,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 8,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 4,
+        "referencia": "K9",
+        "numero_item": 10002610
+      }
+    ],
+    "familias": [
+      "Ais",
+      "F.Po",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "B72C2": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 4,
+        "referencia": "CXX (2  salidas)",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo tangente tipo L 15kV con grapa prensora y\nestribo",
+        "cantidad": 1,
+        "referencia": "H220",
+        "numero_item": 10006438
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa Suspension para soporte mensajero red compacta",
+        "cantidad": 2,
+        "referencia": "UA225",
+        "numero_item": 10004892
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo angular tipo C acero red compacta 15kV",
+        "cantidad": 2,
+        "referencia": "H226 ",
+        "numero_item": 10006422
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador pin polimérico 15 kV ANSI C29.5 clase 55-4",
+        "cantidad": 6,
+        "referencia": "DP3",
+        "numero_item": 10002434
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa amarre preformado aislado tipo \"Z\" para red semiaislada. De acuerdo al calibre del conductor  (Amarre Preformado)",
+        "cantidad": 6,
+        "referencia": "RP01",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 3\"",
+        "cantidad": 1,
+        "referencia": "I9 ",
+        "numero_item": 10007363
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 31/2\"",
+        "cantidad": 4,
+        "referencia": "I21",
+        "numero_item": 10005724
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno Espigo corto para aislador tipo pin 10”x1 3/4”x3/4” rosca nailon 1 3/8” cruceta metálica (13,2 kV)",
+        "cantidad": 6,
+        "referencia": "EP1",
+        "numero_item": 10005775
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas de ojo alargada acero galv. / Ojos giratorios de Ø15,9 mm (5/8\")",
+        "cantidad": 2,
+        "referencia": "H10",
+        "numero_item": 10007764
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 24,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 22,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 22,
+        "referencia": "K9",
+        "numero_item": 10002610
+      }
+    ],
+    "familias": [
+      "Ais",
+      "F.Po",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "B72CD2": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 4,
+        "referencia": "CXX (2 salidas) Diametro según norma RA05",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Cruceta angular metálica en T autosoportada, 1400 mm",
+        "cantidad": 2,
+        "referencia": "A14G ",
+        "numero_item": 10004139
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Soporte para dos aisladores en angulo red compacta (15kV / 35kV)",
+        "cantidad": 2,
+        "referencia": "H229 ",
+        "numero_item": 10006413
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo angular tipo C acero red compacta 15kV",
+        "cantidad": 2,
+        "referencia": "H226 ",
+        "numero_item": 10006422
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador pin polimérico 15 kV ANSI C29.5 clase 55-4",
+        "cantidad": 12,
+        "referencia": "DP3 ",
+        "numero_item": 10002434
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa preformada aleación de aluminio 2 AWG a 312.8 kcmil 15 kV  / 38 kV cable cubierto  (Amarre Preformado)",
+        "cantidad": 6,
+        "referencia": "RP02D",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 3\"",
+        "cantidad": 4,
+        "referencia": "I21 ",
+        "numero_item": 10005724
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado1/2\" x 3\"",
+        "cantidad": 2,
+        "referencia": "M10 ",
+        "numero_item": 10004959
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa de retención aluminio tipo pistola (3–4 pernos) 4AWG a 2/0 AWG",
+        "cantidad": 1,
+        "referencia": "RA",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno Espigo corto para aislador tipo pin 10”x1 3/4”x3/4” rosca nailon 1 3/8” cruceta metálica (13,2 kV)",
+        "cantidad": 12,
+        "referencia": "EP1 ",
+        "numero_item": 10005775
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x 12\")",
+        "cantidad": 2,
+        "referencia": "I17",
+        "numero_item": 10005745
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 36,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 32,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 32,
+        "referencia": "K9",
+        "numero_item": 10002610
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores de compresión (C-Tap / H-Tap / Cuña)",
+        "cantidad": 2,
+        "referencia": "WACX",
+        "numero_item": null
+      }
+    ],
+    "familias": [
+      "Ais",
+      "Cone",
+      "F.Po",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "B72E": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 2,
+        "referencia": "CXX (2 a 4  salidas) Diametro según Norma RA05",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo angular tipo E acero red compacta 15kV",
+        "cantidad": 1,
+        "referencia": "H228",
+        "numero_item": 10006415
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Estribo para soporte tangencial",
+        "cantidad": 1,
+        "referencia": "RA222",
+        "numero_item": 10004888
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador pin polimérico 15 kV ANSI C29.5 clase 55-4",
+        "cantidad": 3,
+        "referencia": "DP3",
+        "numero_item": 10002434
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa amarre preformado aislado tipo \"Z\" para red semiaislada. De acuerdo al calibre del conductor  (Amarre Preformado)",
+        "cantidad": 3,
+        "referencia": "RP01",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 31/2\"",
+        "cantidad": 2,
+        "referencia": "I21",
+        "numero_item": 10005724
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno Espigo corto para aislador tipo pin 10”x1 3/4”x3/4” rosca nailon 1 3/8” cruceta metálica (13,2 kV)",
+        "cantidad": 3,
+        "referencia": "EP1",
+        "numero_item": 10005775
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x 14\")",
+        "cantidad": 6,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas de ojo alargada acero galv. / Ojos giratorios de Ø15,9 mm (5/8\")",
+        "cantidad": 4,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 4,
+        "referencia": "K9",
+        "numero_item": 10002610
+      }
+    ],
+    "familias": [
+      "Ais",
+      "F.Po",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "B72E2": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 2,
+        "referencia": "CXX (2  salidas)",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo angular tipo E acero red compacta 15kV",
+        "cantidad": 2,
+        "referencia": "H228",
+        "numero_item": 10006415
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Estribo para soporte tangencial",
+        "cantidad": 2,
+        "referencia": "RA222",
+        "numero_item": 10004888
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador pin polimérico 15 kV ANSI C29.5 clase 55-4",
+        "cantidad": 6,
+        "referencia": "DP3",
+        "numero_item": 10002434
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa amarre preformado aislado tipo \"Z\" para red semiaislada. De acuerdo al calibre del conductor  (Amarre Preformado)",
+        "cantidad": 6,
+        "referencia": "RP01",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 31/2\"",
+        "cantidad": 4,
+        "referencia": "I21",
+        "numero_item": 10005724
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno Espigo corto para aislador tipo pin 10”x1 3/4”x3/4” rosca nailon 1 3/8” cruceta metálica (13,2 kV)",
+        "cantidad": 6,
+        "referencia": "EP1",
+        "numero_item": 10005775
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x 14\")",
+        "cantidad": 14,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas de ojo alargada acero galv. / Ojos giratorios de Ø15,9 mm (5/8\")",
+        "cantidad": 12,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 12,
+        "referencia": "K9",
+        "numero_item": 10002610
+      }
+    ],
+    "familias": [
+      "Ais",
+      "F.Po",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "B72ED": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 2,
+        "referencia": "CXX (2  salidas)",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Soporte para dos aisladores en angulo red compacta (15kV / 35kV)",
+        "cantidad": 3,
+        "referencia": "H229 ",
+        "numero_item": 10006413
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa Suspension para soporte mensajero red compacta",
+        "cantidad": 1,
+        "referencia": "UA225",
+        "numero_item": 10004892
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo angular tipo E acero red compacta 15kV",
+        "cantidad": 1,
+        "referencia": "H228",
+        "numero_item": 10006415
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador pin polimérico 15 kV ANSI C29.5 clase 55-4",
+        "cantidad": 6,
+        "referencia": "DP3",
+        "numero_item": 10002434
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa preformada aleación de aluminio 2 AWG a 312.8 kcmil 15 kV  / 38 kV cable cubierto  (Amarre Preformado)",
+        "cantidad": 3,
+        "referencia": "RP02D (tipo \"Omega\" Doble)",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Eslabón en U 5/8\" forjado galvanizado",
+        "cantidad": 1,
+        "referencia": "M10",
+        "numero_item": 10004959
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 31/2\"",
+        "cantidad": 2,
+        "referencia": "I21",
+        "numero_item": 10005724
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno Espigo corto para aislador tipo pin 10”x1 3/4”x3/4” rosca nailon 1 3/8” cruceta metálica (13,2 kV)",
+        "cantidad": 6,
+        "referencia": "EP1",
+        "numero_item": 10005775
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x 14\")",
+        "cantidad": 6,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas de ojo alargada acero galv. / Ojos giratorios de Ø15,9 mm (5/8\")",
+        "cantidad": 4,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 4,
+        "referencia": "K9",
+        "numero_item": 10002610
+      }
+    ],
+    "familias": [
+      "Ais",
+      "F.Po",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "B761": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma RA05",
+        "cantidad": 2,
+        "referencia": "CXX",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Cruceta metálica galv. 76 x 76 x 7,9 x 2400 mm (3\"x3\"x5/16\" x 2,40 m)",
+        "cantidad": 1,
+        "referencia": "A13A",
+        "numero_item": 10004148
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Pieamigo - Diagonal en L para bandera, 51 x 51 x 6 x 2.337 mm (2\"x2\"x1/4\" x 92\")  p/cruceta 2400 mm",
+        "cantidad": 1,
+        "referencia": "B4",
+        "numero_item": 10007138
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa de suspensión aluminio 4 AWG - 2/0 AWG (1/4\" - 3/8\")",
+        "cantidad": 1,
+        "referencia": "UA225",
+        "numero_item": 10004892
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" X 1 1/2\"",
+        "cantidad": 1,
+        "referencia": "I5",
+        "numero_item": 10005743
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 4,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 4,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 4,
+        "referencia": "K9",
+        "numero_item": 10002610
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas de ojo alargada acero galv. / Ojos giratorios de Ø15,9 mm (5/8\")",
+        "cantidad": 1,
+        "referencia": "H10",
+        "numero_item": 10007764
+      }
+    ],
+    "familias": [
+      "F.Po",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "B766": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma RA05",
+        "cantidad": 2,
+        "referencia": "CXX (Diametro según Norma RA05)",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Cruceta metálica galv. 76 x 76 x 7,9 x 2400 mm (3\"x3\"x5/16\" x 2,40 m)",
+        "cantidad": 2,
+        "referencia": "A13A",
+        "numero_item": 10004148
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Pieamigo - Diagonal en L para bandera, 51 x 51 x 6 x 2.337 mm (2\"x2\"x1/4\" x 92\")  p/cruceta 2400 mm",
+        "cantidad": 2,
+        "referencia": "B4",
+        "numero_item": 10007138
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Cruceta metálica retención 600mm  3\" X 3\" X 1/4\" / 2 1/2\" x 2 1/2\" x 1/4\"",
+        "cantidad": 2,
+        "referencia": "A20 (Soporte auxiliar para herraje terminal en C, red compacta - Herraje con cuña )",
+        "numero_item": 10006417
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Cubo metalico galvanizado 3\" X 3\" para soporte de protecciones",
+        "cantidad": 2,
+        "referencia": "CM",
+        "numero_item": 10004152
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa preformada aleación de aluminio 2 AWG a 312.8 kcmil 15 kV  / 38 kV cable cubierto  (Amarre Preformado)",
+        "cantidad": 3,
+        "referencia": "RP03",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Eslabón en U 5/8\" forjado galvanizado",
+        "cantidad": 4,
+        "referencia": "M10 ",
+        "numero_item": 10004959
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa de retención aluminio tipo pistola (3–4 pernos) 4AWG a 2/0 AWG",
+        "cantidad": 2,
+        "referencia": "RA",
+        "numero_item": null
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Estribos de línea con conector de cuña",
+        "cantidad": 3,
+        "referencia": "WACCEX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conector empalme conector DBH Y REPOSICION AISLAMIENTO Cable Simieaislado",
+        "cantidad": 3,
+        "referencia": "WACCX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores de compresión (C-Tap / H-Tap / Cuña)",
+        "cantidad": 1,
+        "referencia": "WACX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores tipo Cuña Cu - Cu #2 a #2",
+        "cantidad": 2,
+        "referencia": "WC4",
+        "numero_item": 10003874
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador suspensión polimérico 15 kV ANSI C29.13 clase DS-15 clevis-lengüeta",
+        "cantidad": 3,
+        "referencia": "DS10 ",
+        "numero_item": 10002432
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" X 2\"",
+        "cantidad": 2,
+        "referencia": "I5",
+        "numero_item": 10005743
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x 12\")",
+        "cantidad": 5,
+        "referencia": "I17 ",
+        "numero_item": 10005745
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 28,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 24,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 24,
+        "referencia": "K9",
+        "numero_item": 10002610
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas de ojo alargada acero galv. / Ojos giratorios de Ø15,9 mm (5/8\")",
+        "cantidad": 2,
+        "referencia": "H10",
+        "numero_item": 10007764
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Guardacabo acero galvanizad Ø15,9 mm (5/8′′)",
+        "cantidad": 3,
+        "referencia": "M11",
+        "numero_item": null
+      },
+      {
+        "familia": "Cond",
+        "descripcion": "Alambre aluminio aislado #8 AWG, 600V",
+        "cantidad": 2,
+        "referencia": "CA166 (Entizado)",
+        "numero_item": 10002479
+      },
+      {
+        "familia": "Cond",
+        "descripcion": "Cable de cobre desnudo #2 AWG",
+        "cantidad": 14,
+        "referencia": "UC24 Metros",
+        "numero_item": 10003243
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Pararrayos polimerico DPS 12 kV 10 kA",
+        "cantidad": 3,
+        "referencia": "Q2 ",
+        "numero_item": 10005663
+      }
+    ],
+    "familias": [
+      "Ais",
+      "Cond",
+      "Cone",
+      "F.Po",
+      "P.Ele",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "B767": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma RA05",
+        "cantidad": 2,
+        "referencia": "CXX (Diametro según Norma RA05)",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Cruceta metálica galv. 76 x 76 x 7,9 x 2400 mm (3\"x3\"x5/16\" x 2,40 m)",
+        "cantidad": 1,
+        "referencia": "A13A",
+        "numero_item": 10004148
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Pieamigo - Diagonal en L para bandera, 51 x 51 x 6 x 2.337 mm (2\"x2\"x1/4\" x 92\")  p/cruceta 2400 mm",
+        "cantidad": 2,
+        "referencia": "B4",
+        "numero_item": 10007138
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Cruceta metálica retención 600mm  3\" X 3\" X 1/4\" / 2 1/2\" x 2 1/2\" x 1/4\"",
+        "cantidad": 2,
+        "referencia": "A20 (Soporte auxiliar para herraje terminal en C, red compacta - Herraje con cuña )",
+        "numero_item": 10006417
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa preformada aleación de aluminio 2 AWG a 312.8 kcmil 15 kV  / 38 kV cable cubierto  (Amarre Preformado)",
+        "cantidad": 6,
+        "referencia": "RP03",
+        "numero_item": null
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa de retención aluminio tipo pistola (3–4 pernos) 4AWG a 2/0 AWG",
+        "cantidad": 2,
+        "referencia": "RA",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores de compresión (C-Tap / H-Tap / Cuña)",
+        "cantidad": 1,
+        "referencia": "WACX",
+        "numero_item": null
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador suspensión polimérico 15 kV ANSI C29.13 clase DS-15 clevis-lengüeta",
+        "cantidad": 3,
+        "referencia": "DS10 ",
+        "numero_item": 10002432
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador polietileno tipo pin ANSI 55-4, 15kV",
+        "cantidad": 3,
+        "referencia": "DP3 ",
+        "numero_item": 10002434
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Pernos espigo para aislador tipo PIN 15kV",
+        "cantidad": 3,
+        "referencia": "EP1 ",
+        "numero_item": 10005775
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" X 2\"",
+        "cantidad": 2,
+        "referencia": "I5",
+        "numero_item": 10005743
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x 12\")",
+        "cantidad": 5,
+        "referencia": "I17 ",
+        "numero_item": 10005745
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 28,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 22,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 22,
+        "referencia": "K9",
+        "numero_item": 10002610
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas de ojo alargada acero galv. / Ojos giratorios de Ø15,9 mm (5/8\")",
+        "cantidad": 4,
+        "referencia": "H10",
+        "numero_item": 10007764
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Guardacabo acero galvanizad Ø15,9 mm (5/8′′)",
+        "cantidad": 6,
+        "referencia": "M11",
+        "numero_item": null
+      },
+      {
+        "familia": "Cond",
+        "descripcion": "Alambre aluminio aislado #8 AWG, 600V",
+        "cantidad": 2,
+        "referencia": "CA166 (Entizado)",
+        "numero_item": 10002479
+      }
+    ],
+    "familias": [
+      "Ais",
+      "Cond",
+      "Cone",
+      "F.Po",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "B76C": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 3,
+        "referencia": "CXX (2  salidas) Diametro según norma RA05",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Cruceta metálica retención 600mm  3\" X 3\" X 1/4\" / 2 1/2\" x 2 1/2\" x 1/4\"",
+        "cantidad": 1,
+        "referencia": "A20",
+        "numero_item": 10006417
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo angular tipo C acero red compacta 15kV",
+        "cantidad": 1,
+        "referencia": "H226 ",
+        "numero_item": 10006422
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador suspensión polimérico 15 kV ANSI C29.13 clase DS-15 clevis-lengüeta",
+        "cantidad": 3,
+        "referencia": "DS10 ",
+        "numero_item": 10002432
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa preformada aleación de aluminio 2 AWG a 312.8 kcmil 15 kV  / 38 kV cable cubierto  (Amarre Preformado)",
+        "cantidad": 3,
+        "referencia": "RP03",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Eslabón en U 5/8\" forjado galvanizado",
+        "cantidad": 3,
+        "referencia": "M10",
+        "numero_item": 10004959
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 2\"",
+        "cantidad": 1,
+        "referencia": "I5 ",
+        "numero_item": 10005743
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa de retención aluminio tipo pistola (3–4 pernos) 2/0AWG-266.8KCMIL",
+        "cantidad": 1,
+        "referencia": "RA",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 31/2\"",
+        "cantidad": 2,
+        "referencia": "I21 ",
+        "numero_item": 10005724
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas de ojo alargada acero galv. / Ojos giratorios de Ø15,9 mm (5/8\")",
+        "cantidad": 1,
+        "referencia": "H10",
+        "numero_item": 10007764
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 16,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 3,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 3,
+        "referencia": "K9",
+        "numero_item": 10002610
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Guardacabo acero galvanizad Ø15,9 mm (5/8′′)",
+        "cantidad": 3,
+        "referencia": "M11",
+        "numero_item": null
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Pararrayos polimerico DPS 12 kV 10 kA",
+        "cantidad": 3,
+        "referencia": "Q2 ",
+        "numero_item": 10005663
+      },
+      {
+        "familia": "Cond",
+        "descripcion": "Cable de cobre desnudo #2 AWG",
+        "cantidad": 16,
+        "referencia": "UC24 Metros",
+        "numero_item": 10003243
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conector empalme conector DBH Y REPOSICION AISLAMIENTO Cable Simieaislado",
+        "cantidad": 3,
+        "referencia": "WACCX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conexión estribo a cable semiaislado con conector DBH y reposición de aislamiento del cable semiaislado",
+        "cantidad": 3,
+        "referencia": "WACCEX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores de compresión (C-Tap / H-Tap / Cuña)",
+        "cantidad": 1,
+        "referencia": "WACX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores tipo Cuña Cu - Cu #2 a #2",
+        "cantidad": 2,
+        "referencia": "WC4",
+        "numero_item": null
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Conector cuña a presión p/ varilla PAT Ø15,9 mm (5/8\") a Cu #2 AWG",
+        "cantidad": 1,
+        "referencia": "WAST2 ",
+        "numero_item": 10003904
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Grapa conexión doble cable tierra",
+        "cantidad": 1,
+        "referencia": "SPT1",
+        "numero_item": null
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Varilla puesta a tierra Ø 15,9 x 2400 mm (5/8\" x 8') Copperweld",
+        "cantidad": 1,
+        "referencia": "N11A",
+        "numero_item": 10008084
+      }
+    ],
+    "familias": [
+      "Ais",
+      "Cond",
+      "Cone",
+      "F.Po",
+      "P.Ele",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "B76C2": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 4,
+        "referencia": "CXX (2  salidas) Diametro según norma RA05",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Cruceta angular metálica en T autosoportada, 1400 mm",
+        "cantidad": 2,
+        "referencia": "A14G",
+        "numero_item": 10004139
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Soporte para dos aisladores en angulo red compacta (15kV / 35kV)",
+        "cantidad": 6,
+        "referencia": "H229 ",
+        "numero_item": 10006413
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo angular tipo C acero red compacta 15kV",
+        "cantidad": 2,
+        "referencia": "H226 ",
+        "numero_item": 10006422
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador suspensión polimérico 15 kV ANSI C29.13 clase DS-15 clevis-lengüeta",
+        "cantidad": 12,
+        "referencia": "DS10 ",
+        "numero_item": 10002432
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa preformada aleación de aluminio 2 AWG a 312.8 kcmil 15 kV  / 38 kV cable cubierto  (Amarre Preformado)",
+        "cantidad": 6,
+        "referencia": "RP03",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Eslabón en U 5/8\" forjado galvanizado",
+        "cantidad": 8,
+        "referencia": "M10",
+        "numero_item": 10004959
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa de retención aluminio tipo pistola (3–4 pernos) 2/0AWG-266.8KCMIL",
+        "cantidad": 2,
+        "referencia": "RA",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 31/2\"",
+        "cantidad": 4,
+        "referencia": "I21 ",
+        "numero_item": 10005724
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x 12\")",
+        "cantidad": 2,
+        "referencia": "I17",
+        "numero_item": 10005745
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 18,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 16,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 16,
+        "referencia": "K9",
+        "numero_item": 10002610
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Guardacabo acero galvanizad Ø15,9 mm (5/8′′)",
+        "cantidad": 6,
+        "referencia": "M11",
+        "numero_item": null
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Pararrayos polimerico DPS 12 kV 10 kA",
+        "cantidad": 6,
+        "referencia": "Q2 ",
+        "numero_item": 10005663
+      },
+      {
+        "familia": "Cond",
+        "descripcion": "Cable de cobre desnudo #2 AWG",
+        "cantidad": 17,
+        "referencia": "UC24 Metros",
+        "numero_item": 10003243
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conector empalme conector DBH Y REPOSICION AISLAMIENTO Cable Simieaislado",
+        "cantidad": 6,
+        "referencia": "WACCX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conexión estribo a cable semiaislado con conector DBH y reposición de aislamiento del cable semiaislado",
+        "cantidad": 6,
+        "referencia": "WACCEX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores de compresión (C-Tap / H-Tap / Cuña)",
+        "cantidad": 2,
+        "referencia": "WACX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores tipo Cuña Cu - Cu #2 a #2",
+        "cantidad": 3,
+        "referencia": "WC4",
+        "numero_item": null
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Conector cuña a presión p/ varilla PAT Ø15,9 mm (5/8\") a Cu #2 AWG",
+        "cantidad": 1,
+        "referencia": "WAST2 ",
+        "numero_item": 10003904
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Grapa conexión doble cable tierra",
+        "cantidad": 2,
+        "referencia": "SPT1",
+        "numero_item": null
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Varilla puesta a tierra Ø 15,9 x 2400 mm (5/8\" x 8') Copperweld",
+        "cantidad": 1,
+        "referencia": "N11A",
+        "numero_item": 10008084
+      }
+    ],
+    "familias": [
+      "Ais",
+      "Cond",
+      "Cone",
+      "F.Po",
+      "P.Ele",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "B77C2": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 4,
+        "referencia": "CXX (2  salidas) Diametro según norma RA05",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Cruceta angular metálica en T autosoportada, 1400 mm",
+        "cantidad": 2,
+        "referencia": "A14G",
+        "numero_item": 10004139
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Soporte para dos aisladores en angulo red compacta (15kV / 35kV)",
+        "cantidad": 6,
+        "referencia": "H229 ",
+        "numero_item": 10006413
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo angular tipo C acero red compacta 15kV",
+        "cantidad": 2,
+        "referencia": "H226 ",
+        "numero_item": 10006422
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador suspensión polimérico 15 kV ANSI C29.13 clase DS-15 clevis-lengüeta",
+        "cantidad": 12,
+        "referencia": "DS10 ",
+        "numero_item": 10002432
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa preformada aleación de aluminio 2 AWG a 312.8 kcmil 15 kV  / 38 kV cable cubierto  (Amarre Preformado)",
+        "cantidad": 12,
+        "referencia": "RP03",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Eslabón en U 5/8\" forjado galvanizado",
+        "cantidad": 16,
+        "referencia": "M10",
+        "numero_item": 10004959
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa de retención aluminio tipo pistola (3–4 pernos) 2/0AWG-266.8KCMIL",
+        "cantidad": 4,
+        "referencia": "RA",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 31/2\"",
+        "cantidad": 4,
+        "referencia": "I21 ",
+        "numero_item": 10005724
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x 12\")",
+        "cantidad": 2,
+        "referencia": "I17",
+        "numero_item": 10005745
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 14,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 12,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 12,
+        "referencia": "K9",
+        "numero_item": 10002610
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Guardacabo acero galvanizad Ø15,9 mm (5/8′′)",
+        "cantidad": 12,
+        "referencia": "M11",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores de compresión (C-Tap / H-Tap / Cuña)",
+        "cantidad": 2,
+        "referencia": "WACX",
+        "numero_item": null
+      }
+    ],
+    "familias": [
+      "Ais",
+      "Cone",
+      "F.Po",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "B79": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 3,
+        "referencia": "CXX (2  salidas) Diametro según norma RA05",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Cruceta metálica retención 600mm  3\" X 3\" X 1/4\" / 2 1/2\" x 2 1/2\" x 1/4\"",
+        "cantidad": 1,
+        "referencia": "A20",
+        "numero_item": 10006417
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo angular tipo C acero red compacta 15kV",
+        "cantidad": 1,
+        "referencia": "H226 ",
+        "numero_item": 10006422
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador pin polimérico 15 kV ANSI C29.5 clase 55-4",
+        "cantidad": 3,
+        "referencia": "DP3",
+        "numero_item": 10002434
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador suspensión polimérico 15 kV ANSI C29.13 clase DS-15 clevis-lengüeta",
+        "cantidad": 3,
+        "referencia": "DS10 ",
+        "numero_item": 10002432
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa amarre preformado aislado tipo \"Z\" para red semiaislada. De acuerdo al calibre del conductor  (Amarre Preformado)",
+        "cantidad": 3,
+        "referencia": "RP01",
+        "numero_item": null
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa preformada aleación de aluminio 2 AWG a 312.8 kcmil 15 kV  / 38 kV cable cubierto  (Amarre Preformado)",
+        "cantidad": 3,
+        "referencia": "RP03",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Eslabón en U 5/8\" forjado galvanizado",
+        "cantidad": 3,
+        "referencia": "M10",
+        "numero_item": 10004959
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa de retención aluminio tipo pistola (3–4 pernos) 2/0AWG-266.8KCMIL",
+        "cantidad": 1,
+        "referencia": "RA",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 31/2\"",
+        "cantidad": 2,
+        "referencia": "I21 ",
+        "numero_item": 10005724
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno Espigo corto para aislador tipo pin 10”x1 3/4”x3/4” rosca nailon 1 3/8” cruceta metálica (13,2 kV)",
+        "cantidad": 3,
+        "referencia": "EP1 ",
+        "numero_item": 10005775
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas de ojo alargada acero galv. / Ojos giratorios de Ø15,9 mm (5/8\")",
+        "cantidad": 1,
+        "referencia": "H10",
+        "numero_item": 10007764
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 18,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 16,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 16,
+        "referencia": "K9",
+        "numero_item": 10002610
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conector empalme conector DBH Y REPOSICION AISLAMIENTO Cable Simieaislado",
+        "cantidad": 6,
+        "referencia": "WACCX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conexión estribo a cable semiaislado con conector DBH y reposición de aislamiento del cable semiaislado",
+        "cantidad": 3,
+        "referencia": "WACCEX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores de compresión (C-Tap / H-Tap / Cuña)",
+        "cantidad": 2,
+        "referencia": "WACX",
+        "numero_item": null
+      }
+    ],
+    "familias": [
+      "Ais",
+      "Cone",
+      "F.Po",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "C176C2": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 4,
+        "referencia": "CXX (2  salidas) Diametro según norma RA05",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Cruceta angular metálica en T autosoportada, 1400 mm",
+        "cantidad": 2,
+        "referencia": "A14G",
+        "numero_item": 10004139
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Soporte para dos aisladores en angulo red compacta (15kV / 35kV)",
+        "cantidad": 6,
+        "referencia": "H229 ",
+        "numero_item": 10006413
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo angular tipo C acero red compacta 38kV",
+        "cantidad": 2,
+        "referencia": "H227 ",
+        "numero_item": 10006422
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador suspensión polimérico 38kV ANSI C29.13 clase DS-35 clevis-lengüeta",
+        "cantidad": 6,
+        "referencia": "DS12 ",
+        "numero_item": 10002433
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa preformada aleación de aluminio 2 AWG a 312.8 kcmil 15 kV  / 38 kV cable cubierto  (Amarre Preformado)",
+        "cantidad": 6,
+        "referencia": "RP03",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Eslabón en U 5/8\" forjado galvanizado",
+        "cantidad": 8,
+        "referencia": "M10",
+        "numero_item": 10004959
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa de retención aluminio tipo pistola (3–4 pernos) 2/0AWG-266.8KCMIL",
+        "cantidad": 2,
+        "referencia": "RA",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 31/2\"",
+        "cantidad": 4,
+        "referencia": "I21 ",
+        "numero_item": 10005724
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x 14\")",
+        "cantidad": 2,
+        "referencia": "IXX",
+        "numero_item": "Tornillo armazón doble (espárrago) Ø5/8\". Longitud según diámetro del poste. Ver norma RA05A."
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 18,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 16,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 16,
+        "referencia": "K9",
+        "numero_item": 10002610
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Pararrayos polimerico DPS 30 kV 10 kA",
+        "cantidad": 6,
+        "referencia": "Q3 ",
+        "numero_item": 10005664
+      },
+      {
+        "familia": "Cond",
+        "descripcion": "Cable de cobre desnudo #2 AWG",
+        "cantidad": 6,
+        "referencia": "UC24 Metros",
+        "numero_item": 10003243
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conector empalme conector DBH Y REPOSICION AISLAMIENTO Cable Simieaislado",
+        "cantidad": 6,
+        "referencia": "WACCX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conexión estribo a cable semiaislado con conector DBH y reposición de aislamiento del cable semiaislado",
+        "cantidad": 6,
+        "referencia": "WACCEX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores de compresión (C-Tap / H-Tap / Cuña)",
+        "cantidad": 2,
+        "referencia": "WACX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores tipo Cuña Cu - Cu #2 a #2",
+        "cantidad": 4,
+        "referencia": "WC4",
+        "numero_item": null
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Conector cuña a presión p/ varilla PAT Ø15,9 mm (5/8\") a Cu #2 AWG",
+        "cantidad": 1,
+        "referencia": "WAST2 ",
+        "numero_item": 10003904
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Grapa conexión doble cable tierra",
+        "cantidad": 1,
+        "referencia": "SPT1",
+        "numero_item": null
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Varilla puesta a tierra Ø 15,9 x 2400 mm (5/8\" x 8') Copperweld",
+        "cantidad": 1,
+        "referencia": "N11A",
+        "numero_item": 10008084
+      }
+    ],
+    "familias": [
+      "Ais",
+      "Cond",
+      "Cone",
+      "F.Po",
+      "P.Ele",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "C177C2": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 4,
+        "referencia": "CXX (2  salidas) Diametro según norma RA05",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Cruceta angular metálica en T autosoportada, 1400 mm",
+        "cantidad": 2,
+        "referencia": "A14G",
+        "numero_item": 10004139
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Soporte para dos aisladores en angulo red compacta (15kV / 35kV)",
+        "cantidad": 6,
+        "referencia": "H229 ",
+        "numero_item": 10006413
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo angular tipo C acero red compacta 38kV",
+        "cantidad": 2,
+        "referencia": "H227 ",
+        "numero_item": 10006422
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador suspensión polimérico 38kV ANSI C29.13 clase DS-35 clevis-lengüeta",
+        "cantidad": 12,
+        "referencia": "DS12 ",
+        "numero_item": 10002433
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa preformada aleación de aluminio 2 AWG a 312.8 kcmil 15 kV  / 38 kV cable cubierto  (Amarre Preformado)",
+        "cantidad": 12,
+        "referencia": "RP03",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Eslabón en U 5/8\" forjado galvanizado",
+        "cantidad": 16,
+        "referencia": "M10",
+        "numero_item": 10004959
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa de retención aluminio tipo pistola (3–4 pernos) 2/0AWG-266.8KCMIL",
+        "cantidad": 4,
+        "referencia": "RA",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 31/2\"",
+        "cantidad": 4,
+        "referencia": "I21 ",
+        "numero_item": 10005724
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x 14\")",
+        "cantidad": 2,
+        "referencia": "IXX",
+        "numero_item": "Tornillo armazón doble (espárrago) Ø5/8\". Longitud según diámetro del poste. Ver norma RA05A."
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 14,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 12,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 12,
+        "referencia": "K9",
+        "numero_item": 10002610
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Guardacabo acero galvanizad Ø15,9 mm (5/8′′)",
+        "cantidad": 12,
+        "referencia": "M11",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores de compresión (C-Tap / H-Tap / Cuña)",
+        "cantidad": 2,
+        "referencia": "WACX",
+        "numero_item": null
+      }
+    ],
+    "familias": [
+      "Ais",
+      "Cone",
+      "F.Po",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "C71": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 3,
+        "referencia": "CXX",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo tangente tipo L 38 – 48 kV con grapa prensora y estribo",
+        "cantidad": 1,
+        "referencia": "H221",
+        "numero_item": 10022549
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo anti-balanceo polimérico red compacta 38kV",
+        "cantidad": 1,
+        "referencia": "H225 ",
+        "numero_item": 10022548
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Estribo para soporte tangencial",
+        "cantidad": 1,
+        "referencia": "RA223 (Ver tablas)",
+        "numero_item": null
+      },
+      {
+        "familia": "Esp",
+        "descripcion": "Espaciador poligonal polimérico 38 kV 16 kA cable cubierto (Tipo Pato)",
+        "cantidad": 1,
+        "referencia": "H223 ",
+        "numero_item": 10022547
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 2,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 2,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 2,
+        "referencia": "K9",
+        "numero_item": 10002610
+      }
+    ],
+    "familias": [
+      "Esp",
+      "F.Po",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "C712": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 3,
+        "referencia": "CXX (2  salidas)",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo tangente tipo L 38 – 48 kV con grapa prensora y estribo",
+        "cantidad": 2,
+        "referencia": "H221",
+        "numero_item": 10022549
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo anti-balanceo polimérico red compacta 38kV",
+        "cantidad": 2,
+        "referencia": "H225 ",
+        "numero_item": 10022548
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Estribo para soporte tangencial",
+        "cantidad": 2,
+        "referencia": "RA223 (Ver tablas)",
+        "numero_item": null
+      },
+      {
+        "familia": "Esp",
+        "descripcion": "Espaciador poligonal polimérico 38 kV 16 kA cable cubierto",
+        "cantidad": 2,
+        "referencia": "H223 ",
+        "numero_item": 10022547
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 4,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 4,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 4,
+        "referencia": "K9",
+        "numero_item": 10002610
+      }
+    ],
+    "familias": [
+      "Esp",
+      "F.Po",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "C72C": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 4,
+        "referencia": "CXX (2  salidas) Diametro según norma RA05",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo tangente tipo L 38 – 48 kV con grapa prensora y estribo",
+        "cantidad": 1,
+        "referencia": "H221",
+        "numero_item": 10022549
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa Suspension para soporte mensajero red compacta",
+        "cantidad": 1,
+        "referencia": "UA225 ",
+        "numero_item": 10004892
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo angular tipo C acero red compacta 38kV",
+        "cantidad": 1,
+        "referencia": "H227 ",
+        "numero_item": 10006422
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador pin polimérico 35 kV ANSI C29.5 clase 55-6",
+        "cantidad": 3,
+        "referencia": "DP4",
+        "numero_item": 10021496
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa amarre preformado aislado tipo \"Z\" para red semiaislada. De acuerdo al calibre del conductor  (Amarre Preformado)",
+        "cantidad": 3,
+        "referencia": "RP01",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 31/2\"",
+        "cantidad": 2,
+        "referencia": "I21 ",
+        "numero_item": 10005724
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno Espigo corto para aislador tipo pin 10”x1 3/4”x3/4” rosca nailon 1 3/8” cruceta metálica (34,5 kV)",
+        "cantidad": 3,
+        "referencia": "EP2",
+        "numero_item": 10048921
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas de ojo alargada acero galv. / Ojos giratorios de Ø15,9 mm (5/8\")",
+        "cantidad": 1,
+        "referencia": "H10",
+        "numero_item": 10007764
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 10,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 8,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 4,
+        "referencia": "K9",
+        "numero_item": 10002610
+      }
+    ],
+    "familias": [
+      "Ais",
+      "F.Po",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "C72CD": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 2,
+        "referencia": "CXX (2  salidas) Diametro según norma RA05",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Soporte para dos aisladores en angulo red compacta (15kV / 35kV)",
+        "cantidad": 3,
+        "referencia": "H229 ",
+        "numero_item": 10006413
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa Suspension para soporte mensajero red compacta",
+        "cantidad": 1,
+        "referencia": "UA225 ",
+        "numero_item": 10004892
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo angular tipo C acero red compacta 38kV",
+        "cantidad": 1,
+        "referencia": "H227 ",
+        "numero_item": 10006422
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador pin polimérico 35 kV ANSI C29.5 clase 55-6",
+        "cantidad": 6,
+        "referencia": "DP4",
+        "numero_item": 10021496
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa preformada aleación de aluminio 2 AWG a 312.8 kcmil 15 kV  / 38 kV cable cubierto  (Amarre Preformado)",
+        "cantidad": 3,
+        "referencia": "RP02D",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno Espigo corto para aislador tipo pin 10”x1 3/4”x3/4” rosca nailon 1 3/8” cruceta metálica (34,5 kV)",
+        "cantidad": 6,
+        "referencia": "EP2",
+        "numero_item": 10048921
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas de ojo alargada acero galv. / Ojos giratorios de Ø15,9 mm (5/8\")",
+        "cantidad": 1,
+        "referencia": "H10",
+        "numero_item": 10007764
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 14,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 12,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 12,
+        "referencia": "K9",
+        "numero_item": 10002610
+      }
+    ],
+    "familias": [
+      "Ais",
+      "F.Po",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "C72CD2": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 4,
+        "referencia": "CXX (2  salidas) Diametro según norma RA05",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Cruceta angular metálica en T autosoportada, 1400 mm",
+        "cantidad": 2,
+        "referencia": "A14G ",
+        "numero_item": 10004139
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Soporte para dos aisladores en angulo red compacta (15kV / 35kV)",
+        "cantidad": 2,
+        "referencia": "H229 ",
+        "numero_item": 10006413
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo angular tipo C acero red compacta 38kV",
+        "cantidad": 2,
+        "referencia": "H227 ",
+        "numero_item": 10006422
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador pin polimérico 35 kV ANSI C29.5 clase 55-6",
+        "cantidad": 12,
+        "referencia": "DP4",
+        "numero_item": 10021496
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa preformada aleación de aluminio 2 AWG a 312.8 kcmil 15 kV  / 38 kV cable cubierto  (Amarre Preformado)",
+        "cantidad": 6,
+        "referencia": "RP02D",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 3\"",
+        "cantidad": 4,
+        "referencia": "I21 ",
+        "numero_item": 10005724
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado1/2\" x 3\"",
+        "cantidad": 2,
+        "referencia": "M10 ",
+        "numero_item": 10004959
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa de retención aluminio tipo pistola (3–4 pernos) 2/0AWG-266.8KCMIL",
+        "cantidad": 1,
+        "referencia": "RA",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno Espigo corto para aislador tipo pin 10”x1 3/4”x3/4” rosca nailon 1 3/8” cruceta metálica (34,5 kV)",
+        "cantidad": 12,
+        "referencia": "EP2",
+        "numero_item": 10048921
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x 12\")",
+        "cantidad": 2,
+        "referencia": "I17",
+        "numero_item": 10005745
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 36,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 32,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 32,
+        "referencia": "K9",
+        "numero_item": 10002610
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores de compresión (C-Tap / H-Tap / Cuña)",
+        "cantidad": 2,
+        "referencia": "WACX",
+        "numero_item": null
+      }
+    ],
+    "familias": [
+      "Ais",
+      "Cone",
+      "F.Po",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "C72E": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 2,
+        "referencia": "CXX (2 a 4  salidas) Diametro según Norma RA05",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo angular tipo E acero red compacta 38kV",
+        "cantidad": 1,
+        "referencia": "H230",
+        "numero_item": null
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Estribo para soporte tangencial",
+        "cantidad": 1,
+        "referencia": "RA222",
+        "numero_item": 10004888
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador pin polimérico 35 kV ANSI C29.5 clase 55-6",
+        "cantidad": 3,
+        "referencia": "DP4",
+        "numero_item": 10021496
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa amarre preformado aislado tipo \"Z\" para red semiaislada. De acuerdo al calibre del conductor  (Amarre Preformado)",
+        "cantidad": 3,
+        "referencia": "RP01",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 31/2\"",
+        "cantidad": 2,
+        "referencia": "I21",
+        "numero_item": 10005724
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno Espigo corto para aislador tipo pin 10”x1 3/4”x3/4” rosca nailon 1 3/8” cruceta metálica (34,5 kV)",
+        "cantidad": 3,
+        "referencia": "EP2",
+        "numero_item": 10048921
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x 14\")",
+        "cantidad": 6,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas de ojo alargada acero galv. / Ojos giratorios de Ø15,9 mm (5/8\")",
+        "cantidad": 4,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 4,
+        "referencia": "K9",
+        "numero_item": 10002610
+      }
+    ],
+    "familias": [
+      "Ais",
+      "F.Po",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "C72E2": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 2,
+        "referencia": "CXX (2  salidas)",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo angular tipo E acero red compacta 38kV",
+        "cantidad": 2,
+        "referencia": "H230",
+        "numero_item": null
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Estribo para soporte tangencial",
+        "cantidad": 2,
+        "referencia": "RA222",
+        "numero_item": 10004888
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador pin polimérico 35 kV ANSI C29.5 clase 55-6",
+        "cantidad": 6,
+        "referencia": "DP4",
+        "numero_item": 10021496
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa amarre preformado aislado tipo \"Z\" para red semiaislada. De acuerdo al calibre del conductor  (Amarre Preformado)",
+        "cantidad": 6,
+        "referencia": "RP01",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 31/2\"",
+        "cantidad": 4,
+        "referencia": "I21",
+        "numero_item": 10005724
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno Espigo corto para aislador tipo pin 10”x1 3/4”x3/4” rosca nailon 1 3/8” cruceta metálica (34,5 kV)",
+        "cantidad": 6,
+        "referencia": "EP2",
+        "numero_item": 10048921
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x 14\")",
+        "cantidad": 14,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas de ojo alargada acero galv. / Ojos giratorios de Ø15,9 mm (5/8\")",
+        "cantidad": 12,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 12,
+        "referencia": "K9",
+        "numero_item": 10002610
+      }
+    ],
+    "familias": [
+      "Ais",
+      "F.Po",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "C72ED": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 2,
+        "referencia": "CXX (2  salidas)",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Soporte para dos aisladores en angulo red compacta (15kV / 35kV)",
+        "cantidad": 3,
+        "referencia": "H229 ",
+        "numero_item": 10006413
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa Suspension para soporte mensajero red compacta",
+        "cantidad": 1,
+        "referencia": "UA225",
+        "numero_item": 10004892
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo angular tipo E acero red compacta 38kV",
+        "cantidad": 1,
+        "referencia": "H230",
+        "numero_item": null
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador pin polimérico 35 kV ANSI C29.5 clase 55-6",
+        "cantidad": 6,
+        "referencia": "DP4",
+        "numero_item": 10021496
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa preformada aleación de aluminio 2 AWG a 312.8 kcmil 15 kV  / 38 kV cable cubierto  (Amarre Preformado)",
+        "cantidad": 3,
+        "referencia": "RP02D (tipo \"Omega\" Doble)",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Eslabón en U 5/8\" forjado galvanizado",
+        "cantidad": 1,
+        "referencia": "M10",
+        "numero_item": 10004959
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 31/2\"",
+        "cantidad": 2,
+        "referencia": "I21",
+        "numero_item": 10005724
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno Espigo corto para aislador tipo pin 10”x1 3/4”x3/4” rosca nailon 1 3/8” cruceta metálica (34,5 kV)",
+        "cantidad": 6,
+        "referencia": "EP2",
+        "numero_item": 10048921
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x 14\")",
+        "cantidad": 6,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas de ojo alargada acero galv. / Ojos giratorios de Ø15,9 mm (5/8\")",
+        "cantidad": 4,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 4,
+        "referencia": "K9",
+        "numero_item": 10002610
+      }
+    ],
+    "familias": [
+      "Ais",
+      "F.Po",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "C761": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma RA05",
+        "cantidad": 2,
+        "referencia": "CXX",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Cruceta metálica galv. 76 x 76 x 7,9 x 2400 mm (3\"x3\"x5/16\" x 2,40 m)",
+        "cantidad": 1,
+        "referencia": "A13A",
+        "numero_item": 10004148
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Pieamigo - Diagonal en L para bandera, 51 x 51 x 6 x 2.337 mm (2\"x2\"x1/4\" x 92\")  p/cruceta 2400 mm",
+        "cantidad": 1,
+        "referencia": "B4",
+        "numero_item": 10007138
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa de suspensión aluminio 4 AWG - 2/0 AWG (1/4\" - 3/8\")",
+        "cantidad": 1,
+        "referencia": "UA225",
+        "numero_item": 10004892
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" X 1 1/2\"",
+        "cantidad": 1,
+        "referencia": "I5",
+        "numero_item": 10005743
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 4,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 4,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 4,
+        "referencia": "K9",
+        "numero_item": 10002610
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas de ojo alargada acero galv. / Ojos giratorios de Ø15,9 mm (5/8\")",
+        "cantidad": 1,
+        "referencia": "H10",
+        "numero_item": 10007764
+      }
+    ],
+    "familias": [
+      "F.Po",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "C766": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma RA05",
+        "cantidad": 2,
+        "referencia": "CXX (Diametro según Norma RA05)",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Cruceta metálica galv. 76 x 76 x 7,9 x 2400 mm (3\"x3\"x5/16\" x 2,40 m)",
+        "cantidad": 2,
+        "referencia": "A13A",
+        "numero_item": 10004148
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Pieamigo - Diagonal en L para bandera, 51 x 51 x 6 x 2.337 mm (2\"x2\"x1/4\" x 92\")  p/cruceta 2400 mm",
+        "cantidad": 2,
+        "referencia": "B4",
+        "numero_item": 10007138
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Cruceta metálica retención 600mm  3\" X 3\" X 1/4\" / 2 1/2\" x 2 1/2\" x 1/4\"",
+        "cantidad": 2,
+        "referencia": "A20 (Soporte auxiliar para herraje terminal en C, red compacta - Herraje con cuña )",
+        "numero_item": 10006417
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Cubo metalico galvanizado 3\" X 3\" para soporte de protecciones",
+        "cantidad": 2,
+        "referencia": "CM",
+        "numero_item": 10004152
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa preformada aleación de aluminio 2 AWG a 312.8 kcmil 15 kV  / 38 kV cable cubierto  (Amarre Preformado)",
+        "cantidad": 3,
+        "referencia": "RP03",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Eslabón en U 5/8\" forjado galvanizado",
+        "cantidad": 4,
+        "referencia": "M10 ",
+        "numero_item": 10004959
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa de retención aluminio tipo pistola (3–4 pernos) 2/0AWG-266.8KCMIL",
+        "cantidad": 2,
+        "referencia": "RA",
+        "numero_item": null
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Estribos de línea con conector de cuña",
+        "cantidad": 3,
+        "referencia": "WACCEX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conector empalme conector DBH Y REPOSICION AISLAMIENTO Cable Simieaislado",
+        "cantidad": 3,
+        "referencia": "WACCX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores de compresión (C-Tap / H-Tap / Cuña)",
+        "cantidad": 1,
+        "referencia": "WACX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores tipo Cuña Cu - Cu #2 a #2",
+        "cantidad": 2,
+        "referencia": "WC4",
+        "numero_item": 10003874
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador suspensión polimérico 38kV ANSI C29.13 clase DS-35 clevis-lengüeta",
+        "cantidad": 3,
+        "referencia": "DS12 ",
+        "numero_item": 10002433
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" X 2\"",
+        "cantidad": 2,
+        "referencia": "I5",
+        "numero_item": 10005743
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x 12\")",
+        "cantidad": 5,
+        "referencia": "I17 ",
+        "numero_item": 10005745
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 28,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 24,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 24,
+        "referencia": "K9",
+        "numero_item": 10002610
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas de ojo alargada acero galv. / Ojos giratorios de Ø15,9 mm (5/8\")",
+        "cantidad": 2,
+        "referencia": "H10",
+        "numero_item": 10007764
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Guardacabo acero galvanizad Ø15,9 mm (5/8′′)",
+        "cantidad": 3,
+        "referencia": "M11",
+        "numero_item": null
+      },
+      {
+        "familia": "Cond",
+        "descripcion": "Alambre aluminio aislado #8 AWG, 600V",
+        "cantidad": 2,
+        "referencia": "CA166 (Entizado)",
+        "numero_item": 10002479
+      },
+      {
+        "familia": "Cond",
+        "descripcion": "Cable de cobre desnudo #2 AWG",
+        "cantidad": 14,
+        "referencia": "UC24 ",
+        "numero_item": 10003243
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Pararrayos polimerico DPS 30 kV 10 kA",
+        "cantidad": 3,
+        "referencia": "Q3 ",
+        "numero_item": 10005664
+      }
+    ],
+    "familias": [
+      "Ais",
+      "Cond",
+      "Cone",
+      "F.Po",
+      "P.Ele",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "C767": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma RA05",
+        "cantidad": 2,
+        "referencia": "CXX (Diametro según Norma RA05)",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Cruceta metálica galv. 76 x 76 x 7,9 x 2400 mm (3\"x3\"x5/16\" x 2,40 m)",
+        "cantidad": 1,
+        "referencia": "A13A",
+        "numero_item": 10004148
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Pieamigo - Diagonal en L para bandera, 51 x 51 x 6 x 2.337 mm (2\"x2\"x1/4\" x 92\")  p/cruceta 2400 mm",
+        "cantidad": 2,
+        "referencia": "B4",
+        "numero_item": 10007138
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Cruceta metálica retención 600mm  3\" X 3\" X 1/4\" / 2 1/2\" x 2 1/2\" x 1/4\"",
+        "cantidad": 2,
+        "referencia": "A20 (Soporte auxiliar para herraje terminal en C, red compacta - Herraje con cuña )",
+        "numero_item": 10006417
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa preformada aleación de aluminio 2 AWG a 312.8 kcmil 15 kV  / 38 kV cable cubierto  (Amarre Preformado)",
+        "cantidad": 6,
+        "referencia": "RP03",
+        "numero_item": null
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa de retención aluminio tipo pistola (3–4 pernos) 2/0AWG-266.8KCMIL",
+        "cantidad": 2,
+        "referencia": "RA",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores de compresión (C-Tap / H-Tap / Cuña)",
+        "cantidad": 1,
+        "referencia": "WACX",
+        "numero_item": null
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador suspensión polimérico 38kV ANSI C29.13 clase DS-35 clevis-lengüeta",
+        "cantidad": 3,
+        "referencia": "DS12 ",
+        "numero_item": 10002433
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador polietileno tipo pin ANSI 55-6, 34.5 kV",
+        "cantidad": 3,
+        "referencia": "DP4 ",
+        "numero_item": 10021496
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Pernos espigo para aislador tipo PIN 35kV",
+        "cantidad": 3,
+        "referencia": "EP2 ",
+        "numero_item": 10048921
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" X 2\"",
+        "cantidad": 2,
+        "referencia": "I5",
+        "numero_item": 10005743
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x 12\")",
+        "cantidad": 5,
+        "referencia": "I17 ",
+        "numero_item": 10005745
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 28,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 22,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 22,
+        "referencia": "K9",
+        "numero_item": 10002610
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas de ojo alargada acero galv. / Ojos giratorios de Ø15,9 mm (5/8\")",
+        "cantidad": 4,
+        "referencia": "H10",
+        "numero_item": 10007764
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Guardacabo acero galvanizad Ø15,9 mm (5/8′′)",
+        "cantidad": 6,
+        "referencia": "M11",
+        "numero_item": null
+      },
+      {
+        "familia": "Cond",
+        "descripcion": "Alambre aluminio aislado #8 AWG, 600V",
+        "cantidad": 2,
+        "referencia": "CA166 (Entizado)",
+        "numero_item": 10002479
+      }
+    ],
+    "familias": [
+      "Ais",
+      "Cond",
+      "Cone",
+      "F.Po",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "C76C": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 2,
+        "referencia": "CXX (2  salidas) Diametro según norma RA05",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Cruceta metálica retención 600mm  3\" X 3\" X 1/4\" / 2 1/2\" x 2 1/2\" x 1/4\"",
+        "cantidad": 1,
+        "referencia": "A20",
+        "numero_item": 10006417
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo angular tipo C acero red compacta 38kV",
+        "cantidad": 1,
+        "referencia": "H227 ",
+        "numero_item": 10006422
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador suspensión polimérico 38kV ANSI C29.13 clase DS-35 clevis-lengüeta",
+        "cantidad": 3,
+        "referencia": "DS12 ",
+        "numero_item": 10002433
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa preformada aleación de aluminio 2 AWG a 312.8 kcmil 15 kV  / 38 kV cable cubierto  (Amarre Preformado)",
+        "cantidad": 3,
+        "referencia": "RP03",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Eslabón en U 5/8\" forjado galvanizado",
+        "cantidad": 3,
+        "referencia": "M10",
+        "numero_item": 10004959
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 2\"",
+        "cantidad": 1,
+        "referencia": "I5 ",
+        "numero_item": 10005743
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa de retención aluminio tipo pistola (3–4 pernos) 2/0AWG-266.8KCMIL",
+        "cantidad": 1,
+        "referencia": "RA",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 31/2\"",
+        "cantidad": 2,
+        "referencia": "I21 ",
+        "numero_item": 10005724
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas de ojo alargada acero galv. / Ojos giratorios de Ø15,9 mm (5/8\")",
+        "cantidad": 1,
+        "referencia": "H10",
+        "numero_item": 10007764
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 10,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 3,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 3,
+        "referencia": "K9",
+        "numero_item": 10002610
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Guardacabo acero galvanizad Ø15,9 mm (5/8′′)",
+        "cantidad": 3,
+        "referencia": "M11",
+        "numero_item": null
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Pararrayos polimerico DPS 30 kV 10 kA",
+        "cantidad": 3,
+        "referencia": "Q3 ",
+        "numero_item": 10005664
+      },
+      {
+        "familia": "Cond",
+        "descripcion": "Cable de cobre desnudo #2 AWG",
+        "cantidad": 20,
+        "referencia": "UC24 Metros",
+        "numero_item": 10003243
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conector empalme conector DBH Y REPOSICION AISLAMIENTO Cable Simieaislado",
+        "cantidad": 3,
+        "referencia": "WACCX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conexión estribo a cable semiaislado con conector DBH y reposición de aislamiento del cable semiaislado",
+        "cantidad": 3,
+        "referencia": "WACCEX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores de compresión (C-Tap / H-Tap / Cuña)",
+        "cantidad": 1,
+        "referencia": "WACX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores tipo Cuña Cu - Cu #2 a #2",
+        "cantidad": 2,
+        "referencia": "WC4",
+        "numero_item": null
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Conector cuña a presión p/ varilla PAT Ø15,9 mm (5/8\") a Cu #2 AWG",
+        "cantidad": 1,
+        "referencia": "WAST2 ",
+        "numero_item": 10003904
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Grapa conexión doble cable tierra",
+        "cantidad": 1,
+        "referencia": "SPT1",
+        "numero_item": null
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Varilla puesta a tierra Ø 15,9 x 2400 mm (5/8\" x 8') Copperweld",
+        "cantidad": 1,
+        "referencia": "N11A",
+        "numero_item": 10008084
+      }
+    ],
+    "familias": [
+      "Ais",
+      "Cond",
+      "Cone",
+      "F.Po",
+      "P.Ele",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "C76C2": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 4,
+        "referencia": "CXX (2  salidas) Diametro según norma RA05",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Cruceta angular metálica en T autosoportada, 1400 mm",
+        "cantidad": 2,
+        "referencia": "A14G",
+        "numero_item": 10004139
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Soporte para dos aisladores en angulo red compacta (15kV / 35kV)",
+        "cantidad": 6,
+        "referencia": "H229 ",
+        "numero_item": 10006413
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo angular tipo C acero red compacta 38kV",
+        "cantidad": 2,
+        "referencia": "H227 ",
+        "numero_item": 10006422
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador suspensión polimérico 38kV ANSI C29.13 clase DS-35 clevis-lengüeta",
+        "cantidad": 12,
+        "referencia": "DS12 ",
+        "numero_item": 10002433
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa preformada aleación de aluminio 2 AWG a 312.8 kcmil 15 kV  / 38 kV cable cubierto  (Amarre Preformado)",
+        "cantidad": 6,
+        "referencia": "RP03",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Eslabón en U 5/8\" forjado galvanizado",
+        "cantidad": 8,
+        "referencia": "M10",
+        "numero_item": 10004959
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa de retención aluminio tipo pistola (3–4 pernos) 2/0AWG-266.8KCMIL",
+        "cantidad": 2,
+        "referencia": "RA",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 31/2\"",
+        "cantidad": 4,
+        "referencia": "I21 ",
+        "numero_item": 10005724
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x 12\")",
+        "cantidad": 2,
+        "referencia": "I17",
+        "numero_item": 10005745
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 18,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 16,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 16,
+        "referencia": "K9",
+        "numero_item": 10002610
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Guardacabo acero galvanizad Ø15,9 mm (5/8′′)",
+        "cantidad": 6,
+        "referencia": "M11",
+        "numero_item": null
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Pararrayos polimerico DPS 30 kV 10 kA",
+        "cantidad": 6,
+        "referencia": "Q3 ",
+        "numero_item": 10005664
+      },
+      {
+        "familia": "Cond",
+        "descripcion": "Cable de cobre desnudo #2 AWG",
+        "cantidad": 17,
+        "referencia": "UC24 Metros",
+        "numero_item": 10003243
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conector empalme conector DBH Y REPOSICION AISLAMIENTO Cable Simieaislado",
+        "cantidad": 6,
+        "referencia": "WACCX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conexión estribo a cable semiaislado con conector DBH y reposición de aislamiento del cable semiaislado",
+        "cantidad": 6,
+        "referencia": "WACCEX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores de compresión (C-Tap / H-Tap / Cuña)",
+        "cantidad": 2,
+        "referencia": "WACX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores tipo Cuña Cu - Cu #2 a #2",
+        "cantidad": 3,
+        "referencia": "WC4",
+        "numero_item": null
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Conector cuña a presión p/ varilla PAT Ø15,9 mm (5/8\") a Cu #2 AWG",
+        "cantidad": 1,
+        "referencia": "WAST2 ",
+        "numero_item": 10003904
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Grapa conexión doble cable tierra",
+        "cantidad": 2,
+        "referencia": "SPT1",
+        "numero_item": null
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Varilla puesta a tierra Ø 15,9 x 2400 mm (5/8\" x 8') Copperweld",
+        "cantidad": 1,
+        "referencia": "N11A",
+        "numero_item": 10008084
+      }
+    ],
+    "familias": [
+      "Ais",
+      "Cond",
+      "Cone",
+      "F.Po",
+      "P.Ele",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "C77C2": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 4,
+        "referencia": "CXX (2  salidas) Diametro según norma RA05",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Cruceta angular metálica en T autosoportada, 1400 mm",
+        "cantidad": 2,
+        "referencia": "A14G",
+        "numero_item": 10004139
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Soporte para dos aisladores en angulo red compacta (15kV / 35kV)",
+        "cantidad": 6,
+        "referencia": "H229 ",
+        "numero_item": 10006413
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo angular tipo C acero red compacta 38kV",
+        "cantidad": 2,
+        "referencia": "H227 ",
+        "numero_item": 10006422
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador suspensión polimérico 38kV ANSI C29.13 clase DS-35 clevis-lengüeta",
+        "cantidad": 12,
+        "referencia": "DS12 ",
+        "numero_item": 10002433
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa preformada aleación de aluminio 2 AWG a 312.8 kcmil 15 kV  / 38 kV cable cubierto  (Amarre Preformado)",
+        "cantidad": 12,
+        "referencia": "RP03",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Eslabón en U 5/8\" forjado galvanizado",
+        "cantidad": 16,
+        "referencia": "M10",
+        "numero_item": 10004959
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa de retención aluminio tipo pistola (3–4 pernos) 2/0AWG-266.8KCMIL",
+        "cantidad": 4,
+        "referencia": "RA",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 31/2\"",
+        "cantidad": 4,
+        "referencia": "I21 ",
+        "numero_item": 10005724
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x 12\")",
+        "cantidad": 2,
+        "referencia": "I17",
+        "numero_item": 10005745
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 14,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 12,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 12,
+        "referencia": "K9",
+        "numero_item": 10002610
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Guardacabo acero galvanizad Ø15,9 mm (5/8′′)",
+        "cantidad": 12,
+        "referencia": "M11",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores de compresión (C-Tap / H-Tap / Cuña)",
+        "cantidad": 2,
+        "referencia": "WACX",
+        "numero_item": null
+      }
+    ],
+    "familias": [
+      "Ais",
+      "Cone",
+      "F.Po",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "C79": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 3,
+        "referencia": "CXX (2  salidas) Diametro según norma RA05",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Cruceta metálica retención 600mm  3\" X 3\" X 1/4\" / 2 1/2\" x 2 1/2\" x 1/4\"",
+        "cantidad": 1,
+        "referencia": "A20",
+        "numero_item": 10006417
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo angular tipo C acero red compacta 38kV",
+        "cantidad": 1,
+        "referencia": "H227 ",
+        "numero_item": 10006422
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador pin polimérico 38-48 kV ANSI C29.5 clase 55-6",
+        "cantidad": 3,
+        "referencia": "DP4 ",
+        "numero_item": 10021496
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa amarre preformado aislado tipo \"Z\" para red semiaislada. De acuerdo al calibre del conductor  (Amarre Preformado)",
+        "cantidad": 3,
+        "referencia": "RP01",
+        "numero_item": null
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa preformada aleación de aluminio 2 AWG a 312.8 kcmil 15 kV  / 38 kV cable cubierto  (Amarre Preformado)",
+        "cantidad": 3,
+        "referencia": "RP03",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Eslabón en U 5/8\" forjado galvanizado",
+        "cantidad": 3,
+        "referencia": "M10",
+        "numero_item": 10004959
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa de retención aluminio tipo pistola (3–4 pernos) 2/0AWG-266.8KCMIL",
+        "cantidad": 1,
+        "referencia": "RA",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 31/2\"",
+        "cantidad": 2,
+        "referencia": "I21 ",
+        "numero_item": 10005724
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno Espigo corto para aislador tipo pin 10”x1 3/4”x3/4” rosca nailon 1 3/8” cruceta metálica (34,5 kV)",
+        "cantidad": 3,
+        "referencia": "EP2",
+        "numero_item": 10048921
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas de ojo alargada acero galv. / Ojos giratorios de Ø15,9 mm (5/8\")",
+        "cantidad": 1,
+        "referencia": "H10",
+        "numero_item": 10007764
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 18,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 16,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 16,
+        "referencia": "K9",
+        "numero_item": 10002610
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conector empalme conector DBH Y REPOSICION AISLAMIENTO Cable Simieaislado",
+        "cantidad": 6,
+        "referencia": "WACCX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conexión estribo a cable semiaislado con conector DBH y reposición de aislamiento del cable semiaislado",
+        "cantidad": 3,
+        "referencia": "WACCEX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores de compresión (C-Tap / H-Tap / Cuña)",
+        "cantidad": 2,
+        "referencia": "WACX",
+        "numero_item": null
+      }
+    ],
+    "familias": [
+      "Ais",
+      "Cone",
+      "F.Po",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "PB31C": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 2,
+        "referencia": "CXX (2  salidas) Diametro según norma RA05",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo tangente tipo L 15kV con grapa prensora y\nestribo",
+        "cantidad": 1,
+        "referencia": "H220",
+        "numero_item": 10006438
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Soporte para dos aisladores en angulo red compacta (15kV / 35kV)",
+        "cantidad": 2,
+        "referencia": "H229 ",
+        "numero_item": 10006413
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa Suspension para soporte mensajero red compacta",
+        "cantidad": 1,
+        "referencia": "UA225 ",
+        "numero_item": 10004892
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo angular tipo C acero red compacta 15kV",
+        "cantidad": 1,
+        "referencia": "H226 ",
+        "numero_item": 10006422
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador pin polimérico 15 kV ANSI C29.5 clase 55-4",
+        "cantidad": 3,
+        "referencia": "DP3 ",
+        "numero_item": 10002434
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa amarre preformado aislado tipo \"Z\" para red semiaislada. De acuerdo al calibre del conductor  (Amarre Preformado)",
+        "cantidad": 3,
+        "referencia": "RP01",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 31/2\"",
+        "cantidad": 2,
+        "referencia": "I21 ",
+        "numero_item": 10005724
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno Espigo corto para aislador tipo pin 10”x1 3/4”x3/4” rosca nailon 1 3/8” cruceta metálica (13,2 kV)",
+        "cantidad": 3,
+        "referencia": "EP1 ",
+        "numero_item": 10005775
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas de ojo alargada acero galv. / Ojos giratorios de Ø15,9 mm (5/8\")",
+        "cantidad": 1,
+        "referencia": "H10",
+        "numero_item": 10007764
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 10,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 2,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 2,
+        "referencia": "K9",
+        "numero_item": 10002610
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Pararrayos polimerico DPS 12 kV 10 kA",
+        "cantidad": 3,
+        "referencia": "Q2 ",
+        "numero_item": 10005663
+      },
+      {
+        "familia": "Cond",
+        "descripcion": "Cable de cobre desnudo #2 AWG",
+        "cantidad": 14,
+        "referencia": "UC24 Metros",
+        "numero_item": 10003243
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conector empalme conector DBH Y REPOSICION AISLAMIENTO Cable Simieaislado",
+        "cantidad": 3,
+        "referencia": "WACCX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores de compresión (C-Tap / H-Tap / Cuña)",
+        "cantidad": 1,
+        "referencia": "WACX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores tipo Cuña Cu - Cu #2 a #2",
+        "cantidad": 2,
+        "referencia": "WC4",
+        "numero_item": null
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Conector cuña a presión p/ varilla PAT Ø15,9 mm (5/8\") a Cu #2 AWG",
+        "cantidad": 1,
+        "referencia": "WAST2 ",
+        "numero_item": 10003904
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Grapa conexión doble cable tierra",
+        "cantidad": 1,
+        "referencia": "SPT1",
+        "numero_item": null
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Varilla puesta a tierra Ø 15,9 x 2400 mm (5/8\" x 8') Copperweld",
+        "cantidad": 1,
+        "referencia": "N11A",
+        "numero_item": 10008084
+      }
+    ],
+    "familias": [
+      "Ais",
+      "Cond",
+      "Cone",
+      "F.Po",
+      "P.Ele",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "PC31C": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 2,
+        "referencia": "CXX (2  salidas) Diametro según norma RA05",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo tangente tipo L 38 – 48 kV con grapa prensora y estribo",
+        "cantidad": 1,
+        "referencia": "H221",
+        "numero_item": 10022549
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Soporte para dos aisladores en angulo red compacta (15kV / 35kV)",
+        "cantidad": 2,
+        "referencia": "H229 ",
+        "numero_item": 10006413
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa Suspension para soporte mensajero red compacta",
+        "cantidad": 1,
+        "referencia": "UA225 ",
+        "numero_item": 10004892
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo angular tipo C acero red compacta 38kV",
+        "cantidad": 1,
+        "referencia": "H227 ",
+        "numero_item": 10006422
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador pin polimérico 35 kV ANSI C29.5 clase 55-6",
+        "cantidad": 3,
+        "referencia": "DP4",
+        "numero_item": 10021496
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa amarre preformado aislado tipo \"Z\" para red semiaislada. De acuerdo al calibre del conductor  (Amarre Preformado)",
+        "cantidad": 3,
+        "referencia": "RP01",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 31/2\"",
+        "cantidad": 2,
+        "referencia": "I21 ",
+        "numero_item": 10005724
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno Espigo corto para aislador tipo pin 10”x1 3/4”x3/4” rosca nailon 1 3/8” cruceta metálica (34,5 kV)",
+        "cantidad": 3,
+        "referencia": "EP2",
+        "numero_item": 10048921
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas de ojo alargada acero galv. / Ojos giratorios de Ø15,9 mm (5/8\")",
+        "cantidad": 1,
+        "referencia": "H10",
+        "numero_item": 10007764
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 10,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 2,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 2,
+        "referencia": "K9",
+        "numero_item": 10002610
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Pararrayos polimerico DPS 30 kV 10 kA",
+        "cantidad": 3,
+        "referencia": "Q3 ",
+        "numero_item": 10005664
+      },
+      {
+        "familia": "Cond",
+        "descripcion": "Cable de cobre desnudo #2 AWG",
+        "cantidad": 14,
+        "referencia": "UC24 Metros",
+        "numero_item": 10003243
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conector empalme conector DBH Y REPOSICION AISLAMIENTO Cable Simieaislado",
+        "cantidad": 3,
+        "referencia": "WACCX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores de compresión (C-Tap / H-Tap / Cuña)",
+        "cantidad": 1,
+        "referencia": "WACX",
+        "numero_item": null
+      },
+      {
+        "familia": "Cone",
+        "descripcion": "Conectores tipo Cuña Cu - Cu #2 a #2",
+        "cantidad": 2,
+        "referencia": "WC4",
+        "numero_item": null
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Conector cuña a presión p/ varilla PAT Ø15,9 mm (5/8\") a Cu #2 AWG",
+        "cantidad": 1,
+        "referencia": "WAST2 ",
+        "numero_item": 10003904
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Grapa conexión doble cable tierra",
+        "cantidad": 1,
+        "referencia": "SPT1",
+        "numero_item": null
+      },
+      {
+        "familia": "P.Ele",
+        "descripcion": "Varilla puesta a tierra Ø 15,9 x 2400 mm (5/8\" x 8') Copperweld",
+        "cantidad": 1,
+        "referencia": "N11A",
+        "numero_item": 10008084
+      }
+    ],
+    "familias": [
+      "Ais",
+      "Cond",
+      "Cone",
+      "F.Po",
+      "P.Ele",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "B72CD": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "Pos",
+        "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+        "cantidad": 1,
+        "referencia": "PM (Ver tablas)",
+        "numero_item": "Acorde diseño"
+      },
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 4,
+        "referencia": "CXX (2  salidas) Diametro según norma RA05",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo tangente tipo L 15kV con grapa prensora y\nestribo",
+        "cantidad": 1,
+        "referencia": "H220",
+        "numero_item": 10006438
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa Suspension para soporte mensajero red compacta",
+        "cantidad": 1,
+        "referencia": "UA225 ",
+        "numero_item": 10004892
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo angular tipo C acero red compacta 15kV",
+        "cantidad": 1,
+        "referencia": "H226 ",
+        "numero_item": 10006422
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador pin polimérico 15 kV ANSI C29.5 clase 55-4",
+        "cantidad": 3,
+        "referencia": "DP3 ",
+        "numero_item": 10002434
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa amarre preformado aislado tipo \"Z\" para red semiaislada. De acuerdo al calibre del conductor  (Amarre Preformado)",
+        "cantidad": 3,
+        "referencia": "RP01",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 31/2\"",
+        "cantidad": 2,
+        "referencia": "I21 ",
+        "numero_item": 10005724
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno Espigo corto para aislador tipo pin 10”x1 3/4”x3/4” rosca nailon 1 3/8” cruceta metálica (13,2 kV)",
+        "cantidad": 3,
+        "referencia": "EP1 ",
+        "numero_item": 10005775
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas de ojo alargada acero galv. / Ojos giratorios de Ø15,9 mm (5/8\")",
+        "cantidad": 1,
+        "referencia": "H10",
+        "numero_item": 10007764
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 10,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 8,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 4,
+        "referencia": "K9",
+        "numero_item": 10002610
+      }
+    ],
+    "familias": [
+      "Ais",
+      "F.Po",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  },
+  "C72C2": {
+    "tipo": null,
+    "voltaje": null,
+    "materiales": [
+      {
+        "familia": "F.Po",
+        "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
+        "cantidad": 4,
+        "referencia": "CXX (2  salidas)",
+        "numero_item": null
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo tangente tipo L 15kV con grapa prensora y\nestribo",
+        "cantidad": 1,
+        "referencia": "H220",
+        "numero_item": 10006438
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa Suspension para soporte mensajero red compacta",
+        "cantidad": 2,
+        "referencia": "UA225",
+        "numero_item": 10004892
+      },
+      {
+        "familia": "Pos",
+        "descripcion": "Brazo angular tipo C acero red compacta 15kV",
+        "cantidad": 2,
+        "referencia": "H226 ",
+        "numero_item": 10006422
+      },
+      {
+        "familia": "Ais",
+        "descripcion": "Aislador pin polimérico 15 kV ANSI C29.5 clase 55-4",
+        "cantidad": 6,
+        "referencia": "DP3",
+        "numero_item": 10002434
+      },
+      {
+        "familia": "Suj",
+        "descripcion": "Grapa amarre preformado aislado tipo \"Z\" para red semiaislada. De acuerdo al calibre del conductor  (Amarre Preformado)",
+        "cantidad": 6,
+        "referencia": "RP01",
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 3\"",
+        "cantidad": 1,
+        "referencia": "I9 ",
+        "numero_item": 10007363
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 31/2\"",
+        "cantidad": 4,
+        "referencia": "I21",
+        "numero_item": 10005724
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Perno Espigo corto para aislador tipo pin 10”x1 3/4”x3/4” rosca nailon 1 3/8” cruceta metálica (13,2 kV)",
+        "cantidad": 6,
+        "referencia": "EP1",
+        "numero_item": 10005775
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas de ojo alargada acero galv. / Ojos giratorios de Ø15,9 mm (5/8\")",
+        "cantidad": 2,
+        "referencia": "H10",
+        "numero_item": 10007764
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Tuercas hexagonales de acero 5/8′′",
+        "cantidad": 24,
+        "referencia": null,
+        "numero_item": null
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
+        "cantidad": 22,
+        "referencia": "K6",
+        "numero_item": 10002645
+      },
+      {
+        "familia": "Torni",
+        "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
+        "cantidad": 22,
+        "referencia": "K9",
+        "numero_item": 10002610
+      }
+    ],
+    "familias": [
+      "Ais",
+      "F.Po",
+      "Pos",
+      "Suj",
+      "Torni"
+    ]
+  }
+}

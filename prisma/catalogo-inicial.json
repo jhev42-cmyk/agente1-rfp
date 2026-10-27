@@ -1,2353 +1,1368 @@
 {
   "materiales": [
     {
-      "codigo": "1.1",
-      "descripcion": "Postes de Concreto Armado / Pretensado o PRFV (10 m, 12 m, 14 m, 16 m × 510 kgf a 4000 kgf)",
+      "codigo": "1.P",
+      "descripcion": "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
       "unidad": "UN",
-      "categoria": "I. ESTRUCTURA Y SOPORTE PRINCIPAL"
+      "categoria": "Estructura de soporte principal"
     },
     {
-      "codigo": "1.2",
-      "descripcion": "Cruceta metálica angular (L 75×75×6 mm o 2\"×2\"×1/4\", longitud 2.0 m, 2.5 m, 3.6 m)",
+      "codigo": "2.F",
+      "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma",
       "unidad": "UN",
-      "categoria": "I. ESTRUCTURA Y SOPORTE PRINCIPAL"
+      "categoria": "Fijación al poste"
     },
     {
-      "codigo": "1.3",
-      "descripcion": "Cruceta reforzada perfil Canal C (100×50×5 mm o 4\", longitud 2.5 m / 3.0 m)",
+      "codigo": "3.P",
+      "descripcion": "Cruceta angular metálica en T autosoportada, 1400 mm",
       "unidad": "UN",
-      "categoria": "I. ESTRUCTURA Y SOPORTE PRINCIPAL"
+      "categoria": "Estructura de soporte principal"
     },
     {
-      "codigo": "1.4",
-      "descripcion": "Diagonales angulares metálicas en V / Pieamigos (L 38×38×4.8 mm, long. 1.0 m / 2.4 m)",
+      "codigo": "4.P",
+      "descripcion": "Soporte para dos aisladores en angulo red compacta (15kV / 35kV)",
       "unidad": "UN",
-      "categoria": "I. ESTRUCTURA Y SOPORTE PRINCIPAL"
+      "categoria": "Estructura de soporte principal"
     },
     {
-      "codigo": "1.5",
-      "descripcion": "Soporte / puntera metálica para montaje de Cutout y DPS",
-      "unidad": "JGO",
-      "categoria": "I. ESTRUCTURA Y SOPORTE PRINCIPAL"
-    },
-    {
-      "codigo": "2.1",
-      "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100 mm - 4\" a 300 mm - 12\")",
+      "codigo": "5.P",
+      "descripcion": "Brazo angular tipo C acero red compacta 15kV",
       "unidad": "UN",
-      "categoria": "II. ABRAZADERAS Y COLLARINES"
+      "categoria": "Estructura de soporte principal"
     },
     {
-      "codigo": "2.2",
-      "descripcion": "Abrazadera de pletina para fijación de bajada de tubería conduit",
+      "codigo": "6.A",
+      "descripcion": "Aislador suspensión polimérico 15 kV ANSI C29.13 clase DS-15 clevis-lengüeta",
       "unidad": "UN",
-      "categoria": "II. ABRAZADERAS Y COLLARINES"
+      "categoria": "Aisladores"
     },
     {
-      "codigo": "3.1",
-      "descripcion": "Pernos de máquina 5/8\" × 10\" / 12\" / 14\" / 16\" con rosca continua",
+      "codigo": "7.S",
+      "descripcion": "Grapa preformada aleación de aluminio 2 AWG a 312.8 kcmil 15 kV  / 38 kV cable cubierto  (Amarre Preformado)",
       "unidad": "UN",
-      "categoria": "III. TORNILLERÍA Y ELEMENTOS ROSCADOS (GALVANIZADOS EN CALIENTE)"
+      "categoria": "Sujeción y amarre del conductor"
     },
     {
-      "codigo": "3.2",
-      "descripcion": "Pernos de ojo pasantes 5/8\" × 10\" / 12\" / 14\" con rosca",
+      "codigo": "8.T",
+      "descripcion": "Eslabón en U 5/8\" forjado galvanizado",
       "unidad": "UN",
-      "categoria": "III. TORNILLERÍA Y ELEMENTOS ROSCADOS (GALVANIZADOS EN CALIENTE)"
+      "categoria": "Tornillería y herrajes de unión"
     },
     {
-      "codigo": "3.3",
-      "descripcion": "Pernos espigo para aislador tipo PIN (5/8\" × 7\" o espigo largo)",
+      "codigo": "9.S",
+      "descripcion": "Grapa de retención aluminio tipo pistola (3–4 pernos) 2/0AWG-266.8KCMIL",
       "unidad": "UN",
-      "categoria": "III. TORNILLERÍA Y ELEMENTOS ROSCADOS (GALVANIZADOS EN CALIENTE)"
+      "categoria": "Sujeción y amarre del conductor"
     },
     {
-      "codigo": "3.4",
-      "descripcion": "Tuercas hexagonales de acero 5/8\" y contratuercas de seguridad",
+      "codigo": "10.T",
+      "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 31/2\"",
       "unidad": "UN",
-      "categoria": "III. TORNILLERÍA Y ELEMENTOS ROSCADOS (GALVANIZADOS EN CALIENTE)"
+      "categoria": "Tornillería y herrajes de unión"
     },
     {
-      "codigo": "3.5",
-      "descripcion": "Tuercas de ojo / Ojos giratorios de 5/8\"",
+      "codigo": "11.T",
+      "descripcion": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x 14\")",
       "unidad": "UN",
-      "categoria": "III. TORNILLERÍA Y ELEMENTOS ROSCADOS (GALVANIZADOS EN CALIENTE)"
+      "categoria": "Tornillería y herrajes de unión"
     },
     {
-      "codigo": "3.6",
-      "descripcion": "Arandelas cuadradas planas/curvas de acero 5/8\" × 4\" × 4\" × 3/16\" (o 2\" × 2\")",
+      "codigo": "12.T",
+      "descripcion": "Tuercas hexagonales de acero 5/8′′",
       "unidad": "UN",
-      "categoria": "III. TORNILLERÍA Y ELEMENTOS ROSCADOS (GALVANIZADOS EN CALIENTE)"
+      "categoria": "Tornillería y herrajes de unión"
     },
     {
-      "codigo": "3.7",
-      "descripcion": "Arandelas de presión (Guasa) de 5/8\"",
+      "codigo": "13.T",
+      "descripcion": "Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8\")",
       "unidad": "UN",
-      "categoria": "III. TORNILLERÍA Y ELEMENTOS ROSCADOS (GALVANIZADOS EN CALIENTE)"
+      "categoria": "Tornillería y herrajes de unión"
     },
     {
-      "codigo": "4.1",
-      "descripcion": "Aisladores tipo PIN / Line Post poliméricos o porcelana (15 kV / 35 kV / 46 kV)",
+      "codigo": "14.T",
+      "descripcion": "Arandelas redondas planas de acero Ø15,9 mm (5/8′′)",
       "unidad": "UN",
-      "categoria": "IV. AISLAMIENTO Y HERRAJES DE CADENA"
+      "categoria": "Tornillería y herrajes de unión"
     },
     {
-      "codigo": "4.2",
-      "descripcion": "Aisladores poliméricos tipo Tensor/Suspensión (15 kV / 35 kV / 46 kV, 70 kN / 120 kN)",
+      "codigo": "15.P",
+      "descripcion": "Pararrayos polimerico DPS 12 kV 10 kA",
       "unidad": "UN",
-      "categoria": "IV. AISLAMIENTO Y HERRAJES DE CADENA"
+      "categoria": "Protección eléctrica y puesta a tierra"
     },
     {
-      "codigo": "4.3",
-      "descripcion": "Eslabones de extensión / Clevis / Grilletes de acople",
+      "codigo": "16.C",
+      "descripcion": "Cable de cobre desnudo #2 AWG",
       "unidad": "UN",
-      "categoria": "IV. AISLAMIENTO Y HERRAJES DE CADENA"
+      "categoria": "Conductores y cableado"
     },
     {
-      "codigo": "5.1",
-      "descripcion": "Grapas de retención tipo pistola de aluminio (3-4 pernos / cuña)",
+      "codigo": "17.C",
+      "descripcion": "Conector empalme conector DBH Y REPOSICION AISLAMIENTO Cable Simieaislado",
       "unidad": "UN",
-      "categoria": "V. SUJECIÓN, RETENCIÓN Y PROTECCIÓN DEL CONDUCTOR"
+      "categoria": "Conectores y empalmes eléctricos"
     },
     {
-      "codigo": "5.2",
-      "descripcion": "Grapas de suspensión basculante para ángulo",
+      "codigo": "18.C",
+      "descripcion": "Conexión estribo a cable semiaislado con conector DBH y reposición de aislamiento del cable semiaislado",
       "unidad": "UN",
-      "categoria": "V. SUJECIÓN, RETENCIÓN Y PROTECCIÓN DEL CONDUCTOR"
+      "categoria": "Conectores y empalmes eléctricos"
     },
     {
-      "codigo": "5.3",
-      "descripcion": "Amarres preformados / helicoidales para PIN / Line Post",
+      "codigo": "19.C",
+      "descripcion": "Conectores de compresión (C-Tap / H-Tap / Cuña)",
       "unidad": "UN",
-      "categoria": "V. SUJECIÓN, RETENCIÓN Y PROTECCIÓN DEL CONDUCTOR"
+      "categoria": "Conectores y empalmes eléctricos"
     },
     {
-      "codigo": "5.4",
-      "descripcion": "Cinta de armar de aluminio / Varillas de Armar (Armor Rods)",
-      "unidad": "RLL",
-      "categoria": "V. SUJECIÓN, RETENCIÓN Y PROTECCIÓN DEL CONDUCTOR"
-    },
-    {
-      "codigo": "6.1",
-      "descripcion": "Cortacircuitos (Cutout) monopolares 15 kV / 27 kV / 38 kV (100 A)",
+      "codigo": "20.C",
+      "descripcion": "Conectores tipo Cuña Cu - Cu #2 a #2",
       "unidad": "UN",
-      "categoria": "VI. EQUIPOS DE PROTECCIÓN, MANIOBRA Y TRANSICIÓN"
+      "categoria": "Conectores y empalmes eléctricos"
     },
     {
-      "codigo": "6.2",
-      "descripcion": "Fusibles tipo chicote / hilo de fusión rápida/lenta (1 A - 100 A)",
+      "codigo": "21.P",
+      "descripcion": "Conector cuña a presión p/ varilla PAT Ø15,9 mm (5/8\") a Cu #2 AWG",
       "unidad": "UN",
-      "categoria": "VI. EQUIPOS DE PROTECCIÓN, MANIOBRA Y TRANSICIÓN"
+      "categoria": "Protección eléctrica y puesta a tierra"
     },
     {
-      "codigo": "6.3",
-      "descripcion": "Descargadores de sobretensión (DPS) ZnO (12 kV / 27 kV / 36 kV - 10 kA)",
+      "codigo": "22.P",
+      "descripcion": "Grapa conexión doble cable tierra",
       "unidad": "UN",
-      "categoria": "VI. EQUIPOS DE PROTECCIÓN, MANIOBRA Y TRANSICIÓN"
+      "categoria": "Protección eléctrica y puesta a tierra"
     },
     {
-      "codigo": "6.4",
-      "descripcion": "Kit de terminales termocontraíbles intemperie (3 fases)",
-      "unidad": "JGO",
-      "categoria": "VI. EQUIPOS DE PROTECCIÓN, MANIOBRA Y TRANSICIÓN"
-    },
-    {
-      "codigo": "7.1",
-      "descripcion": "Varilla de anclaje con ojo para viento 3/4\" × 2.4 m con platina",
+      "codigo": "23.P",
+      "descripcion": "Varilla puesta a tierra Ø 15,9 x 2400 mm (5/8\" x 8') Copperweld",
       "unidad": "UN",
-      "categoria": "VII. RETENIDAS (VIENTOS) Y ANCLAJES"
+      "categoria": "Protección eléctrica y puesta a tierra"
     },
     {
-      "codigo": "7.2",
-      "descripcion": "Bloque de anclaje en concreto reforzado (o ancla expansiva)",
+      "codigo": "24.T",
+      "descripcion": "Guardacabo acero galvanizad Ø15,9 mm (5/8′′)",
       "unidad": "UN",
-      "categoria": "VII. RETENIDAS (VIENTOS) Y ANCLAJES"
+      "categoria": "Tornillería y herrajes de unión"
     },
     {
-      "codigo": "7.3",
-      "descripcion": "Cable de acero galvanizado EHS 5/16\" o 3/8\" para viento",
-      "unidad": "MET",
-      "categoria": "VII. RETENIDAS (VIENTOS) Y ANCLAJES"
-    },
-    {
-      "codigo": "7.4",
-      "descripcion": "Tensor metálico galvanizado con ojo y gancho (5/8\")",
+      "codigo": "25.P",
+      "descripcion": "Brazo tangente tipo L 15kV con grapa prensora y\nestribo",
       "unidad": "UN",
-      "categoria": "VII. RETENIDAS (VIENTOS) Y ANCLAJES"
+      "categoria": "Estructura de soporte principal"
     },
     {
-      "codigo": "7.5",
-      "descripcion": "Preformados de retenida / Guardacabos y grapas prensacables",
-      "unidad": "JGO",
-      "categoria": "VII. RETENIDAS (VIENTOS) Y ANCLAJES"
-    },
-    {
-      "codigo": "7.6",
-      "descripcion": "Aislador de retenida tipo nuez o polimérico (15 kV / 34.5 kV)",
+      "codigo": "26.P",
+      "descripcion": "Brazo anti-balanceo polimérico red compacta 15 kV",
       "unidad": "UN",
-      "categoria": "VII. RETENIDAS (VIENTOS) Y ANCLAJES"
+      "categoria": "Estructura de soporte principal"
     },
     {
-      "codigo": "7.7",
-      "descripcion": "Protector tubular plástico (Camisa/Manguera amarilla de señalización)",
+      "codigo": "27.S",
+      "descripcion": "Estribo para soporte tangencial",
       "unidad": "UN",
-      "categoria": "VII. RETENIDAS (VIENTOS) Y ANCLAJES"
+      "categoria": "Sujeción y amarre del conductor"
     },
     {
-      "codigo": "8.1",
-      "descripcion": "Varilla de puesta a tierra Copperweld 5/8\" × 2.4 m",
+      "codigo": "28.E",
+      "descripcion": "Espaciador poligonal polimérico 15 kV 10 kA cable cubierto (Tipo Pato)",
       "unidad": "UN",
-      "categoria": "VIII. SISTEMA DE PUESTA A TIERRA (SPT)"
+      "categoria": "Espaciamiento de red compacta"
     },
     {
-      "codigo": "8.2",
-      "descripcion": "Conductor de bajada (Copperclad Steel 7×No 8 - 58.56 mm², Cu #2 AWG o Cinta de Cobre)",
-      "unidad": "MET",
-      "categoria": "VIII. SISTEMA DE PUESTA A TIERRA (SPT)"
-    },
-    {
-      "codigo": "8.3",
-      "descripcion": "Conector bimetálico / perno partido / soldadura exotérmica para varilla",
+      "codigo": "29.E",
+      "descripcion": "Espaciador poligonal polimérico 15 kV 10 kA cable cubierto",
       "unidad": "UN",
-      "categoria": "VIII. SISTEMA DE PUESTA A TIERRA (SPT)"
+      "categoria": "Espaciamiento de red compacta"
     },
     {
-      "codigo": "8.4",
-      "descripcion": "Grapas de fijación / abrazaderas metálicas para bajante de tierra en poste",
+      "codigo": "30.S",
+      "descripcion": "Grapa Suspension para soporte mensajero red compacta",
       "unidad": "UN",
-      "categoria": "VIII. SISTEMA DE PUESTA A TIERRA (SPT)"
+      "categoria": "Sujeción y amarre del conductor"
     },
     {
-      "codigo": "9.1",
-      "descripcion": "Conectores de compresión (C-Tap / H-Tap / Cuña bimetálicos)",
+      "codigo": "31.A",
+      "descripcion": "Aislador pin polimérico 15 kV ANSI C29.5 clase 55-4",
       "unidad": "UN",
-      "categoria": "IX. CONECTÓRICA Y ACCESORIOS DE CONEXIÓN"
+      "categoria": "Aisladores"
     },
     {
-      "codigo": "9.2",
-      "descripcion": "Estribos de línea con conector de cuña (para punto de mantenimiento)",
+      "codigo": "32.S",
+      "descripcion": "Grapa amarre preformado aislado tipo \"Z\" para red semiaislada. De acuerdo al calibre del conductor  (Amarre Preformado)",
       "unidad": "UN",
-      "categoria": "IX. CONECTÓRICA Y ACCESORIOS DE CONEXIÓN"
+      "categoria": "Sujeción y amarre del conductor"
     },
     {
-      "codigo": "9.3",
-      "descripcion": "Grapas de operar en caliente (GOC) en bronce/aluminio",
+      "codigo": "33.T",
+      "descripcion": "Perno Espigo corto para aislador tipo pin 10”x1 3/4”x3/4” rosca nailon 1 3/8” cruceta metálica (13,2 kV)",
       "unidad": "UN",
-      "categoria": "IX. CONECTÓRICA Y ACCESORIOS DE CONEXIÓN"
+      "categoria": "Tornillería y herrajes de unión"
     },
     {
-      "codigo": "10.1",
-      "descripcion": "Conductores Aéreos MT (ACSR, AAC, AAAC, Ecológico / Semiaislado XLPE-HDPE, 1/0 AWG a 500 kcmil)",
-      "unidad": "MET",
-      "categoria": "X. CONDUCTORES AÉREOS DE MEDIA TENSIÓN"
+      "codigo": "34.T",
+      "descripcion": "Tuercas de ojo alargada acero galv. / Ojos giratorios de Ø15,9 mm (5/8\")",
+      "unidad": "UN",
+      "categoria": "Tornillería y herrajes de unión"
+    },
+    {
+      "codigo": "35.T",
+      "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 3\"",
+      "unidad": "UN",
+      "categoria": "Tornillería y herrajes de unión"
+    },
+    {
+      "codigo": "36.T",
+      "descripcion": "Tornillo de máquina hexagonal acero galvanizado1/2\" x 3\"",
+      "unidad": "UN",
+      "categoria": "Tornillería y herrajes de unión"
+    },
+    {
+      "codigo": "37.S",
+      "descripcion": "Grapa de retención aluminio tipo pistola (3–4 pernos) 4AWG a 2/0 AWG",
+      "unidad": "UN",
+      "categoria": "Sujeción y amarre del conductor"
+    },
+    {
+      "codigo": "38.T",
+      "descripcion": "Perno espaciador 15.9 x 305 mm  (Esparrago 5/8\" x 12\")",
+      "unidad": "UN",
+      "categoria": "Tornillería y herrajes de unión"
+    },
+    {
+      "codigo": "39.P",
+      "descripcion": "Brazo angular tipo E acero red compacta 15kV",
+      "unidad": "UN",
+      "categoria": "Estructura de soporte principal"
+    },
+    {
+      "codigo": "40.F",
+      "descripcion": "Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4\" a Collarin 300mm -12\")    Diámetro según norma RA05",
+      "unidad": "UN",
+      "categoria": "Fijación al poste"
+    },
+    {
+      "codigo": "41.P",
+      "descripcion": "Cruceta metálica galv. 76 x 76 x 7,9 x 2400 mm (3\"x3\"x5/16\" x 2,40 m)",
+      "unidad": "UN",
+      "categoria": "Estructura de soporte principal"
+    },
+    {
+      "codigo": "42.P",
+      "descripcion": "Pieamigo - Diagonal en L para bandera, 51 x 51 x 6 x 2.337 mm (2\"x2\"x1/4\" x 92\")  p/cruceta 2400 mm",
+      "unidad": "UN",
+      "categoria": "Estructura de soporte principal"
+    },
+    {
+      "codigo": "43.S",
+      "descripcion": "Grapa de suspensión aluminio 4 AWG - 2/0 AWG (1/4\" - 3/8\")",
+      "unidad": "UN",
+      "categoria": "Sujeción y amarre del conductor"
+    },
+    {
+      "codigo": "44.T",
+      "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" X 1 1/2\"",
+      "unidad": "UN",
+      "categoria": "Tornillería y herrajes de unión"
+    },
+    {
+      "codigo": "45.P",
+      "descripcion": "Cruceta metálica retención 600mm  3\" X 3\" X 1/4\" / 2 1/2\" x 2 1/2\" x 1/4\"",
+      "unidad": "UN",
+      "categoria": "Estructura de soporte principal"
+    },
+    {
+      "codigo": "46.P",
+      "descripcion": "Cubo metalico galvanizado 3\" X 3\" para soporte de protecciones",
+      "unidad": "UN",
+      "categoria": "Estructura de soporte principal"
+    },
+    {
+      "codigo": "47.S",
+      "descripcion": "Estribos de línea con conector de cuña",
+      "unidad": "UN",
+      "categoria": "Sujeción y amarre del conductor"
+    },
+    {
+      "codigo": "48.T",
+      "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" X 2\"",
+      "unidad": "UN",
+      "categoria": "Tornillería y herrajes de unión"
+    },
+    {
+      "codigo": "49.C",
+      "descripcion": "Alambre aluminio aislado #8 AWG, 600V",
+      "unidad": "UN",
+      "categoria": "Conductores y cableado"
+    },
+    {
+      "codigo": "50.A",
+      "descripcion": "Aislador polietileno tipo pin ANSI 55-4, 15kV",
+      "unidad": "UN",
+      "categoria": "Aisladores"
+    },
+    {
+      "codigo": "51.T",
+      "descripcion": "Pernos espigo para aislador tipo PIN 15kV",
+      "unidad": "UN",
+      "categoria": "Tornillería y herrajes de unión"
+    },
+    {
+      "codigo": "52.T",
+      "descripcion": "Tornillo de máquina hexagonal acero galvanizado 5/8\" x 2\"",
+      "unidad": "UN",
+      "categoria": "Tornillería y herrajes de unión"
+    },
+    {
+      "codigo": "53.P",
+      "descripcion": "Brazo angular tipo C acero red compacta 38kV",
+      "unidad": "UN",
+      "categoria": "Estructura de soporte principal"
+    },
+    {
+      "codigo": "54.A",
+      "descripcion": "Aislador suspensión polimérico 38kV ANSI C29.13 clase DS-35 clevis-lengüeta",
+      "unidad": "UN",
+      "categoria": "Aisladores"
+    },
+    {
+      "codigo": "55.P",
+      "descripcion": "Pararrayos polimerico DPS 30 kV 10 kA",
+      "unidad": "UN",
+      "categoria": "Protección eléctrica y puesta a tierra"
+    },
+    {
+      "codigo": "56.P",
+      "descripcion": "Brazo tangente tipo L 38 – 48 kV con grapa prensora y estribo",
+      "unidad": "UN",
+      "categoria": "Estructura de soporte principal"
+    },
+    {
+      "codigo": "57.P",
+      "descripcion": "Brazo anti-balanceo polimérico red compacta 38kV",
+      "unidad": "UN",
+      "categoria": "Estructura de soporte principal"
+    },
+    {
+      "codigo": "58.E",
+      "descripcion": "Espaciador poligonal polimérico 38 kV 16 kA cable cubierto (Tipo Pato)",
+      "unidad": "UN",
+      "categoria": "Espaciamiento de red compacta"
+    },
+    {
+      "codigo": "59.E",
+      "descripcion": "Espaciador poligonal polimérico 38 kV 16 kA cable cubierto",
+      "unidad": "UN",
+      "categoria": "Espaciamiento de red compacta"
+    },
+    {
+      "codigo": "60.A",
+      "descripcion": "Aislador pin polimérico 35 kV ANSI C29.5 clase 55-6",
+      "unidad": "UN",
+      "categoria": "Aisladores"
+    },
+    {
+      "codigo": "61.T",
+      "descripcion": "Perno Espigo corto para aislador tipo pin 10”x1 3/4”x3/4” rosca nailon 1 3/8” cruceta metálica (34,5 kV)",
+      "unidad": "UN",
+      "categoria": "Tornillería y herrajes de unión"
+    },
+    {
+      "codigo": "62.P",
+      "descripcion": "Brazo angular tipo E acero red compacta 38kV",
+      "unidad": "UN",
+      "categoria": "Estructura de soporte principal"
+    },
+    {
+      "codigo": "63.A",
+      "descripcion": "Aislador polietileno tipo pin ANSI 55-6, 34.5 kV",
+      "unidad": "UN",
+      "categoria": "Aisladores"
+    },
+    {
+      "codigo": "64.T",
+      "descripcion": "Pernos espigo para aislador tipo PIN 35kV",
+      "unidad": "UN",
+      "categoria": "Tornillería y herrajes de unión"
+    },
+    {
+      "codigo": "65.A",
+      "descripcion": "Aislador pin polimérico 38-48 kV ANSI C29.5 clase 55-6",
+      "unidad": "UN",
+      "categoria": "Aisladores"
     }
   ],
   "normas": [
     {
-      "operador": "EPM",
-      "codigo": "RA2-201",
-      "tipoPoste": "Transición aérea-subterránea / Terminal / Protección (Salida hacia ramal, reconectador o seccionador)",
-      "descripcion": "Configuración C1 — Transición aérea-subterránea / Terminal / Protección (Salida hacia ramal, reconectador o seccionador)",
+      "operador": "CELSIA",
+      "codigo": "B176C2",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA B176C2",
       "configuraciones": [
         {
-          "nombre": "C1 estándar",
+          "nombre": "Aisladores",
           "materiales": [
             {
-              "codigoMaterial": "1.1",
-              "cantidad": 1
+              "codigoMaterial": "6.A",
+              "cantidad": 6
+            }
+          ]
+        },
+        {
+          "nombre": "Conductores y cableado",
+          "materiales": [
+            {
+              "codigoMaterial": "16.C",
+              "cantidad": 6
+            }
+          ]
+        },
+        {
+          "nombre": "Conectores y empalmes eléctricos",
+          "materiales": [
+            {
+              "codigoMaterial": "17.C",
+              "cantidad": 6
             },
             {
-              "codigoMaterial": "1.2",
+              "codigoMaterial": "18.C",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "19.C",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "1.4",
+              "codigoMaterial": "20.C",
               "cantidad": 4
-            },
-            {
-              "codigoMaterial": "1.5",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "2.1",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "2.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.1",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "3.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.4",
-              "cantidad": 18
-            },
-            {
-              "codigoMaterial": "3.5",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.6",
-              "cantidad": 12
-            },
-            {
-              "codigoMaterial": "3.7",
-              "cantidad": 18
-            },
-            {
-              "codigoMaterial": "4.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "4.3",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "5.1",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "6.1",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "6.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "6.3",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "6.4",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.2",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.3",
-              "cantidad": 15
-            },
-            {
-              "codigoMaterial": "7.4",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.5",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "7.6",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.7",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.2",
-              "cantidad": 16,
-              "observacion": "Rango en la fuente: 12 a16; se toma el límite superior"
-            },
-            {
-              "codigoMaterial": "8.3",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.4",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "9.1",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "9.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "9.3",
-              "cantidad": 3
             }
           ]
-        }
-      ]
-    },
-    {
-      "operador": "EPM",
-      "codigo": "RA7-013",
-      "tipoPoste": "Transición aérea-subterránea / Terminal / Protección (Salida hacia ramal, reconectador o seccionador)",
-      "descripcion": "Configuración C1 — Transición aérea-subterránea / Terminal / Protección (Salida hacia ramal, reconectador o seccionador)",
-      "configuraciones": [
+        },
         {
-          "nombre": "C1 estándar",
+          "nombre": "Estructura de soporte principal",
           "materiales": [
             {
-              "codigoMaterial": "1.1",
+              "codigoMaterial": "1.P",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "1.2",
+              "codigoMaterial": "3.P",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "1.4",
+              "codigoMaterial": "4.P",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "5.P",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
               "cantidad": 4
-            },
-            {
-              "codigoMaterial": "1.5",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "2.1",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "2.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.1",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "3.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.4",
-              "cantidad": 18
-            },
-            {
-              "codigoMaterial": "3.5",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.6",
-              "cantidad": 12
-            },
-            {
-              "codigoMaterial": "3.7",
-              "cantidad": 18
-            },
-            {
-              "codigoMaterial": "4.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "4.3",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "5.1",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "6.1",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "6.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "6.3",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "6.4",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.2",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.3",
-              "cantidad": 15
-            },
-            {
-              "codigoMaterial": "7.4",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.5",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "7.6",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.7",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.2",
-              "cantidad": 16,
-              "observacion": "Rango en la fuente: 12 a16; se toma el límite superior"
-            },
-            {
-              "codigoMaterial": "8.3",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.4",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "9.1",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "9.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "9.3",
-              "cantidad": 3
             }
           ]
-        }
-      ]
-    },
-    {
-      "operador": "EPM",
-      "codigo": "RA2-001",
-      "tipoPoste": "Suspensión Tangente (α<5°)",
-      "descripcion": "Configuración C2 — Suspensión Tangente (α<5°)",
-      "configuraciones": [
+        },
         {
-          "nombre": "C2 estándar",
+          "nombre": "Protección eléctrica y puesta a tierra",
           "materiales": [
             {
-              "codigoMaterial": "1.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "1.2",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "1.4",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "2.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "3.1",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.3",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.4",
+              "codigoMaterial": "15.P",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "3.6",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "3.7",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "4.1",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "5.3",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "5.4",
+              "codigoMaterial": "21.P",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "7.1",
+              "codigoMaterial": "22.P",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "7.2",
+              "codigoMaterial": "23.P",
               "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.3",
-              "cantidad": 15
-            },
-            {
-              "codigoMaterial": "7.4",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.5",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "7.6",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.7",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.2",
-              "cantidad": 16,
-              "observacion": "Rango en la fuente: 12 a16; se toma el límite superior"
-            },
-            {
-              "codigoMaterial": "8.3",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.4",
-              "cantidad": 6
             }
           ]
-        }
-      ]
-    },
-    {
-      "operador": "EPM",
-      "codigo": "RA2-101",
-      "tipoPoste": "Suspensión Tangente (α<5°)",
-      "descripcion": "Configuración C2 — Suspensión Tangente (α<5°)",
-      "configuraciones": [
+        },
         {
-          "nombre": "C2 estándar",
+          "nombre": "Sujeción y amarre del conductor",
           "materiales": [
             {
-              "codigoMaterial": "1.1",
-              "cantidad": 1
+              "codigoMaterial": "7.S",
+              "cantidad": 6
             },
             {
-              "codigoMaterial": "1.2",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "1.4",
+              "codigoMaterial": "9.S",
               "cantidad": 2
-            },
-            {
-              "codigoMaterial": "2.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "3.1",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.3",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.4",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "3.6",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "3.7",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "4.1",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "5.3",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "5.4",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.2",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.3",
-              "cantidad": 15
-            },
-            {
-              "codigoMaterial": "7.4",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.5",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "7.6",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.7",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.2",
-              "cantidad": 16,
-              "observacion": "Rango en la fuente: 12 a16; se toma el límite superior"
-            },
-            {
-              "codigoMaterial": "8.3",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.4",
-              "cantidad": 6
             }
           ]
-        }
-      ]
-    },
-    {
-      "operador": "EPM",
-      "codigo": "RA2-102",
-      "tipoPoste": "Suspensión / Retención (5°≤ α <30°)",
-      "descripcion": "Configuración C3 — Suspensión / Retención (5°≤ α <30°)",
-      "configuraciones": [
+        },
         {
-          "nombre": "C3 estándar",
+          "nombre": "Tornillería y herrajes de unión",
           "materiales": [
             {
-              "codigoMaterial": "1.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "1.2",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "1.4",
-              "cantidad": 4
-            },
-            {
-              "codigoMaterial": "2.1",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "3.1",
-              "cantidad": 5
-            },
-            {
-              "codigoMaterial": "3.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.3",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.4",
-              "cantidad": 16
-            },
-            {
-              "codigoMaterial": "3.5",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.6",
-              "cantidad": 10
-            },
-            {
-              "codigoMaterial": "3.7",
-              "cantidad": 11
-            },
-            {
-              "codigoMaterial": "4.1",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "4.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "4.3",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "5.1",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "5.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "5.3",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "5.4",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.2",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.3",
-              "cantidad": 15
-            },
-            {
-              "codigoMaterial": "7.4",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.5",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "7.6",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.7",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.2",
-              "cantidad": 16,
-              "observacion": "Rango en la fuente: 12 a16; se toma el límite superior"
-            },
-            {
-              "codigoMaterial": "8.3",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.4",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "9.1",
-              "cantidad": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "operador": "EPM",
-      "codigo": "RA2-103",
-      "tipoPoste": "Suspensión / Retención (5°≤ α <30°)",
-      "descripcion": "Configuración C3 — Suspensión / Retención (5°≤ α <30°)",
-      "configuraciones": [
-        {
-          "nombre": "C3 estándar",
-          "materiales": [
-            {
-              "codigoMaterial": "1.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "1.2",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "1.4",
-              "cantidad": 4
-            },
-            {
-              "codigoMaterial": "2.1",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "3.1",
-              "cantidad": 5
-            },
-            {
-              "codigoMaterial": "3.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.3",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.4",
-              "cantidad": 16
-            },
-            {
-              "codigoMaterial": "3.5",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.6",
-              "cantidad": 10
-            },
-            {
-              "codigoMaterial": "3.7",
-              "cantidad": 11
-            },
-            {
-              "codigoMaterial": "4.1",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "4.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "4.3",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "5.1",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "5.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "5.3",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "5.4",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.2",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.3",
-              "cantidad": 15
-            },
-            {
-              "codigoMaterial": "7.4",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.5",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "7.6",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.7",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.2",
-              "cantidad": 16,
-              "observacion": "Rango en la fuente: 12 a16; se toma el límite superior"
-            },
-            {
-              "codigoMaterial": "8.3",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.4",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "9.1",
-              "cantidad": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "operador": "EPM",
-      "codigo": "RA2-104",
-      "tipoPoste": "Retención Ángulo (30°< α <60°)",
-      "descripcion": "Configuración C4 — Retención Ángulo (30°< α <60°)",
-      "configuraciones": [
-        {
-          "nombre": "C4 estándar",
-          "materiales": [
-            {
-              "codigoMaterial": "1.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "1.2",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "1.4",
-              "cantidad": 4
-            },
-            {
-              "codigoMaterial": "2.1",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "3.1",
+              "codigoMaterial": "8.T",
               "cantidad": 8
             },
             {
-              "codigoMaterial": "3.2",
-              "cantidad": 6
+              "codigoMaterial": "10.T",
+              "cantidad": 4
             },
             {
-              "codigoMaterial": "3.4",
-              "cantidad": 24
+              "codigoMaterial": "11.T",
+              "cantidad": 2
             },
             {
-              "codigoMaterial": "3.5",
-              "cantidad": 6
+              "codigoMaterial": "12.T",
+              "cantidad": 18
             },
             {
-              "codigoMaterial": "3.6",
+              "codigoMaterial": "13.T",
               "cantidad": 16
             },
             {
-              "codigoMaterial": "3.7",
-              "cantidad": 24
+              "codigoMaterial": "14.T",
+              "cantidad": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "B177C2",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA B177C2",
+      "configuraciones": [
+        {
+          "nombre": "Aisladores",
+          "materiales": [
+            {
+              "codigoMaterial": "6.A",
+              "cantidad": 12
+            }
+          ]
+        },
+        {
+          "nombre": "Conectores y empalmes eléctricos",
+          "materiales": [
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
+              "cantidad": 1
             },
             {
-              "codigoMaterial": "4.2",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "4.3",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "5.1",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "7.1",
+              "codigoMaterial": "3.P",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "7.2",
+              "codigoMaterial": "4.P",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "5.P",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 4
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "7.S",
+              "cantidad": 12
+            },
+            {
+              "codigoMaterial": "9.S",
+              "cantidad": 4
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "8.T",
+              "cantidad": 16
+            },
+            {
+              "codigoMaterial": "10.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "11.T",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "7.3",
-              "cantidad": 30
+              "codigoMaterial": "12.T",
+              "cantidad": 14
             },
             {
-              "codigoMaterial": "7.4",
+              "codigoMaterial": "13.T",
+              "cantidad": 12
+            },
+            {
+              "codigoMaterial": "14.T",
+              "cantidad": 12
+            },
+            {
+              "codigoMaterial": "24.T",
+              "cantidad": 12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "B71",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA B71",
+      "configuraciones": [
+        {
+          "nombre": "Espaciamiento de red compacta",
+          "materiales": [
+            {
+              "codigoMaterial": "28.E",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "25.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "26.P",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "27.S",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "12.T",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "7.5",
+              "codigoMaterial": "13.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "14.T",
+              "cantidad": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "B712",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA B712",
+      "configuraciones": [
+        {
+          "nombre": "Espaciamiento de red compacta",
+          "materiales": [
+            {
+              "codigoMaterial": "29.E",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "25.P",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "26.P",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "27.S",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "13.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "14.T",
+              "cantidad": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "B72C",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA B72C",
+      "configuraciones": [
+        {
+          "nombre": "Aisladores",
+          "materiales": [
+            {
+              "codigoMaterial": "31.A",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "25.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "5.P",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 4
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "30.S",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "32.S",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "10.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "33.T",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "34.T",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 10
+            },
+            {
+              "codigoMaterial": "13.T",
               "cantidad": 8
             },
             {
-              "codigoMaterial": "7.6",
+              "codigoMaterial": "14.T",
               "cantidad": 4
-            },
-            {
-              "codigoMaterial": "7.7",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "8.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.2",
-              "cantidad": 16,
-              "observacion": "Rango en la fuente: 12 a16; se toma el límite superior"
-            },
-            {
-              "codigoMaterial": "8.3",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.4",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "9.1",
-              "cantidad": 6
             }
           ]
         }
       ]
     },
     {
-      "operador": "EPM",
-      "codigo": "RA2-105",
-      "tipoPoste": "Doble Retención (α =60° a 90°)",
-      "descripcion": "Configuración C5 — Doble Retención (α =60° a 90°)",
+      "operador": "CELSIA",
+      "codigo": "B72C2",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA B72C2",
       "configuraciones": [
         {
-          "nombre": "C5 estándar",
+          "nombre": "Aisladores",
           "materiales": [
             {
-              "codigoMaterial": "1.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "1.3",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "1.4",
-              "cantidad": 4
-            },
-            {
-              "codigoMaterial": "2.1",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.1",
-              "cantidad": 10
-            },
-            {
-              "codigoMaterial": "3.2",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "3.4",
-              "cantidad": 28
-            },
-            {
-              "codigoMaterial": "3.5",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "3.6",
-              "cantidad": 20
-            },
-            {
-              "codigoMaterial": "3.7",
-              "cantidad": 28
-            },
-            {
-              "codigoMaterial": "4.2",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "4.3",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "5.1",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "7.1",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "7.2",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.3",
-              "cantidad": 30
-            },
-            {
-              "codigoMaterial": "7.4",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "7.5",
-              "cantidad": 4
-            },
-            {
-              "codigoMaterial": "7.6",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "7.7",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.2",
-              "cantidad": 12
-            },
-            {
-              "codigoMaterial": "8.3",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.4",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "9.1",
+              "codigoMaterial": "31.A",
               "cantidad": 6
             }
           ]
-        }
-      ]
-    },
-    {
-      "operador": "EPM",
-      "codigo": "RA2-106",
-      "tipoPoste": "Doble Retención (α =60° a 90°)",
-      "descripcion": "Configuración C5 — Doble Retención (α =60° a 90°)",
-      "configuraciones": [
+        },
         {
-          "nombre": "C5 estándar",
+          "nombre": "Estructura de soporte principal",
           "materiales": [
             {
-              "codigoMaterial": "1.1",
+              "codigoMaterial": "25.P",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "1.3",
+              "codigoMaterial": "5.P",
               "cantidad": 2
-            },
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
             {
-              "codigoMaterial": "1.4",
+              "codigoMaterial": "2.F",
               "cantidad": 4
-            },
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
             {
-              "codigoMaterial": "2.1",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.1",
-              "cantidad": 10
-            },
-            {
-              "codigoMaterial": "3.2",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "3.4",
-              "cantidad": 28
-            },
-            {
-              "codigoMaterial": "3.5",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "3.6",
-              "cantidad": 20
-            },
-            {
-              "codigoMaterial": "3.7",
-              "cantidad": 28
-            },
-            {
-              "codigoMaterial": "4.2",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "4.3",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "5.1",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "7.1",
+              "codigoMaterial": "30.S",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "7.2",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.3",
-              "cantidad": 30
-            },
-            {
-              "codigoMaterial": "7.4",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "7.5",
-              "cantidad": 4
-            },
-            {
-              "codigoMaterial": "7.6",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "7.7",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.2",
-              "cantidad": 12
-            },
-            {
-              "codigoMaterial": "8.3",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.4",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "9.1",
+              "codigoMaterial": "32.S",
               "cantidad": 6
             }
           ]
-        }
-      ]
-    },
-    {
-      "operador": "ENEL",
-      "codigo": "LA 165",
-      "tipoPoste": "Transición aérea-subterránea / Terminal / Protección (Salida hacia ramal, reconectador o seccionador)",
-      "descripcion": "Configuración C1 — Transición aérea-subterránea / Terminal / Protección (Salida hacia ramal, reconectador o seccionador)",
-      "configuraciones": [
+        },
         {
-          "nombre": "C1 estándar",
+          "nombre": "Tornillería y herrajes de unión",
           "materiales": [
             {
-              "codigoMaterial": "1.1",
+              "codigoMaterial": "35.T",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "1.2",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "1.4",
+              "codigoMaterial": "10.T",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "1.5",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "2.1",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "2.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.1",
+              "codigoMaterial": "33.T",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "3.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.4",
-              "cantidad": 18
-            },
-            {
-              "codigoMaterial": "3.5",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.6",
-              "cantidad": 12
-            },
-            {
-              "codigoMaterial": "3.7",
-              "cantidad": 18
-            },
-            {
-              "codigoMaterial": "4.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "4.3",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "5.1",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "6.1",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "6.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "6.3",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "6.4",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.2",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.3",
-              "cantidad": 15
-            },
-            {
-              "codigoMaterial": "7.4",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.5",
+              "codigoMaterial": "34.T",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "7.6",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.7",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.2",
-              "cantidad": 16,
-              "observacion": "Rango en la fuente: 12 a16; se toma el límite superior"
-            },
-            {
-              "codigoMaterial": "8.3",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.4",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "9.1",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "9.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "9.3",
-              "cantidad": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "operador": "ENEL",
-      "codigo": "LA 655",
-      "tipoPoste": "Transición aérea-subterránea / Terminal / Protección (Salida hacia ramal, reconectador o seccionador)",
-      "descripcion": "Configuración C1 — Transición aérea-subterránea / Terminal / Protección (Salida hacia ramal, reconectador o seccionador)",
-      "configuraciones": [
-        {
-          "nombre": "C1 estándar",
-          "materiales": [
-            {
-              "codigoMaterial": "1.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "1.2",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "1.4",
-              "cantidad": 4
-            },
-            {
-              "codigoMaterial": "1.5",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "2.1",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "2.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.1",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "3.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.4",
-              "cantidad": 18
-            },
-            {
-              "codigoMaterial": "3.5",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.6",
-              "cantidad": 12
-            },
-            {
-              "codigoMaterial": "3.7",
-              "cantidad": 18
-            },
-            {
-              "codigoMaterial": "4.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "4.3",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "5.1",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "6.1",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "6.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "6.3",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "6.4",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.2",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.3",
-              "cantidad": 15
-            },
-            {
-              "codigoMaterial": "7.4",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.5",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "7.6",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.7",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.2",
-              "cantidad": 16,
-              "observacion": "Rango en la fuente: 12 a16; se toma el límite superior"
-            },
-            {
-              "codigoMaterial": "8.3",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.4",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "9.1",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "9.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "9.3",
-              "cantidad": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "operador": "ENEL",
-      "codigo": "LA 010",
-      "tipoPoste": "Suspensión Tangente (α<5°)",
-      "descripcion": "Configuración C2 — Suspensión Tangente (α<5°)",
-      "configuraciones": [
-        {
-          "nombre": "C2 estándar",
-          "materiales": [
-            {
-              "codigoMaterial": "1.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "1.2",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "1.4",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "2.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "3.1",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.3",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.4",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "3.6",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "3.7",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "4.1",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "5.3",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "5.4",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.2",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.3",
-              "cantidad": 15
-            },
-            {
-              "codigoMaterial": "7.4",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.5",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "7.6",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.7",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.2",
-              "cantidad": 16,
-              "observacion": "Rango en la fuente: 12 a16; se toma el límite superior"
-            },
-            {
-              "codigoMaterial": "8.3",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.4",
-              "cantidad": 6
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "operador": "ENEL",
-      "codigo": "LA 101",
-      "tipoPoste": "Suspensión Tangente (α<5°)",
-      "descripcion": "Configuración C2 — Suspensión Tangente (α<5°)",
-      "configuraciones": [
-        {
-          "nombre": "C2 estándar",
-          "materiales": [
-            {
-              "codigoMaterial": "1.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "1.2",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "1.4",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "2.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "3.1",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.3",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.4",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "3.6",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "3.7",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "4.1",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "5.3",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "5.4",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.2",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.3",
-              "cantidad": 15
-            },
-            {
-              "codigoMaterial": "7.4",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.5",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "7.6",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.7",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.2",
-              "cantidad": 16,
-              "observacion": "Rango en la fuente: 12 a16; se toma el límite superior"
-            },
-            {
-              "codigoMaterial": "8.3",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.4",
-              "cantidad": 6
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "operador": "ENEL",
-      "codigo": "LA 102",
-      "tipoPoste": "Suspensión / Retención (5°≤ α <30°)",
-      "descripcion": "Configuración C3 — Suspensión / Retención (5°≤ α <30°)",
-      "configuraciones": [
-        {
-          "nombre": "C3 estándar",
-          "materiales": [
-            {
-              "codigoMaterial": "1.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "1.2",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "1.4",
-              "cantidad": 4
-            },
-            {
-              "codigoMaterial": "2.1",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "3.1",
-              "cantidad": 5
-            },
-            {
-              "codigoMaterial": "3.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.3",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.4",
-              "cantidad": 16
-            },
-            {
-              "codigoMaterial": "3.5",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.6",
-              "cantidad": 10
-            },
-            {
-              "codigoMaterial": "3.7",
-              "cantidad": 11
-            },
-            {
-              "codigoMaterial": "4.1",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "4.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "4.3",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "5.1",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "5.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "5.3",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "5.4",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.2",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.3",
-              "cantidad": 15
-            },
-            {
-              "codigoMaterial": "7.4",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.5",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "7.6",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.7",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.2",
-              "cantidad": 16,
-              "observacion": "Rango en la fuente: 12 a16; se toma el límite superior"
-            },
-            {
-              "codigoMaterial": "8.3",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.4",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "9.1",
-              "cantidad": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "operador": "ENEL",
-      "codigo": "LA 103",
-      "tipoPoste": "Suspensión / Retención (5°≤ α <30°)",
-      "descripcion": "Configuración C3 — Suspensión / Retención (5°≤ α <30°)",
-      "configuraciones": [
-        {
-          "nombre": "C3 estándar",
-          "materiales": [
-            {
-              "codigoMaterial": "1.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "1.2",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "1.4",
-              "cantidad": 4
-            },
-            {
-              "codigoMaterial": "2.1",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "3.1",
-              "cantidad": 5
-            },
-            {
-              "codigoMaterial": "3.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.3",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.4",
-              "cantidad": 16
-            },
-            {
-              "codigoMaterial": "3.5",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "3.6",
-              "cantidad": 10
-            },
-            {
-              "codigoMaterial": "3.7",
-              "cantidad": 11
-            },
-            {
-              "codigoMaterial": "4.1",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "4.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "4.3",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "5.1",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "5.2",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "5.3",
-              "cantidad": 3
-            },
-            {
-              "codigoMaterial": "5.4",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.2",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.3",
-              "cantidad": 15
-            },
-            {
-              "codigoMaterial": "7.4",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.5",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "7.6",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "7.7",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.2",
-              "cantidad": 16,
-              "observacion": "Rango en la fuente: 12 a16; se toma el límite superior"
-            },
-            {
-              "codigoMaterial": "8.3",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.4",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "9.1",
-              "cantidad": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "operador": "ENEL",
-      "codigo": "LA 104",
-      "tipoPoste": "Retención Ángulo (30°< α <60°)",
-      "descripcion": "Configuración C4 — Retención Ángulo (30°< α <60°)",
-      "configuraciones": [
-        {
-          "nombre": "C4 estándar",
-          "materiales": [
-            {
-              "codigoMaterial": "1.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "1.2",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "1.4",
-              "cantidad": 4
-            },
-            {
-              "codigoMaterial": "2.1",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "3.1",
-              "cantidad": 8
-            },
-            {
-              "codigoMaterial": "3.2",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "3.4",
+              "codigoMaterial": "12.T",
               "cantidad": 24
             },
             {
-              "codigoMaterial": "3.5",
-              "cantidad": 6
+              "codigoMaterial": "13.T",
+              "cantidad": 22
             },
             {
-              "codigoMaterial": "3.6",
-              "cantidad": 16
-            },
-            {
-              "codigoMaterial": "3.7",
-              "cantidad": 24
-            },
-            {
-              "codigoMaterial": "4.2",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "4.3",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "5.1",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "7.1",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "7.2",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "7.3",
-              "cantidad": 30
-            },
-            {
-              "codigoMaterial": "7.4",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "7.5",
-              "cantidad": 8
-            },
-            {
-              "codigoMaterial": "7.6",
-              "cantidad": 4
-            },
-            {
-              "codigoMaterial": "7.7",
-              "cantidad": 2
-            },
-            {
-              "codigoMaterial": "8.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.2",
-              "cantidad": 16,
-              "observacion": "Rango en la fuente: 12 a16; se toma el límite superior"
-            },
-            {
-              "codigoMaterial": "8.3",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.4",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "9.1",
-              "cantidad": 6
+              "codigoMaterial": "14.T",
+              "cantidad": 22
             }
           ]
         }
       ]
     },
     {
-      "operador": "ENEL",
-      "codigo": "LA 105",
-      "tipoPoste": "Doble Retención (α =60° a 90°)",
-      "descripcion": "Configuración C5 — Doble Retención (α =60° a 90°)",
+      "operador": "CELSIA",
+      "codigo": "B72CD",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA B72CD",
       "configuraciones": [
         {
-          "nombre": "C5 estándar",
+          "nombre": "Aisladores",
           "materiales": [
             {
-              "codigoMaterial": "1.1",
+              "codigoMaterial": "31.A",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "1.3",
+              "codigoMaterial": "25.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "5.P",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 4
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "30.S",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "32.S",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "10.T",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "1.4",
-              "cantidad": 4
-            },
-            {
-              "codigoMaterial": "2.1",
+              "codigoMaterial": "33.T",
               "cantidad": 3
             },
             {
-              "codigoMaterial": "3.1",
+              "codigoMaterial": "34.T",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "12.T",
               "cantidad": 10
             },
             {
-              "codigoMaterial": "3.2",
-              "cantidad": 6
+              "codigoMaterial": "13.T",
+              "cantidad": 8
             },
             {
-              "codigoMaterial": "3.4",
-              "cantidad": 28
-            },
+              "codigoMaterial": "14.T",
+              "cantidad": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "B72CD2",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA B72CD2",
+      "configuraciones": [
+        {
+          "nombre": "Aisladores",
+          "materiales": [
             {
-              "codigoMaterial": "3.5",
-              "cantidad": 6
-            },
+              "codigoMaterial": "31.A",
+              "cantidad": 12
+            }
+          ]
+        },
+        {
+          "nombre": "Conectores y empalmes eléctricos",
+          "materiales": [
             {
-              "codigoMaterial": "3.6",
-              "cantidad": 20
-            },
-            {
-              "codigoMaterial": "3.7",
-              "cantidad": 28
-            },
-            {
-              "codigoMaterial": "4.2",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "4.3",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "5.1",
-              "cantidad": 6
-            },
-            {
-              "codigoMaterial": "7.1",
+              "codigoMaterial": "19.C",
               "cantidad": 2
-            },
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
             {
-              "codigoMaterial": "7.2",
+              "codigoMaterial": "1.P",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "7.3",
-              "cantidad": 30
-            },
-            {
-              "codigoMaterial": "7.4",
+              "codigoMaterial": "3.P",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "7.5",
+              "codigoMaterial": "4.P",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "5.P",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 4
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "7.S",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "37.S",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "35.T",
               "cantidad": 4
             },
             {
-              "codigoMaterial": "7.6",
+              "codigoMaterial": "36.T",
               "cantidad": 2
             },
             {
-              "codigoMaterial": "7.7",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.1",
-              "cantidad": 1
-            },
-            {
-              "codigoMaterial": "8.2",
+              "codigoMaterial": "33.T",
               "cantidad": 12
             },
             {
-              "codigoMaterial": "8.3",
+              "codigoMaterial": "38.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 36
+            },
+            {
+              "codigoMaterial": "13.T",
+              "cantidad": 32
+            },
+            {
+              "codigoMaterial": "14.T",
+              "cantidad": 32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "B72E",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA B72E",
+      "configuraciones": [
+        {
+          "nombre": "Aisladores",
+          "materiales": [
+            {
+              "codigoMaterial": "31.A",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
               "cantidad": 1
             },
             {
-              "codigoMaterial": "8.4",
+              "codigoMaterial": "39.P",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "27.S",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "32.S",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "10.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "33.T",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "11.T",
               "cantidad": 6
             },
             {
-              "codigoMaterial": "9.1",
+              "codigoMaterial": "34.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "B72E2",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA B72E2",
+      "configuraciones": [
+        {
+          "nombre": "Aisladores",
+          "materiales": [
+            {
+              "codigoMaterial": "31.A",
               "cantidad": 6
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "39.P",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "27.S",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "32.S",
+              "cantidad": 6
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "10.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "33.T",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "11.T",
+              "cantidad": 14
+            },
+            {
+              "codigoMaterial": "34.T",
+              "cantidad": 12
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "B72ED",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA B72ED",
+      "configuraciones": [
+        {
+          "nombre": "Aisladores",
+          "materiales": [
+            {
+              "codigoMaterial": "31.A",
+              "cantidad": 6
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "4.P",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "39.P",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "30.S",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.S",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "8.T",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "10.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "33.T",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "11.T",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "34.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 4
             }
           ]
         }
@@ -2356,642 +1371,2896 @@
     {
       "operador": "CELSIA",
       "codigo": "B761",
-      "version": 1,
-      "tipoPoste": "Pato - Bandera Suspensión (13.2 kV)",
-      "descripcion": "Estructura de suspensión con aisladores tipo pato, configuración bandera, para ángulos de alineación 0° a 6° - 13.2 kV",
-      "vigente": true,
-      "creadoPor": "system",
-      "motivo": "Integración de catálogo CELSIA",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA B761",
       "configuraciones": [
         {
-          "nombre": "C1 estándar",
-          "orden": 0,
+          "nombre": "Estructura de soporte principal",
           "materiales": [
             {
-              "cantidad": 1,
-              "observacion": "Poste CELSIA",
-              "codigoMaterial": "1.1"
+              "codigoMaterial": "1.P",
+              "cantidad": 1
             },
             {
-              "cantidad": 2,
-              "observacion": "Collarines",
-              "codigoMaterial": "2.1"
+              "codigoMaterial": "41.P",
+              "cantidad": 1
             },
             {
-              "cantidad": 6,
-              "observacion": "Pernos",
-              "codigoMaterial": "3.1"
+              "codigoMaterial": "42.P",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "40.F",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "43.S",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "44.T",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "13.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "14.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "34.T",
+              "cantidad": 1
             }
           ]
         }
-      ],
-      "tieneImagen": true,
-      "imagen": "01-Celsia-B761-01.png"
+      ]
     },
     {
       "operador": "CELSIA",
-      "codigo": "C761",
-      "version": 1,
-      "tipoPoste": "Pato - Bandera Suspensión (34.5 kV)",
-      "descripcion": "Estructura de suspensión con aisladores tipo pato, configuración bandera, para ángulos de alineación 0° a 6° - 34.5 kV",
-      "vigente": true,
-      "creadoPor": "system",
-      "motivo": "Integración de catálogo CELSIA",
+      "codigo": "B766",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA B766",
       "configuraciones": [
         {
-          "nombre": "C1 estándar",
-          "orden": 0,
+          "nombre": "Aisladores",
           "materiales": [
             {
-              "cantidad": 1,
-              "observacion": "Poste CELSIA",
-              "codigoMaterial": "1.1"
+              "codigoMaterial": "6.A",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Conductores y cableado",
+          "materiales": [
+            {
+              "codigoMaterial": "49.C",
+              "cantidad": 2
             },
             {
-              "cantidad": 2,
-              "observacion": "Collarines",
-              "codigoMaterial": "2.1"
+              "codigoMaterial": "16.C",
+              "cantidad": 14
+            }
+          ]
+        },
+        {
+          "nombre": "Conectores y empalmes eléctricos",
+          "materiales": [
+            {
+              "codigoMaterial": "17.C",
+              "cantidad": 3
             },
             {
-              "cantidad": 6,
-              "observacion": "Pernos",
-              "codigoMaterial": "3.1"
+              "codigoMaterial": "19.C",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "20.C",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "41.P",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "42.P",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "45.P",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "46.P",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "40.F",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Protección eléctrica y puesta a tierra",
+          "materiales": [
+            {
+              "codigoMaterial": "15.P",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "7.S",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "37.S",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "47.S",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "8.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "48.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "38.T",
+              "cantidad": 5
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 28
+            },
+            {
+              "codigoMaterial": "13.T",
+              "cantidad": 24
+            },
+            {
+              "codigoMaterial": "14.T",
+              "cantidad": 24
+            },
+            {
+              "codigoMaterial": "34.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "24.T",
+              "cantidad": 3
             }
           ]
         }
-      ],
-      "tieneImagen": true,
-      "imagen": "01-Celsia-C761-01.png"
-    },
-    {
-      "operador": "CELSIA",
-      "codigo": "B71",
-      "version": 1,
-      "tipoPoste": "Pato - Brazo Tangente (Antibalanceo) (13.2 kV)",
-      "descripcion": "Estructura de brazo tangente con sistema antibalanceo para ángulos 0° a 3° - 13.2 kV",
-      "vigente": true,
-      "creadoPor": "system",
-      "motivo": "Integración de catálogo CELSIA",
-      "configuraciones": [
-        {
-          "nombre": "C1 estándar",
-          "orden": 0,
-          "materiales": [
-            {
-              "cantidad": 3,
-              "observacion": "CXX",
-              "codigoMaterial": "2.1"
-            },
-            {
-              "cantidad": 2,
-              "observacion": "",
-              "codigoMaterial": "3.4"
-            }
-          ]
-        }
-      ],
-      "tieneImagen": true,
-      "imagen": "02-Celsia-B71-03.png"
-    },
-    {
-      "operador": "CELSIA",
-      "codigo": "C71",
-      "version": 1,
-      "tipoPoste": "Pato - Brazo Tangente (Antibalanceo) (34.5 kV)",
-      "descripcion": "Estructura de brazo tangente con sistema antibalanceo para ángulos 0° a 3° - 34.5 kV",
-      "vigente": true,
-      "creadoPor": "system",
-      "motivo": "Integración de catálogo CELSIA",
-      "configuraciones": [
-        {
-          "nombre": "C1 estándar",
-          "orden": 0,
-          "materiales": [
-            {
-              "cantidad": 3,
-              "observacion": "CXX",
-              "codigoMaterial": "2.1"
-            },
-            {
-              "cantidad": 2,
-              "observacion": "",
-              "codigoMaterial": "3.4"
-            }
-          ]
-        }
-      ],
-      "tieneImagen": true,
-      "imagen": "03-Celsia-C712-01.png"
-    },
-    {
-      "operador": "CELSIA",
-      "codigo": "B712",
-      "version": 1,
-      "tipoPoste": "Pato - Brazo Tangente (Múltiples circuitos) (13.2 kV)",
-      "descripcion": "Estructura para doble, triple o cuádruple circuito con brazo tangente - 13.2 kV",
-      "vigente": true,
-      "creadoPor": "system",
-      "motivo": "Integración de catálogo CELSIA",
-      "configuraciones": [
-        {
-          "nombre": "C1 estándar",
-          "orden": 0,
-          "materiales": [
-            {
-              "cantidad": 2,
-              "observacion": "CXX",
-              "codigoMaterial": "2.1"
-            },
-            {
-              "cantidad": 4,
-              "observacion": "",
-              "codigoMaterial": "3.4"
-            }
-          ]
-        }
-      ],
-      "tieneImagen": true,
-      "imagen": "03-Celsia-B712-01.png"
-    },
-    {
-      "operador": "CELSIA",
-      "codigo": "C712",
-      "version": 1,
-      "tipoPoste": "Pato - Brazo Tangente (Múltiples circuitos) (34.5 kV)",
-      "descripcion": "Estructura para doble, triple o cuádruple circuito con brazo tangente - 34.5 kV",
-      "vigente": true,
-      "creadoPor": "system",
-      "motivo": "Integración de catálogo CELSIA",
-      "configuraciones": [
-        {
-          "nombre": "C1 estándar",
-          "orden": 0,
-          "materiales": [
-            {
-              "cantidad": 2,
-              "observacion": "CXX",
-              "codigoMaterial": "2.1"
-            },
-            {
-              "cantidad": 4,
-              "observacion": "",
-              "codigoMaterial": "3.4"
-            }
-          ]
-        }
-      ],
-      "tieneImagen": true,
-      "imagen": "03-Celsia-C712-01.png"
+      ]
     },
     {
       "operador": "CELSIA",
       "codigo": "B767",
-      "version": 1,
-      "tipoPoste": "Polimérico - Bandera (13.2 kV)",
-      "descripcion": "Aislador polimérico con terminal doble en configuración bandera - 13.2 kV",
-      "vigente": true,
-      "creadoPor": "system",
-      "motivo": "Integración de catálogo CELSIA",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA B767",
       "configuraciones": [
         {
-          "nombre": "C1 estándar",
-          "orden": 0,
+          "nombre": "Aisladores",
           "materiales": [
             {
-              "cantidad": 1,
-              "observacion": "Poste CELSIA",
-              "codigoMaterial": "1.1"
+              "codigoMaterial": "6.A",
+              "cantidad": 3
             },
             {
-              "cantidad": 2,
-              "observacion": "Collarines",
-              "codigoMaterial": "2.1"
+              "codigoMaterial": "50.A",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Conductores y cableado",
+          "materiales": [
+            {
+              "codigoMaterial": "49.C",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Conectores y empalmes eléctricos",
+          "materiales": [
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
+              "cantidad": 1
             },
             {
-              "cantidad": 6,
-              "observacion": "Pernos",
-              "codigoMaterial": "3.1"
+              "codigoMaterial": "41.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "42.P",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "45.P",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "40.F",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "7.S",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "37.S",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "51.T",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "48.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "38.T",
+              "cantidad": 5
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 28
+            },
+            {
+              "codigoMaterial": "13.T",
+              "cantidad": 22
+            },
+            {
+              "codigoMaterial": "14.T",
+              "cantidad": 22
+            },
+            {
+              "codigoMaterial": "34.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "24.T",
+              "cantidad": 6
             }
           ]
         }
-      ],
-      "tieneImagen": true,
-      "imagen": "04-Celsia-B767-03.png"
-    },
-    {
-      "operador": "CELSIA",
-      "codigo": "C767",
-      "version": 1,
-      "tipoPoste": "Polimérico - Bandera (34.5 kV)",
-      "descripcion": "Aislador polimérico con terminal doble en configuración bandera - 34.5 kV",
-      "vigente": true,
-      "creadoPor": "system",
-      "motivo": "Integración de catálogo CELSIA",
-      "configuraciones": [
-        {
-          "nombre": "C1 estándar",
-          "orden": 0,
-          "materiales": [
-            {
-              "cantidad": 1,
-              "observacion": "Poste CELSIA",
-              "codigoMaterial": "1.1"
-            },
-            {
-              "cantidad": 2,
-              "observacion": "Collarines",
-              "codigoMaterial": "2.1"
-            },
-            {
-              "cantidad": 6,
-              "observacion": "Pernos",
-              "codigoMaterial": "3.1"
-            }
-          ]
-        }
-      ],
-      "tieneImagen": true,
-      "imagen": "04-Celsia-C767-03.png"
-    },
-    {
-      "operador": "CELSIA",
-      "codigo": "B72C",
-      "version": 1,
-      "tipoPoste": "Pin - Herraje Tipo C (13.2 kV)",
-      "descripcion": "Aislador tipo PIN con herraje Tipo C para ángulos 3° a 30° - 13.2 kV",
-      "vigente": true,
-      "creadoPor": "system",
-      "motivo": "Integración de catálogo CELSIA",
-      "configuraciones": [
-        {
-          "nombre": "C1 estándar",
-          "orden": 0,
-          "materiales": [
-            {
-              "cantidad": 1,
-              "observacion": "Poste CELSIA",
-              "codigoMaterial": "1.1"
-            },
-            {
-              "cantidad": 2,
-              "observacion": "Collarines",
-              "codigoMaterial": "2.1"
-            },
-            {
-              "cantidad": 6,
-              "observacion": "Pernos",
-              "codigoMaterial": "3.1"
-            }
-          ]
-        }
-      ],
-      "tieneImagen": true,
-      "imagen": "06-Celsia-B72C2-01.png"
-    },
-    {
-      "operador": "CELSIA",
-      "codigo": "C72C",
-      "version": 1,
-      "tipoPoste": "Pin - Herraje Tipo C (34.5 kV)",
-      "descripcion": "Aislador tipo PIN con herraje Tipo C para ángulos 3° a 30° - 34.5 kV",
-      "vigente": true,
-      "creadoPor": "system",
-      "motivo": "Integración de catálogo CELSIA",
-      "configuraciones": [
-        {
-          "nombre": "C1 estándar",
-          "orden": 0,
-          "materiales": [
-            {
-              "cantidad": 1,
-              "observacion": "Poste CELSIA",
-              "codigoMaterial": "1.1"
-            },
-            {
-              "cantidad": 2,
-              "observacion": "Collarines",
-              "codigoMaterial": "2.1"
-            },
-            {
-              "cantidad": 6,
-              "observacion": "Pernos",
-              "codigoMaterial": "3.1"
-            }
-          ]
-        }
-      ],
-      "tieneImagen": true,
-      "imagen": "05-Celsia-C72C-03.png"
-    },
-    {
-      "operador": "CELSIA",
-      "codigo": "B72C2",
-      "version": 1,
-      "tipoPoste": "Pin - Herraje C (Múltiples circuitos) (13.2 kV)",
-      "descripcion": "Herraje Tipo C para múltiples circuitos (doble, triple, cuádruple) - 13.2 kV",
-      "vigente": true,
-      "creadoPor": "system",
-      "motivo": "Integración de catálogo CELSIA",
-      "configuraciones": [
-        {
-          "nombre": "C1 estándar",
-          "orden": 0,
-          "materiales": [
-            {
-              "cantidad": 4,
-              "observacion": "CXX (2  salidas) Diametro según norma RA05",
-              "codigoMaterial": "2.1"
-            },
-            {
-              "cantidad": 10,
-              "observacion": "",
-              "codigoMaterial": "3.4"
-            }
-          ]
-        }
-      ],
-      "tieneImagen": true,
-      "imagen": "06-Celsia-B72C2-01.png"
-    },
-    {
-      "operador": "CELSIA",
-      "codigo": "C72C2",
-      "version": 1,
-      "tipoPoste": "Pin - Herraje C (Múltiples circuitos) (34.5 kV)",
-      "descripcion": "Herraje Tipo C para múltiples circuitos (doble, triple, cuádruple) - 34.5 kV",
-      "vigente": true,
-      "creadoPor": "system",
-      "motivo": "Integración de catálogo CELSIA",
-      "configuraciones": [
-        {
-          "nombre": "C1 estándar",
-          "orden": 0,
-          "materiales": [
-            {
-              "cantidad": 4,
-              "observacion": "CXX (2  salidas) Diametro según norma RA05",
-              "codigoMaterial": "2.1"
-            },
-            {
-              "cantidad": 10,
-              "observacion": "",
-              "codigoMaterial": "3.4"
-            }
-          ]
-        }
-      ],
-      "tieneImagen": true,
-      "imagen": "06-Celsia-C72C2-01.png"
-    },
-    {
-      "operador": "CELSIA",
-      "codigo": "B72E",
-      "version": 1,
-      "tipoPoste": "Pin - Herraje Tipo E (13.2 kV)",
-      "descripcion": "Aislador tipo PIN con herraje Tipo E lateral - 13.2 kV",
-      "vigente": true,
-      "creadoPor": "system",
-      "motivo": "Integración de catálogo CELSIA",
-      "configuraciones": [
-        {
-          "nombre": "C1 estándar",
-          "orden": 0,
-          "materiales": [
-            {
-              "cantidad": 2,
-              "observacion": "CXX (2 a 4  salidas) Diametro según Norma RA05",
-              "codigoMaterial": "2.1"
-            },
-            {
-              "cantidad": 4,
-              "observacion": "K9",
-              "codigoMaterial": "3.4"
-            }
-          ]
-        }
-      ],
-      "tieneImagen": true,
-      "imagen": "07-Celsia-B72E2-01.png"
-    },
-    {
-      "operador": "CELSIA",
-      "codigo": "C72E",
-      "version": 1,
-      "tipoPoste": "Pin - Herraje Tipo E (34.5 kV)",
-      "descripcion": "Aislador tipo PIN con herraje Tipo E lateral - 34.5 kV",
-      "vigente": true,
-      "creadoPor": "system",
-      "motivo": "Integración de catálogo CELSIA",
-      "configuraciones": [
-        {
-          "nombre": "C1 estándar",
-          "orden": 0,
-          "materiales": [
-            {
-              "cantidad": 2,
-              "observacion": "CXX (2 a 4  salidas) Diametro según Norma RA05",
-              "codigoMaterial": "2.1"
-            },
-            {
-              "cantidad": 4,
-              "observacion": "K9",
-              "codigoMaterial": "3.4"
-            }
-          ]
-        }
-      ],
-      "tieneImagen": true,
-      "imagen": "07-Celsia-C72E2-01.png"
+      ]
     },
     {
       "operador": "CELSIA",
       "codigo": "B76C",
-      "version": 1,
-      "tipoPoste": "Polimérico - Herraje C (Frontal) (13.2 kV)",
-      "descripcion": "Terminal sencillo centrado con herraje Tipo C frontal - 13.2 kV",
-      "vigente": true,
-      "creadoPor": "system",
-      "motivo": "Integración de catálogo CELSIA",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA B76C",
       "configuraciones": [
         {
-          "nombre": "C1 estándar",
-          "orden": 0,
+          "nombre": "Aisladores",
           "materiales": [
             {
-              "cantidad": 1,
-              "observacion": "Poste CELSIA",
-              "codigoMaterial": "1.1"
+              "codigoMaterial": "6.A",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Conductores y cableado",
+          "materiales": [
+            {
+              "codigoMaterial": "16.C",
+              "cantidad": 16
+            }
+          ]
+        },
+        {
+          "nombre": "Conectores y empalmes eléctricos",
+          "materiales": [
+            {
+              "codigoMaterial": "17.C",
+              "cantidad": 3
             },
             {
-              "cantidad": 2,
-              "observacion": "Collarines",
-              "codigoMaterial": "2.1"
+              "codigoMaterial": "18.C",
+              "cantidad": 3
             },
             {
-              "cantidad": 6,
-              "observacion": "Pernos",
-              "codigoMaterial": "3.1"
+              "codigoMaterial": "19.C",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "20.C",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "45.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "5.P",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Protección eléctrica y puesta a tierra",
+          "materiales": [
+            {
+              "codigoMaterial": "15.P",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "21.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "22.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "23.P",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "7.S",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "9.S",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "8.T",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "52.T",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "10.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "34.T",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 16
+            },
+            {
+              "codigoMaterial": "13.T",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "14.T",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "24.T",
+              "cantidad": 3
             }
           ]
         }
-      ],
-      "tieneImagen": true,
-      "imagen": "08-Celsia-B76C-02.png"
-    },
-    {
-      "operador": "CELSIA",
-      "codigo": "C76C",
-      "version": 1,
-      "tipoPoste": "Polimérico - Herraje C (Frontal) (34.5 kV)",
-      "descripcion": "Terminal sencillo centrado con herraje Tipo C frontal - 34.5 kV",
-      "vigente": true,
-      "creadoPor": "system",
-      "motivo": "Integración de catálogo CELSIA",
-      "configuraciones": [
-        {
-          "nombre": "C1 estándar",
-          "orden": 0,
-          "materiales": [
-            {
-              "cantidad": 1,
-              "observacion": "Poste CELSIA",
-              "codigoMaterial": "1.1"
-            },
-            {
-              "cantidad": 2,
-              "observacion": "Collarines",
-              "codigoMaterial": "2.1"
-            },
-            {
-              "cantidad": 6,
-              "observacion": "Pernos",
-              "codigoMaterial": "3.1"
-            }
-          ]
-        }
-      ],
-      "tieneImagen": true,
-      "imagen": "09-Celsia-C76C2-02.png"
+      ]
     },
     {
       "operador": "CELSIA",
       "codigo": "B76C2",
-      "version": 1,
-      "tipoPoste": "Polimérico - Herraje C (Lateral) (13.2 kV)",
-      "descripcion": "Terminal sencillo doble circuito con herraje Tipo C lateral - 13.2 kV",
-      "vigente": true,
-      "creadoPor": "system",
-      "motivo": "Integración de catálogo CELSIA",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA B76C2",
       "configuraciones": [
         {
-          "nombre": "C1 estándar",
-          "orden": 0,
+          "nombre": "Aisladores",
           "materiales": [
             {
-              "cantidad": 4,
-              "observacion": "CXX (2  salidas) Diametro según norma RA05",
-              "codigoMaterial": "2.1"
+              "codigoMaterial": "6.A",
+              "cantidad": 12
+            }
+          ]
+        },
+        {
+          "nombre": "Conductores y cableado",
+          "materiales": [
+            {
+              "codigoMaterial": "16.C",
+              "cantidad": 17
+            }
+          ]
+        },
+        {
+          "nombre": "Conectores y empalmes eléctricos",
+          "materiales": [
+            {
+              "codigoMaterial": "17.C",
+              "cantidad": 6
             },
             {
-              "cantidad": 18,
-              "observacion": "",
-              "codigoMaterial": "3.4"
+              "codigoMaterial": "18.C",
+              "cantidad": 6
             },
             {
-              "cantidad": 2,
-              "observacion": "WACX",
-              "codigoMaterial": "9.1"
+              "codigoMaterial": "19.C",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "20.C",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "3.P",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "4.P",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "5.P",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 4
+            }
+          ]
+        },
+        {
+          "nombre": "Protección eléctrica y puesta a tierra",
+          "materiales": [
+            {
+              "codigoMaterial": "15.P",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "21.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "22.P",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "23.P",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "7.S",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "9.S",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "8.T",
+              "cantidad": 8
+            },
+            {
+              "codigoMaterial": "10.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "38.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 18
+            },
+            {
+              "codigoMaterial": "13.T",
+              "cantidad": 16
+            },
+            {
+              "codigoMaterial": "14.T",
+              "cantidad": 16
+            },
+            {
+              "codigoMaterial": "24.T",
+              "cantidad": 6
             }
           ]
         }
-      ],
-      "tieneImagen": true,
-      "imagen": "09-Celsia-B76C2-02.png"
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "B77C2",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA B77C2",
+      "configuraciones": [
+        {
+          "nombre": "Aisladores",
+          "materiales": [
+            {
+              "codigoMaterial": "6.A",
+              "cantidad": 12
+            }
+          ]
+        },
+        {
+          "nombre": "Conectores y empalmes eléctricos",
+          "materiales": [
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "3.P",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "4.P",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "5.P",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 4
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "7.S",
+              "cantidad": 12
+            },
+            {
+              "codigoMaterial": "9.S",
+              "cantidad": 4
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "8.T",
+              "cantidad": 16
+            },
+            {
+              "codigoMaterial": "10.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "38.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 14
+            },
+            {
+              "codigoMaterial": "13.T",
+              "cantidad": 12
+            },
+            {
+              "codigoMaterial": "14.T",
+              "cantidad": 12
+            },
+            {
+              "codigoMaterial": "24.T",
+              "cantidad": 12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "B79",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA B79",
+      "configuraciones": [
+        {
+          "nombre": "Aisladores",
+          "materiales": [
+            {
+              "codigoMaterial": "31.A",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "6.A",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Conectores y empalmes eléctricos",
+          "materiales": [
+            {
+              "codigoMaterial": "17.C",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "18.C",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "45.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "5.P",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "32.S",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "7.S",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "9.S",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "8.T",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "10.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "33.T",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "34.T",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 18
+            },
+            {
+              "codigoMaterial": "13.T",
+              "cantidad": 16
+            },
+            {
+              "codigoMaterial": "14.T",
+              "cantidad": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "C176C2",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA C176C2",
+      "configuraciones": [
+        {
+          "nombre": "Aisladores",
+          "materiales": [
+            {
+              "codigoMaterial": "54.A",
+              "cantidad": 6
+            }
+          ]
+        },
+        {
+          "nombre": "Conductores y cableado",
+          "materiales": [
+            {
+              "codigoMaterial": "16.C",
+              "cantidad": 6
+            }
+          ]
+        },
+        {
+          "nombre": "Conectores y empalmes eléctricos",
+          "materiales": [
+            {
+              "codigoMaterial": "17.C",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "18.C",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "20.C",
+              "cantidad": 4
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "3.P",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "4.P",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "53.P",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 4
+            }
+          ]
+        },
+        {
+          "nombre": "Protección eléctrica y puesta a tierra",
+          "materiales": [
+            {
+              "codigoMaterial": "55.P",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "21.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "22.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "23.P",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "7.S",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "9.S",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "8.T",
+              "cantidad": 8
+            },
+            {
+              "codigoMaterial": "10.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "11.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 18
+            },
+            {
+              "codigoMaterial": "13.T",
+              "cantidad": 16
+            },
+            {
+              "codigoMaterial": "14.T",
+              "cantidad": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "C177C2",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA C177C2",
+      "configuraciones": [
+        {
+          "nombre": "Aisladores",
+          "materiales": [
+            {
+              "codigoMaterial": "54.A",
+              "cantidad": 12
+            }
+          ]
+        },
+        {
+          "nombre": "Conectores y empalmes eléctricos",
+          "materiales": [
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "3.P",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "4.P",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "53.P",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 4
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "7.S",
+              "cantidad": 12
+            },
+            {
+              "codigoMaterial": "9.S",
+              "cantidad": 4
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "8.T",
+              "cantidad": 16
+            },
+            {
+              "codigoMaterial": "10.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "11.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 14
+            },
+            {
+              "codigoMaterial": "13.T",
+              "cantidad": 12
+            },
+            {
+              "codigoMaterial": "14.T",
+              "cantidad": 12
+            },
+            {
+              "codigoMaterial": "24.T",
+              "cantidad": 12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "C71",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA C71",
+      "configuraciones": [
+        {
+          "nombre": "Espaciamiento de red compacta",
+          "materiales": [
+            {
+              "codigoMaterial": "58.E",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "56.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "57.P",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "27.S",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "13.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "14.T",
+              "cantidad": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "C712",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA C712",
+      "configuraciones": [
+        {
+          "nombre": "Espaciamiento de red compacta",
+          "materiales": [
+            {
+              "codigoMaterial": "59.E",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "56.P",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "57.P",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "27.S",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "13.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "14.T",
+              "cantidad": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "C72C",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA C72C",
+      "configuraciones": [
+        {
+          "nombre": "Aisladores",
+          "materiales": [
+            {
+              "codigoMaterial": "60.A",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "56.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "53.P",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 4
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "30.S",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "32.S",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "10.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "61.T",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "34.T",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 10
+            },
+            {
+              "codigoMaterial": "13.T",
+              "cantidad": 8
+            },
+            {
+              "codigoMaterial": "14.T",
+              "cantidad": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "C72C2",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA C72C2",
+      "configuraciones": [
+        {
+          "nombre": "Aisladores",
+          "materiales": [
+            {
+              "codigoMaterial": "31.A",
+              "cantidad": 6
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "25.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "5.P",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 4
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "30.S",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "32.S",
+              "cantidad": 6
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "35.T",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "10.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "33.T",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "34.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 24
+            },
+            {
+              "codigoMaterial": "13.T",
+              "cantidad": 22
+            },
+            {
+              "codigoMaterial": "14.T",
+              "cantidad": 22
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "C72CD",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA C72CD",
+      "configuraciones": [
+        {
+          "nombre": "Aisladores",
+          "materiales": [
+            {
+              "codigoMaterial": "60.A",
+              "cantidad": 6
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "4.P",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "53.P",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "30.S",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.S",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "61.T",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "34.T",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 14
+            },
+            {
+              "codigoMaterial": "13.T",
+              "cantidad": 12
+            },
+            {
+              "codigoMaterial": "14.T",
+              "cantidad": 12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "C72CD2",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA C72CD2",
+      "configuraciones": [
+        {
+          "nombre": "Aisladores",
+          "materiales": [
+            {
+              "codigoMaterial": "60.A",
+              "cantidad": 12
+            }
+          ]
+        },
+        {
+          "nombre": "Conectores y empalmes eléctricos",
+          "materiales": [
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "3.P",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "4.P",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "53.P",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 4
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "7.S",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "9.S",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "35.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "36.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "61.T",
+              "cantidad": 12
+            },
+            {
+              "codigoMaterial": "38.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 36
+            },
+            {
+              "codigoMaterial": "13.T",
+              "cantidad": 32
+            },
+            {
+              "codigoMaterial": "14.T",
+              "cantidad": 32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "C72E",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA C72E",
+      "configuraciones": [
+        {
+          "nombre": "Aisladores",
+          "materiales": [
+            {
+              "codigoMaterial": "60.A",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "62.P",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "27.S",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "32.S",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "10.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "61.T",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "11.T",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "34.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "C72E2",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA C72E2",
+      "configuraciones": [
+        {
+          "nombre": "Aisladores",
+          "materiales": [
+            {
+              "codigoMaterial": "60.A",
+              "cantidad": 6
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "62.P",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "27.S",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "32.S",
+              "cantidad": 6
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "10.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "61.T",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "11.T",
+              "cantidad": 14
+            },
+            {
+              "codigoMaterial": "34.T",
+              "cantidad": 12
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "C72ED",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA C72ED",
+      "configuraciones": [
+        {
+          "nombre": "Aisladores",
+          "materiales": [
+            {
+              "codigoMaterial": "60.A",
+              "cantidad": 6
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "4.P",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "62.P",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "30.S",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "7.S",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "8.T",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "10.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "61.T",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "11.T",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "34.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "C761",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA C761",
+      "configuraciones": [
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "41.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "42.P",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "40.F",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "43.S",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "44.T",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "13.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "14.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "34.T",
+              "cantidad": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "C766",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA C766",
+      "configuraciones": [
+        {
+          "nombre": "Aisladores",
+          "materiales": [
+            {
+              "codigoMaterial": "54.A",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Conductores y cableado",
+          "materiales": [
+            {
+              "codigoMaterial": "49.C",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "16.C",
+              "cantidad": 14
+            }
+          ]
+        },
+        {
+          "nombre": "Conectores y empalmes eléctricos",
+          "materiales": [
+            {
+              "codigoMaterial": "17.C",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "20.C",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "41.P",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "42.P",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "45.P",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "46.P",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "40.F",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Protección eléctrica y puesta a tierra",
+          "materiales": [
+            {
+              "codigoMaterial": "55.P",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "7.S",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "9.S",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "47.S",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "8.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "48.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "38.T",
+              "cantidad": 5
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 28
+            },
+            {
+              "codigoMaterial": "13.T",
+              "cantidad": 24
+            },
+            {
+              "codigoMaterial": "14.T",
+              "cantidad": 24
+            },
+            {
+              "codigoMaterial": "34.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "24.T",
+              "cantidad": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "C767",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA C767",
+      "configuraciones": [
+        {
+          "nombre": "Aisladores",
+          "materiales": [
+            {
+              "codigoMaterial": "54.A",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "63.A",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Conductores y cableado",
+          "materiales": [
+            {
+              "codigoMaterial": "49.C",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Conectores y empalmes eléctricos",
+          "materiales": [
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "41.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "42.P",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "45.P",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "40.F",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "7.S",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "9.S",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "64.T",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "48.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "38.T",
+              "cantidad": 5
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 28
+            },
+            {
+              "codigoMaterial": "13.T",
+              "cantidad": 22
+            },
+            {
+              "codigoMaterial": "14.T",
+              "cantidad": 22
+            },
+            {
+              "codigoMaterial": "34.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "24.T",
+              "cantidad": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "C76C",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA C76C",
+      "configuraciones": [
+        {
+          "nombre": "Aisladores",
+          "materiales": [
+            {
+              "codigoMaterial": "54.A",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Conductores y cableado",
+          "materiales": [
+            {
+              "codigoMaterial": "16.C",
+              "cantidad": 20
+            }
+          ]
+        },
+        {
+          "nombre": "Conectores y empalmes eléctricos",
+          "materiales": [
+            {
+              "codigoMaterial": "17.C",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "18.C",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "20.C",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "45.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "53.P",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Protección eléctrica y puesta a tierra",
+          "materiales": [
+            {
+              "codigoMaterial": "55.P",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "21.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "22.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "23.P",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "7.S",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "9.S",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "8.T",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "52.T",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "10.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "34.T",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 10
+            },
+            {
+              "codigoMaterial": "13.T",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "14.T",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "24.T",
+              "cantidad": 3
+            }
+          ]
+        }
+      ]
     },
     {
       "operador": "CELSIA",
       "codigo": "C76C2",
-      "version": 1,
-      "tipoPoste": "Polimérico - Herraje C (Lateral) (34.5 kV)",
-      "descripcion": "Terminal sencillo doble circuito con herraje Tipo C lateral - 34.5 kV",
-      "vigente": true,
-      "creadoPor": "system",
-      "motivo": "Integración de catálogo CELSIA",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA C76C2",
       "configuraciones": [
         {
-          "nombre": "C1 estándar",
-          "orden": 0,
+          "nombre": "Aisladores",
           "materiales": [
             {
-              "cantidad": 4,
-              "observacion": "CXX (2  salidas) Diametro según norma RA05",
-              "codigoMaterial": "2.1"
+              "codigoMaterial": "54.A",
+              "cantidad": 12
+            }
+          ]
+        },
+        {
+          "nombre": "Conductores y cableado",
+          "materiales": [
+            {
+              "codigoMaterial": "16.C",
+              "cantidad": 17
+            }
+          ]
+        },
+        {
+          "nombre": "Conectores y empalmes eléctricos",
+          "materiales": [
+            {
+              "codigoMaterial": "17.C",
+              "cantidad": 6
             },
             {
-              "cantidad": 18,
-              "observacion": "",
-              "codigoMaterial": "3.4"
+              "codigoMaterial": "18.C",
+              "cantidad": 6
             },
             {
-              "cantidad": 2,
-              "observacion": "WACX",
-              "codigoMaterial": "9.1"
+              "codigoMaterial": "19.C",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "20.C",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "3.P",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "4.P",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "53.P",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 4
+            }
+          ]
+        },
+        {
+          "nombre": "Protección eléctrica y puesta a tierra",
+          "materiales": [
+            {
+              "codigoMaterial": "55.P",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "21.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "22.P",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "23.P",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "7.S",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "9.S",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "8.T",
+              "cantidad": 8
+            },
+            {
+              "codigoMaterial": "10.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "38.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 18
+            },
+            {
+              "codigoMaterial": "13.T",
+              "cantidad": 16
+            },
+            {
+              "codigoMaterial": "14.T",
+              "cantidad": 16
+            },
+            {
+              "codigoMaterial": "24.T",
+              "cantidad": 6
             }
           ]
         }
-      ],
-      "tieneImagen": true,
-      "imagen": "09-Celsia-C76C2-02.png"
+      ]
     },
     {
       "operador": "CELSIA",
-      "codigo": "B77",
-      "version": 1,
-      "tipoPoste": "Polimérico - Delta Centrada en V (13.2 kV)",
-      "descripcion": "Configuración compacta delta centrada en V con aislador polimérico - 13.2 kV",
-      "vigente": true,
-      "creadoPor": "system",
-      "motivo": "Integración de catálogo CELSIA",
+      "codigo": "C77C2",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA C77C2",
       "configuraciones": [
         {
-          "nombre": "C1 estándar",
-          "orden": 0,
+          "nombre": "Aisladores",
           "materiales": [
             {
-              "cantidad": 16,
-              "observacion": "",
-              "codigoMaterial": "3.4"
+              "codigoMaterial": "54.A",
+              "cantidad": 12
+            }
+          ]
+        },
+        {
+          "nombre": "Conectores y empalmes eléctricos",
+          "materiales": [
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "3.P",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "4.P",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "53.P",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 4
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "7.S",
+              "cantidad": 12
+            },
+            {
+              "codigoMaterial": "9.S",
+              "cantidad": 4
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "8.T",
+              "cantidad": 16
+            },
+            {
+              "codigoMaterial": "10.T",
+              "cantidad": 4
+            },
+            {
+              "codigoMaterial": "38.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 14
+            },
+            {
+              "codigoMaterial": "13.T",
+              "cantidad": 12
+            },
+            {
+              "codigoMaterial": "14.T",
+              "cantidad": 12
+            },
+            {
+              "codigoMaterial": "24.T",
+              "cantidad": 12
             }
           ]
         }
-      ],
-      "tieneImagen": true,
-      "imagen": "09-Celsia-B77C2-02.png"
+      ]
     },
     {
       "operador": "CELSIA",
-      "codigo": "C77",
-      "version": 1,
-      "tipoPoste": "Polimérico - Delta Centrada en V (34.5 kV)",
-      "descripcion": "Configuración compacta delta centrada en V con aislador polimérico - 34.5 kV",
-      "vigente": true,
-      "creadoPor": "system",
-      "motivo": "Integración de catálogo CELSIA",
+      "codigo": "C79",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA C79",
       "configuraciones": [
         {
-          "nombre": "C1 estándar",
-          "orden": 0,
+          "nombre": "Aisladores",
           "materiales": [
             {
-              "cantidad": 16,
-              "observacion": "",
-              "codigoMaterial": "3.4"
+              "codigoMaterial": "65.A",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Conectores y empalmes eléctricos",
+          "materiales": [
+            {
+              "codigoMaterial": "17.C",
+              "cantidad": 6
+            },
+            {
+              "codigoMaterial": "18.C",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "45.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "53.P",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "32.S",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "7.S",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "9.S",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "8.T",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "10.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "61.T",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "34.T",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 18
+            },
+            {
+              "codigoMaterial": "13.T",
+              "cantidad": 16
+            },
+            {
+              "codigoMaterial": "14.T",
+              "cantidad": 16
             }
           ]
         }
-      ],
-      "tieneImagen": true,
-      "imagen": "09-Celsia-C77C2-02.png"
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "PB31C",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA PB31C",
+      "configuraciones": [
+        {
+          "nombre": "Aisladores",
+          "materiales": [
+            {
+              "codigoMaterial": "31.A",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Conductores y cableado",
+          "materiales": [
+            {
+              "codigoMaterial": "16.C",
+              "cantidad": 14
+            }
+          ]
+        },
+        {
+          "nombre": "Conectores y empalmes eléctricos",
+          "materiales": [
+            {
+              "codigoMaterial": "17.C",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "20.C",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "25.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "4.P",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "5.P",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Protección eléctrica y puesta a tierra",
+          "materiales": [
+            {
+              "codigoMaterial": "15.P",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "21.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "22.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "23.P",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "30.S",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "32.S",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "10.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "33.T",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "34.T",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 10
+            },
+            {
+              "codigoMaterial": "13.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "14.T",
+              "cantidad": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operador": "CELSIA",
+      "codigo": "PC31C",
+      "tipoPoste": "Poste",
+      "descripcion": "CELSIA PC31C",
+      "configuraciones": [
+        {
+          "nombre": "Aisladores",
+          "materiales": [
+            {
+              "codigoMaterial": "60.A",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Conductores y cableado",
+          "materiales": [
+            {
+              "codigoMaterial": "16.C",
+              "cantidad": 14
+            }
+          ]
+        },
+        {
+          "nombre": "Conectores y empalmes eléctricos",
+          "materiales": [
+            {
+              "codigoMaterial": "17.C",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "19.C",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "20.C",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Estructura de soporte principal",
+          "materiales": [
+            {
+              "codigoMaterial": "1.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "56.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "4.P",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "53.P",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Fijación al poste",
+          "materiales": [
+            {
+              "codigoMaterial": "2.F",
+              "cantidad": 2
+            }
+          ]
+        },
+        {
+          "nombre": "Protección eléctrica y puesta a tierra",
+          "materiales": [
+            {
+              "codigoMaterial": "55.P",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "21.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "22.P",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "23.P",
+              "cantidad": 1
+            }
+          ]
+        },
+        {
+          "nombre": "Sujeción y amarre del conductor",
+          "materiales": [
+            {
+              "codigoMaterial": "30.S",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "32.S",
+              "cantidad": 3
+            }
+          ]
+        },
+        {
+          "nombre": "Tornillería y herrajes de unión",
+          "materiales": [
+            {
+              "codigoMaterial": "10.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "61.T",
+              "cantidad": 3
+            },
+            {
+              "codigoMaterial": "34.T",
+              "cantidad": 1
+            },
+            {
+              "codigoMaterial": "12.T",
+              "cantidad": 10
+            },
+            {
+              "codigoMaterial": "13.T",
+              "cantidad": 2
+            },
+            {
+              "codigoMaterial": "14.T",
+              "cantidad": 2
+            }
+          ]
+        }
+      ]
     }
   ]
 }
