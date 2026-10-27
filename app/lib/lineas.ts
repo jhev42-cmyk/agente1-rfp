@@ -374,135 +374,95 @@ function generarDesglocePoFamilia(materiales: MaterialConsolidado[]): DesglocePo
     '10-Vien': { numero: 10, descripcion: 'Anclaje y retención mecánica' },
   }
 
-  // Cargar la regla
-  let regla: Record<string, Array<{ elemento: string }>> = {}
-  try {
-    const rutaRegla = path.join(process.cwd(), 'regla_elementos.json')
-    if (fs.existsSync(rutaRegla)) {
-      const contenido = fs.readFileSync(rutaRegla, 'utf-8')
-      regla = JSON.parse(contenido)
-    }
-  } catch (e) {
-    console.warn('No se pudo cargar regla_elementos.json')
-  }
+  // Agrupar materiales por familia (extraída del código o por categoría) y descripción
+  const porFamilia = new Map<string, MaterialConsolidado[]>()
 
-  // Función para calcular similitud
-  function calcularSimilitud(str1: string, str2: string): number {
-    const s1 = str1.toLowerCase().trim()
-    const s2 = str2.toLowerCase().trim()
-    if (s1 === s2) return 1
-
-    const palabras1 = s1.split(/\s+/).filter(p => p.length > 1)
-    const palabras2 = s2.split(/\s+/).filter(p => p.length > 1)
-    if (!palabras1.length || !palabras2.length) return 0
-
-    let coincidencias = 0
-    for (const p1 of palabras1) {
-      for (const p2 of palabras2) {
-        if (p1.includes(p2) || p2.includes(p1)) {
-          coincidencias++
-          break
-        }
-      }
-    }
-    return coincidencias / Math.max(palabras1.length, palabras2.length)
-  }
-
-  // Crear estructura para acumular por familia y elemento
-  type ElementoConCantidad = {
-    elemento: string
-    cantidad: number
-    normas: Set<string>
-    postes: Set<string>
-  }
-
-  const acumulador = new Map<string, Map<string, ElementoConCantidad>>() // familia -> elemento -> {cantidad, etc}
-
-  // Inicializar acumulador con la regla
-  for (const familiaKey of Object.keys(FAMILIA_MAP)) {
-    const familiaCorta = familiaKey.split('-')[1]
-    const elementosRegla = regla[familiaCorta] || []
-    const mapaElementos = new Map<string, ElementoConCantidad>()
-
-    for (const elem of elementosRegla) {
-      mapaElementos.set(elem.elemento, {
-        elemento: elem.elemento,
-        cantidad: 0,
-        normas: new Set(),
-        postes: new Set()
-      })
-    }
-
-    if (mapaElementos.size > 0) {
-      acumulador.set(familiaKey, mapaElementos)
-    }
-  }
-
-  // Procesar cada material consolidado
   for (const mat of materiales) {
-    let mejorFamilia: string | null = null
-    let mejorElemento: string | null = null
-    let mejorSimilitud = 0
-
-    // Buscar la mejor coincidencia en la regla
-    for (const [familiaKey, mapaElementos] of acumulador) {
-      for (const [elemento, _] of mapaElementos) {
-        const similitud = calcularSimilitud(mat.descripcion, elemento)
-        if (similitud > mejorSimilitud && similitud > 0.25) {
-          mejorSimilitud = similitud
-          mejorFamilia = familiaKey
-          mejorElemento = elemento
-        }
-      }
+    // Intentar extraer familia del código (formato: "1-Pos-XXX" o similar)
+    let familiaKey: string | null = null
+    const codigoMatch = mat.codigo.match(/^(\d+-[A-Za-z.]+)/)
+    if (codigoMatch) {
+      familiaKey = codigoMatch[1]
+    } else {
+      // Si no hay familia en el código, intentar inferir de la categoría o primera letra
+      // Por ahora, agrupar por categoría
+      familiaKey = mat.categoria || 'Sin categoría'
     }
 
-    // Si encontró coincidencia, sumar en ese elemento
-    if (mejorFamilia && mejorElemento) {
-      const elem = acumulador.get(mejorFamilia)!.get(mejorElemento)!
-      elem.cantidad += mat.cantidad
-      for (const d of mat.detalle) {
-        elem.normas.add(d.norma)
-        if (d.poste !== 'Partida general') {
-          elem.postes.add(d.poste)
-        }
-      }
+    if (!porFamilia.has(familiaKey)) {
+      porFamilia.set(familiaKey, [])
     }
+    porFamilia.get(familiaKey)!.push(mat)
   }
 
-  // Construir desgloce final
   const desgloce: DesglocePoFamilia[] = []
 
-  for (const familiaKey of Object.keys(FAMILIA_MAP)) {
-    const info = FAMILIA_MAP[familiaKey]
-    const mapaElementos = acumulador.get(familiaKey)
-    if (!mapaElementos) continue
+  // Procesar cada familia
+  for (const [familiaKey, matsEnFamilia] of porFamilia) {
+    // Buscar en FAMILIA_MAP
+    const info = FAMILIA_MAP[familiaKey as keyof typeof FAMILIA_MAP]
+    if (!info) {
+      // Si no existe en FAMILIA_MAP, ignorar
+      continue
+    }
 
-    // Filtrar elementos con cantidad > 0
-    const elementosConCantidad: MaterialPorFamilia[] = Array.from(mapaElementos.values())
-      .filter(e => e.cantidad > 0)
-      .sort((a, b) => b.cantidad - a.cantidad)
-      .map(e => ({
-        codigo: '',
-        descripcion: e.elemento,
-        cantidad: e.cantidad,
-        presenteEn: Array.from(e.normas).map(norma => ({
+    // Agrupar materiales por descripción dentro de la familia
+    const componentesMap = new Map<string, {
+      codigo: string
+      cantidad: number
+      normas: Set<string>
+      postes: Set<string>
+    }>()
+
+    for (const mat of matsEnFamilia) {
+      const key = mat.descripcion
+      if (!componentesMap.has(key)) {
+        componentesMap.set(key, {
+          codigo: mat.codigo,
+          cantidad: 0,
+          normas: new Set(),
+          postes: new Set()
+        })
+      }
+      const comp = componentesMap.get(key)!
+      comp.cantidad += mat.cantidad
+
+      // Acumular normas y postes del detalle
+      for (const d of mat.detalle) {
+        comp.normas.add(d.norma)
+        if (d.poste !== 'Partida general') {
+          comp.postes.add(d.poste)
+        }
+      }
+    }
+
+    // Construir lista de materiales para esta familia
+    const materiales_familia: MaterialPorFamilia[] = Array.from(componentesMap.entries())
+      .sort((a, b) => b[1].cantidad - a[1].cantidad)
+      .map(([descripcion, data]) => ({
+        codigo: data.codigo,
+        descripcion,
+        cantidad: data.cantidad,
+        presenteEn: Array.from(data.normas).map(norma => ({
           norma,
-          postes: Array.from(e.postes).sort()
+          postes: Array.from(data.postes).sort()
         }))
       }))
 
-    if (elementosConCantidad.length > 0) {
-      desgloce.push({
-        familia: familiaKey,
-        familiaDescripcion: info.descripcion,
-        itemsUnicos: elementosConCantidad.length,
-        unidadesTotales: Math.round(elementosConCantidad.reduce((sum, m) => sum + m.cantidad, 0) * 1000) / 1000,
-        materiales: elementosConCantidad
-      })
-    }
+    desgloce.push({
+      familia: familiaKey,
+      familiaDescripcion: info.descripcion,
+      itemsUnicos: materiales_familia.length,
+      unidadesTotales: Math.round(materiales_familia.reduce((sum, m) => sum + m.cantidad, 0) * 1000) / 1000,
+      materiales: materiales_familia
+    })
   }
 
-  return desgloce
+  return desgloce.sort((a, b) => {
+    const numA = FAMILIA_MAP[a.familia as keyof typeof FAMILIA_MAP]?.numero || 999
+    const numB = FAMILIA_MAP[b.familia as keyof typeof FAMILIA_MAP]?.numero || 999
+    return numA - numB
+  })
 }
 
 
