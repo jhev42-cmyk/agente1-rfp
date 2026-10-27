@@ -533,17 +533,9 @@ export async function calcular(lineaId: number): Promise<Calculo> {
       continue
     }
 
-    // Usar SOLO la norma seleccionada (si hay múltiples, usar la marcada como seleccionada)
+    // Iterar sobre TODAS las normas asignadas al poste
     let tieneConfiguracion = false
-    let normasParaPoste = p.normas
-
-    // Si hay múltiples normas, usar solo la seleccionada
-    const seleccionada = p.normas.find((n) => n.seleccionada)
-    if (seleccionada) {
-      normasParaPoste = [seleccionada]
-    }
-
-    for (const pn of normasParaPoste) {
+    for (const pn of p.normas) {
       const conf = pn.configuracionId ? configPorId.get(pn.configuracionId) : undefined
       if (!conf) continue
 
