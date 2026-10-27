@@ -176,7 +176,16 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
                             fontSize: '13px',
                             lineHeight: '1.4'
                           }}>
-                            {comp.presenteEn?.map((p: any) => `${p.norma}${p.postes?.length ? ` (${p.postes.join(', ')})` : ''}`).join('; ') || '—'}
+                            {(() => {
+                              const normas = comp.presenteEn || []
+                              const normasUniques = [...new Set(normas.map((p: any) => p.norma))]
+                              const totalNormas = calculo?.normasUsadas?.length || 0
+                              if (normasUniques.length === 0) return '—'
+                              if (normasUniques.length === totalNormas) {
+                                return `Todas (${totalNormas}/${totalNormas})`
+                              }
+                              return `${normasUniques.length}/${totalNormas}: ${normasUniques.join(', ')}`
+                            })()}
                           </td>
                         </tr>
                       ))}
