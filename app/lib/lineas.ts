@@ -388,16 +388,48 @@ function generarDesglocePoFamilia(materiales: MaterialConsolidado[]): DesglocePo
 
   // Función para encontrar familia buscando descripción del material en la regla
   function encontrarFamilia(descripcion: string): string | null {
-    const descLower = descripcion.toLowerCase()
+    const descLower = descripcion.toLowerCase().trim()
+    let mejorMatch: { familia: string; similitud: number } | null = null
+
     for (const [familiaCorta, elementos] of Object.entries(regla)) {
       for (const elem of elementos) {
-        const elemLower = elem.elemento.toLowerCase()
-        // Match exacto o primeros 40 caracteres iguales
-        if (elemLower === descLower || elemLower.substring(0, 40) === descLower.substring(0, 40)) {
+        const elemLower = elem.elemento.toLowerCase().trim()
+
+        // Match exacto (perfecto)
+        if (elemLower === descLower) {
           const familiaCompleta = Object.keys(FAMILIA_MAP).find(k => k.endsWith(`-${familiaCorta}`))
           return familiaCompleta || null
         }
+
+        // Si uno contiene al otro (maneja truncamientos)
+        if (elemLower.includes(descLower) || descLower.includes(elemLower)) {
+          const similitud = Math.max(
+            descLower.length / elemLower.length,
+            elemLower.length / descLower.length
+          )
+          if (similitud > 0.8 && (!mejorMatch || similitud > mejorMatch.similitud)) {
+            mejorMatch = { familia: familiaCorta, similitud }
+          }
+        }
+
+        // Contar palabras comunes (al menos 80% de similitud)
+        const palabrasDesc = descLower.split(/\s+/).filter(p => p.length > 2)
+        const palabrasElem = elemLower.split(/\s+/).filter(p => p.length > 2)
+        if (palabrasDesc.length > 0 && palabrasElem.length > 0) {
+          const comunes = palabrasDesc.filter(p =>
+            palabrasElem.some(e => p === e || p.includes(e) || e.includes(p))
+          ).length
+          const similitud = comunes / Math.max(palabrasDesc.length, palabrasElem.length)
+          if (similitud > 0.75 && (!mejorMatch || similitud > mejorMatch.similitud)) {
+            mejorMatch = { familia: familiaCorta, similitud }
+          }
+        }
       }
+    }
+
+    if (mejorMatch) {
+      const familiaCompleta = Object.keys(FAMILIA_MAP).find(k => k.endsWith(`-${mejorMatch.familia}`))
+      return familiaCompleta || null
     }
     return null
   }
