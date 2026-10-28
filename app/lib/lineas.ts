@@ -539,6 +539,8 @@ function generarDesglocePoFamilia(materiales: MaterialConsolidado[]): DesglocePo
 
 // Generar desgloce para familia 1-Pos leyendo excels CELSIA directamente
 function generarDesgloce1PosDesdeExcels(normasSeleccionadas: string[]): DesglocePoFamilia | null {
+  console.log('[generarDesgloce1Pos] Iniciando con normas:', normasSeleccionadas)
+
   // Correspondencias para familia 1-Pos (de Formato_PestañaMateriales.xlsx)
   const correspondencias = [
     "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
@@ -640,6 +642,8 @@ function generarDesgloce1PosDesdeExcels(normasSeleccionadas: string[]): Desgloce
     .filter(m => m.cantidad > 0 || m.presenteEn.length > 0) // Mostrar solo los que tienen datos
 
   const totalUnidades = materialesOrdenados.reduce((sum, m) => sum + m.cantidad, 0)
+
+  console.log(`[generarDesgloce1Pos] Materiales encontrados: ${materialesOrdenados.length}, Total unidades: ${totalUnidades}`)
 
   return {
     familia: '1-Pos',
@@ -806,8 +810,11 @@ export async function calcular(lineaId: number): Promise<Calculo> {
         }
       }
 
+      console.log('[DESGLOCE] Normas seleccionadas:', Array.from(normasSeleccionadas))
+
       // Generar desgloce para familia 1-Pos desde excels
       const desgloce1Pos = generarDesgloce1PosDesdeExcels(Array.from(normasSeleccionadas))
+      console.log('[DESGLOCE] desgloce1Pos.itemsUnicos:', desgloce1Pos?.itemsUnicos)
 
       // Generar desgloce de todas las familias desde BD
       const desgloceDesdeDB = generarDesglocePoFamilia(materiales)
