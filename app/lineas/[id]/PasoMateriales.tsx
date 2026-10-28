@@ -19,7 +19,7 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
           <div className="note">{calculo.postes.pendientes.length} poste(s) sin configurar no están incluidos: {calculo.postes.pendientes.slice(0, 12).join(', ')}{calculo.postes.pendientes.length > 12 ? '…' : ''}</div>
         )}
 
-        <PasoMaterialesDesgloce />
+        <PasoMaterialesDesgloce desgloce={calculo.desglocePoFamilia} />
       </div>
 
       <div className="card">

@@ -2,6 +2,21 @@
 
 import { useEffect, useState } from 'react'
 
+interface MaterialPorFamilia {
+  codigo: string
+  descripcion: string
+  cantidad: number
+  presenteEn: { norma: string; postes: string[] }[]
+}
+
+interface DesglocePoFamilia {
+  familia: string
+  familiaDescripcion: string
+  itemsUnicos: number
+  unidadesTotales: number
+  materiales: MaterialPorFamilia[]
+}
+
 interface Material {
   descripcion: string
 }
@@ -17,7 +32,7 @@ interface EstructuraData {
 
 const ORDEN_FAMILIAS = ['1-Pos', '2-F.Po', '3-Ais', '4-Esp', '5-Cond', '6-Suj', '7-Torni', '8-Cone', '9-P.Ele', '10-Vien']
 
-export default function PasoMaterialesDesgloce() {
+export default function PasoMaterialesDesgloce({ desgloce }: { desgloce?: DesglocePoFamilia[] }) {
   const [estructura, setEstructura] = useState<EstructuraData | null>(null)
 
   useEffect(() => {
@@ -29,11 +44,33 @@ export default function PasoMaterialesDesgloce() {
 
   if (!estructura) return <p className="muted">Cargando estructura de materiales…</p>
 
+  // Crear mapa de desgloce por familia para búsqueda rápida
+  const desgloceMap = new Map<string, DesglocePoFamilia>()
+  if (desgloce) {
+    desgloce.forEach(fam => {
+      desgloceMap.set(fam.familia, fam)
+    })
+  }
+
   return (
     <div style={{ marginTop: '24px' }}>
       {ORDEN_FAMILIAS.map((codigo) => {
         const familia = estructura[codigo]
+        const desgloceFamilia = desgloceMap.get(codigo)
+
         if (!familia) return null
+
+        // Crear mapa de materiales del desgloce para búsqueda
+        const desgloceMateriales = new Map<string, MaterialPorFamilia>()
+        if (desgloceFamilia) {
+          desgloceFamilia.materiales.forEach(mat => {
+            desgloceMateriales.set(mat.descripcion, mat)
+          })
+        }
+
+        // Para familia 1-Pos, mostrar cantidad y presente en
+        // Para otras familias, mostrar vacío por ahora
+        const isFamiliaPos = codigo === '1-Pos'
 
         return (
           <div key={codigo} style={{ marginBottom: '40px' }}>
@@ -83,36 +120,40 @@ export default function PasoMaterialesDesgloce() {
                   </tr>
                 </thead>
                 <tbody>
-                  {familia.materiales.map((material, idx) => (
-                    <tr key={idx} style={{
-                      borderBottom: '1px solid #e2e8f0',
-                      background: idx % 2 === 0 ? '#ffffff' : '#f8fafc'
-                    }}>
-                      <td style={{
-                        padding: '12px 16px',
-                        color: '#1e293b',
-                        borderRight: '1px solid #e2e8f0'
+                  {familia.materiales.map((material, idx) => {
+                    const desgloceMat = isFamiliaPos ? desgloceMateriales.get(material.descripcion) : undefined
+
+                    return (
+                      <tr key={idx} style={{
+                        borderBottom: '1px solid #e2e8f0',
+                        background: idx % 2 === 0 ? '#ffffff' : '#f8fafc'
                       }}>
-                        {material.descripcion}
-                      </td>
-                      <td style={{
-                        padding: '12px 16px',
-                        textAlign: 'center',
-                        fontWeight: '600',
-                        color: '#0f172a',
-                        borderRight: '1px solid #e2e8f0'
-                      }}>
-                        —
-                      </td>
-                      <td style={{
-                        padding: '12px 16px',
-                        color: '#64748b',
-                        fontSize: '13px'
-                      }}>
-                        —
-                      </td>
-                    </tr>
-                  ))}
+                        <td style={{
+                          padding: '12px 16px',
+                          color: '#1e293b',
+                          borderRight: '1px solid #e2e8f0'
+                        }}>
+                          {material.descripcion}
+                        </td>
+                        <td style={{
+                          padding: '12px 16px',
+                          textAlign: 'center',
+                          fontWeight: '600',
+                          color: '#0f172a',
+                          borderRight: '1px solid #e2e8f0'
+                        }}>
+                          {isFamiliaPos && desgloceMat ? desgloceMat.cantidad : '—'}
+                        </td>
+                        <td style={{
+                          padding: '12px 16px',
+                          color: '#64748b',
+                          fontSize: '13px'
+                        }}>
+                          {isFamiliaPos && desgloceMat ? desgloceMat.presenteEn.map(p => p.norma).join(', ') : '—'}
+                        </td>
+                      </tr>
+                    )
+                  })}
                 </tbody>
               </table>
             </div>
@@ -126,7 +167,7 @@ export default function PasoMaterialesDesgloce() {
               textAlign: 'right',
               borderRadius: '4px'
             }}>
-              Total {familia.nombre}: {familia.materiales.length} items
+              Total {familia.nombre}: {isFamiliaPos && desgloceFamilia ? desgloceFamilia.unidadesTotales : familia.materiales.length} {isFamiliaPos && desgloceFamilia ? 'unidades' : 'items'}
             </div>
           </div>
         )
