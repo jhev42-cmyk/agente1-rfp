@@ -576,18 +576,6 @@ export async function calcular(lineaId: number): Promise<Calculo> {
     // Si no existe, continuar sin él
   }
 
-  // Normalizar descripción: remover espacios extra, saltos de línea, caracteres especiales
-  const normalizarDesc = (str: string): string => {
-    return str
-      .toLowerCase()
-      .trim()
-      .replace(/[\n\r\t]/g, ' ')
-      .replace(/\s+/g, ' ')
-      .replace(/[""]/g, '"')
-      .replace(/['']/g, "'")
-      .replace(/–—/g, '-')
-  }
-
   const sumar = (codigo: string, unidadFuente: string | null, d: DetalleMaterial, descripcionFallback?: string | null) => {
     const m = catPorCodigo.get(codigo)
     const unidad = m?.unidad || unidadFuente || 'UN'
@@ -599,19 +587,10 @@ export async function calcular(lineaId: number): Promise<Calculo> {
     // 4. Del código
     let descripcion = codigo
 
-    if (materialDescriptions[codigo]) {
-      // Buscar la descripción que mejor coincida (normalizada)
-      const descNorm = normalizarDesc(descripcionFallback || '')
-      const mejorMatch = materialDescriptions[codigo].find((desc: string) =>
-        normalizarDesc(desc) === descNorm
-      )
-      if (mejorMatch) {
-        descripcion = mejorMatch
-      } else if (descripcionFallback) {
-        descripcion = descripcionFallback
-      } else {
-        descripcion = materialDescriptions[codigo][0] || codigo
-      }
+    if (materialDescriptions[codigo] && materialDescriptions[codigo].length > 0) {
+      // Usar descripciones del mapeo de Excels
+      // Cada material de una familia tiene su descripción exacta del Excel
+      descripcion = materialDescriptions[codigo][0]
     } else if (descripcionFallback) {
       descripcion = descripcionFallback
     } else if (m?.descripcion) {
