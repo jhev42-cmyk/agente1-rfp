@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
-import { HttpError, handler, parseId, requireUser } from '@/lib/api'
-import { prisma } from '@/lib/db'
+import { HttpError, handler, parseId, requireUser } from '../../../../lib/api'
+import { prisma } from '../../../../lib/db'
 
 // Exportar normas seleccionadas de la línea a un archivo .txt
 export const GET = handler(async (request, { params }: { params: { id: string } }) => {
