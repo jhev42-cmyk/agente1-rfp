@@ -7,7 +7,7 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
   await requireUser(request)
   const id = parseId(params.id)
 
-  // Obtener todos los postes con sus normas
+  // Obtener todos los postes con TODAS sus normas (sin filtrar por seleccionada)
   const postes = await prisma.poste.findMany({
     where: { lineaId: id },
     orderBy: [{ trayecto: { numero: 'asc' } }, { numero: 'asc' }],
@@ -18,12 +18,22 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
           normaId: true,
           seleccionada: true,
         },
+        orderBy: { normaId: 'asc' },
       },
     },
   })
 
   if (!postes.length) {
     throw new HttpError(404, 'No hay postes en la línea')
+  }
+
+  // DEBUG: Log de lo que trae de la BD
+  console.log('[DEBUG NORMAS EXPORT]')
+  for (const p of postes) {
+    console.log(`  ${p.codigo}: ${p.normas.length} normas (seleccionadas: ${p.normas.filter(n => n.seleccionada).length})`)
+    for (const pn of p.normas) {
+      console.log(`    - normaId: ${pn.normaId}, seleccionada: ${pn.seleccionada}`)
+    }
   }
 
   // Obtener IDs únicos de normas
