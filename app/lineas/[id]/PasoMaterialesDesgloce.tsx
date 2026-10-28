@@ -1,7 +1,5 @@
 'use client'
 
-import { Calculo } from './tipos'
-
 interface MaterialItem {
   descripcion: string
   cantidad: number
