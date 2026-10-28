@@ -2,6 +2,7 @@
 
 import { Calculo, PropsPaso } from './tipos'
 import Partidas from './Partidas'
+import PasoMaterialesDesgloce from './PasoMaterialesDesgloce'
 
 export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | null }) {
   const { calculo } = props
@@ -18,7 +19,7 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
           <div className="note">{calculo.postes.pendientes.length} poste(s) sin configurar no están incluidos: {calculo.postes.pendientes.slice(0, 12).join(', ')}{calculo.postes.pendientes.length > 12 ? '…' : ''}</div>
         )}
 
-        <p className="muted">Pestaña de materiales lista para configurar…</p>
+        <PasoMaterialesDesgloce />
       </div>
 
       <div className="card">
