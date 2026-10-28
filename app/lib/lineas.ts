@@ -828,13 +828,20 @@ export async function calcular(lineaId: number): Promise<Calculo> {
       }
 
       // Generar desgloce de todas las familias desde BD
-      const desgloceDesdeDB = generarDesglocePoFamilia(materiales)
+      let desgloceDesdeDB = generarDesglocePoFamilia(materiales)
 
-      // Si tenemos desgloce 1-Pos desde Excel, reemplazarlo en la lista
-      // Si no, mantener el de la BD
-      if (desgloce1Pos) {
-        return desgloceDesdeDB.map(d => d.familia === '1-Pos' ? desgloce1Pos : d)
+      // SIEMPRE usar Excel para 1-Pos, NUNCA usar BD
+      // Remover 1-Pos de la versión de BD
+      desgloceDesdeDB = desgloceDesdeDB.filter(d => d.familia !== '1-Pos')
+
+      // Si tenemos desgloce 1-Pos desde Excel, agregarlo al inicio
+      if (desgloce1Pos && desgloce1Pos.itemsUnicos > 0) {
+        return [desgloce1Pos, ...desgloceDesdeDB]
+      } else if (desgloce1Pos) {
+        // Aunque esté vacío, agregarlo de todas formas
+        return [desgloce1Pos, ...desgloceDesdeDB]
       } else {
+        // Si no hay datos de Excel, devolver solo lo de BD (sin 1-Pos)
         return desgloceDesdeDB
       }
     })(),
