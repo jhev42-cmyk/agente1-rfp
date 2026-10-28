@@ -664,7 +664,7 @@ export async function calcular(lineaId: number): Promise<Calculo> {
       select: {
         codigo: true,
         trayecto: { select: { numero: true } },
-        normas: { where: { seleccionada: true }, select: { normaId: true, configuracionId: true, seleccionada: true } },
+        normas: { select: { normaId: true, configuracionId: true, seleccionada: true } },
       },
     }),
     prisma.partida.findMany({ where: { lineaId }, orderBy: { id: 'asc' } }),
