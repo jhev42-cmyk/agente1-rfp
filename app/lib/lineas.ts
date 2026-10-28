@@ -810,11 +810,17 @@ export async function calcular(lineaId: number): Promise<Calculo> {
         }
       }
 
-      console.log('[DESGLOCE] Normas seleccionadas:', Array.from(normasSeleccionadas))
+      const normasArray = Array.from(normasSeleccionadas)
+      if (typeof window === 'undefined') {
+        console.log('[DESGLOCE] Normas seleccionadas:', normasArray)
+      }
 
       // Generar desgloce para familia 1-Pos desde excels
-      const desgloce1Pos = generarDesgloce1PosDesdeExcels(Array.from(normasSeleccionadas))
-      console.log('[DESGLOCE] desgloce1Pos.itemsUnicos:', desgloce1Pos?.itemsUnicos)
+      const desgloce1Pos = generarDesgloce1PosDesdeExcels(normasArray)
+
+      if (typeof window === 'undefined') {
+        console.log('[DESGLOCE] desgloce1Pos encontrados:', desgloce1Pos?.itemsUnicos || 0)
+      }
 
       // Generar desgloce de todas las familias desde BD
       const desgloceDesdeDB = generarDesglocePoFamilia(materiales)
@@ -822,7 +828,12 @@ export async function calcular(lineaId: number): Promise<Calculo> {
       // Si tenemos desgloce 1-Pos desde Excel, reemplazarlo en la lista
       // Si no, mantener el de la BD
       if (desgloce1Pos) {
-        return desgloceDesdeDB.map(d => d.familia === '1-Pos' ? desgloce1Pos : d)
+        const resultado = desgloceDesdeDB.map(d => d.familia === '1-Pos' ? desgloce1Pos : d)
+        // Debug: agregar información a la consola del navegador
+        if (typeof window !== 'undefined') {
+          (window as any)._DEBUG_DESGLOCE = { normasArray, desgloce1Pos }
+        }
+        return resultado
       } else {
         return desgloceDesdeDB
       }
