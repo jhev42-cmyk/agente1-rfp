@@ -604,10 +604,13 @@ function generarDesgloce1PosDesdeExcels(normasSeleccionadas: string[]): Desgloce
 
         // Usar índices específicos o fallback a posiciones estándar
         const familia = (row[familiaIdx >= 0 ? familiaIdx : 0] || '').toString().trim()
-        const descripcion = (row[descripcionIdx >= 0 ? descripcionIdx : 1] || '').toString().trim()
+        let descripcion = (row[descripcionIdx >= 0 ? descripcionIdx : 1] || '').toString().trim()
         const cantidad = parseInt((row[cantidadIdx >= 0 ? cantidadIdx : 2] || '0').toString()) || 0
 
         if (familia === 'Pos' && descripcion) {
+          // Normalizar descripción: remover saltos de línea y espacios extras
+          descripcion = descripcion.replace(/\s+/g, ' ').trim()
+
           // Buscar correspondencia exacta
           if (correspondencias.includes(descripcion)) {
             if (!materiales.has(descripcion)) {
