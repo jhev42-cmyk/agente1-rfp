@@ -26,7 +26,7 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
     throw new HttpError(404, 'No hay postes en la línea')
   }
 
-  // Obtener todas las normas
+  // Obtener IDs únicos de normas
   const normaIds = new Set<number>()
   for (const poste of postes) {
     for (const pn of poste.normas) {
@@ -40,19 +40,50 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
     throw new HttpError(400, 'No hay normas seleccionadas en los postes')
   }
 
-  const normas = await prisma.norma.findMany({
+  // Obtener info de todas las normas
+  const normasMap = new Map<number, string>()
+  const normasData = await prisma.norma.findMany({
     where: { id: { in: Array.from(normaIds) } },
-    select: { codigo: true },
-    orderBy: { codigo: 'asc' },
+    select: { id: true, codigo: true },
   })
+
+  for (const norma of normasData) {
+    normasMap.set(norma.id, norma.codigo)
+  }
+
+  // Generar contenido del archivo con detalles por poste
+  let postsDetail = ''
+  let allNormasCodes = new Set<string>()
+
+  for (const poste of postes) {
+    const normasCodigos: string[] = []
+    for (const pn of poste.normas) {
+      if (pn.seleccionada) {
+        const codigo = normasMap.get(pn.normaId)
+        if (codigo) {
+          normasCodigos.push(codigo)
+          allNormasCodes.add(codigo)
+        }
+      }
+    }
+
+    if (normasCodigos.length > 0) {
+      postsDetail += `${poste.codigo}: ${normasCodigos.join(', ')}\n`
+    }
+  }
 
   // Generar contenido del archivo .txt
   const content = `NORMAS SELECCIONADAS EN LA LÍNEA
 =====================================
 
-${normas.map(n => n.codigo).join('\n')}
+DETALLE POR POSTE:
+${postsDetail}
 
-Total de normas: ${normas.length}
+RESUMEN DE NORMAS SELECCIONADAS:
+${Array.from(allNormasCodes).sort().join('\n')}
+
+Total de normas únicas: ${allNormasCodes.size}
+Total de postes con normas: ${postes.filter(p => p.normas.some(pn => pn.seleccionada)).length}
 Generado: ${new Date().toLocaleString('es-CO')}
 `
 
