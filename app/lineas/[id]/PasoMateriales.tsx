@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import { num } from '../../lib/cliente'
 import { Calculo, PropsPaso } from './tipos'
 import Partidas from './Partidas'
@@ -8,24 +7,6 @@ import PasoMaterialesDesgloce from './PasoMaterialesDesgloce'
 
 export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | null }) {
   const { calculo } = props
-  const [desgloce, setDesgloce] = useState<any>(null)
-
-  useEffect(() => {
-    // Cargar el desgloce desde el JSON
-    fetch('/materiales-desgloce.json')
-      .then(r => r.json())
-      .then(data => {
-        if (data.familias) {
-          // Convertir a formato esperado por el componente
-          const familias = Object.entries(data.familias).map(([nombre, familia]: [string, any]) => ({
-            codigo: familia.codigo,
-            materiales: familia.materiales || []
-          }))
-          setDesgloce(familias)
-        }
-      })
-      .catch(e => console.error('Error cargando desgloce:', e))
-  }, [])
 
   if (!calculo) return <div className="card"><p className="muted">Calculando…</p></div>
 
@@ -75,7 +56,21 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
         </div>
 
         {/* DESGLOCE POR FAMILIA */}
-        <PasoMaterialesDesgloce desgloce={desgloce} />
+        {(() => {
+          if (!calculo.desglocePoFamilia) return <p className="muted">Sin desgloce</p>
+
+          // Convertir desglocePoFamilia al formato esperado por el componente
+          const desgloce = calculo.desglocePoFamilia.map(fam => ({
+            codigo: fam.familia,
+            materiales: fam.materiales.map(mat => ({
+              descripcion: mat.descripcion,
+              cantidad: mat.cantidad,
+              presenteEn: mat.presenteEn.map(p => p.norma)
+            }))
+          }))
+
+          return <PasoMaterialesDesgloce desgloce={desgloce} />
+        })()}
 
         {!calculo.materiales.length && <p className="muted">Aún no hay materiales: configura postes en el paso 3 o agrega partidas generales abajo.</p>}
       </div>
