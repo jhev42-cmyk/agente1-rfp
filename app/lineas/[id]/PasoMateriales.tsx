@@ -75,7 +75,7 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
         </div>
 
         {/* DESGLOCE POR FAMILIA */}
-        <PasoMaterialesDesgloce desgloce={desgloce} />}
+        <PasoMaterialesDesgloce desgloce={desgloce} />
 
         {!calculo.materiales.length && <p className="muted">Aún no hay materiales: configura postes en el paso 3 o agrega partidas generales abajo.</p>}
       </div>
