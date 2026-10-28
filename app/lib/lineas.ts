@@ -333,6 +333,7 @@ export type Calculo = {
     total: number
     sinPrecio: string[]
   }
+  _debug?: { normasArray: string[]; desgloce1PosEncontrados: number }
 }
 
 
@@ -791,7 +792,10 @@ export async function calcular(lineaId: number): Promise<Calculo> {
     console.log(`[CALCULAR] Primeros 3 de 1-Pos:`, materialesPos.slice(0, 3).map(m => m.descripcion.substring(0, 50)))
   }
 
-  return {
+  // Variables para debug
+  let debugInfo: { normasArray: string[]; desgloce1PosEncontrados: number } | undefined
+
+  const result: Calculo = {
     generado: new Date().toISOString(),
     postes: { total: postes.length, configurados: postes.length - pendientes.length, pendientes },
     normasUsadas: normas.map((n) => ({
@@ -811,15 +815,16 @@ export async function calcular(lineaId: number): Promise<Calculo> {
       }
 
       const normasArray = Array.from(normasSeleccionadas)
-      if (typeof window === 'undefined') {
-        console.log('[DESGLOCE] Normas seleccionadas:', normasArray)
-      }
+      console.log('[DESGLOCE] Normas seleccionadas:', normasArray)
 
       // Generar desgloce para familia 1-Pos desde excels
       const desgloce1Pos = generarDesgloce1PosDesdeExcels(normasArray)
+      console.log('[DESGLOCE] desgloce1Pos encontrados:', desgloce1Pos?.itemsUnicos || 0)
 
-      if (typeof window === 'undefined') {
-        console.log('[DESGLOCE] desgloce1Pos encontrados:', desgloce1Pos?.itemsUnicos || 0)
+      // Guardar info para debug
+      debugInfo = {
+        normasArray,
+        desgloce1PosEncontrados: desgloce1Pos?.itemsUnicos || 0
       }
 
       // Generar desgloce de todas las familias desde BD
@@ -828,12 +833,7 @@ export async function calcular(lineaId: number): Promise<Calculo> {
       // Si tenemos desgloce 1-Pos desde Excel, reemplazarlo en la lista
       // Si no, mantener el de la BD
       if (desgloce1Pos) {
-        const resultado = desgloceDesdeDB.map(d => d.familia === '1-Pos' ? desgloce1Pos : d)
-        // Debug: agregar información a la consola del navegador
-        if (typeof window !== 'undefined') {
-          (window as any)._DEBUG_DESGLOCE = { normasArray, desgloce1Pos }
-        }
-        return resultado
+        return desgloceDesdeDB.map(d => d.familia === '1-Pos' ? desgloce1Pos : d)
       } else {
         return desgloceDesdeDB
       }
@@ -844,6 +844,12 @@ export async function calcular(lineaId: number): Promise<Calculo> {
       sinPrecio: items.filter((i) => i.precioUnitario == null).map((i) => i.codigo || i.descripcion),
     },
   }
+
+  if (debugInfo) {
+    result._debug = debugInfo
+  }
+
+  return result
 }
 
 export function erroresAprobacion(c: Calculo): string[] {
