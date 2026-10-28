@@ -581,13 +581,31 @@ function generarDesgloce1PosDesdeExcels(normasSeleccionadas: string[]): Desgloce
 
       if (!worksheet) continue
 
-      // Leer datos de la hoja (comenzando desde fila 8)
-      const data = XLSX.utils.sheet_to_json(worksheet, { header: 0, defval: '' })
+      // Leer todos los datos como arrays (sin headers automáticos)
+      const allRows = XLSX.utils.sheet_to_json(worksheet, { header: 1 }) as any[][]
 
-      for (const row of data as any[]) {
-        const familia = (row['Familia'] || row[0] || '').toString().trim()
-        const descripcion = (row['Descripción'] || row[1] || row['Descripción técnica'] || '').toString().trim()
-        const cantidad = parseInt((row['Cantidad'] || row[2] || '0').toString()) || 0
+      // La fila 7 (índice 6) contiene los headers: Familia, Descripcion Tecnica, Cantidad, etc.
+      // Los datos comienzan en la fila 8 (índice 7)
+      const headerRowIndex = 6
+      const dataStartIndex = 7
+
+      if (allRows.length <= dataStartIndex) continue
+
+      const headerRow = allRows[headerRowIndex] || []
+
+      // Encontrar índices de columnas
+      const familiaIdx = headerRow.findIndex(h => h === 'Familia' || h === 'Pos')
+      const descripcionIdx = headerRow.findIndex(h => h && h.includes('Descripcion'))
+      const cantidadIdx = headerRow.findIndex(h => h === 'Cantidad')
+
+      for (let i = dataStartIndex; i < allRows.length; i++) {
+        const row = allRows[i]
+        if (!row || row.length < 2) break
+
+        // Usar índices específicos o fallback a posiciones estándar
+        const familia = (row[familiaIdx >= 0 ? familiaIdx : 0] || '').toString().trim()
+        const descripcion = (row[descripcionIdx >= 0 ? descripcionIdx : 1] || '').toString().trim()
+        const cantidad = parseInt((row[cantidadIdx >= 0 ? cantidadIdx : 2] || '0').toString()) || 0
 
         if (familia === 'Pos' && descripcion) {
           // Buscar correspondencia exacta
