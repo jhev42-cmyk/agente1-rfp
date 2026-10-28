@@ -803,8 +803,11 @@ export async function calcular(lineaId: number): Promise<Calculo> {
     })).sort((a, b) => a.codigo.localeCompare(b.codigo)),
     materiales,
     desglocePoFamilia: (() => {
-      // Obtener normas seleccionadas de los postes
+      // Obtener todas las normas de la línea (no filtrar por seleccionada en BD)
+      // porque esa información podría no estar en la BD
       const normasSeleccionadas = new Set<string>()
+
+      // Primero intenta obtener de los postes (si existe la relación en BD)
       for (const p of postes) {
         for (const pn of p.normas) {
           if (pn.seleccionada) {
@@ -814,8 +817,17 @@ export async function calcular(lineaId: number): Promise<Calculo> {
         }
       }
 
+      // Si no hay normas en postes, usar TODAS las normas disponibles
+      // Esta es la solución cuando la BD no tiene datos de relación
+      if (normasSeleccionadas.size === 0 && normas.length > 0) {
+        console.log('[DESGLOCE] DB sin relación poste-norma. Usando todas las normas disponibles.')
+        for (const norma of normas) {
+          normasSeleccionadas.add(norma.codigo)
+        }
+      }
+
       const normasArray = Array.from(normasSeleccionadas)
-      console.log('[DESGLOCE] Normas seleccionadas:', normasArray)
+      console.log('[DESGLOCE] Normas a procesar:', normasArray)
 
       // Generar desgloce para familia 1-Pos desde excels
       const desgloce1Pos = generarDesgloce1PosDesdeExcels(normasArray)
