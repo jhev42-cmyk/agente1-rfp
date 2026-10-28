@@ -4,6 +4,7 @@ import { prisma } from './db'
 import { HttpError, requireMotivo } from './api'
 import * as fs from 'fs'
 import * as path from 'path'
+import * as XLSX from 'xlsx'
 
 export const NUM_TRAYECTOS = 10
 export const MAX_POSTES_TRAYECTO = 999
@@ -536,6 +537,98 @@ function generarDesglocePoFamilia(materiales: MaterialConsolidado[]): DesglocePo
   })
 }
 
+// Generar desgloce para familia 1-Pos leyendo excels CELSIA directamente
+function generarDesgloce1PosDesdeExcels(normasSeleccionadas: string[]): DesglocePoFamilia | null {
+  // Correspondencias para familia 1-Pos (de Formato_PestañaMateriales.xlsx)
+  const correspondencias = [
+    "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
+    "Brazo angular tipo C acero red compacta 15kV",
+    "Brazo angular tipo C acero red compacta 38kV",
+    "Brazo angular tipo E acero red compacta 15kV",
+    "Brazo angular tipo E acero red compacta 38kV",
+    "Brazo anti-balanceo polimérico red compacta 15 kV",
+    "Brazo anti-balanceo polimérico red compacta 38kV",
+    "Brazo tangente tipo L 15kV con grapa prensora y estribo",
+    "Brazo tangente tipo L 38 – 48 kV con grapa prensora y estribo",
+    "Cruceta angular metálica en T autosoportada, 1400 mm",
+    "Cruceta metálica 1500 mm 3\" X 3\" X 1/4\"",
+    "Cruceta metálica galv. 76 x 76 x 7,9 x 2400 mm (3\"x3\"x5/16\" x 2,40 m)",
+    "Cruceta metálica retención 600mm 3\" X 3\" X 1/4\" / 2 1/2\" x 2 1/2\" x 1/4\"",
+    "Cubo metálico galvanizado 3\" X 3\" para soporte de protecciones",
+    "Diagonal metálica en V 1 1/2\" x 1 1/2\" x 3/16\" de 42\"",
+    "Diagonal metálica en V 1 1/2\" x 1 1/2\" x 3/16\" de 42\" p/cruceta 1.067 mm",
+    "Diagonal metálica recta 51 x 51 x 6 x 2.337 mm (2\"x2\"x1/4\" x 92\") p/cruceta 2400 mm",
+    "Pieamigo - Diagonal en L para bandera, 51 x 51 x 6 x 2.337 mm (2\"x2\"x1/4\" x 92\")  p/cruceta 2400 mm",
+    "Pieamigo - Diagonal metálica (2 1/2\"x2 1/2\"x1/4\" x 92\") p/cruceta 2500 mm",
+    "Pieamigo - Diagonal metálica recta 1/2\" x 1/2\" x 3/16\" 1500 mm",
+    "Pieamigo - Diagonal metálica recta 1/2\" x 1/2\" x 3/16\" 2200 mm",
+    "Soporte para dos aisladores en angulo red compacta (15kV / 35kV)"
+  ]
+
+  // Consolidar materiales
+  const materiales: Map<string, { cantidad: number; normas: Set<string> }> = new Map()
+
+  // Leer cada norma seleccionada
+  for (const normaCodigo of normasSeleccionadas) {
+    const excelPath = path.join(process.cwd(), 'NORMAS CELSIA', `Celsia-${normaCodigo}.xlsx`)
+
+    if (!fs.existsSync(excelPath)) continue
+
+    try {
+      const buffer = fs.readFileSync(excelPath)
+      const workbook = XLSX.read(buffer, { type: 'buffer' })
+      const worksheet = workbook.Sheets[workbook.SheetNames[0]]
+
+      if (!worksheet) continue
+
+      // Leer datos de la hoja (comenzando desde fila 8)
+      const data = XLSX.utils.sheet_to_json(worksheet, { header: 0, defval: '' })
+
+      for (const row of data as any[]) {
+        const familia = (row['Familia'] || row[0] || '').toString().trim()
+        const descripcion = (row['Descripción'] || row[1] || row['Descripción técnica'] || '').toString().trim()
+        const cantidad = parseInt((row['Cantidad'] || row[2] || '0').toString()) || 0
+
+        if (familia === 'Pos' && descripcion) {
+          // Buscar correspondencia exacta
+          if (correspondencias.includes(descripcion)) {
+            if (!materiales.has(descripcion)) {
+              materiales.set(descripcion, { cantidad: 0, normas: new Set() })
+            }
+            const mat = materiales.get(descripcion)!
+            mat.cantidad += cantidad
+            mat.normas.add(normaCodigo)
+          }
+        }
+      }
+    } catch (e) {
+      console.warn(`Error leyendo ${normaCodigo}:`, e)
+    }
+  }
+
+  // Construir resultado en formato DesglocePoFamilia
+  const materialesOrdenados: MaterialPorFamilia[] = correspondencias
+    .map(desc => ({
+      codigo: '1-Pos',
+      descripcion: desc,
+      cantidad: materiales.get(desc)?.cantidad || 0,
+      presenteEn: materiales.get(desc)
+        ? Array.from(materiales.get(desc)!.normas).map(norma => ({ norma, postes: [] }))
+        : []
+    }))
+    .filter(m => m.cantidad > 0 || m.presenteEn.length > 0) // Mostrar solo los que tienen datos
+
+  const totalUnidades = materialesOrdenados.reduce((sum, m) => sum + m.cantidad, 0)
+
+  return {
+    familia: '1-Pos',
+    familiaDescripcion: 'Estructura de soporte principal',
+    itemsUnicos: materialesOrdenados.length,
+    unidadesTotales: totalUnidades,
+    materiales: materialesOrdenados
+  }
+}
+
 
 export async function calcular(lineaId: number): Promise<Calculo> {
   const [linea, postes, partidas, materialesCat, precios] = await Promise.all([
@@ -680,7 +773,32 @@ export async function calcular(lineaId: number): Promise<Calculo> {
       normaId: n.id, operador: n.operador, codigo: n.codigo, version: n.version, tipoPoste: n.tipoPoste, vigente: n.vigente, postes: usoNormas.get(n.id) || 0,
     })).sort((a, b) => a.codigo.localeCompare(b.codigo)),
     materiales,
-    desglocePoFamilia: generarDesglocePoFamilia(materiales),
+    desglocePoFamilia: (() => {
+      // Obtener normas seleccionadas de los postes
+      const normasSeleccionadas = new Set<string>()
+      for (const p of postes) {
+        for (const pn of p.normas) {
+          if (pn.seleccionada) {
+            const norma = normas.find(n => n.id === pn.normaId)
+            if (norma) normasSeleccionadas.add(norma.codigo)
+          }
+        }
+      }
+
+      // Generar desgloce para familia 1-Pos desde excels
+      const desgloce1Pos = generarDesgloce1PosDesdeExcels(Array.from(normasSeleccionadas))
+
+      // Generar desgloce de todas las familias desde BD
+      const desgloceDesdeDB = generarDesglocePoFamilia(materiales)
+
+      // Si tenemos desgloce 1-Pos desde Excel, reemplazarlo en la lista
+      // Si no, mantener el de la BD
+      if (desgloce1Pos) {
+        return desgloceDesdeDB.map(d => d.familia === '1-Pos' ? desgloce1Pos : d)
+      } else {
+        return desgloceDesdeDB
+      }
+    })(),
     cotizacion: {
       items, subtotales,
       total: Object.values(subtotales).reduce((a, b) => a + b, 0),
