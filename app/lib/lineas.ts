@@ -672,6 +672,12 @@ export async function calcular(lineaId: number): Promise<Calculo> {
     ? await prisma.norma.findMany({ where: { id: { in: [...usoNormas.keys()] } } })
     : []
 
+  const materialesPos = materiales.filter(m => m.codigo.startsWith('1-Pos'))
+  console.log(`[CALCULAR] Total materiales: ${materiales.length}, Familia 1-Pos: ${materialesPos.length}`)
+  if (materialesPos.length > 0) {
+    console.log(`[CALCULAR] Primeros 3 de 1-Pos:`, materialesPos.slice(0, 3).map(m => m.descripcion.substring(0, 50)))
+  }
+
   return {
     generado: new Date().toISOString(),
     postes: { total: postes.length, configurados: postes.length - pendientes.length, pendientes },
