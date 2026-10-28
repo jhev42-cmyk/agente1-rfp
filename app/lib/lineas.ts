@@ -576,25 +576,41 @@ export async function calcular(lineaId: number): Promise<Calculo> {
     // Si no existe, continuar sin él
   }
 
+  // Normalizar descripción: remover espacios extra, saltos de línea, caracteres especiales
+  const normalizarDesc = (str: string): string => {
+    return str
+      .toLowerCase()
+      .trim()
+      .replace(/[\n\r\t]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .replace(/[""]/g, '"')
+      .replace(/['']/g, "'")
+      .replace(/–—/g, '-')
+  }
+
   const sumar = (codigo: string, unidadFuente: string | null, d: DetalleMaterial, descripcionFallback?: string | null) => {
     const m = catPorCodigo.get(codigo)
     const unidad = m?.unidad || unidadFuente || 'UN'
 
     // Obtener descripción en orden de prioridad:
-    // 1. Del mapeo de Excels (usando contador por norma)
+    // 1. Del mapeo de Excels (buscando coincidencia normalizada)
     // 2. De observacion
     // 3. Del catálogo
     // 4. Del código
     let descripcion = codigo
-    const counterKey = `${codigo}|${d.norma}`
-    const idx = materialCounter.get(counterKey) || 0
 
     if (materialDescriptions[codigo]) {
-      // Usar descripción del mapeo de Excels (ciclando si es necesario)
-      const desc = materialDescriptions[codigo][idx % materialDescriptions[codigo].length]
-      if (desc) {
-        descripcion = desc
-        materialCounter.set(counterKey, idx + 1)
+      // Buscar la descripción que mejor coincida (normalizada)
+      const descNorm = normalizarDesc(descripcionFallback || '')
+      const mejorMatch = materialDescriptions[codigo].find((desc: string) =>
+        normalizarDesc(desc) === descNorm
+      )
+      if (mejorMatch) {
+        descripcion = mejorMatch
+      } else if (descripcionFallback) {
+        descripcion = descripcionFallback
+      } else {
+        descripcion = materialDescriptions[codigo][0] || codigo
       }
     } else if (descripcionFallback) {
       descripcion = descripcionFallback
