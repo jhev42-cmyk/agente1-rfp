@@ -47,6 +47,17 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
         <div className="sub">Materiales desde normas CELSIA.</div>
         {cargandoCelsia && <p className="muted">Generando materiales desde normas CELSIA…</p>}
         {errorCelsia && <div className="error-box">{errorCelsia}</div>}
+
+        {materialesCelsia && Array.isArray(materialesCelsia) && (
+          <div className="kpis" style={{ marginTop: 16 }}>
+            {(materialesCelsia as any[]).map((familia, idx) => (
+              <div key={idx} className="kpi">
+                <div className="v">{familia.total?.cantidad || 0}</div>
+                <div className="k" style={{ fontSize: 12 }}>{familia.nombre}</div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       {materialesCelsia && Array.isArray(materialesCelsia) && (
