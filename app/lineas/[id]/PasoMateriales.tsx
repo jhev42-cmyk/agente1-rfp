@@ -53,30 +53,46 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
 
       {cargandoCelsia && <div className="card"><p className="muted">Generando materiales desde normas CELSIA…</p></div>}
       {errorCelsia && <div className="card error-box">{errorCelsia}</div>}
-      {materialesCelsia && (
-        <div className="card">
-          <h2>Materiales CELSIA (demo_MediaTension.py)</h2>
-          <div className="sub">Datos generados desde el script Python con las normas seleccionadas.</div>
-          <div className="tabla-scroll alto">
-            <table style={{ fontSize: 12 }}>
-              <thead>
-                <tr>
-                  {materialesCelsia.length > 0 && Object.keys(materialesCelsia[0]).map((col) => (
-                    <th key={col}>{col}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {materialesCelsia.map((row, idx) => (
-                  <tr key={idx}>
-                    {Object.values(row).map((val, i) => (
-                      <td key={i}>{String(val)}</td>
+      {materialesCelsia && Array.isArray(materialesCelsia) && (
+        <div>
+          {(materialesCelsia as any[]).map((familia, famIdx) => (
+            <div key={famIdx} className="card">
+              <h3 style={{ marginBottom: 16, borderBottom: '2px solid #333', paddingBottom: 8 }}>{familia.nombre}</h3>
+              <div className="tabla-scroll">
+                <table style={{ fontSize: 13 }}>
+                  <thead>
+                    <tr>
+                      <th>Descripción técnica</th>
+                      <th style={{ width: 100 }}>Cant. (ud)</th>
+                      <th>Presente en</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {familia.items.map((item: any, idx: number) => (
+                      <tr key={idx}>
+                        <td>{item.descripcion}</td>
+                        <td style={{ textAlign: 'right' }}>{item.cantidad || '—'}</td>
+                        <td>{item.presenteEn || '—'}</td>
+                      </tr>
                     ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                  </tbody>
+                </table>
+              </div>
+              {familia.total && (
+                <div style={{
+                  backgroundColor: '#1a1f35',
+                  color: 'white',
+                  padding: '12px 16px',
+                  textAlign: 'right',
+                  marginTop: 12,
+                  fontWeight: 600,
+                  borderRadius: 4
+                }}>
+                  {familia.total.nombre}: {familia.total.cantidad} items
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       )}
 
