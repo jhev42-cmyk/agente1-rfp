@@ -22,11 +22,13 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
     setCargandoCelsia(true)
     setErrorCelsia('')
     try {
-      const resultado = await api<{ success: boolean; cantidad: number; datos: any[] }>(
+      console.log('[PasoMateriales] Cargando desde:', `/api/lineas/${linea.id}/materiales-celsia`)
+      const resultado = await api<{ success: boolean; familias: any[] }>(
         `/api/lineas/${linea.id}/materiales-celsia`
       )
-      if (resultado.success) {
-        setMaterialesCelsia(resultado.datos)
+      console.log('[PasoMateriales] Resultado:', resultado)
+      if (resultado.success && resultado.familias) {
+        setMaterialesCelsia(resultado.familias)
       }
     } catch (e: any) {
       setErrorCelsia(e.message || 'Error al cargar materiales CELSIA')
