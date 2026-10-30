@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server'
 import { HttpError, handler, parseId, requireUser } from '../../../../lib/api'
 import { prisma } from '../../../../lib/db'
+import * as fs from 'fs'
+import * as path from 'path'
 
 // Exportar normas de la línea - leer TODAS las normas de cada poste desde PosteNorma
 export const GET = handler(async (request, { params }: { params: { id: string } }) => {
@@ -71,6 +73,24 @@ Total de normas únicas: ${allNormasCodes.size}
 Total de postes con normas: ${postes.filter(p => p.normas.length > 0).length}
 Generado: ${new Date().toLocaleString('es-CO')}
 `
+
+  // Guardar en public/normas-seleccionadas.txt
+  try {
+    const publicDir = path.join(process.cwd(), 'public')
+    const filePath = path.join(publicDir, 'normas-seleccionadas.txt')
+
+    // Asegurar que la carpeta public existe
+    if (!fs.existsSync(publicDir)) {
+      fs.mkdirSync(publicDir, { recursive: true })
+    }
+
+    // Guardar el archivo
+    fs.writeFileSync(filePath, content, 'utf-8')
+    console.log(`[NORMAS EXPORT] Archivo guardado en: ${filePath}`)
+  } catch (e) {
+    console.warn(`[NORMAS EXPORT] Error al guardar archivo:`, e)
+    // Continuar incluso si falla el guardado
+  }
 
   // Retornar como descarga de archivo
   return new NextResponse(content, {
