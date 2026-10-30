@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server'
 import { HttpError, handler, parseId, requireUser } from '../../../../../lib/api'
-import { execSync } from 'child_process'
 import * as fs from 'fs'
 import * as path from 'path'
 import * as csv from 'csv-parse/sync'
@@ -11,20 +10,11 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
 
   try {
     const projectRoot = process.cwd()
-    const scriptPath = path.join(projectRoot, 'demo_MediaTension.py')
     const csvPath = path.join(projectRoot, 'public', 'materiales_normas_celsia.csv')
 
-    // Ejecutar el script Python
-    console.log(`[MATERIALES] Ejecutando script: ${scriptPath}`)
-    execSync(`python3 "${scriptPath}"`, {
-      cwd: projectRoot,
-      stdio: 'pipe',
-      encoding: 'utf-8',
-    })
-
-    // Leer el CSV generado
+    // Leer el CSV generado por GitHub Actions
     if (!fs.existsSync(csvPath)) {
-      throw new Error('El script no generó el archivo CSV')
+      throw new HttpError(404, 'CSV de materiales no encontrado. Asegúrate de haber generado normas-seleccionadas.txt primero.')
     }
 
     const csvContent = fs.readFileSync(csvPath, 'utf-8')
@@ -34,7 +24,7 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
       trim: true,
     })
 
-    console.log(`[MATERIALES] CSV generado con ${records.length} registros`)
+    console.log(`[MATERIALES] CSV cargado con ${records.length} registros`)
 
     return NextResponse.json({
       success: true,
@@ -43,6 +33,7 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
     })
   } catch (error: any) {
     console.error('[MATERIALES] Error:', error.message)
-    throw new HttpError(500, `Error al generar materiales: ${error.message}`)
+    if (error instanceof HttpError) throw error
+    throw new HttpError(500, `Error al cargar materiales: ${error.message}`)
   }
 })
