@@ -42,17 +42,11 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
     <>
       <div className="card">
         <h2>4. Materiales consolidados</h2>
-        <div className="sub">Desgloce completo de componentes por familia funcional.</div>
-        {calculo.congelado && <div className="info-box">Valores congelados al enviar la línea a revisión ({new Date(calculo.generado).toLocaleString('es-CO')}).</div>}
-        {calculo.postes.pendientes.length > 0 && (
-          <div className="note">{calculo.postes.pendientes.length} poste(s) sin configurar no están incluidos: {calculo.postes.pendientes.slice(0, 12).join(', ')}{calculo.postes.pendientes.length > 12 ? '…' : ''}</div>
-        )}
-
-        <PasoMaterialesDesgloce desgloce={calculo.desglocePoFamilia} />
+        <div className="sub">Materiales desde normas CELSIA.</div>
+        {cargandoCelsia && <p className="muted">Generando materiales desde normas CELSIA…</p>}
+        {errorCelsia && <div className="error-box">{errorCelsia}</div>}
       </div>
 
-      {cargandoCelsia && <div className="card"><p className="muted">Generando materiales desde normas CELSIA…</p></div>}
-      {errorCelsia && <div className="card error-box">{errorCelsia}</div>}
       {materialesCelsia && Array.isArray(materialesCelsia) && (
         <div>
           {(materialesCelsia as any[]).map((familia, famIdx) => (
