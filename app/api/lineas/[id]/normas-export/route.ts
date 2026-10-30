@@ -2,21 +2,24 @@ import { NextResponse } from 'next/server'
 import { HttpError, handler, parseId, requireUser } from '../../../../lib/api'
 import { prisma } from '../../../../lib/db'
 
-// Exportar normas seleccionadas de la línea a un archivo .txt
+// Exportar normas de la línea - leer TODAS las normas de cada poste desde PosteNorma
 export const GET = handler(async (request, { params }: { params: { id: string } }) => {
   await requireUser(request)
   const id = parseId(params.id)
 
-  // Obtener todos los postes con TODAS sus normas (sin filtrar por seleccionada)
+  // Obtener todos los postes con TODAS sus normas (tabla PosteNorma)
   const postes = await prisma.poste.findMany({
     where: { lineaId: id },
     orderBy: [{ trayecto: { numero: 'asc' } }, { numero: 'asc' }],
-    select: {
-      codigo: true,
+    include: {
       normas: {
-        select: {
-          normaId: true,
-          seleccionada: true,
+        include: {
+          norma: {
+            select: {
+              id: true,
+              codigo: true,
+            },
+          },
         },
         orderBy: { normaId: 'asc' },
       },
@@ -27,49 +30,25 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
     throw new HttpError(404, 'No hay postes en la línea')
   }
 
-  // DEBUG: Log de lo que trae de la BD
-  console.log('[DEBUG NORMAS EXPORT]')
+  // DEBUG: Log detallado
+  console.log('[DEBUG NORMAS EXPORT - POST_NORMA]')
   for (const p of postes) {
-    console.log(`  ${p.codigo}: ${p.normas.length} normas (seleccionadas: ${p.normas.filter(n => n.seleccionada).length})`)
+    console.log(`Poste ${p.codigo}: ${p.normas.length} normas en PosteNorma`)
     for (const pn of p.normas) {
-      console.log(`    - normaId: ${pn.normaId}, seleccionada: ${pn.seleccionada}`)
+      console.log(`  - Norma ID ${pn.normaId}: ${pn.norma?.codigo || 'SIN CODIGO'}`)
     }
   }
 
-  // Obtener IDs únicos de normas (TODAS, sin filtrar por seleccionada)
-  const normaIds = new Set<number>()
-  for (const poste of postes) {
-    for (const pn of poste.normas) {
-      normaIds.add(pn.normaId)
-    }
-  }
-
-  if (normaIds.size === 0) {
-    throw new HttpError(400, 'No hay normas asignadas a los postes')
-  }
-
-  // Obtener info de todas las normas
-  const normasMap = new Map<number, string>()
-  const normasData = await prisma.norma.findMany({
-    where: { id: { in: Array.from(normaIds) } },
-    select: { id: true, codigo: true },
-  })
-
-  for (const norma of normasData) {
-    normasMap.set(norma.id, norma.codigo)
-  }
-
-  // Generar contenido del archivo con detalles por poste
+  // Generar contenido del archivo
   let postsDetail = ''
   let allNormasCodes = new Set<string>()
 
   for (const poste of postes) {
     const normasCodigos: string[] = []
     for (const pn of poste.normas) {
-      const codigo = normasMap.get(pn.normaId)
-      if (codigo) {
-        normasCodigos.push(codigo)
-        allNormasCodes.add(codigo)
+      if (pn.norma?.codigo) {
+        normasCodigos.push(pn.norma.codigo)
+        allNormasCodes.add(pn.norma.codigo)
       }
     }
 

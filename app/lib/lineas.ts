@@ -539,10 +539,10 @@ function generarDesglocePoFamilia(materiales: MaterialConsolidado[]): DesglocePo
 }
 
 // Generar desgloce para familia 1-Pos leyendo excels CELSIA directamente
+
 function generarDesgloce1PosDesdeExcels(normasSeleccionadas: string[]): DesglocePoFamilia | null {
   console.log('[generarDesgloce1Pos] Iniciando con normas:', normasSeleccionadas)
 
-  // Correspondencias para familia 1-Pos (de Formato_PestañaMateriales.xlsx)
   const correspondencias = [
     "Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf",
     "Brazo angular tipo C acero red compacta 15kV",
@@ -568,12 +568,10 @@ function generarDesgloce1PosDesdeExcels(normasSeleccionadas: string[]): Desgloce
     "Soporte para dos aisladores en angulo red compacta (15kV / 35kV)"
   ]
 
-  // Consolidar materiales
   const materiales: Map<string, { cantidad: number; normas: Set<string> }> = new Map()
 
-  // Leer cada norma seleccionada
   for (const normaCodigo of normasSeleccionadas) {
-    const excelPath = path.join(process.cwd(), 'NORMAS CELSIA', `Celsia-${normaCodigo}.xlsx`)
+    const excelPath = path.join(process.cwd(), 'public', 'NormasCelsia', `Celsia-${normaCodigo}.xlsx`)
 
     if (!fs.existsSync(excelPath)) continue
 
@@ -584,11 +582,8 @@ function generarDesgloce1PosDesdeExcels(normasSeleccionadas: string[]): Desgloce
 
       if (!worksheet) continue
 
-      // Leer todos los datos como arrays (sin headers automáticos)
       const allRows = XLSX.utils.sheet_to_json(worksheet, { header: 1 }) as any[][]
 
-      // La fila 7 (índice 6) contiene los headers: Familia, Descripcion Tecnica, Cantidad, etc.
-      // Los datos comienzan en la fila 8 (índice 7)
       const headerRowIndex = 6
       const dataStartIndex = 7
 
@@ -596,7 +591,6 @@ function generarDesgloce1PosDesdeExcels(normasSeleccionadas: string[]): Desgloce
 
       const headerRow = allRows[headerRowIndex] || []
 
-      // Encontrar índices de columnas
       const familiaIdx = headerRow.findIndex(h => h === 'Familia' || h === 'Pos')
       const descripcionIdx = headerRow.findIndex(h => h && h.includes('Descripcion'))
       const cantidadIdx = headerRow.findIndex(h => h === 'Cantidad')
@@ -605,16 +599,13 @@ function generarDesgloce1PosDesdeExcels(normasSeleccionadas: string[]): Desgloce
         const row = allRows[i]
         if (!row || row.length < 2) break
 
-        // Usar índices específicos o fallback a posiciones estándar
         const familia = (row[familiaIdx >= 0 ? familiaIdx : 0] || '').toString().trim()
         let descripcion = (row[descripcionIdx >= 0 ? descripcionIdx : 1] || '').toString().trim()
         const cantidad = parseInt((row[cantidadIdx >= 0 ? cantidadIdx : 2] || '0').toString()) || 0
 
         if (familia === 'Pos' && descripcion) {
-          // Normalizar descripción: remover saltos de línea y espacios extras
           descripcion = descripcion.replace(/\s+/g, ' ').trim()
 
-          // Buscar correspondencia exacta
           if (correspondencias.includes(descripcion)) {
             if (!materiales.has(descripcion)) {
               materiales.set(descripcion, { cantidad: 0, normas: new Set() })
@@ -630,7 +621,6 @@ function generarDesgloce1PosDesdeExcels(normasSeleccionadas: string[]): Desgloce
     }
   }
 
-  // Construir resultado en formato DesglocePoFamilia
   const materialesOrdenados: MaterialPorFamilia[] = correspondencias
     .map(desc => ({
       codigo: '1-Pos',
@@ -640,7 +630,7 @@ function generarDesgloce1PosDesdeExcels(normasSeleccionadas: string[]): Desgloce
         ? Array.from(materiales.get(desc)!.normas).map(norma => ({ norma, postes: [] }))
         : []
     }))
-    .filter(m => m.cantidad > 0 || m.presenteEn.length > 0) // Mostrar solo los que tienen datos
+    .filter(m => m.cantidad > 0 || m.presenteEn.length > 0)
 
   const totalUnidades = materialesOrdenados.reduce((sum, m) => sum + m.cantidad, 0)
 
@@ -654,7 +644,6 @@ function generarDesgloce1PosDesdeExcels(normasSeleccionadas: string[]): Desgloce
     materiales: materialesOrdenados
   }
 }
-
 
 export async function calcular(lineaId: number): Promise<Calculo> {
   const [linea, postes, partidas, materialesCat, precios] = await Promise.all([

@@ -1,0 +1,23 @@
+NORMAS SELECCIONADAS EN LA LÍNEA
+=====================================
+
+DETALLE POR POSTE:
+T01-P001: B712, B72C2
+T01-P002: B76C, B76C2
+T01-P003: C72E
+T01-P004: C77C2
+T01-P005: C71
+
+
+RESUMEN DE NORMAS SELECCIONADAS:
+B712
+B72C2
+B76C
+B76C2
+C71
+C72E
+C77C2
+
+Total de normas únicas: 7
+Total de postes con normas: 5
+Generado: 28/10/2026, 4:16:11 p. m.
