@@ -15,6 +15,7 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
   useEffect(() => {
     // Cargar materiales desde el script Python cuando se monta el componente
     cargarMaterialesCelsia()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [linea.id])
 
   const cargarMaterialesCelsia = async () => {
@@ -69,7 +70,7 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
                 {materialesCelsia.map((row, idx) => (
                   <tr key={idx}>
                     {Object.values(row).map((val, i) => (
-                      <td key={i}>{val}</td>
+                      <td key={i}>{String(val)}</td>
                     ))}
                   </tr>
                 ))}

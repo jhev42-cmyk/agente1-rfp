@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { HttpError, handler, parseId, requireUser } from '../../../../../lib/api'
+import { HttpError, handler, parseId, requireUser } from '../../../../lib/api'
 import * as fs from 'fs'
 import * as path from 'path'
 import * as csv from 'csv-parse/sync'
