@@ -771,7 +771,9 @@ matriz_materiales_exp.append(["Total elementos de anclaje y retención mecánica
 
 # Exportar como CSV
 df_export = pd.DataFrame(matriz_materiales_exp)
-df_export.to_csv("materiales_normas_celsia.csv", index=False, header=False, encoding="utf-8-sig", sep=";", decimal=",")
+csv_path = os.path.join("public", "materiales_normas_celsia.csv")
+os.makedirs("public", exist_ok=True)
+df_export.to_csv(csv_path, index=False, header=False, encoding="utf-8-sig", sep=";", decimal=",")
 
 # %% Totales por familia
 print("\nCantidad de materiales calculados por familia")

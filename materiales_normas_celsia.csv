@@ -1,0 +1,75 @@
+﻿Estructura de soporte principal;;
+Descripción técnica;Cant;Presente en
+Brazo angular tipo C acero red compacta 15kV;5.0;B72C2, B76C, B76C2
+Brazo angular tipo C acero red compacta 38kV;2.0;C77C2
+Brazo angular tipo E acero red compacta 38kV;1.0;C72E
+Brazo anti-balanceo polimérico red compacta 15 kV;2.0;B712
+Brazo anti-balanceo polimérico red compacta 38 kV;1.0;C71
+Brazo tangente tipo L 15kV con grapa prensora y estribo;3.0;B712, B72C2
+Brazo tangente tipo L 38 – 48 kV con grapa prensora y estribo;1.0;C71
+Cruceta angular metálica en T autosoportada, 1400 mm;4.0;B76C2, C77C2
+"Cruceta metálica retención 600mm  3"" X 3"" X 1/4"" / 2 1/2"" x 2 1/2"" x 1/4""";1.0;B76C
+Poste de concreto, fibra vidrio o metalico 10m /12m /14m /16m × 750kgf /1050kgf /2000kgf/3000kgf /4000kgf;5.0;B712, B76C2, C71, C72E, C77C2
+Soporte para dos aisladores en angulo red compacta (15kV / 35kV);12.0;B76C2, C77C2
+Total elementos de estructura de soporte principal;37.0;
+Fijación al poste;;
+Descripción técnica;Cant;Presente en
+"Collarín / Abrazadera de 2 o 4 vías para poste (100mm - 4"" a Collarin 300mm -12"")    Diámetro según norma";23.0;B712, B72C2, B76C, B76C2, C71, C72E, C77C2
+Total elementos de fijación al poste;23.0;
+Aisladores;;
+Descripción técnica;Cant;Presente en
+Aislador pin polimérico 15 kV ANSI C29.5 clase 55-4;6.0;B72C2
+Aislador pin polimérico 35 kV ANSI C29.5 clase 55-6;3.0;C72E
+Aislador suspensión polimérico 15 kV ANSI C29.13 clase DS-15 clevis-lengüeta;15.0;B76C, B76C2
+Aislador suspensión polimérico 38kV ANSI C29.13 clase DS-35 clevis-lengüeta;12.0;C77C2
+Total elementos de aisladores;36.0;
+Espaciamiento de red compacta;;
+Descripción técnica;Cant;Presente en
+Espaciador poligonal polimérico 15 kV 10 kA cable cubierto;2.0;B712
+Espaciador poligonal polimérico 38 kV 16 kA cable cubierto (Tipo Pato);1.0;C71
+Total elementos de espaciamiento de red compacta;3.0;
+Conductores y cableado;;
+Descripción técnica;Cant;Presente en
+Cable de cobre desnudo #2 AWG;33.0;B76C, B76C2
+Total elementos de conductores y cableado;33.0;
+Sujeción y amarre del conductor;;
+Descripción técnica;Cant;Presente en
+Estribo para soporte tangencial;4.0;B712, C71, C72E
+"Grapa amarre preformado aislado tipo ""Z"" para red semiaislada. De acuerdo al calibre del conductor  (Amarre Preformado)";9.0;B72C2, C72E
+Grapa de retención aluminio tipo pistola (3–4 pernos) 2/0AWG-266.8KCMIL;7.0;B76C, B76C2, C77C2
+Grapa preformada aleación de aluminio 2 AWG a 312.8 kcmil 15 kV  / 38 kV cable cubierto  (Amarre Preformado);21.0;B76C, B76C2, C77C2
+Grapa Suspension para soporte mensajero red compacta;2.0;B72C2
+Total elementos de sujeción y amarre del conductor;43.0;
+Tornillería y herrajes de unión;;
+Descripción técnica;Cant;Presente en
+"Arandelas de presión (Guasa) Galv. Ø15,9 mm (5/8"")";59.0;B712, B72C2, B76C, B76C2, C71, C77C2
+Arandelas redondas planas de acero Ø15,9 mm (5/8′′);59.0;B712, B72C2, B76C, B76C2, C71, C77C2
+"Eslabón en U 5/8"" forjado galvanizado";27.0;B76C, B76C2, C77C2
+Guardacabo acero galvanizad Ø15,9 mm (5/8′′);21.0;B76C, B76C2, C77C2
+"Perno espaciador 15.9 x 305 mm  (Esparrago 5/8"" x 12"")";4.0;B76C2, C77C2
+"Perno espaciador 15.9 x 305 mm  (Esparrago 5/8"" x 14"")";6.0;C72E
+Perno Espigo corto para aislador tipo pin 10”x1 3/4”x3/4” rosca nailon 1 3/8” cruceta metálica (13,2 kV);6.0;B72C2
+Perno Espigo corto para aislador tipo pin 10”x1 3/4”x3/4” rosca nailon 1 3/8” cruceta metálica (34,5 kV);3.0;C72E
+"Tornillo de máquina hexagonal acero galvanizado 5/8"" X 2""";1.0;B76C
+"Tornillo de máquina hexagonal acero galvanizado 5/8"" x 3""";1.0;B72C2
+"Tornillo de máquina hexagonal acero galvanizado 5/8"" x 31/2""";16.0;B72C2, B76C, B76C2, C72E, C77C2
+"Tuercas de ojo alargada acero galv. / Ojos giratorios de Ø15,9 mm (5/8"")";7.0;B72C2, B76C, C72E
+Tuercas hexagonales de acero 5/8′′;82.0;B712, B72C2, B76C, B76C2, C71, C72E, C77C2
+Total elementos de tornillería y herrajes de unión;292.0;
+Conectores y empalmes eléctricos;;
+Descripción técnica;Cant;Presente en
+Conector empalme conector DBH Y REPOSICION AISLAMIENTO Cable Simieaislado ;9.0;B76C, B76C2
+Conectores de compresión (C-Tap / H-Tap / Cuña);5.0;B76C, B76C2, C77C2
+Conectores tipo Cuña Cu - Cu #2 a #2;5.0;B76C, B76C2
+Conexión estribo a cable semiaislado con conector DBH y reposición de aislamiento del cable semiaislado;9.0;B76C, B76C2
+Total elementos de conectores y empalmes eléctricos;28.0;
+Protección eléctrica y puesta a tierra;;
+Descripción técnica;Cant;Presente en
+"Conector cuña a presión p/ varilla PAT Ø15,9 mm (5/8"") a Cu #2 AWG";2.0;B76C, B76C2
+Grapa conexión doble cable tierra;3.0;B76C, B76C2
+Pararrayos polimerico DPS 12 kV 10 kA;9.0;B76C, B76C2
+"Varilla puesta a tierra Ø 15,9 x 2400 mm (5/8"" x 8') Copperweld";2.0;B76C, B76C2
+Total elementos de protección eléctrica y puesta a tierra;16.0;
+Anclaje y retención mecánica;;
+Descripción técnica;Cant;Presente en
+Total elementos de anclaje y retención mecánica;0;
