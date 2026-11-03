@@ -181,23 +181,15 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
                   <thead>
                     <tr>
                       <th>Descripción técnica</th>
-                      <th style={{ width: 90, textAlign: 'right' }}>Cant. (ud)</th>
-                      <th style={{ width: 110, textAlign: 'right' }}>Precio Unit.</th>
-                      <th style={{ width: 110, textAlign: 'right' }}>Costo Total</th>
-                      <th style={{ width: 150 }}>Presente en</th>
+                      <th style={{ width: 100 }}>Cant. (ud)</th>
+                      <th>Presente en</th>
                     </tr>
                   </thead>
                   <tbody>
                     {familia.items.map((item: any, idx: number) => (
                       <tr key={idx}>
                         <td>{item.descripcion}</td>
-                        <td style={{ textAlign: 'right', fontSize: 12 }}>{item.cantidad || '—'}</td>
-                        <td style={{ textAlign: 'right', fontSize: 12 }}>
-                          {item.precioUnit ? `$${item.precioUnit.toLocaleString('es-CO')}` : '—'}
-                        </td>
-                        <td style={{ textAlign: 'right', fontSize: 12, fontWeight: 500 }}>
-                          {item.costo ? `$${item.costo.toLocaleString('es-CO', { maximumFractionDigits: 0 })}` : '—'}
-                        </td>
+                        <td style={{ textAlign: 'right' }}>{item.cantidad || '—'}</td>
                         <td>{item.presenteEn || '—'}</td>
                       </tr>
                     ))}
