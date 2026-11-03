@@ -42,12 +42,21 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
       let precio = 0
 
       if (linea.startsWith('"')) {
-        // Línea entrecomillada
-        const endQuote = linea.lastIndexOf('"')
-        if (endQuote > 0) {
-          descripcion = linea.substring(1, endQuote).replace(/"/g, '"').trim()
-          const precioStr = linea.substring(endQuote + 1).replace(/^;/, '').trim()
-          precio = parseFloat(precioStr)
+        // Línea entrecomillada - encontrar el cierre correcto
+        // Buscar patrón ";número" que indica fin de comillas y precio
+        const semicolonIdx = linea.lastIndexOf(';')
+        if (semicolonIdx > 0) {
+          const precioStr = linea.substring(semicolonIdx + 1).trim()
+          if (!isNaN(parseFloat(precioStr))) {
+            // Encontró el precio, extraer descripción
+            descripcion = linea.substring(1, semicolonIdx).trim()
+            // Reemplazar comillas escapadas ("") con comillas simples (")
+            descripcion = descripcion.replace(/""/g, '"')
+            if (descripcion.endsWith('"')) {
+              descripcion = descripcion.substring(0, descripcion.length - 1)
+            }
+            precio = parseFloat(precioStr)
+          }
         }
       } else {
         // Línea normal - separador es punto y coma (;)
