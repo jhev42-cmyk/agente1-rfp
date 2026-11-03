@@ -3,7 +3,7 @@
 import { ESTADO_LABEL, fecha } from '../../lib/cliente'
 import { PropsPaso } from './tipos'
 
-export default function PasoRevision({ linea }: PropsPaso) {
+export default function PasoRevision({ linea }: PropsPaso & { calculo?: any }) {
 
   return (
     <div className="card">
