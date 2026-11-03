@@ -17,6 +17,9 @@ export default function PasoRevision({ linea, calculo }: PropsPaso & { calculo?:
       </div>
 
       <div style={{ marginTop: 20, display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+        <a className="btn btn-claro" style={{ textDecoration: 'none' }} href={`/api/lineas/${linea.id}/exportar-excel`}>
+          Exportar a Excel
+        </a>
         <a className="btn btn-claro" style={{ textDecoration: 'none' }} href={`/lineas/${linea.id}/imprimir`} target="_blank" rel="noopener">
           Exportar a PDF
         </a>
