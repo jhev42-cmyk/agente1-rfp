@@ -20,9 +20,6 @@ export default function PasoRevision({ linea, calculo }: PropsPaso & { calculo?:
         <a className="btn btn-claro" style={{ textDecoration: 'none' }} href={`/lineas/${linea.id}/imprimir`} target="_blank" rel="noopener">
           Exportar a PDF
         </a>
-        <a className="btn btn-claro" style={{ textDecoration: 'none' }} href={`/lineas/${linea.id}/exportar-excel`} target="_blank" rel="noopener">
-          Exportar a Excel
-        </a>
       </div>
     </div>
   )
