@@ -3,6 +3,14 @@ import { HttpError, handler, parseId, requireUser } from '../../../../lib/api'
 import * as fs from 'fs'
 import * as path from 'path'
 
+const normalizarDescripcion = (desc: string): string => {
+  return desc
+    .toLowerCase()
+    .trim()
+    .replace(/\s+kv/gi, 'kv')
+    .replace(/\s+/g, ' ')
+}
+
 export const GET = handler(async (request, { params }: { params: { id: string } }) => {
   await requireUser(request)
   const id = parseId(params.id)
@@ -20,15 +28,15 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
       throw new HttpError(404, 'CSV de precios no encontrado.')
     }
 
-    // Parsear CSV de precios - más robusto
+    // Parsear CSV de precios
     const preciosContent = fs.readFileSync(preciosPath, 'utf-8')
     const preciosPorDescripcion: { [key: string]: number } = {}
+    const descripcionesOriginales: Map<string, string> = new Map()
 
     const preciosLineas = preciosContent.split('\n')
     for (const linea of preciosLineas) {
       if (!linea.trim() || linea.includes('Descripción técnica') || linea.includes('Total ')) continue
 
-      // Parsear CSV respetando comillas
       let descripcion = ''
       let precio = 0
 
@@ -48,7 +56,9 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
       }
 
       if (descripcion && !isNaN(precio) && precio > 0) {
-        preciosPorDescripcion[descripcion.toLowerCase().trim()] = precio
+        const descNorm = normalizarDescripcion(descripcion)
+        preciosPorDescripcion[descNorm] = precio
+        descripcionesOriginales.set(descNorm, descripcion)
       }
     }
 
@@ -81,14 +91,12 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
             }
           }
         } else {
-          // Buscar precio para este material
-          const descripcionLower = partes[0].toLowerCase().trim()
-          let precio = preciosPorDescripcion[descripcionLower]
+          const descripcionNorm = normalizarDescripcion(partes[0])
+          let precio = preciosPorDescripcion[descripcionNorm]
 
-          // Si no encuentra exacto, buscar por coincidencia parcial
           if (!precio) {
             for (const [key, value] of Object.entries(preciosPorDescripcion)) {
-              if (key.includes(descripcionLower) || descripcionLower.includes(key)) {
+              if (descripcionNorm.includes(key) || key.includes(descripcionNorm)) {
                 precio = value
                 break
               }
