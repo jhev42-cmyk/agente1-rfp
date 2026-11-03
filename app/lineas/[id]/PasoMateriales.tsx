@@ -119,8 +119,8 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
         <h2>4. Materiales consolidados</h2>
         <div className="sub">Materiales desde normas CELSIA.</div>
 
-        <div style={{ marginTop: 16, display: 'flex', gap: 12, alignItems: 'center' }}>
-          <label style={{ position: 'relative', cursor: 'pointer' }}>
+        <div style={{ marginTop: 16, display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
+          <label style={{ position: 'relative', cursor: 'pointer', margin: 0 }}>
             <input
               type="file"
               accept=".csv"
@@ -128,18 +128,29 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
               disabled={cargandoCSV}
               style={{ display: 'none' }}
             />
-            <button className="btn btn-sm" disabled={cargandoCSV} onClick={(e) => {
-              const input = (e.currentTarget.previousElementSibling as HTMLInputElement)
-              input?.click()
-            }}>
-              {cargandoCSV ? 'Cargando...' : 'Cargar Matrix CSV'}
+            <button
+              className="btn btn-sm"
+              disabled={cargandoCSV}
+              onClick={(e) => {
+                const input = (e.currentTarget.previousElementSibling as HTMLInputElement)
+                input?.click()
+              }}
+              style={{ minWidth: 140, fontWeight: 500, lineHeight: 1.5 }}
+            >
+              {cargandoCSV ? 'Cargando...' : 'Cargar Matriz CSV'}
             </button>
           </label>
           <button
             className="btn btn-sm"
             disabled={!csvCargado || actualizando}
             onClick={handleActualizar}
-            style={{ opacity: csvCargado ? 1 : 0.5 }}
+            style={{
+              minWidth: 105,
+              fontWeight: 500,
+              lineHeight: 1.5,
+              opacity: csvCargado ? 1 : 0.5,
+              cursor: csvCargado ? 'pointer' : 'not-allowed'
+            }}
           >
             {actualizando ? 'Actualizando...' : 'Actualizar'}
           </button>
