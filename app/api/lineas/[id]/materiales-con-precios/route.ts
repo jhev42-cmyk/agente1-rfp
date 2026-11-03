@@ -91,7 +91,7 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
       if (linea.startsWith('"')) {
         const endQuote = linea.lastIndexOf('"')
         const content = linea.substring(0, endQuote + 1)
-        const resto = linea.substring(endQuote + 1)
+        const resto = linea.substring(endQuote + 2) // Skip the closing quote and semicolon
 
         descripcion = content.substring(1, content.length - 1).trim()
         const partes = resto.split(';').map(p => p.trim())
@@ -144,6 +144,7 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
             cantidad: cantidad,
           }
         }
+        enHeaders = false
       } else if (descripcion && cantidad === 0 && presenteEn === '') {
         // Es una línea de familia
         if (familiaActual) familias.push(familiaActual)
