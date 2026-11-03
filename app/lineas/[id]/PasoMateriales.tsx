@@ -11,6 +11,7 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
   const [cargandoCelsia, setCargandoCelsia] = useState(false)
   const [errorCelsia, setErrorCelsia] = useState('')
   const [materialesCelsia, setMaterialesCelsia] = useState<any[] | null>(null)
+  const [cargandoCSV, setCargandoCSV] = useState(false)
 
   useEffect(() => {
     // Cargar materiales desde el script Python cuando se monta el componente
@@ -38,6 +39,64 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
     }
   }
 
+  const handleCSVUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+    if (!file) return
+
+    setCargandoCSV(true)
+    setErrorCelsia('')
+    try {
+      const contenido = await file.text()
+      const lineas = contenido.split('\n').filter(l => l.trim())
+
+      const familias: any[] = []
+      let familiaActual: any = null
+      let enHeaders = false
+
+      for (const linea of lineas) {
+        const partes = linea.split(';').map(p => p.trim().replace(/^"|"$/g, ''))
+
+        if (partes.length >= 1 && partes[1] === '' && partes[2] === '' && !linea.includes('Descripción')) {
+          if (familiaActual) familias.push(familiaActual)
+          familiaActual = {
+            nombre: partes[0],
+            items: [],
+          }
+          enHeaders = false
+        } else if (partes[0] === 'Descripción técnica' || partes[0] === 'Descripción') {
+          enHeaders = true
+        } else if (enHeaders && partes[0]) {
+          if (partes[0].includes('Total')) {
+            if (familiaActual) {
+              familiaActual.total = {
+                nombre: partes[0],
+                cantidad: parseFloat(partes[1]) || 0,
+              }
+            }
+          } else {
+            if (familiaActual) {
+              familiaActual.items.push({
+                descripcion: partes[0],
+                cantidad: partes[1] ? parseFloat(partes[1]) : 0,
+                presenteEn: partes[2] || '',
+              })
+            }
+          }
+        }
+      }
+
+      if (familiaActual) familias.push(familiaActual)
+
+      setMaterialesCelsia(familias)
+    } catch (e: any) {
+      setErrorCelsia(e.message || 'Error al cargar archivo CSV')
+      console.error('Error cargando CSV:', e)
+    } finally {
+      setCargandoCSV(false)
+      event.target.value = ''
+    }
+  }
+
   if (!calculo) return <div className="card"><p className="muted">Calculando…</p></div>
 
   return (
@@ -45,8 +104,27 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
       <div className="card">
         <h2>4. Materiales consolidados</h2>
         <div className="sub">Materiales desde normas CELSIA.</div>
-        {cargandoCelsia && <p className="muted">Generando materiales desde normas CELSIA…</p>}
-        {errorCelsia && <div className="error-box">{errorCelsia}</div>}
+
+        <div style={{ marginTop: 16, display: 'flex', gap: 12, alignItems: 'center' }}>
+          <label style={{ position: 'relative', cursor: 'pointer' }}>
+            <input
+              type="file"
+              accept=".csv"
+              onChange={handleCSVUpload}
+              disabled={cargandoCSV}
+              style={{ display: 'none' }}
+            />
+            <button className="btn btn-sm" disabled={cargandoCSV} onClick={(e) => {
+              const input = (e.currentTarget.previousElementSibling as HTMLInputElement)
+              input?.click()
+            }}>
+              {cargandoCSV ? 'Cargando...' : 'Cargar Matrix CSV'}
+            </button>
+          </label>
+        </div>
+
+        {cargandoCelsia && <p className="muted" style={{ marginTop: 12 }}>Generando materiales desde normas CELSIA…</p>}
+        {errorCelsia && <div className="error-box" style={{ marginTop: 12 }}>{errorCelsia}</div>}
 
         {materialesCelsia && Array.isArray(materialesCelsia) && (
           <div className="kpis" style={{ marginTop: 16 }}>
