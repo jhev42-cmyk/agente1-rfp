@@ -10,7 +10,7 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
   try {
     const projectRoot = process.cwd()
     const csvPath = path.join(projectRoot, 'public', 'materiales_normas_celsia.csv')
-    const preciosPath = path.join(projectRoot, 'MatrizMateriales_Precios.csv')
+    const preciosPath = path.join(projectRoot, 'public', 'MatrizMateriales_Precios.csv')
 
     if (!fs.existsSync(csvPath)) {
       throw new HttpError(404, 'CSV de materiales no encontrado.')
