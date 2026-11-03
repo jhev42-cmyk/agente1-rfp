@@ -122,6 +122,22 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
 
     if (familiaActual) familias.push(familiaActual)
 
+    // Log de materiales sin precio para debugging
+    const sinPrecio: string[] = []
+    familias.forEach(fam => {
+      fam.items.forEach((item: any) => {
+        if (!item.precioUnit) {
+          sinPrecio.push(`${fam.nombre}: ${item.descripcion}`)
+        }
+      })
+    })
+
+    if (sinPrecio.length > 0) {
+      console.log(`[MATERIALES_PRECIOS] ${sinPrecio.length} materiales sin precio:`)
+      sinPrecio.forEach(s => console.log(`  - ${s}`))
+      console.log(`[MATERIALES_PRECIOS] Precios disponibles: ${Object.keys(preciosPorDescripcion).length}`)
+    }
+
     console.log(`[MATERIALES_PRECIOS] CSV parseado: ${familias.length} familias`)
 
     return NextResponse.json({
