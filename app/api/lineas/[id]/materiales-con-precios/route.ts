@@ -42,20 +42,20 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
       let precio = 0
 
       if (linea.startsWith('"')) {
-        // Línea entrecomillada - encontrar el cierre correcto
-        // Buscar patrón ";número" que indica fin de comillas y precio
+        // Línea entrecomillada: formato es "descripción";precio
+        // La comilla de cierre está ANTES del último ;
         const semicolonIdx = linea.lastIndexOf(';')
         if (semicolonIdx > 0) {
-          const precioStr = linea.substring(semicolonIdx + 1).trim()
-          if (!isNaN(parseFloat(precioStr))) {
-            // Encontró el precio, extraer descripción
-            descripcion = linea.substring(1, semicolonIdx).trim()
-            // Reemplazar comillas escapadas ("") con comillas simples (")
-            descripcion = descripcion.replace(/""/g, '"')
-            if (descripcion.endsWith('"')) {
-              descripcion = descripcion.substring(0, descripcion.length - 1)
+          const closeQuoteIdx = semicolonIdx - 1
+          if (closeQuoteIdx > 0 && linea[closeQuoteIdx] === '"') {
+            const precioStr = linea.substring(semicolonIdx + 1).trim()
+            if (!isNaN(parseFloat(precioStr))) {
+              // Extraer contenido entre comillas de apertura y cierre
+              descripcion = linea.substring(1, closeQuoteIdx).trim()
+              // Reemplazar comillas escapadas ("") con comillas literales (")
+              descripcion = descripcion.replace(/""/g, '"')
+              precio = parseFloat(precioStr)
             }
-            precio = parseFloat(precioStr)
           }
         }
       } else {
