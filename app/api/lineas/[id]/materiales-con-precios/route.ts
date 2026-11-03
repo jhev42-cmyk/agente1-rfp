@@ -42,16 +42,18 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
       let precio = 0
 
       if (linea.startsWith('"')) {
-        const endQuote = linea.indexOf('"', 1)
+        // Línea entrecomillada
+        const endQuote = linea.lastIndexOf('"')
         if (endQuote > 0) {
-          descripcion = linea.substring(1, endQuote).trim()
-          const precioStr = linea.substring(endQuote + 1).replace(/^,/, '').trim()
+          descripcion = linea.substring(1, endQuote).replace(/"/g, '"').trim()
+          const precioStr = linea.substring(endQuote + 1).replace(/^;/, '').trim()
           precio = parseFloat(precioStr)
         }
       } else {
-        const partes = linea.split(',')
+        // Línea normal - separador es punto y coma
+        const partes = linea.split(';')
         if (partes.length >= 2) {
-          descripcion = partes[0].trim()
+          descripcion = partes[0].trim().replace(/"/g, '"')
           precio = parseFloat(partes[1].trim())
         }
       }
