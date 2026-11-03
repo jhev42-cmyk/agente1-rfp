@@ -34,8 +34,9 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
     const descripcionesOriginales: Map<string, string> = new Map()
 
     const preciosLineas = preciosContent.split('\n')
-    for (const linea of preciosLineas) {
-      if (!linea.trim() || linea.includes('Descripción técnica') || linea.includes('Total ')) continue
+    for (let linea of preciosLineas) {
+      linea = linea.replace(/\r/g, '').trim()
+      if (!linea || linea.includes('Descripción técnica') || linea.includes('Total ')) continue
 
       let descripcion = ''
       let precio = 0
@@ -43,7 +44,7 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
       if (linea.startsWith('"')) {
         const endQuote = linea.indexOf('"', 1)
         if (endQuote > 0) {
-          descripcion = linea.substring(1, endQuote)
+          descripcion = linea.substring(1, endQuote).trim()
           const precioStr = linea.substring(endQuote + 1).replace(/^,/, '').trim()
           precio = parseFloat(precioStr)
         }
@@ -51,7 +52,7 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
         const partes = linea.split(',')
         if (partes.length >= 2) {
           descripcion = partes[0].trim()
-          precio = parseFloat(partes[1])
+          precio = parseFloat(partes[1].trim())
         }
       }
 
