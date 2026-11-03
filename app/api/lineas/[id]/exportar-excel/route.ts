@@ -1,11 +1,9 @@
 import { NextResponse } from 'next/server'
-import { handler, parseId, requireUser } from '../../../../../lib/api'
 
-export const GET = handler(async (request, { params }: { params: { id: string } }) => {
-  await requireUser(request)
-  const id = parseId(params.id)
-
+export async function GET(request: Request, { params }: { params: { id: string } }) {
   try {
+    const id = params.id
+
     // Generar CSV de ejemplo con estructura correcta
     const rows = [
       'Familia,Descripción técnica,Cantidad,Precio Unitario,Costo Total',
@@ -31,4 +29,4 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
       { status: 500 }
     )
   }
-})
+}
