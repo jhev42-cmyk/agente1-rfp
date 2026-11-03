@@ -104,7 +104,7 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
         presenteEn = partes.length > 2 ? partes[2] : ''
       }
 
-      if (!descripcion || descripcion.includes('Descripción técnica')) continue
+      if (!descripcion) continue
 
       if (descripcion === '' && cantidad === 0 && presenteEn === '') {
         if (familiaActual) familias.push(familiaActual)
