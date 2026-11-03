@@ -44,38 +44,39 @@ export default function PasoCotizacion(props: PropsPaso & { calculo: Calculo | n
 
         {materialesCotizacion && Array.isArray(materialesCotizacion) && (
           <div style={{ marginTop: 16 }}>
-            {(materialesCotizacion as any[]).map((familia, famIdx) => (
-              <div key={famIdx} className="card" style={{ marginBottom: 12 }}>
-                <h3 style={{ marginBottom: 12, borderBottom: '2px solid #333', paddingBottom: 8, fontSize: 14 }}>{familia.nombre}</h3>
-                <div className="tabla-scroll">
-                  <table style={{ fontSize: 12 }}>
-                    <thead>
-                      <tr>
-                        <th>Descripción técnica</th>
-                        <th style={{ width: 80, textAlign: 'right' }}>Cant.</th>
-                        <th style={{ width: 110, textAlign: 'right' }}>Precio Unit.</th>
-                        <th style={{ width: 110, textAlign: 'right' }}>Costo Total</th>
-                        <th style={{ width: 120 }}>Presente en</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {familia.items.map((item: any, idx: number) => (
-                        <tr key={idx}>
-                          <td>{item.descripcion}</td>
-                          <td style={{ textAlign: 'right' }}>{item.cantidad || '—'}</td>
-                          <td style={{ textAlign: 'right' }}>
-                            {item.precioUnit ? `$${item.precioUnit.toLocaleString('es-CO')}` : '—'}
-                          </td>
-                          <td style={{ textAlign: 'right', fontWeight: 500 }}>
-                            {item.costo ? `$${item.costo.toLocaleString('es-CO', { maximumFractionDigits: 0 })}` : '—'}
-                          </td>
-                          <td>{item.presenteEn || '—'}</td>
+            {(materialesCotizacion as any[]).map((familia, famIdx) => {
+              const totalCostoFamilia = familia.items.reduce((sum: number, item: any) => sum + (item.costo || 0), 0)
+              return (
+                <div key={famIdx} className="card" style={{ marginBottom: 12 }}>
+                  <h3 style={{ marginBottom: 12, borderBottom: '2px solid #333', paddingBottom: 8, fontSize: 14 }}>{familia.nombre}</h3>
+                  <div className="tabla-scroll">
+                    <table style={{ fontSize: 12 }}>
+                      <thead>
+                        <tr>
+                          <th>Descripción técnica</th>
+                          <th style={{ width: 80, textAlign: 'right' }}>Cant.</th>
+                          <th style={{ width: 110, textAlign: 'right' }}>Precio Unit.</th>
+                          <th style={{ width: 110, textAlign: 'right' }}>Costo Total</th>
+                          <th style={{ width: 120 }}>Presente en</th>
                         </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-                {familia.total && (
+                      </thead>
+                      <tbody>
+                        {familia.items.map((item: any, idx: number) => (
+                          <tr key={idx}>
+                            <td>{item.descripcion}</td>
+                            <td style={{ textAlign: 'right' }}>{item.cantidad || '—'}</td>
+                            <td style={{ textAlign: 'right' }}>
+                              {item.precioUnit ? `$${item.precioUnit.toLocaleString('es-CO')}` : '—'}
+                            </td>
+                            <td style={{ textAlign: 'right', fontWeight: 500 }}>
+                              {item.costo ? `$${item.costo.toLocaleString('es-CO', { maximumFractionDigits: 0 })}` : '—'}
+                            </td>
+                            <td>{item.presenteEn || '—'}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                   <div style={{
                     backgroundColor: '#1a1f35',
                     color: 'white',
@@ -85,11 +86,31 @@ export default function PasoCotizacion(props: PropsPaso & { calculo: Calculo | n
                     borderRadius: 4,
                     textAlign: 'right'
                   }}>
-                    {familia.nombre}: {familia.total.cantidad} items
+                    Total {familia.nombre}: ${totalCostoFamilia.toLocaleString('es-CO', { maximumFractionDigits: 0 })}
                   </div>
-                )}
+                </div>
+              )
+            })}
+
+            {materialesCotizacion.length > 0 && (
+              <div className="card" style={{ marginTop: 20, backgroundColor: '#f5f5f5' }}>
+                <div style={{
+                  backgroundColor: '#1a1f35',
+                  color: 'white',
+                  padding: '16px',
+                  fontWeight: 700,
+                  borderRadius: 4,
+                  textAlign: 'right',
+                  fontSize: 14
+                }}>
+                  COSTO TOTAL DEL PROYECTO: ${(materialesCotizacion as any[])
+                    .reduce((total: number, familia: any) =>
+                      total + familia.items.reduce((sum: number, item: any) => sum + (item.costo || 0), 0), 0
+                    )
+                    .toLocaleString('es-CO', { maximumFractionDigits: 0 })}
+                </div>
               </div>
-            ))}
+            )}
           </div>
         )}
       </div>

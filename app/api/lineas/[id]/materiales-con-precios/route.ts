@@ -20,17 +20,35 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
       throw new HttpError(404, 'CSV de precios no encontrado.')
     }
 
-    // Parsear CSV de precios
+    // Parsear CSV de precios - más robusto
     const preciosContent = fs.readFileSync(preciosPath, 'utf-8')
     const preciosPorDescripcion: { [key: string]: number } = {}
 
-    const preciosLineas = preciosContent.split('\n').filter(l => l.trim())
+    const preciosLineas = preciosContent.split('\n')
     for (const linea of preciosLineas) {
-      const partes = linea.split(',').map(p => p.trim().replace(/^"|"$/g, ''))
-      if (partes.length >= 2 && partes[1] && !isNaN(parseFloat(partes[1]))) {
-        const descripcion = partes[0].toLowerCase()
-        const precio = parseFloat(partes[1])
-        preciosPorDescripcion[descripcion] = precio
+      if (!linea.trim() || linea.includes('Descripción técnica') || linea.includes('Total ')) continue
+
+      // Parsear CSV respetando comillas
+      let descripcion = ''
+      let precio = 0
+
+      if (linea.startsWith('"')) {
+        const endQuote = linea.indexOf('"', 1)
+        if (endQuote > 0) {
+          descripcion = linea.substring(1, endQuote)
+          const precioStr = linea.substring(endQuote + 1).replace(/^,/, '').trim()
+          precio = parseFloat(precioStr)
+        }
+      } else {
+        const partes = linea.split(',')
+        if (partes.length >= 2) {
+          descripcion = partes[0].trim()
+          precio = parseFloat(partes[1])
+        }
+      }
+
+      if (descripcion && !isNaN(precio) && precio > 0) {
+        preciosPorDescripcion[descripcion.toLowerCase().trim()] = precio
       }
     }
 
@@ -64,8 +82,20 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
           }
         } else {
           // Buscar precio para este material
-          const descripcionLower = partes[0].toLowerCase()
-          const precio = preciosPorDescripcion[descripcionLower] || 0
+          const descripcionLower = partes[0].toLowerCase().trim()
+          let precio = preciosPorDescripcion[descripcionLower]
+
+          // Si no encuentra exacto, buscar por coincidencia parcial
+          if (!precio) {
+            for (const [key, value] of Object.entries(preciosPorDescripcion)) {
+              if (key.includes(descripcionLower) || descripcionLower.includes(key)) {
+                precio = value
+                break
+              }
+            }
+          }
+
+          precio = precio || 0
           const cantidad = partes[1] ? parseFloat(partes[1]) : 0
           const costo = cantidad * precio
 
