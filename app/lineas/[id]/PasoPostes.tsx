@@ -25,6 +25,7 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
   const [ocupado, setOcupado] = useState(false)
   const [detalles, setDetalles] = useState<Record<number, NormaDetalle>>({})
   const [posteEditandoNormas, setPosteEditandoNormas] = useState<number | null>(null)
+  const [generandoResumen, setGenerandoResumen] = useState(false)
 
   const normaPorId = useMemo(() => new Map(normas.map((n) => [n.id, n])), [normas])
   const vigentes = normas.filter((n) => n.vigente)
@@ -117,6 +118,30 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
     if (s.has(id)) s.delete(id)
     else s.add(id)
     setSeleccion(s)
+  }
+
+  const generarResumenPostes = async () => {
+    setGenerandoResumen(true)
+    setError('')
+    setOk('')
+    try {
+      const response = await fetch(`/api/lineas/${linea.id}/normas-export`)
+      if (!response.ok) throw new Error('Error al generar resumen')
+      const blob = await response.blob()
+      const url = window.URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = 'normas-seleccionadas.txt'
+      document.body.appendChild(a)
+      a.click()
+      window.URL.revokeObjectURL(url)
+      document.body.removeChild(a)
+      setOk('Resumen generado correctamente')
+    } catch (e: any) {
+      setError(e.message || 'Error al generar resumen')
+    } finally {
+      setGenerandoResumen(false)
+    }
   }
 
   const normaMasiva = normaPorId.get(Number(masivaNorma))
@@ -399,6 +424,16 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
           </div>
         )
       })()}
+
+      <div style={{ marginTop: 20, display: 'flex', justifyContent: 'center', gap: 10 }}>
+        <button
+          className="btn"
+          disabled={generandoResumen || linea.postes.length === 0}
+          onClick={generarResumenPostes}
+        >
+          {generandoResumen ? 'Generando...' : 'Generar Resumen Postes'}
+        </button>
+      </div>
     </div>
   )
 }
