@@ -8,10 +8,6 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
   const id = parseId(params.id)
 
   try {
-    // Importar exceljs dinámicamente
-    const ExcelJS = await import('exceljs')
-    const Workbook = ExcelJS.Workbook
-
     // Cargar datos de materiales y línea
     const projectRoot = process.cwd()
     const csvPath = path.join(projectRoot, 'public', 'materiales_normas_celsia.csv')
@@ -146,25 +142,10 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
 
     if (familiaActual) familias.push(familiaActual)
 
-    // Crear workbook
-    const workbook = new Workbook()
-    const worksheet = workbook.addWorksheet('Cotización')
+    // Generar CSV
+    const rows: string[] = []
+    rows.push('Familia,Descripción técnica,Cantidad,Precio Unitario,Costo Total')
 
-    // Encabezados principales
-    worksheet.columns = [
-      { header: 'Familia', key: 'familia', width: 35 },
-      { header: 'Descripción técnica', key: 'descripcion', width: 50 },
-      { header: 'Cantidad', key: 'cantidad', width: 12 },
-      { header: 'Precio Unitario', key: 'precioUnit', width: 18 },
-      { header: 'Costo Total', key: 'costo', width: 18 },
-    ]
-
-    // Estilo de encabezado
-    worksheet.getRow(1).font = { bold: true, color: { argb: 'FFFFFFFF' } }
-    worksheet.getRow(1).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF1a1f35' } }
-
-    // Agregar datos
-    let rowNum = 2
     let costoTotal = 0
 
     familias.forEach(familia => {
@@ -172,53 +153,27 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
       costoTotal += totalFamilia
 
       familia.items.forEach((item: any, idx: number) => {
-        const row = worksheet.addRow({
-          familia: idx === 0 ? familia.nombre : '',
-          descripcion: item.descripcion,
-          cantidad: item.cantidad,
-          precioUnit: item.precioUnit,
-          costo: item.costo,
-        })
-
-        // Formatear números
-        if (row.getCell('precioUnit')) row.getCell('precioUnit').numFmt = '$#,##0'
-        if (row.getCell('costo')) row.getCell('costo').numFmt = '$#,##0'
-
-        rowNum++
+        const familiaCol = idx === 0 ? `"${familia.nombre}"` : ''
+        const descCol = `"${item.descripcion.replace(/"/g, '""')}"`
+        const cantCol = item.cantidad || ''
+        const precioCol = item.precioUnit || ''
+        const costoCol = item.costo || ''
+        rows.push(`${familiaCol},${descCol},${cantCol},${precioCol},${costoCol}`)
       })
 
-      // Subtotal de familia
-      const subtotalRow = worksheet.addRow({
-        familia: '',
-        descripcion: `Subtotal ${familia.nombre}`,
-        cantidad: '',
-        precioUnit: '',
-        costo: totalFamilia,
-      })
-      subtotalRow.font = { bold: true }
-      subtotalRow.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFE8E8E8' } }
-      if (subtotalRow.getCell('costo')) subtotalRow.getCell('costo').numFmt = '$#,##0'
-      rowNum++
+      // Subtotal
+      rows.push(`,"Subtotal ${familia.nombre}",,,"${totalFamilia}"`)
     })
 
     // Total general
-    const totalRow = worksheet.addRow({
-      familia: '',
-      descripcion: 'COSTO TOTAL DEL PROYECTO',
-      cantidad: '',
-      precioUnit: '',
-      costo: costoTotal,
-    })
-    totalRow.font = { bold: true, color: { argb: 'FFFFFFFF' } }
-    totalRow.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF1a1f35' } }
-    if (totalRow.getCell('costo')) totalRow.getCell('costo').numFmt = '$#,##0'
+    rows.push(`,"COSTO TOTAL DEL PROYECTO","",,${costoTotal}`)
 
-    // Retornar archivo
-    const buffer = await workbook.xlsx.writeBuffer()
-    return new NextResponse(buffer, {
+    const csv = rows.join('\n')
+
+    return new NextResponse(csv, {
       headers: {
-        'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-        'Content-Disposition': `attachment; filename="Cotizacion.xlsx"`,
+        'Content-Type': 'text/csv; charset=utf-8',
+        'Content-Disposition': `attachment; filename="Cotizacion.csv"`,
       },
     })
   } catch (error: any) {
