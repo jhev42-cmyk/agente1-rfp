@@ -12,6 +12,8 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
   const [errorCelsia, setErrorCelsia] = useState('')
   const [materialesCelsia, setMaterialesCelsia] = useState<any[] | null>(null)
   const [cargandoCSV, setCargandoCSV] = useState(false)
+  const [csvCargado, setCSVCargado] = useState(false)
+  const [actualizando, setActualizando] = useState(false)
 
   useEffect(() => {
     // Cargar materiales desde el script Python cuando se monta el componente
@@ -88,12 +90,24 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
       if (familiaActual) familias.push(familiaActual)
 
       setMaterialesCelsia(familias)
+      setCSVCargado(true)
     } catch (e: any) {
       setErrorCelsia(e.message || 'Error al cargar archivo CSV')
       console.error('Error cargando CSV:', e)
+      setCSVCargado(false)
     } finally {
       setCargandoCSV(false)
       event.target.value = ''
+    }
+  }
+
+  const handleActualizar = () => {
+    if (!materialesCelsia) return
+    setActualizando(true)
+    try {
+      setErrorCelsia('')
+    } finally {
+      setActualizando(false)
     }
   }
 
@@ -121,6 +135,14 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
               {cargandoCSV ? 'Cargando...' : 'Cargar Matrix CSV'}
             </button>
           </label>
+          <button
+            className="btn btn-sm"
+            disabled={!csvCargado || actualizando}
+            onClick={handleActualizar}
+            style={{ opacity: csvCargado ? 1 : 0.5 }}
+          >
+            {actualizando ? 'Actualizando...' : 'Actualizar'}
+          </button>
         </div>
 
         {cargandoCelsia && <p className="muted" style={{ marginTop: 12 }}>Generando materiales desde normas CELSIA…</p>}
