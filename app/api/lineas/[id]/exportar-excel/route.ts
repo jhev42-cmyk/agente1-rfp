@@ -7,12 +7,22 @@ export async function GET(request: Request, { params }: { params: { id: string }
   try {
     const projectRoot = process.cwd()
     const csvPath = path.join(projectRoot, 'public', 'materiales_normas_celsia.csv')
+    const templatePath = path.join(projectRoot, 'TemplateCotizacion.xlsx')
 
     if (!fs.existsSync(csvPath)) {
       throw new Error('Archivo de materiales no encontrado')
     }
 
-    // Cargar materiales
+    if (!fs.existsSync(templatePath)) {
+      throw new Error('Template de cotización no encontrado')
+    }
+
+    // Cargar template
+    const templateBuffer = fs.readFileSync(templatePath)
+    const workbook = XLSX.read(templateBuffer, { type: 'buffer' })
+    const worksheet = workbook.Sheets[workbook.SheetNames[0]]
+
+    // Cargar materiales del CSV
     const csvContent = fs.readFileSync(csvPath, 'utf-8')
     const lineas = csvContent.split('\n').filter(l => l.trim())
 
@@ -23,6 +33,7 @@ export async function GET(request: Request, { params }: { params: { id: string }
     for (const linea of lineas) {
       let descripcion = ''
       let cantidad = 0
+      let presenteEn = ''
 
       if (linea.startsWith('"')) {
         const endQuote = linea.lastIndexOf('"')
@@ -32,15 +43,17 @@ export async function GET(request: Request, { params }: { params: { id: string }
         descripcion = content.substring(1, content.length - 1).trim()
         const partes = resto.split(';').map(p => p.trim())
         cantidad = partes.length > 0 ? parseFloat(partes[0]) || 0 : 0
+        presenteEn = partes.length > 1 ? partes[1] : ''
       } else {
         const partes = linea.split(';').map(p => p.trim().replace(/^"|"$/g, ''))
         descripcion = partes[0] || ''
         cantidad = partes.length > 1 ? parseFloat(partes[1]) || 0 : 0
+        presenteEn = partes.length > 2 ? partes[2] : ''
       }
 
       if (!descripcion) continue
 
-      if (descripcion === '' && cantidad === 0) {
+      if (descripcion === '' && cantidad === 0 && presenteEn === '') {
         if (familiaActual) familias.push(familiaActual)
         familiaActual = null
         enHeaders = false
@@ -51,6 +64,7 @@ export async function GET(request: Request, { params }: { params: { id: string }
           familiaActual.items.push({
             descripcion,
             cantidad,
+            presenteEn,
           })
         }
       } else if (enHeaders && descripcion.includes('Total')) {
@@ -61,7 +75,7 @@ export async function GET(request: Request, { params }: { params: { id: string }
           }
         }
         enHeaders = false
-      } else if (descripcion && cantidad === 0) {
+      } else if (descripcion && cantidad === 0 && presenteEn === '') {
         if (familiaActual) familias.push(familiaActual)
         familiaActual = {
           nombre: descripcion,
@@ -73,54 +87,24 @@ export async function GET(request: Request, { params }: { params: { id: string }
 
     if (familiaActual) familias.push(familiaActual)
 
-    // Crear datos para Excel
-    const data: any[] = []
-    data.push(['Familia', 'Descripción Técnica', 'Cantidad (ud)'])
-
+    // Llenar datos en el template a partir de fila 2
+    let rowNum = 2
     familias.forEach(familia => {
-      familia.items.forEach((item: any, idx: number) => {
-        data.push([
-          idx === 0 ? familia.nombre : '',
-          item.descripcion,
-          item.cantidad,
-        ])
+      familia.items.forEach((item: any) => {
+        // M: Familia
+        worksheet[`M${rowNum}`] = { v: familia.nombre, t: 's' }
+        // N: Descripción Técnica
+        worksheet[`N${rowNum}`] = { v: item.descripcion, t: 's' }
+        // O: Norma Aplicable
+        worksheet[`O${rowNum}`] = { v: item.presenteEn || '', t: 's' }
+        // P: Cantidad
+        worksheet[`P${rowNum}`] = { v: item.cantidad, t: 'n' }
+        rowNum++
       })
-
-      // Subtotal
-      const totalFamilia = familia.items.reduce((s: number, i: any) => s + (i.cantidad || 0), 0)
-      data.push(['', `Subtotal ${familia.nombre}`, totalFamilia])
-      data.push([]) // Fila vacía
     })
 
-    // Total general
-    const totalGeneral = familias.reduce((total, f) =>
-      total + f.items.reduce((s: number, i: any) => s + (i.cantidad || 0), 0), 0
-    )
-    data.push(['', 'TOTAL DE MATERIALES', totalGeneral])
-
-    // Crear workbook
-    const workbook = XLSX.utils.book_new()
-    const worksheet = XLSX.utils.aoa_to_sheet(data)
-
-    // Establecer anchos de columna
-    worksheet['!cols'] = [
-      { wch: 35 },  // Familia
-      { wch: 55 },  // Descripción
-      { wch: 15 },  // Cantidad
-    ]
-
-    // Agregar estilos (color de encabezado)
-    const headerCellStyle = {
-      fill: { fgColor: { rgb: 'FF1a1f35' } },
-      font: { color: { rgb: 'FFFFFFFF' }, bold: true },
-      alignment: { horizontal: 'center', vertical: 'center' },
-    }
-
-    worksheet['A1'].s = headerCellStyle
-    worksheet['B1'].s = headerCellStyle
-    worksheet['C1'].s = headerCellStyle
-
-    XLSX.utils.book_append_sheet(workbook, worksheet, 'Cotización de Materiales')
+    // Actualizar max_row en el worksheet
+    worksheet['!ref'] = `A1:S${rowNum - 1}`
 
     // Generar buffer
     const buffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'buffer' })
