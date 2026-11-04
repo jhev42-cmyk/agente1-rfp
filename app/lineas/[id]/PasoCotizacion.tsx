@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react'
 import { Calculo, PropsPaso } from './tipos'
 import { api } from '../../lib/cliente'
 
-export default function PasoCotizacion(props: PropsPaso & { calculo: Calculo | null }) {
-  const { linea } = props
+export default function PasoCotizacion(props: PropsPaso & { calculo: Calculo | null; materialesCSV: any[] | null }) {
+  const { linea, materialesCSV } = props
   const [materialesCotizacion, setMaterialesCotizacion] = useState<any[] | null>(null)
   const [cargando, setCargando] = useState(false)
   const [error, setError] = useState('')
@@ -13,39 +13,34 @@ export default function PasoCotizacion(props: PropsPaso & { calculo: Calculo | n
   useEffect(() => {
     cargarMaterialesConPrecios()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [linea.id])
+  }, [linea.id, materialesCSV])
 
   const cargarMaterialesConPrecios = async () => {
     setCargando(true)
     setError('')
     try {
-      // 1. Intentar cargar materiales del sessionStorage (CSV cargado en Paso 4)
-      let familias: any[] | null = null
-      try {
-        const csvGuardado = sessionStorage.getItem(`materiales_csv_${linea.id}`)
-        if (csvGuardado) {
-          familias = JSON.parse(csvGuardado)
-          console.log('[PasoCotizacion] Materiales cargados desde sessionStorage')
-        }
-      } catch (e) {
-        console.warn('Error leyendo sessionStorage:', e)
-      }
+      // 1. Si hay materiales en el estado (cargados en Paso 4), usarlos
+      let familias: any[] | null = materialesCSV
 
-      // 2. Si no hay en sessionStorage, cargar del endpoint anterior
+      // 2. Si no hay materiales cargados, cargar del endpoint anterior
       if (!familias) {
         const resultado = await api<{ success: boolean; familias: any[] }>(
           `/api/lineas/${linea.id}/materiales-con-precios`
         )
         if (resultado.success && resultado.familias) {
           familias = resultado.familias
-          console.log('[PasoCotizacion] Materiales cargados desde endpoint')
+          console.log('[PasoCotizacion] Materiales cargados desde endpoint (sin CSV en Paso 4)')
         }
+      } else {
+        console.log('[PasoCotizacion] Usando materiales del CSV cargado en Paso 4:', familias.length, 'familias')
       }
 
       // 3. Si ya tenemos familias, cargar matriz de precios
       if (familias) {
         const materialesConCostos = await calcularCostos(familias, linea.id)
         setMaterialesCotizacion(materialesConCostos)
+      } else {
+        setError('No hay materiales cargados')
       }
     } catch (e: any) {
       setError(e.message || 'Error al cargar cotización')

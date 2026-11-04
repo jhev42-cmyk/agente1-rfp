@@ -6,13 +6,13 @@ import Partidas from './Partidas'
 import PasoMaterialesDesgloce from './PasoMaterialesDesgloce'
 import { api } from '../../lib/cliente'
 
-export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | null }) {
-  const { calculo, linea } = props
+export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | null; materialesCSV: any[] | null; setMaterialesCSV: (materiales: any[] | null) => void }) {
+  const { calculo, linea, materialesCSV, setMaterialesCSV } = props
   const [cargandoCelsia, setCargandoCelsia] = useState(false)
   const [errorCelsia, setErrorCelsia] = useState('')
-  const [materialesCelsia, setMaterialesCelsia] = useState<any[] | null>(null)
+  const [materialesCelsia, setMaterialesCelsia] = useState<any[] | null>(materialesCSV)
   const [cargandoCSV, setCargandoCSV] = useState(false)
-  const [csvCargado, setCSVCargado] = useState(false)
+  const [csvCargado, setCSVCargado] = useState(materialesCSV !== null)
   const [actualizando, setActualizando] = useState(false)
 
   useEffect(() => {
@@ -113,14 +113,9 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
       if (familiaActual) familias.push(familiaActual)
 
       setMaterialesCelsia(familias)
+      setMaterialesCSV(familias)
       setCSVCargado(true)
-
-      // Guardar en sessionStorage para que Paso 5 pueda acceder
-      try {
-        sessionStorage.setItem(`materiales_csv_${linea.id}`, JSON.stringify(familias))
-      } catch (e) {
-        console.warn('No se pudo guardar en sessionStorage:', e)
-      }
+      console.log('[PasoMateriales] CSV cargado:', familias.length, 'familias')
     } catch (e: any) {
       setErrorCelsia(e.message || 'Error al cargar archivo CSV')
       console.error('Error cargando CSV:', e)

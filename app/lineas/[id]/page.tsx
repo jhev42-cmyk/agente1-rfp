@@ -25,6 +25,7 @@ function Espacio({ id }: { id: string }) {
   const [calculo, setCalculo] = useState<Calculo | null>(null)
   const [paso, setPaso] = useState(0)
   const [error, setError] = useState('')
+  const [materialesCSV, setMaterialesCSV] = useState<any[] | null>(null)
   const { pedir, elemento } = useDialogo()
 
   const cargarCalculo = useCallback(async () => {
@@ -87,8 +88,8 @@ function Espacio({ id }: { id: string }) {
       {paso === 0 && <PasoLinea {...props} />}
       {paso === 1 && <PasoTrayectos {...props} />}
       {paso === 2 && <PasoPostes {...props} normas={normas} />}
-      {paso === 3 && <PasoMateriales {...props} calculo={calculo} />}
-      {paso === 4 && <PasoCotizacion {...props} calculo={calculo} />}
+      {paso === 3 && <PasoMateriales {...props} calculo={calculo} materialesCSV={materialesCSV} setMaterialesCSV={setMaterialesCSV} />}
+      {paso === 4 && <PasoCotizacion {...props} calculo={calculo} materialesCSV={materialesCSV} />}
       {paso === 5 && <PasoRevision {...props} calculo={calculo} />}
 
       {elemento}
