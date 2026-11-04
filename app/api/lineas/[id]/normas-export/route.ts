@@ -43,14 +43,14 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
 
   // Generar contenido del archivo
   let postsDetail = ''
-  let allNormasCodes = new Set<string>()
+  const todasLasNormas: string[] = []
 
   for (const poste of postes) {
     const normasCodigos: string[] = []
     for (const pn of poste.normas) {
       if (pn.norma?.codigo) {
         normasCodigos.push(pn.norma.codigo)
-        allNormasCodes.add(pn.norma.codigo)
+        todasLasNormas.push(pn.norma.codigo)
       }
     }
 
@@ -58,6 +58,10 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
       postsDetail += `${poste.codigo}: ${normasCodigos.join(', ')}\n`
     }
   }
+
+  // Generar resumen con todas las normas en orden (con repeticiones)
+  const resumenNormas = todasLasNormas.join('\n')
+  const normasUnicas = new Set(todasLasNormas)
 
   // Generar contenido del archivo .txt
   const content = `NORMAS SELECCIONADAS EN LA LÍNEA
@@ -67,9 +71,9 @@ DETALLE POR POSTE:
 ${postsDetail}
 
 RESUMEN DE NORMAS SELECCIONADAS:
-${Array.from(allNormasCodes).sort().join('\n')}
+${resumenNormas}
 
-Total de normas únicas: ${allNormasCodes.size}
+Total de normas únicas: ${normasUnicas.size}
 Total de postes con normas: ${postes.filter(p => p.normas.length > 0).length}
 Generado: ${new Date().toLocaleString('es-CO')}
 `
