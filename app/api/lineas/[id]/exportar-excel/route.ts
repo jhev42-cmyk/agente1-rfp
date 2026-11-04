@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import * as fs from 'fs'
 import * as path from 'path'
+import * as XLSX from 'xlsx'
 
 export async function GET(request: Request, { params }: { params: { id: string } }) {
   try {
@@ -9,11 +10,6 @@ export async function GET(request: Request, { params }: { params: { id: string }
 
     if (!fs.existsSync(csvPath)) {
       throw new Error('Archivo de materiales no encontrado')
-    }
-
-    // Parser para materiales
-    const normalizarDescripcion = (desc: string): string => {
-      return desc.toLowerCase().trim().replace(/\s+kv/gi, 'kv').replace(/\s+/g, ' ')
     }
 
     // Cargar materiales
@@ -77,68 +73,66 @@ export async function GET(request: Request, { params }: { params: { id: string }
 
     if (familiaActual) familias.push(familiaActual)
 
-    // Generar Excel binario con exceljs
-    const ExcelJS = (await import('exceljs')).default
-    const workbook = new ExcelJS.Workbook()
-    const worksheet = workbook.addWorksheet('Cotización de Materiales')
+    // Crear datos para Excel
+    const data: any[] = []
+    data.push(['Familia', 'Descripción Técnica', 'Cantidad (ud)'])
 
-    // Encabezado
-    worksheet.columns = [
-      { header: 'Familia', key: 'familia', width: 35 },
-      { header: 'Descripción Técnica', key: 'descripcion', width: 55 },
-      { header: 'Cantidad (ud)', key: 'cantidad', width: 15 },
-    ]
-
-    // Estilo de encabezado
-    const headerRow = worksheet.getRow(1)
-    headerRow.font = { bold: true, color: { argb: 'FFFFFFFF' }, size: 12 }
-    headerRow.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF1a1f35' } }
-    headerRow.alignment = { horizontal: 'center', vertical: 'center' }
-
-    // Agregar datos
     familias.forEach(familia => {
       familia.items.forEach((item: any, idx: number) => {
-        const row = worksheet.addRow({
-          familia: idx === 0 ? familia.nombre : '',
-          descripcion: item.descripcion,
-          cantidad: item.cantidad,
-        })
-
-        // Centrar cantidad
-        row.getCell('cantidad').alignment = { horizontal: 'center' }
+        data.push([
+          idx === 0 ? familia.nombre : '',
+          item.descripcion,
+          item.cantidad,
+        ])
       })
 
       // Subtotal
-      const subtotalRow = worksheet.addRow({
-        familia: '',
-        descripcion: `Subtotal ${familia.nombre}`,
-        cantidad: familia.items.reduce((s: number, i: any) => s + (i.cantidad || 0), 0),
-      })
-      subtotalRow.font = { bold: true, size: 11 }
-      subtotalRow.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFE8E8E8' } }
-      subtotalRow.getCell('cantidad').alignment = { horizontal: 'center' }
+      const totalFamilia = familia.items.reduce((s: number, i: any) => s + (i.cantidad || 0), 0)
+      data.push(['', `Subtotal ${familia.nombre}`, totalFamilia])
+      data.push([]) // Fila vacía
     })
 
     // Total general
-    const totalRow = worksheet.addRow({
-      familia: '',
-      descripcion: 'TOTAL DE MATERIALES',
-      cantidad: familias.reduce((total, f) => total + f.items.reduce((s: number, i: any) => s + (i.cantidad || 0), 0), 0),
-    })
-    totalRow.font = { bold: true, color: { argb: 'FFFFFFFF' }, size: 12 }
-    totalRow.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF1a1f35' } }
-    totalRow.getCell('cantidad').alignment = { horizontal: 'center' }
+    const totalGeneral = familias.reduce((total, f) =>
+      total + f.items.reduce((s: number, i: any) => s + (i.cantidad || 0), 0), 0
+    )
+    data.push(['', 'TOTAL DE MATERIALES', totalGeneral])
+
+    // Crear workbook
+    const workbook = XLSX.utils.book_new()
+    const worksheet = XLSX.utils.aoa_to_sheet(data)
+
+    // Establecer anchos de columna
+    worksheet['!cols'] = [
+      { wch: 35 },  // Familia
+      { wch: 55 },  // Descripción
+      { wch: 15 },  // Cantidad
+    ]
+
+    // Agregar estilos (color de encabezado)
+    const headerCellStyle = {
+      fill: { fgColor: { rgb: 'FF1a1f35' } },
+      font: { color: { rgb: 'FFFFFFFF' }, bold: true },
+      alignment: { horizontal: 'center', vertical: 'center' },
+    }
+
+    worksheet['A1'].s = headerCellStyle
+    worksheet['B1'].s = headerCellStyle
+    worksheet['C1'].s = headerCellStyle
+
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Cotización de Materiales')
 
     // Generar buffer
-    const buffer = await workbook.xlsx.writeBuffer()
+    const buffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'buffer' })
 
     return new NextResponse(buffer, {
       headers: {
-        'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; charset=utf-8',
         'Content-Disposition': `attachment; filename="Cotizacion_Materiales_${params.id}.xlsx"`,
       },
     })
   } catch (error: any) {
+    console.error('[EXPORT_EXCEL]', error)
     return NextResponse.json(
       { error: error.message },
       { status: 500 }
