@@ -10,10 +10,16 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
   const { calculo, linea, materialesCSV, setMaterialesCSV } = props
   const [cargandoCelsia, setCargandoCelsia] = useState(false)
   const [errorCelsia, setErrorCelsia] = useState('')
-  const [materialesCelsia, setMaterialesCelsia] = useState<any[] | null>(materialesCSV)
+  const [materialesCelsia, setMaterialesCelsia] = useState<any[] | null>(null)
   const [cargandoCSV, setCargandoCSV] = useState(false)
-  const [csvCargado, setCSVCargado] = useState(materialesCSV !== null)
+  const [csvCargado, setCSVCargado] = useState(false)
   const [actualizando, setActualizando] = useState(false)
+
+  // Sincronizar materialesCSV del padre
+  useEffect(() => {
+    setMaterialesCelsia(materialesCSV)
+    setCSVCargado(materialesCSV !== null && materialesCSV.length > 0)
+  }, [materialesCSV])
 
   // No cargar nada por defecto - solo mostrar botón para cargar CSV
   // useEffect(() => {
