@@ -19,11 +19,33 @@ export default function PasoCotizacion(props: PropsPaso & { calculo: Calculo | n
     setCargando(true)
     setError('')
     try {
-      const resultado = await api<{ success: boolean; familias: any[] }>(
-        `/api/lineas/${linea.id}/materiales-con-precios`
-      )
-      if (resultado.success && resultado.familias) {
-        setMaterialesCotizacion(resultado.familias)
+      // 1. Intentar cargar materiales del sessionStorage (CSV cargado en Paso 4)
+      let familias: any[] | null = null
+      try {
+        const csvGuardado = sessionStorage.getItem(`materiales_csv_${linea.id}`)
+        if (csvGuardado) {
+          familias = JSON.parse(csvGuardado)
+          console.log('[PasoCotizacion] Materiales cargados desde sessionStorage')
+        }
+      } catch (e) {
+        console.warn('Error leyendo sessionStorage:', e)
+      }
+
+      // 2. Si no hay en sessionStorage, cargar del endpoint anterior
+      if (!familias) {
+        const resultado = await api<{ success: boolean; familias: any[] }>(
+          `/api/lineas/${linea.id}/materiales-con-precios`
+        )
+        if (resultado.success && resultado.familias) {
+          familias = resultado.familias
+          console.log('[PasoCotizacion] Materiales cargados desde endpoint')
+        }
+      }
+
+      // 3. Si ya tenemos familias, cargar matriz de precios
+      if (familias) {
+        const materialesConCostos = await calcularCostos(familias, linea.id)
+        setMaterialesCotizacion(materialesConCostos)
       }
     } catch (e: any) {
       setError(e.message || 'Error al cargar cotización')
@@ -31,6 +53,80 @@ export default function PasoCotizacion(props: PropsPaso & { calculo: Calculo | n
     } finally {
       setCargando(false)
     }
+  }
+
+  const calcularCostos = async (familias: any[], lineaId: string) => {
+    try {
+      // Cargar matriz de precios
+      const response = await fetch('/MatrizMateriales_Precios.csv')
+      const csvContent = await response.text()
+      const precios = parseMatrizPrecios(csvContent)
+
+      // Normalizar función para comparar descripciones
+      const normalizarPara = (texto: string) =>
+        texto.toLowerCase().replace(/\s+/g, ' ').trim()
+
+      // Aplicar precios a los materiales
+      const familiasConPrecios = familias.map(familia => ({
+        ...familia,
+        items: familia.items.map((item: any) => {
+          const descripcionNorm = normalizarPara(item.descripcion)
+          const precioObj = precios.find((p: any) =>
+            normalizarPara(p.descripcion) === descripcionNorm
+          )
+
+          const precioUnit = precioObj?.precio || 0
+          const costo = item.cantidad * precioUnit
+
+          return {
+            ...item,
+            precioUnit,
+            costo,
+          }
+        }),
+      }))
+
+      return familiasConPrecios
+    } catch (e) {
+      console.warn('Error calculando costos:', e)
+      // Retornar sin costos si hay error
+      return familias.map(familia => ({
+        ...familia,
+        items: familia.items.map((item: any) => ({
+          ...item,
+          precioUnit: 0,
+          costo: 0,
+        })),
+      }))
+    }
+  }
+
+  const parseMatrizPrecios = (csvContent: string) => {
+    const lineas = csvContent.split('\n').filter((l: string) => l.trim())
+    const precios: any[] = []
+
+    for (const linea of lineas) {
+      // Manejar líneas con comillas
+      let descripcion = ''
+      let precio = 0
+
+      if (linea.startsWith('"')) {
+        const endQuote = linea.lastIndexOf('"')
+        descripcion = linea.substring(1, endQuote).trim()
+        const resto = linea.substring(endQuote + 2).split(';').map(p => p.trim())
+        precio = parseFloat(resto[0]) || 0
+      } else {
+        const partes = linea.split(';').map(p => p.trim())
+        descripcion = partes[0]
+        precio = parseFloat(partes[1]) || 0
+      }
+
+      if (descripcion && precio > 0) {
+        precios.push({ descripcion, precio })
+      }
+    }
+
+    return precios
   }
 
   return (

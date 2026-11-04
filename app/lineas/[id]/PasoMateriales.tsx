@@ -56,34 +56,57 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
       let enHeaders = false
 
       for (const linea of lineas) {
-        const partes = linea.split(';').map(p => p.trim().replace(/^"|"$/g, ''))
+        let descripcion = ''
+        let cantidad = 0
+        let presenteEn = ''
 
-        if (partes.length >= 1 && partes[1] === '' && partes[2] === '' && !linea.includes('Descripción')) {
+        if (linea.startsWith('"')) {
+          const endQuote = linea.lastIndexOf('"')
+          const content = linea.substring(0, endQuote + 1)
+          const resto = linea.substring(endQuote + 2)
+
+          descripcion = content.substring(1, content.length - 1).trim()
+          const partes = resto.split(';').map(p => p.trim())
+          cantidad = partes.length > 0 ? parseFloat(partes[0]) || 0 : 0
+          presenteEn = partes.length > 1 ? partes[1] : ''
+        } else {
+          const partes = linea.split(';').map(p => p.trim().replace(/^"|"$/g, ''))
+          descripcion = partes[0] || ''
+          cantidad = partes.length > 1 ? parseFloat(partes[1]) || 0 : 0
+          presenteEn = partes.length > 2 ? partes[2] : ''
+        }
+
+        if (!descripcion) continue
+
+        if (descripcion === '' && cantidad === 0 && presenteEn === '') {
+          if (familiaActual) familias.push(familiaActual)
+          familiaActual = null
+          enHeaders = false
+        } else if (descripcion === 'Descripción técnica' || descripcion === 'Descripción') {
+          enHeaders = true
+        } else if (enHeaders && descripcion && !descripcion.includes('Total')) {
+          if (familiaActual) {
+            familiaActual.items.push({
+              descripcion,
+              cantidad,
+              presenteEn,
+            })
+          }
+        } else if (enHeaders && descripcion.includes('Total')) {
+          if (familiaActual) {
+            familiaActual.total = {
+              nombre: descripcion,
+              cantidad: cantidad,
+            }
+          }
+          enHeaders = false
+        } else if (descripcion && cantidad === 0 && presenteEn === '') {
           if (familiaActual) familias.push(familiaActual)
           familiaActual = {
-            nombre: partes[0],
+            nombre: descripcion,
             items: [],
           }
           enHeaders = false
-        } else if (partes[0] === 'Descripción técnica' || partes[0] === 'Descripción') {
-          enHeaders = true
-        } else if (enHeaders && partes[0]) {
-          if (partes[0].includes('Total')) {
-            if (familiaActual) {
-              familiaActual.total = {
-                nombre: partes[0],
-                cantidad: parseFloat(partes[1]) || 0,
-              }
-            }
-          } else {
-            if (familiaActual) {
-              familiaActual.items.push({
-                descripcion: partes[0],
-                cantidad: partes[1] ? parseFloat(partes[1]) : 0,
-                presenteEn: partes[2] || '',
-              })
-            }
-          }
         }
       }
 
@@ -91,6 +114,13 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
 
       setMaterialesCelsia(familias)
       setCSVCargado(true)
+
+      // Guardar en sessionStorage para que Paso 5 pueda acceder
+      try {
+        sessionStorage.setItem(`materiales_csv_${linea.id}`, JSON.stringify(familias))
+      } catch (e) {
+        console.warn('No se pudo guardar en sessionStorage:', e)
+      }
     } catch (e: any) {
       setErrorCelsia(e.message || 'Error al cargar archivo CSV')
       console.error('Error cargando CSV:', e)
