@@ -19,28 +19,17 @@ export default function PasoCotizacion(props: PropsPaso & { calculo: Calculo | n
     setCargando(true)
     setError('')
     try {
-      // 1. Si hay materiales en el estado (cargados en Paso 4), usarlos
-      let familias: any[] | null = materialesCSV
+      // Solo usar materiales cargados en Paso 4
+      const familias = materialesCSV
 
-      // 2. Si no hay materiales cargados, cargar del endpoint anterior
-      if (!familias) {
-        const resultado = await api<{ success: boolean; familias: any[] }>(
-          `/api/lineas/${linea.id}/materiales-con-precios`
-        )
-        if (resultado.success && resultado.familias) {
-          familias = resultado.familias
-          console.log('[PasoCotizacion] Materiales cargados desde endpoint (sin CSV en Paso 4)')
-        }
-      } else {
-        console.log('[PasoCotizacion] Usando materiales del CSV cargado en Paso 4:', familias.length, 'familias')
-      }
-
-      // 3. Si ya tenemos familias, cargar matriz de precios
-      if (familias) {
+      if (familias && familias.length > 0) {
+        console.log('[PasoCotizacion] Calculando costos para:', familias.length, 'familias')
         const materialesConCostos = await calcularCostos(familias, linea.id)
         setMaterialesCotizacion(materialesConCostos)
       } else {
-        setError('No hay materiales cargados')
+        // Sin materiales = vacío, no mostrar error
+        setMaterialesCotizacion(null)
+        console.log('[PasoCotizacion] Sin materiales cargados en Paso 4')
       }
     } catch (e: any) {
       setError(e.message || 'Error al cargar cotización')

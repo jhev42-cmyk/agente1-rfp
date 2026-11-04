@@ -15,11 +15,10 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
   const [csvCargado, setCSVCargado] = useState(materialesCSV !== null)
   const [actualizando, setActualizando] = useState(false)
 
-  useEffect(() => {
-    // Cargar materiales desde el script Python cuando se monta el componente
-    cargarMaterialesCelsia()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [linea.id])
+  // No cargar nada por defecto - solo mostrar botón para cargar CSV
+  // useEffect(() => {
+  //   cargarMaterialesCelsia()
+  // }, [linea.id])
 
   const cargarMaterialesCelsia = async () => {
     setCargandoCelsia(true)
@@ -183,6 +182,10 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
 
         {cargandoCelsia && <p className="muted" style={{ marginTop: 12 }}>Generando materiales desde normas CELSIA…</p>}
         {errorCelsia && <div className="error-box" style={{ marginTop: 12 }}>{errorCelsia}</div>}
+
+        {!materialesCelsia && !cargandoCelsia && (
+          <p className="muted" style={{ marginTop: 12 }}>Carga un archivo CSV para ver los materiales consolidados.</p>
+        )}
 
         {materialesCelsia && Array.isArray(materialesCelsia) && (
           <div className="kpis" style={{ marginTop: 16 }}>

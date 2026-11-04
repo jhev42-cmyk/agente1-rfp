@@ -43,7 +43,11 @@ function Espacio({ id }: { id: string }) {
     }
   }, [id, cargarCalculo])
 
-  useEffect(() => { recargar() }, [recargar])
+  useEffect(() => {
+    recargar()
+    // Limpiar materiales cuando cambia la línea
+    setMaterialesCSV(null)
+  }, [recargar])
 
   // Al pasar a los pasos de cálculo se refresca, por si cambiaron precios o el catálogo.
   useEffect(() => { if (paso >= 3 && linea) cargarCalculo().catch(() => {}) }, [paso]) // eslint-disable-line react-hooks/exhaustive-deps
