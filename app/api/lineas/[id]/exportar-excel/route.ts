@@ -7,7 +7,7 @@ export async function GET(request: Request, { params }: { params: { id: string }
   try {
     const projectRoot = process.cwd()
     const csvPath = path.join(projectRoot, 'public', 'materiales_normas_celsia.csv')
-    const templatePath = path.join(projectRoot, 'TemplateCotizacion.xlsx')
+    const templatePath = path.join(projectRoot, 'public', 'TemplateCotizacion.xlsx')
 
     if (!fs.existsSync(csvPath)) {
       throw new Error('Archivo de materiales no encontrado')
