@@ -18,17 +18,23 @@ function Imprimir({ id }: { id: string }) {
   const [error, setError] = useState('')
 
   useEffect(() => {
-    Promise.all([
-      api<Linea>(`/api/lineas/${id}`),
-      api<Calculo>(`/api/lineas/${id}/calculo`),
-      api<{ success: boolean; familias: any[] }>(`/api/lineas/${id}/materiales-cargados`)
-        .then(r => r.success ? r.familias : null)
-        .catch(() => null)
-    ])
-      .then(([l, c, m]) => {
+    // Leer desde sessionStorage (guardado en Paso 6)
+    let materiales = null
+    try {
+      const stored = sessionStorage.getItem(`materiales-${id}`)
+      if (stored) {
+        materiales = JSON.parse(stored)
+        console.log('[Imprimir] Materiales desde sessionStorage:', materiales.length)
+      }
+    } catch (e) {
+      console.warn('[Imprimir] Error leyendo sessionStorage:', e)
+    }
+
+    Promise.all([api<Linea>(`/api/lineas/${id}`), api<Calculo>(`/api/lineas/${id}/calculo`)])
+      .then(([l, c]) => {
         setLinea(l)
         setCalculo(c)
-        setMaterialesCSV(m)
+        setMaterialesCSV(materiales)
       })
       .catch((e) => setError(e.message))
   }, [id])

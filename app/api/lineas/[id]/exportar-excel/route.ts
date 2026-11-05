@@ -2,15 +2,9 @@ import { NextResponse } from 'next/server'
 import * as fs from 'fs'
 import * as path from 'path'
 import * as XLSX from 'xlsx'
-import * as os from 'os'
 import { parseId } from '../../../../lib/api'
 
-function getTempPath(id: number): string {
-  const tempDir = process.env.VERCEL ? '/tmp' : path.join(os.tmpdir())
-  return path.join(tempDir, `materiales-linea-${id}.json`)
-}
-
-export async function GET(request: Request, { params }: { params: { id: string } }) {
+export async function POST(request: Request, { params }: { params: { id: string } }) {
   try {
     const lineaId = parseId(params.id)
     const projectRoot = process.cwd()
@@ -20,20 +14,10 @@ export async function GET(request: Request, { params }: { params: { id: string }
       throw new Error('Template de cotización no encontrado')
     }
 
-    // Obtener materiales desde el archivo temporal
-    const materialesPath = getTempPath(lineaId)
+    // Obtener materiales desde el request body
+    const { familias } = await request.json()
 
-    console.log(`[EXPORT_EXCEL] Buscando materiales en: ${materialesPath}`)
-
-    if (!fs.existsSync(materialesPath)) {
-      console.error(`[EXPORT_EXCEL] Archivo no existe: ${materialesPath}`)
-      throw new Error('No hay materiales cargados. Por favor, carga un archivo CSV en el Paso 4.')
-    }
-
-    const content = fs.readFileSync(materialesPath, 'utf-8')
-    const familias = JSON.parse(content)
-
-    console.log(`[EXPORT_EXCEL] Encontrado: ${familias.length} familias`)
+    console.log(`[EXPORT_EXCEL] Materiales recibidos: ${familias?.length || 0} familias`)
 
     if (!familias || !Array.isArray(familias) || familias.length === 0) {
       throw new Error('No hay materiales cargados. Por favor, carga un archivo CSV en el Paso 4.')
@@ -52,7 +36,7 @@ export async function GET(request: Request, { params }: { params: { id: string }
         worksheet[`M${rowNum}`] = { v: familia.nombre, t: 's' }
         // N: Descripción Técnica
         worksheet[`N${rowNum}`] = { v: item.descripcion, t: 's' }
-        // O: Norma Aplicable
+        // O: Presente en
         worksheet[`O${rowNum}`] = { v: item.presenteEn || '', t: 's' }
         // P: Cantidad
         worksheet[`P${rowNum}`] = { v: item.cantidad, t: 'n' }

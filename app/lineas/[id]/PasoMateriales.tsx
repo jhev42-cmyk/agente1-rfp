@@ -126,15 +126,14 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
       setMaterialesCSV(familias)
       setCSVCargado(true)
 
-      // Guardar materiales en el servidor para acceso desde PDF/Excel
+      // Guardar en sessionStorage para acceso desde PDF/Excel
       try {
-        await fetch(`/api/lineas/${linea.id}/materiales-cargados`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ familias })
-        })
+        if (typeof window !== 'undefined') {
+          sessionStorage.setItem(`materiales-${linea.id}`, JSON.stringify(familias))
+          console.log('[PasoMateriales] Guardados en sessionStorage:', familias.length, 'familias')
+        }
       } catch (e) {
-        console.warn('[PasoMateriales] No se guardaron los materiales en servidor:', e)
+        console.warn('[PasoMateriales] Error guardando en sessionStorage:', e)
       }
 
       console.log('[PasoMateriales] CSV cargado:', familias.length, 'familias')
