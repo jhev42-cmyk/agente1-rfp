@@ -125,6 +125,18 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
       setMaterialesCelsia(familias)
       setMaterialesCSV(familias)
       setCSVCargado(true)
+
+      // Guardar materiales en el servidor para acceso desde PDF/Excel
+      try {
+        await fetch(`/api/lineas/${linea.id}/materiales-cargados`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ familias })
+        })
+      } catch (e) {
+        console.warn('[PasoMateriales] No se guardaron los materiales en servidor:', e)
+      }
+
       console.log('[PasoMateriales] CSV cargado:', familias.length, 'familias')
     } catch (e: any) {
       setErrorCelsia(e.message || 'Error al cargar archivo CSV')
