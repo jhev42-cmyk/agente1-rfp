@@ -22,11 +22,20 @@
   - Botón para eliminar norma del poste
   - Filtro por operador
 
-## ⏳ Próximos pasos — Integración en UI de líneas
-- [ ] Integrar PosteNormasSelector en espacio de trabajo de líneas
-- [ ] Conectar selector con guardado automático en base de datos
-- [ ] Actualizar listado de postes para mostrar norma seleccionada
-- [ ] Validar que al cotizar usa la norma seleccionada (PosteNorma.seleccionada=true)
+## ✅ COMPLETADO — PosteNormasSelector en UI
+- [x] PosteNormasSelector integrado en PasoPostes (modal al hacer clic "+ Normas")
+- [x] Selector con guardado automático en base de datos
+- [x] Cálculo de cotización usa solo norma seleccionada (PosteNorma.seleccionada=true)
+
+## ⏳ Próximos pasos — UX y Validación
+- [ ] **Indicador visual** de norma seleccionada en tabla de postes
+  - Mostrar radio button o insignia en fila de norma seleccionada
+  - Highlight row with seleccionada=true
+- [ ] **Test funcional** en https://agente1-rfp.vercel.app
+  - Crear línea con postes CELSIA
+  - Asignar múltiples normas a un poste
+  - Validar que solo la "seleccionada" afecta el cálculo
+  - Revisar export PDF/Excel
 
 ## Catálogo de normas (fase 1 de líneas)
 - [ ] Cargar el esquema (foto/plano) de cada norma CELSIA en API

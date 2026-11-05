@@ -64,6 +64,7 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
         let descripcion = ''
         let cantidad = 0
         let presenteEn = ''
+        let costo = 0
 
         if (linea.startsWith('"')) {
           const endQuote = linea.lastIndexOf('"')
@@ -74,11 +75,13 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
           const partes = resto.split(';').map(p => p.trim())
           cantidad = partes.length > 0 ? parseFloat(partes[0]) || 0 : 0
           presenteEn = partes.length > 1 ? partes[1] : ''
+          costo = partes.length > 2 ? parseFloat(partes[2]) || 0 : 0
         } else {
           const partes = linea.split(';').map(p => p.trim().replace(/^"|"$/g, ''))
           descripcion = partes[0] || ''
           cantidad = partes.length > 1 ? parseFloat(partes[1]) || 0 : 0
           presenteEn = partes.length > 2 ? partes[2] : ''
+          costo = partes.length > 3 ? parseFloat(partes[3]) || 0 : 0
         }
 
         if (!descripcion) continue
@@ -95,6 +98,7 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
               descripcion,
               cantidad,
               presenteEn,
+              costo,
             })
           }
         } else if (enHeaders && descripcion.includes('Total')) {
@@ -102,6 +106,7 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
             familiaActual.total = {
               nombre: descripcion,
               cantidad: cantidad,
+              costo: costo,
             }
           }
           enHeaders = false
@@ -197,7 +202,9 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
           <div className="kpis" style={{ marginTop: 16 }}>
             {(materialesCelsia as any[]).map((familia, idx) => (
               <div key={idx} className="kpi">
-                <div className="v">{familia.total?.cantidad || 0}</div>
+                <div className="v" style={{ fontSize: familia.total?.costo ? 14 : 20 }}>
+                  {familia.total?.costo ? `$${familia.total.costo.toLocaleString()}` : familia.total?.cantidad || 0}
+                </div>
                 <div className="k" style={{ fontSize: 12 }}>{familia.nombre}</div>
               </div>
             ))}
@@ -217,6 +224,7 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
                       <th>Descripción técnica</th>
                       <th style={{ width: 100 }}>Cant. (ud)</th>
                       <th>Presente en</th>
+                      <th style={{ width: 120, textAlign: 'right' }}>Costo</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -225,6 +233,7 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
                         <td>{item.descripcion}</td>
                         <td style={{ textAlign: 'right' }}>{item.cantidad || '—'}</td>
                         <td>{item.presenteEn || '—'}</td>
+                        <td style={{ textAlign: 'right' }}>${item.costo ? item.costo.toLocaleString() : '—'}</td>
                       </tr>
                     ))}
                   </tbody>
