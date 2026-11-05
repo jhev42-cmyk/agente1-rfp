@@ -4,7 +4,7 @@ import { ESTADO_LABEL, fecha } from '../../lib/cliente'
 import { PropsPaso } from './tipos'
 import ResumenMateriales from './ResumenMateriales'
 
-export default function PasoRevision({ linea, calculo }: PropsPaso & { calculo?: any }) {
+export default function PasoRevision({ linea, calculo, materialesCSV }: PropsPaso & { calculo?: any; materialesCSV?: any[] | null }) {
   return (
     <div className="card">
       <h2>6. Revisión final y aprobación</h2>
@@ -14,7 +14,7 @@ export default function PasoRevision({ linea, calculo }: PropsPaso & { calculo?:
 
       <div style={{ marginTop: 20 }}>
         <h3 style={{ marginBottom: 16 }}>Resumen de Materiales y Cantidades</h3>
-        <ResumenMateriales linea={linea} calculo={calculo} />
+        <ResumenMateriales linea={linea} calculo={calculo} materialesCSV={materialesCSV} />
       </div>
 
       <div style={{ marginTop: 20, display: 'flex', gap: 10, flexWrap: 'wrap' }}>

@@ -94,7 +94,7 @@ function Espacio({ id }: { id: string }) {
       {paso === 2 && <PasoPostes {...props} normas={normas} />}
       {paso === 3 && <PasoMateriales {...props} calculo={calculo} materialesCSV={materialesCSV} setMaterialesCSV={setMaterialesCSV} />}
       {paso === 4 && <PasoCotizacion {...props} calculo={calculo} materialesCSV={materialesCSV} />}
-      {paso === 5 && <PasoRevision {...props} calculo={calculo} />}
+      {paso === 5 && <PasoRevision {...props} calculo={calculo} materialesCSV={materialesCSV} />}
 
       {elemento}
     </>

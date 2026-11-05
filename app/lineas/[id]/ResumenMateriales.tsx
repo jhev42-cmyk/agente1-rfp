@@ -1,29 +1,19 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { api } from '../../lib/cliente'
 import { Linea, Calculo } from './tipos'
 
 interface ResumenMaterialesProps {
   linea: Linea
   calculo: Calculo | null
+  materialesCSV?: any[] | null
 }
 
-export default function ResumenMateriales({ linea, calculo }: ResumenMaterialesProps) {
-  const [materiales, setMateriales] = useState<any[] | null>(null)
-  const [cargando, setCargando] = useState(true)
+export default function ResumenMateriales({ linea, calculo, materialesCSV }: ResumenMaterialesProps) {
+  const materiales = materialesCSV
 
-  useEffect(() => {
-    api<{ success: boolean; familias: any[] }>(
-      `/api/lineas/${linea.id}/materiales-con-precios`
-    )
-      .then(r => r.success && setMateriales(r.familias))
-      .catch(() => {})
-      .finally(() => setCargando(false))
-  }, [linea.id])
-
-  if (cargando) return <p className="muted">Cargando…</p>
-  if (!materiales) return <p className="muted">Sin datos</p>
+  if (!materiales || materiales.length === 0) {
+    return <p className="muted">Carga un archivo CSV en el Paso 4 para ver el resumen de materiales.</p>
+  }
 
   return (
     <div>
