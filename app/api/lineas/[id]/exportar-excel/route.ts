@@ -2,7 +2,13 @@ import { NextResponse } from 'next/server'
 import * as fs from 'fs'
 import * as path from 'path'
 import * as XLSX from 'xlsx'
+import * as os from 'os'
 import { parseId } from '../../../../lib/api'
+
+function getTempPath(id: number): string {
+  const tempDir = process.env.VERCEL ? '/tmp' : path.join(os.tmpdir())
+  return path.join(tempDir, `materiales-linea-${id}.json`)
+}
 
 export async function GET(request: Request, { params }: { params: { id: string } }) {
   try {
@@ -14,16 +20,20 @@ export async function GET(request: Request, { params }: { params: { id: string }
       throw new Error('Template de cotización no encontrado')
     }
 
-    // Obtener materiales desde el archivo temporal (mismo que materiales-cargados)
-    const tempDir = path.join(projectRoot, 'tmp')
-    const materialesPath = path.join(tempDir, `materiales-${lineaId}.json`)
+    // Obtener materiales desde el archivo temporal
+    const materialesPath = getTempPath(lineaId)
+
+    console.log(`[EXPORT_EXCEL] Buscando materiales en: ${materialesPath}`)
 
     if (!fs.existsSync(materialesPath)) {
+      console.error(`[EXPORT_EXCEL] Archivo no existe: ${materialesPath}`)
       throw new Error('No hay materiales cargados. Por favor, carga un archivo CSV en el Paso 4.')
     }
 
     const content = fs.readFileSync(materialesPath, 'utf-8')
     const familias = JSON.parse(content)
+
+    console.log(`[EXPORT_EXCEL] Encontrado: ${familias.length} familias`)
 
     if (!familias || !Array.isArray(familias) || familias.length === 0) {
       throw new Error('No hay materiales cargados. Por favor, carga un archivo CSV en el Paso 4.')
