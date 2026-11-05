@@ -36,12 +36,15 @@ export const GET = handler(async (request, { params }: Ctx) => {
     try {
       const fs = require('fs').promises
       const files = await fs.readdir(imagesDir)
-      // Busca imágenes con patrón: Celsia-Foto-{CODIGO}-{NUM}.png o Celsia-Foto-{CODIGO}.png
-      let match = files.find((f: string) => f.includes(`Celsia-Foto-${codigo}-${num}`) && f.endsWith('.png'))
+
+      // Primero busca con número específico: Celsia-Foto-{CODIGO}-{NUM}.png
+      let match = files.find((f: string) => f === `Celsia-Foto-${codigo}-${num}.png`)
+
+      // Si no encuentra, busca la versión simple: Celsia-Foto-{CODIGO}.png
       if (!match) {
-        // Si no encuentra con número específico, busca solo con el código (para imágenes únicas)
-        match = files.find((f: string) => f.includes(`Celsia-Foto-${codigo}`) && f.endsWith('.png') && !f.includes('-01.png') && !f.includes('-02.png') && !f.includes('-03.png'))
+        match = files.find((f: string) => f === `Celsia-Foto-${codigo}.png`)
       }
+
       if (match) {
         const imagePath = join(imagesDir, match)
         const imageBuffer = readFileSync(imagePath)
@@ -54,7 +57,7 @@ export const GET = handler(async (request, { params }: Ctx) => {
         })
       }
     } catch (err) {
-      // Si no encuentra la imagen, continúa hacia el error al final
+      console.error('[IMAGEN]', err)
     }
   }
 
