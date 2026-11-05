@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react'
 import { api } from '../lib/cliente'
 
 // Carga múltiples imágenes (01, 02, 03) para una norma
-export default function EsquemaNorma({ normaId, tieneImagen, version = 0 }: { normaId: number; tieneImagen: boolean; version?: number }) {
+// Primero intenta desde /public/FOTOS_CELSIA/ (para CELSIA), luego desde API
+export default function EsquemaNorma({ normaId, tieneImagen, codigo, operador, version = 0 }: { normaId: number; tieneImagen: boolean; codigo?: string; operador?: string; version?: number }) {
   const [urls, setUrls] = useState<(string | null)[]>([])
   const [fallo, setFallo] = useState(false)
 
@@ -12,33 +13,72 @@ export default function EsquemaNorma({ normaId, tieneImagen, version = 0 }: { no
     setUrls([]); setFallo(false)
     if (!tieneImagen) return
 
-    const numeros = ['01', '02', '03']
-    const actuales: (string | null)[] = []
-    let cargadas = 0
-    let errores = 0
+    // Si es CELSIA y tiene código, intentar URL estática primero
+    if (operador === 'CELSIA' && codigo) {
+      const codigoLimpio = String(codigo).trim()
+      const staticUrls: (string | null)[] = []
 
-    Promise.all(
-      numeros.map((num) =>
-        api<Blob>(`/api/catalogo/normas/${normaId}/imagen?num=${num}`)
-          .then((b) => {
-            const url = URL.createObjectURL(b)
-            actuales[numeros.indexOf(num)] = url
-            cargadas++
-          })
-          .catch(() => {
-            actuales[numeros.indexOf(num)] = null
-            errores++
-          })
-      )
-    ).then(() => {
-      setUrls(actuales)
-      if (cargadas === 0) setFallo(true)
-    })
+      // Intenta cargar con números 01, 02, 03
+      for (let i = 1; i <= 3; i++) {
+        const url = `/FOTOS_CELSIA/Celsia-Foto-${codigoLimpio}-0${i}.png`
+        const img = new Image()
+        img.onload = () => { staticUrls[i - 1] = url }
+        img.onerror = () => { staticUrls[i - 1] = null }
+        img.src = url
+      }
 
-    return () => {
-      actuales.forEach((url) => { if (url) URL.revokeObjectURL(url) })
+      // Fallback: intenta sin números
+      const urlSin = `/FOTOS_CELSIA/Celsia-Foto-${codigoLimpio}.png`
+      const imgSin = new Image()
+      imgSin.onload = () => {
+        if (!staticUrls.some(u => u)) {
+          staticUrls[0] = urlSin
+          setUrls(staticUrls)
+        }
+      }
+      imgSin.onerror = () => {
+        // Si no encuentra, cargar desde API
+        loadFromAPI()
+      }
+      imgSin.src = urlSin
+
+      // También intenta la primera con número
+      if (staticUrls[0]) {
+        setUrls(staticUrls)
+        return
+      }
+
+      return
     }
-  }, [normaId, tieneImagen, version])
+
+    // Si no es CELSIA o no tiene código, cargar desde API
+    loadFromAPI()
+
+    function loadFromAPI() {
+      const numeros = ['01', '02', '03']
+      const actuales: (string | null)[] = []
+      let cargadas = 0
+      let errores = 0
+
+      Promise.all(
+        numeros.map((num) =>
+          api<Blob>(`/api/catalogo/normas/${normaId}/imagen?num=${num}`)
+            .then((b) => {
+              const url = URL.createObjectURL(b)
+              actuales[numeros.indexOf(num)] = url
+              cargadas++
+            })
+            .catch(() => {
+              actuales[numeros.indexOf(num)] = null
+              errores++
+            })
+        )
+      ).then(() => {
+        setUrls(actuales)
+        if (cargadas === 0) setFallo(true)
+      })
+    }
+  }, [normaId, tieneImagen, codigo, operador, version])
 
   return (
     <div className="esquema" style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
