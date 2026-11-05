@@ -179,7 +179,7 @@ function Normas({ pedir }: { pedir: ReturnType<typeof useDialogo>['pedir'] }) {
 
             {!editando && (
               <>
-                <EsquemaNorma normaId={vista.id} tieneImagen={vista.tieneImagen} version={verImagen} />
+                <EsquemaNorma normaId={vista.id} tieneImagen={vista.tieneImagen} />
                 {esAdmin && (
                   <div className="acciones" style={{ marginTop: 0 }}>
                     <input type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml" onChange={(e) => setImagen(e.target.files?.[0] || null)} />

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { HttpError, handler } from '../../../../lib/api'
+import { handler } from '../../../lib/api'
 
 type Ctx = { params: { codigo: string } }
 
