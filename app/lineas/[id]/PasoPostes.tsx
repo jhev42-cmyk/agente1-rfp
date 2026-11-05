@@ -348,6 +348,9 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
                     const normaId = n.id || posteNorma.normaId
                     const d = detalles[normaId]
                     const conf = d?.configuraciones.find((c: any) => c.id === posteNorma.configuracionId)
+                    // Debug
+                    const tieneImagen = !!n.imagenTipo || n.operador === 'CELSIA'
+                    console.log(`[PasoPostes] Norma ${n.codigo}: imagenTipo=${n.imagenTipo}, operador=${n.operador}, tieneImagen=${tieneImagen}`)
 
                     return (
                       <div key={posteNorma.id} style={{ paddingBottom: 16, borderBottom: '1px solid #eee' }}>
