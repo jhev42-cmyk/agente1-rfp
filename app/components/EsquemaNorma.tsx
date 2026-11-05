@@ -20,34 +20,33 @@ export default function EsquemaNorma({ normaId, tieneImagen, codigo, operador }:
 
     const codigoLimpio = String(codigo).trim()
 
-    // Intentar múltiples rutas posibles en orden
-    // Nota: La carpeta es "FOTOS CELSIA" (con espacio) que se codifica como %20 en URLs
+    // Intentar rutas en orden de preferencia
     const rutas = [
-      `/FOTOS%20CELSIA/Celsia-Foto-${codigoLimpio}.png`,
       `/FOTOS_CELSIA/Celsia-Foto-${codigoLimpio}.png`,
-      `/public/FOTOS%20CELSIA/Celsia-Foto-${codigoLimpio}.png`,
+      `/FOTOS%20CELSIA/Celsia-Foto-${codigoLimpio}.png`,
+      `/public/FOTOS_CELSIA/Celsia-Foto-${codigoLimpio}.png`,
     ]
 
     let intentoActual = 0
 
     const intentarCargar = () => {
       if (intentoActual >= rutas.length) {
-        console.log(`[EsquemaNorma] Todas las rutas fallaron`)
+        console.log(`[EsquemaNorma] ❌ Todas las rutas fallaron`)
         setError(`No se pudo cargar esquema para ${codigoLimpio}`)
         return
       }
 
       const url = rutas[intentoActual]
-      console.log(`[EsquemaNorma] Intentando ruta ${intentoActual + 1}/${rutas.length}: ${url}`)
+      console.log(`[EsquemaNorma] Intentando (${intentoActual + 1}/${rutas.length}): ${url}`)
 
       const img = new Image()
       img.onload = () => {
-        console.log(`[EsquemaNorma] ✅ Imagen cargada: ${url}`)
+        console.log(`[EsquemaNorma] ✅ Éxito: ${url}`)
         setImagenUrl(url)
         setError('')
       }
       img.onerror = () => {
-        console.log(`[EsquemaNorma] ❌ Fallo en: ${url}`)
+        console.log(`[EsquemaNorma] ❌ Falló: ${url}`)
         intentoActual++
         intentarCargar()
       }
@@ -62,15 +61,11 @@ export default function EsquemaNorma({ normaId, tieneImagen, codigo, operador }:
   }
 
   if (!codigo || operador !== 'CELSIA') {
-    return (
-      <div style={{ fontSize: 12, color: '#c00', backgroundColor: '#ffe0e0', padding: 8, borderRadius: 4, marginBottom: 8 }}>
-        🔴 Debug: codigo={codigo || 'undefined'}, operador={operador || 'undefined'}
-      </div>
-    )
+    return <p style={{ fontSize: 13, color: '#999' }}>Sin esquema cargado en el catálogo</p>
   }
 
   if (error) {
-    return <p style={{ fontSize: 13, color: '#c00' }}>⚠️ {error}</p>
+    return <p style={{ fontSize: 13, color: '#999' }}>Sin esquema cargado en el catálogo</p>
   }
 
   if (!imagenUrl) {
