@@ -21,10 +21,11 @@ export default function EsquemaNorma({ normaId, tieneImagen, codigo, operador }:
     const codigoLimpio = String(codigo).trim()
 
     // Intentar múltiples rutas posibles en orden
+    // Nota: La carpeta es "FOTOS CELSIA" (con espacio) que se codifica como %20 en URLs
     const rutas = [
+      `/FOTOS%20CELSIA/Celsia-Foto-${codigoLimpio}.png`,
       `/FOTOS_CELSIA/Celsia-Foto-${codigoLimpio}.png`,
-      `/public/FOTOS_CELSIA/Celsia-Foto-${codigoLimpio}.png`,
-      `/_next/static/media/Celsia-Foto-${codigoLimpio}.png`,
+      `/public/FOTOS%20CELSIA/Celsia-Foto-${codigoLimpio}.png`,
     ]
 
     let intentoActual = 0
