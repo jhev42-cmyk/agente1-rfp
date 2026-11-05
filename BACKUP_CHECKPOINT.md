@@ -1,75 +1,48 @@
-# Backup Checkpoint — Normas Export with Repetitions
+# Checkpoint Actual — Build Reparado
 
-**Fecha:** 2026-11-04  
-**Commit:** `7ac5f5d` — Fix: Include main norm (normaId) in norm export summary  
-**Estado:** ✅ FUNCIONANDO CORRECTAMENTE
+**Fecha:** 2026-11-05  
+**Commit:** `e3c9173` — Fix: Adapt normas-export to new PosteNorma schema  
+**Estado:** ✅ BUILD COMPILADO, PUSH COMPLETADO → Deploy en Vercel
 
-## Lo que funciona
+## Problema Identificado y Arreglado
 
-### Normas Export (`Paso 3 - Postes`)
-- ✅ Archivo `normas-seleccionadas.txt` generado correctamente
-- ✅ **DETALLE POR POSTE:** Lista cada norma de cada poste
-- ✅ **RESUMEN DE NORMAS SELECCIONADAS:** Lista TODAS las normas CON REPETICIONES
-  - Ejemplo: B72ED aparece **2 veces** cuando está en T02-P002 y T02-P006
-  - Las normas se listan en orden de aparición (no alfabético)
+### Error TypeScript (build fallido)
+- `normas-export/route.ts:34` → Campo `poste.normaId` no existe
+- `PasoCotizacion.tsx:27` → Type mismatch `number` vs `string`
 
-### Cómo lo arreglamos
-El código ahora lee normas de DOS fuentes:
-1. `poste.normaId` — la norma principal del poste
-2. `poste.normas` — normas adicionales de PosteNorma (tabla many-to-many)
+**Causa:** Schema cambió a many-to-many `PosteNorma`. Ya no hay `normaId` directo en `Poste`.
 
-**Archivo:** `app/api/lineas/[id]/normas-export/route.ts`
+### Fixes Aplicados
+1. **normas-export/route.ts**: Simplificado para usar solo `poste.normas` (de `PosteNorma`)
+2. **PasoCotizacion.tsx**: Convertir `linea.id` a string con `.toString()`
 
-```typescript
-// Cargar info de normas por ID
-const normasMap = await prisma.norma.findMany({
-  select: { id: true, codigo: true }
-}).then(n => new Map(n.map(x => [x.id, x.codigo])))
+## Estado de Funcionalidades
 
-// Iterar postes
-for (const poste of postes) {
-  const normasCodigos: string[] = []
-  
-  // 1. Agregar norma principal (normaId)
-  if (poste.normaId) {
-    const codigoNorma = normasMap.get(poste.normaId)
-    if (codigoNorma) {
-      normasCodigos.push(codigoNorma)
-      todasLasNormas.push(codigoNorma)  // ← Con repeticiones
-    }
-  }
-  
-  // 2. Agregar normas adicionales (PosteNorma)
-  for (const pn of poste.normas) {
-    if (pn.norma?.codigo && (poste.normaId !== pn.normaId || !poste.normaId)) {
-      normasCodigos.push(pn.norma.codigo)
-      todasLasNormas.push(pn.norma.codigo)  // ← Con repeticiones
-    }
-  }
-  
-  if (normasCodigos.length > 0) {
-    postsDetail += `${poste.codigo}: ${normasCodigos.join(', ')}\n`
-  }
-}
+### ✅ COMPLETADO — Integración CELSIA
+- 20 normas integradas (10 tipos × 2 voltajes: 13.2/34.5 kV)
+- Schema many-to-many `PosteNorma` funcionando
+- API endpoints operativos
 
-// Generar resumen CON repeticiones
-const resumenNormas = todasLasNormas.join('\n')  // ← Array, no Set
-```
+### ✅ EN LUGAR — PosteNormasSelector
+- Componente creado: `app/components/PosteNormasSelector.tsx`
+- Integrado en `PasoPostes.tsx` (línea 414-420)
+- Se abre modal al hacer clic en "+ Normas" en cada poste
+- Gestiona múltiples normas por poste
 
-### Otros componentes (sin cambios)
-- ✅ Paso 4 (Materiales) — carga CSV y consolida
-- ✅ Paso 5 (Cotización) — muestra resumen con precios
-- ✅ Paso 6 (Revisión) — exporta PDF y Excel
-- ✅ Excel export sin precios (para proveedores)
-- ✅ PDF export con precios (para interno)
+### 🔄 PRÓXIMOS PASOS
+1. **Validar UI de normas seleccionadas**
+   - [ ] Mostrar en tabla cuál norma está `seleccionada=true`
+   - [ ] Radio button visual en PosteNormasSelector
+2. **Validar cotización usa `seleccionada=true`**
+   - [ ] Revisar si `/api/lineas/[id]/calculo` consulta `PosteNorma.seleccionada`
+   - [ ] Si no, actualizar query de Prisma
+3. **Test en Vercel después del deploy**
 
-## URL Deploy
-https://agente1-rfp.vercel.app
-
-## Para restaurar a este punto
-```bash
-git checkout 7ac5f5d
-```
+## Archivo
+- URL: https://agente1-rfp.vercel.app
+- Branch: main
+- Deploy automático: activado
 
 ---
-*Backup creado tras verificar que normas con repeticiones se listan correctamente.*
+
+*Checkpoint guardado tras reparar build errors.*

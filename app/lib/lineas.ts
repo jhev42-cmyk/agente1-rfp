@@ -725,23 +725,23 @@ export async function calcular(lineaId: number): Promise<Calculo> {
       continue
     }
 
-    // Iterar sobre TODAS las normas asignadas al poste
-    let tieneConfiguracion = false
-    for (const pn of p.normas) {
-      const conf = pn.configuracionId ? configPorId.get(pn.configuracionId) : undefined
-      if (!conf) continue
-
-      tieneConfiguracion = true
-      usoNormas.set(conf.normaId, (usoNormas.get(conf.normaId) || 0) + 1)
-      const etiqueta = `${conf.norma.codigo} v${conf.norma.version}`
-      for (const mat of conf.materiales) {
-        sumar(mat.codigoMaterial, null, { trayecto: p.trayecto.numero, poste: p.codigo, norma: etiqueta, cantidad: mat.cantidad }, mat.observacion)
-      }
+    // Usar solo la norma seleccionada (seleccionada: true)
+    const normaSeleccionada = p.normas.find((pn) => pn.seleccionada)
+    if (!normaSeleccionada) {
+      pendientes.push(p.codigo)
+      continue
     }
 
-    // Si ninguna norma tiene configuración, marcar como pendiente
-    if (!tieneConfiguracion) {
+    const conf = normaSeleccionada.configuracionId ? configPorId.get(normaSeleccionada.configuracionId) : undefined
+    if (!conf) {
       pendientes.push(p.codigo)
+      continue
+    }
+
+    usoNormas.set(conf.normaId, (usoNormas.get(conf.normaId) || 0) + 1)
+    const etiqueta = `${conf.norma.codigo} v${conf.norma.version}`
+    for (const mat of conf.materiales) {
+      sumar(mat.codigoMaterial, null, { trayecto: p.trayecto.numero, poste: p.codigo, norma: etiqueta, cantidad: mat.cantidad }, mat.observacion)
     }
   }
   for (const pa of partidas.filter((x) => x.tipo === TipoPartida.MATERIAL && x.codigoMaterial)) {
