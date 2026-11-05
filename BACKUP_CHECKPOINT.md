@@ -1,51 +1,161 @@
-# Checkpoint Actual — Paso 4-5 Costos desde CSV
+# Backup Checkpoint — Paso 4-6 PDF/Excel Exports WORKING
 
-**Fecha:** 2026-11-05 (Tarde)  
-**Commits Recientes:**
-- `e3c9173` Fix: Adapt normas-export to new PosteNorma schema
-- `5ee7171` Fix: Use only seleccionada norm in cost calculation
-- `eefda82` Feature: Read total cost from CSV column 4 in Paso 5
-- `4394645` Fix: Calculate total cost per family by summing item costs
-
-**Estado:** ✅ BUILD COMPILADO, TODOS LOS PUSHES COMPLETADOS
-
-## ✅ COMPLETADO
-
-### Build y Deploy
-- TypeScript errors arreglados
-- Build compila correctamente
-- Deploy automático en Vercel
-
-### Paso 3 (Postes)
-- PosteNormasSelector integrado y funcional
-- Selección de normas por poste con modal
-- Cálculo usa solo norma `seleccionada=true`
-
-### Paso 4 (Materiales)
-- Parser CSV captura columna 4 (costo por item)
-- Muestra tabla con costos por item
-- Tabla de KPIs muestra costo total por familia
-
-### Paso 5 (Cotización) — ✨ NUEVO
-- Lee costos desde CSV (columna 4)
-- **Calcula total por familia** (suma de items)
-- Muestra resumen: Total por familia + Total proyecto
-- Sin cálculos adicionales, solo lectura de CSV
-
-## Flujo Datos Paso 4 → 5
-```
-CSV: desc | cant | presente_en | costo
-  ↓
-Paso 4: Extrae cada fila → estructura familia.items[]
-  ↓
-Paso 5: Suma costos por familia → Muestra totales
-```
-
-## Archivo
-- URL: https://agente1-rfp.vercel.app
-- Branch: main
-- Deploy automático: activado
+**Fecha:** 2026-11-05 (Final)  
+**Commit:** `9dd9355` — Fix: Pass materials directly from Paso 6 to exports (sessionStorage + POST)  
+**Estado:** ✅ COMPLETAMENTE FUNCIONAL — PDF Y EXCEL EXPORTAN CORRECTAMENTE
 
 ---
 
-*Checkpoint: Paso 4-5 costos funcional. Listo para testing.*
+## ✅ COMPLETADO — Sistema de Exportaciones
+
+### Arquitectura Final (Funcional)
+
+**Paso 4 (Materiales):**
+- CSV parser extrae: Descripción | Cantidad | Presente en | **Costo**
+- Datos se guardan en `sessionStorage` con key `materiales-{id}`
+- Muestra tabla sin costos: Descripción | Cantidad
+- KPIs muestran cantidad total por familia
+
+**Paso 5 (Cotización):**
+- Lee materiales desde `materialesCSV` (state del padre)
+- Muestra tabla con costo por item
+- Calcula y muestra totales por familia
+- Muestra COSTO TOTAL DEL PROYECTO
+
+**Paso 6 (Revisión y Aprobación):**
+- ResumenMateriales: Descripción | Cantidad (sin costos)
+- Botón "Exportar a Excel": 
+  - POST `/api/lineas/[id]/exportar-excel`
+  - Body: `{familias: materialesCSV}`
+  - Descarga: `TemplateCotizacion.xlsx` relleno
+- Botón "Exportar a PDF":
+  - Guarda a sessionStorage
+  - Abre `/lineas/[id]/imprimir` en nueva pestaña
+
+**Exportación Excel:**
+- Endpoint POST (no GET)
+- Recibe materiales en request body
+- Rellena TemplateCotizacion.xlsx con:
+  - M: Familia
+  - N: Descripción técnica
+  - O: Presente en
+  - P: Cantidad
+- Descarga automática
+
+**Exportación PDF:**
+- imprimir/page.tsx lee desde sessionStorage
+- ResumenMateriales muestra tabla completa
+- Auto-dispara print dialog
+- Usuario guarda como PDF desde navegador
+
+---
+
+## 🔧 Cambios Finales Implementados
+
+### 1. PasoMateriales.tsx
+```typescript
+// Guardar en sessionStorage para acceso desde PDF/Excel
+sessionStorage.setItem(`materiales-${linea.id}`, JSON.stringify(familias))
+```
+
+### 2. PasoRevision.tsx
+```typescript
+// Excel: POST con materiales en body
+const handleExportExcel = async () => {
+  const response = await fetch(`/api/lineas/${linea.id}/exportar-excel`, {
+    method: 'POST',
+    body: JSON.stringify({ familias: materialesCSV || [] })
+  })
+  // Descarga automática
+}
+
+// PDF: Guarda a sessionStorage y abre página
+const handleExportPDF = async () => {
+  sessionStorage.setItem(`materiales-${linea.id}`, JSON.stringify(materialesCSV))
+  window.open(`/lineas/${linea.id}/imprimir`, '_blank')
+}
+```
+
+### 3. exportar-excel/route.ts
+```typescript
+// Ahora es POST, no GET
+export async function POST(request: Request, { params }) {
+  const { familias } = await request.json()
+  // Rellena template con familias
+  // Retorna Excel binario
+}
+```
+
+### 4. imprimir/page.tsx
+```typescript
+// Lee desde sessionStorage
+const stored = sessionStorage.getItem(`materiales-${id}`)
+const materiales = JSON.parse(stored)
+// Pasa a ResumenMateriales
+```
+
+---
+
+## ✅ Funcionalidades Verificadas
+
+- ✅ Paso 4: CSV cargado → Guardado en sessionStorage
+- ✅ Paso 5: Muestra costos por item y totales
+- ✅ Paso 6: Muestra resumen sin costos
+- ✅ Excel: Descarga con datos completos (Familia | Descripción | Presente en | Cantidad)
+- ✅ PDF: Abre y muestra tabla completa antes de print
+
+---
+
+## 📊 Flujo de Datos Completo
+
+```
+Paso 4: CSV cargado
+  ↓
+sessionStorage.setItem(`materiales-2`, JSON.stringify(familias))
+  ↓
+Paso 5: Lee de state (materialesCSV)
+  ↓ 
+Paso 6: Lee de state (materialesCSV)
+  ↓
+[Exportar Excel]
+  → POST /api/exportar-excel + {familias}
+  → Descarga: Cotizacion_Materiales_2.xlsx ✅
+  
+[Exportar PDF]
+  → sessionStorage.setItem(`materiales-2`, JSON.stringify(familias))
+  → Open /lineas/2/imprimir
+  → imprimir/page.tsx lee de sessionStorage
+  → ResumenMateriales muestra tabla
+  → window.print() auto-dispara ✅
+```
+
+---
+
+## 🚀 Deploy Status
+
+- **URL**: https://agente1-rfp.vercel.app
+- **Branch**: main
+- **Last Commit**: 9dd9355
+- **Status**: ✅ WORKING
+
+---
+
+## Para Restaurar a Este Punto
+
+```bash
+git checkout 9dd9355
+```
+
+---
+
+## Notas Importantes
+
+1. **sessionStorage**: Persiste durante la sesión del navegador, entre tabs/ventanas del mismo origen
+2. **POST vs GET**: Excel usa POST para enviar materiales grandes sin límite de URL
+3. **Sin archivos temporales**: No depende de permisos del servidor (Vercel-compatible)
+4. **Template**: TemplateCotizacion.xlsx en public/
+5. **Estructura datos**: Materiales fluyen desde Paso 4 → Paso 5 → Paso 6 → Exportadores
+
+---
+
+*Backup guardado con todas las funcionalidades de exportación operativas.*
