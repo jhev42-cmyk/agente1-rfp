@@ -9,13 +9,18 @@ type Ctx = { params: { id: string } }
 
 export const GET = handler(async (request, { params }: Ctx) => {
   await requireUser(request)
+  const normaId = parseId(params.id)
   const norma = await prisma.norma.findUnique({
-    where: { id: parseId(params.id) },
+    where: { id: normaId },
     select: { imagen: true, imagenTipo: true, codigo: true, operador: true }
   })
 
+  if (!norma) {
+    throw new HttpError(404, 'Norma no encontrada')
+  }
+
   // Primero intenta servir la imagen de la BD
-  if (norma?.imagen && norma.imagenTipo) {
+  if (norma.imagen && norma.imagenTipo) {
     return new Response(new Uint8Array(norma.imagen), {
       headers: {
         'Content-Type': norma.imagenTipo,
@@ -27,9 +32,9 @@ export const GET = handler(async (request, { params }: Ctx) => {
   }
 
   // Si no hay imagen en BD, intenta buscar en /public/FOTOS_CELSIA/
-  if (norma?.operador === 'CELSIA' && norma?.codigo) {
+  if (norma.operador === 'CELSIA' && norma.codigo) {
     const imagesDir = join(process.cwd(), 'public', 'FOTOS_CELSIA')
-    const codigo = norma.codigo
+    const codigo = String(norma.codigo).trim()
     const url = new URL(request.url)
     const num = url.searchParams.get('num') || '01'
 
@@ -45,6 +50,8 @@ export const GET = handler(async (request, { params }: Ctx) => {
         match = files.find((f: string) => f === `Celsia-Foto-${codigo}.png`)
       }
 
+      console.log(`[IMAGEN] normaId=${normaId} codigo="${codigo}" num="${num}" encontrado="${match || 'NO'}" operador="${norma.operador}"`)
+
       if (match) {
         const imagePath = join(imagesDir, match)
         const imageBuffer = readFileSync(imagePath)
@@ -57,7 +64,7 @@ export const GET = handler(async (request, { params }: Ctx) => {
         })
       }
     } catch (err) {
-      console.error('[IMAGEN]', err)
+      console.error(`[IMAGEN] Error leyendo directorio: ${err}`)
     }
   }
 
