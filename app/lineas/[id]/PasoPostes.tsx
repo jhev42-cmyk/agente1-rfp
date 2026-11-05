@@ -369,13 +369,15 @@ export default function PasoPostes({ linea, editable, recargar, pedir, normas }:
                               <table style={{ fontSize: 11 }}>
                                 <thead><tr><th>Código</th><th>Material</th><th className="num">Cant.</th></tr></thead>
                                 <tbody>
-                                  {conf.materiales.map((m: any) => (
+                                  {conf.materiales && conf.materiales.length > 0 ? conf.materiales.map((m: any) => (
                                     <tr key={m.codigoMaterial}>
-                                      <td>{m.codigoMaterial}</td>
-                                      <td title={m.observacion || ''}>{m.descripcion.length > 50 ? m.descripcion.slice(0, 50) + '…' : m.descripcion}</td>
-                                      <td className="num">{num(m.cantidad)} {m.unidad}</td>
+                                      <td>{m.codigoMaterial || '—'}</td>
+                                      <td title={m.observacion || ''}>{m.descripcion ? (m.descripcion.length > 50 ? m.descripcion.slice(0, 50) + '…' : m.descripcion) : '—'}</td>
+                                      <td className="num">{num(m.cantidad || 0)} {m.unidad || ''}</td>
                                     </tr>
-                                  ))}
+                                  )) : (
+                                    <tr><td colSpan={3} className="muted">Sin materiales</td></tr>
+                                  )}
                                 </tbody>
                               </table>
                             </div>
