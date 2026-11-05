@@ -1,8 +1,28 @@
 # Backup Checkpoint — Paso 4-6 PDF/Excel Exports WORKING
 
 **Fecha:** 2026-11-05 (Final)  
-**Commit:** `9dd9355` — Fix: Pass materials directly from Paso 6 to exports (sessionStorage + POST)  
-**Estado:** ✅ COMPLETAMENTE FUNCIONAL — PDF Y EXCEL EXPORTAN CORRECTAMENTE
+**Commit:** `89be870` — Feature: Load CELSIA norma photos from FOTOS_CELSIA folder  
+**Estado:** ✅ COMPLETAMENTE FUNCIONAL — PASO 3 MUESTRA FOTOS DE ESQUEMAS POR NORMA
+
+---
+
+## ✅ NUEVAS FUNCIONALIDADES
+
+### Carga de Fotos de Esquemas (Paso 3)
+- **Ubicación fotos**: `/public/FOTOS_CELSIA/` (38 fotos PNG de esquemas CELSIA)
+- **Mapeo**: Código norma → Foto (ej: norma con código "B767" → "Celsia-Foto-B767.png")
+- **Dónde aparecen**: Panel derecho de Paso 3, debajo de la info de cada norma
+- **Cómo funciona**:
+  1. Usuario selecciona un poste en la tabla de Paso 3
+  2. Panel lateral muestra detalles de norma(s) asignada(s)
+  3. Foto de esquema se carga automáticamente
+  4. Debajo aparecen materiales de la configuración seleccionada
+
+### Características:
+- Búsqueda con patrón: `Celsia-Foto-{CODIGO}.png`
+- Fallback para variantes numeradas: `Celsia-Foto-{CODIGO}-{NUM}.png`
+- Cache de navegador: 24 horas
+- Carga lazy: se carga solo al seleccionar el poste
 
 ---
 
