@@ -200,14 +200,15 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
 
         {materialesCelsia && Array.isArray(materialesCelsia) && (
           <div className="kpis" style={{ marginTop: 16 }}>
-            {(materialesCelsia as any[]).map((familia, idx) => (
-              <div key={idx} className="kpi">
-                <div className="v" style={{ fontSize: familia.total?.costo ? 14 : 20 }}>
-                  {familia.total?.costo ? `$${familia.total.costo.toLocaleString()}` : familia.total?.cantidad || 0}
+            {(materialesCelsia as any[]).map((familia, idx) => {
+              const cantidadTotal = (familia.items || []).reduce((sum: number, item: any) => sum + (item.cantidad || 0), 0)
+              return (
+                <div key={idx} className="kpi">
+                  <div className="v">{cantidadTotal}</div>
+                  <div className="k" style={{ fontSize: 12 }}>{familia.nombre}</div>
                 </div>
-                <div className="k" style={{ fontSize: 12 }}>{familia.nombre}</div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         )}
       </div>
@@ -224,7 +225,6 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
                       <th>Descripción técnica</th>
                       <th style={{ width: 100 }}>Cant. (ud)</th>
                       <th>Presente en</th>
-                      <th style={{ width: 120, textAlign: 'right' }}>Costo</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -233,7 +233,6 @@ export default function PasoMateriales(props: PropsPaso & { calculo: Calculo | n
                         <td>{item.descripcion}</td>
                         <td style={{ textAlign: 'right' }}>{item.cantidad || '—'}</td>
                         <td>{item.presenteEn || '—'}</td>
-                        <td style={{ textAlign: 'right' }}>${item.costo ? item.costo.toLocaleString() : '—'}</td>
                       </tr>
                     ))}
                   </tbody>
