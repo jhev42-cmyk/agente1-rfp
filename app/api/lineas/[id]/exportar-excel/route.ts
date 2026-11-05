@@ -4,9 +4,6 @@ import * as path from 'path'
 import * as XLSX from 'xlsx'
 import { parseId } from '../../../../lib/api'
 
-// Almacenamiento temporal en memoria (debe coincidir con materiales-cargados/route.ts)
-const materialesCache = new Map<number, any[]>()
-
 export async function GET(request: Request, { params }: { params: { id: string } }) {
   try {
     const lineaId = parseId(params.id)
@@ -17,10 +14,19 @@ export async function GET(request: Request, { params }: { params: { id: string }
       throw new Error('Template de cotización no encontrado')
     }
 
-    // Obtener materiales desde caché (guardados en Paso 4)
-    let familias = materialesCache.get(lineaId)
+    // Obtener materiales desde el endpoint de materiales-cargados
+    const baseUrl = new URL(request.url).origin
+    const materialesResponse = await fetch(`${baseUrl}/api/lineas/${lineaId}/materiales-cargados`, {
+      headers: request.headers,
+    })
 
-    if (!familias) {
+    if (!materialesResponse.ok) {
+      throw new Error('No hay materiales cargados. Por favor, carga un archivo CSV en el Paso 4.')
+    }
+
+    const { familias } = await materialesResponse.json()
+
+    if (!familias || familias.length === 0) {
       throw new Error('No hay materiales cargados. Por favor, carga un archivo CSV en el Paso 4.')
     }
 
@@ -31,7 +37,7 @@ export async function GET(request: Request, { params }: { params: { id: string }
 
     // Llenar datos en el template a partir de fila 2
     let rowNum = 2
-    familias.forEach(familia => {
+    familias.forEach((familia: any) => {
       familia.items.forEach((item: any) => {
         // M: Familia
         worksheet[`M${rowNum}`] = { v: familia.nombre, t: 's' }
