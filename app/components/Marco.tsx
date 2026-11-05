@@ -40,7 +40,6 @@ export default function Marco({ children, ancho = true }: { children: React.Reac
         <nav>
           {enlace('/lineas', 'Líneas')}
           {enlace('/catalogo', 'Catálogo')}
-          <a href="/agente.html">Solicitudes a proveedores</a>
           {usuario.role === 'admin' && enlace('/usuarios', 'Usuarios')}
           {enlace('/cuenta', 'Mi cuenta')}
           <span className="usuario">{usuario.name} ({ROL_LABEL[usuario.role]})</span>
