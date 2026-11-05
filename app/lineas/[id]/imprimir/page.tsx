@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from 'react'
 import Marco from '../../../components/Marco'
-import { api, ESTADO_LABEL, fecha } from '../../../lib/cliente'
+import { api } from '../../../lib/cliente'
 import { Calculo, Linea } from '../tipos'
-import ResumenCotizacion from '../ResumenCotizacion'
+import ResumenMateriales from '../ResumenMateriales'
 
-// Vista de la cotización para imprimir o guardar como PDF desde el navegador.
+// Vista de materiales y cantidades para imprimir o guardar como PDF desde el navegador.
 export default function ImprimirPage({ params }: { params: { id: string } }) {
   return <Marco ancho={false}><Imprimir id={params.id} /></Marco>
 }
@@ -27,19 +27,18 @@ function Imprimir({ id }: { id: string }) {
   }, [linea, calculo])
 
   if (error) return <div className="error-box">{error}</div>
-  if (!linea || !calculo) return <p className="muted">Preparando cotización…</p>
+  if (!linea || !calculo) return <p className="muted">Preparando documento…</p>
 
   return (
     <div className="card">
       <div className="acciones no-print" style={{ marginTop: 0, marginBottom: 16 }}>
         <button className="btn" onClick={() => window.print()}>Imprimir / Guardar PDF</button>
       </div>
-      <h2 style={{ fontSize: 22 }}>Cotización — {linea.nombre}</h2>
-      {linea.estado !== 'APROBADA' && <div className="note">Documento preliminar: la línea no está aprobada y los valores pueden cambiar.</div>}
+      <h2 style={{ fontSize: 22 }}>Materiales y Cantidades — {linea.nombre}</h2>
+      {linea.estado !== 'APROBADA' && <div className="note">Documento preliminar: la línea no está aprobada.</div>}
       <div style={{ marginTop: 20 }}>
-        <ResumenCotizacion linea={linea} calculo={calculo} mostrarInfo={true} />
+        <ResumenMateriales linea={linea} calculo={calculo} />
       </div>
-      <p className="muted" style={{ marginTop: 18, fontSize: 12 }}>Valores en pesos colombianos (COP).</p>
     </div>
   )
 }

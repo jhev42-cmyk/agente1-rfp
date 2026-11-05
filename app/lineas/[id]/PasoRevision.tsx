@@ -2,7 +2,7 @@
 
 import { ESTADO_LABEL, fecha } from '../../lib/cliente'
 import { PropsPaso } from './tipos'
-import ResumenCotizacion from './ResumenCotizacion'
+import ResumenMateriales from './ResumenMateriales'
 
 export default function PasoRevision({ linea, calculo }: PropsPaso & { calculo?: any }) {
   return (
@@ -13,7 +13,8 @@ export default function PasoRevision({ linea, calculo }: PropsPaso & { calculo?:
       </p>
 
       <div style={{ marginTop: 20 }}>
-        <ResumenCotizacion linea={linea} calculo={calculo} mostrarInfo={true} />
+        <h3 style={{ marginBottom: 16 }}>Resumen de Materiales y Cantidades</h3>
+        <ResumenMateriales linea={linea} calculo={calculo} />
       </div>
 
       <div style={{ marginTop: 20, display: 'flex', gap: 10, flexWrap: 'wrap' }}>
