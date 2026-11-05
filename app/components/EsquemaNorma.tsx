@@ -5,10 +5,21 @@ import { useEffect, useState } from 'react'
 export default function EsquemaNorma({ normaId, tieneImagen, codigo, operador }: { normaId: number; tieneImagen: boolean; codigo?: string; operador?: string }) {
   const [imagenUrl, setImagenUrl] = useState<string | null>(null)
   const [error, setError] = useState<string>('')
+  const [debug, setDebug] = useState<string>('')
 
   useEffect(() => {
-    if (!tieneImagen) return
-    if (operador !== 'CELSIA' || !codigo) return
+    const debugMsg = `tieneImagen=${tieneImagen}, operador=${operador}, codigo=${codigo}`
+    console.log(`[EsquemaNorma] Props: ${debugMsg}`)
+    setDebug(debugMsg)
+
+    if (!tieneImagen) {
+      console.log(`[EsquemaNorma] Sin imagen`)
+      return
+    }
+    if (operador !== 'CELSIA' || !codigo) {
+      console.log(`[EsquemaNorma] No es CELSIA o falta código`)
+      return
+    }
 
     const codigoLimpio = String(codigo).trim()
     const staticUrl = `/FOTOS_CELSIA/Celsia-Foto-${codigoLimpio}.png`
@@ -52,7 +63,11 @@ export default function EsquemaNorma({ normaId, tieneImagen, codigo, operador }:
   }
 
   if (!codigo || operador !== 'CELSIA') {
-    return <p style={{ fontSize: 13, color: '#999' }}>Sin esquema cargado en el catálogo</p>
+    return (
+      <div style={{ fontSize: 12, color: '#c00', backgroundColor: '#ffe0e0', padding: 8, borderRadius: 4, marginBottom: 8 }}>
+        Debug: codigo={codigo || 'undefined'}, operador={operador || 'undefined'}
+      </div>
+    )
   }
 
   if (error) {
