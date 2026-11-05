@@ -1,42 +1,45 @@
-# Checkpoint Actual — Build Reparado
+# Checkpoint Actual — Paso 4-5 Costos desde CSV
 
-**Fecha:** 2026-11-05  
-**Commit:** `e3c9173` — Fix: Adapt normas-export to new PosteNorma schema  
-**Estado:** ✅ BUILD COMPILADO, PUSH COMPLETADO → Deploy en Vercel
+**Fecha:** 2026-11-05 (Tarde)  
+**Commits Recientes:**
+- `e3c9173` Fix: Adapt normas-export to new PosteNorma schema
+- `5ee7171` Fix: Use only seleccionada norm in cost calculation
+- `eefda82` Feature: Read total cost from CSV column 4 in Paso 5
+- `4394645` Fix: Calculate total cost per family by summing item costs
 
-## Problema Identificado y Arreglado
+**Estado:** ✅ BUILD COMPILADO, TODOS LOS PUSHES COMPLETADOS
 
-### Error TypeScript (build fallido)
-- `normas-export/route.ts:34` → Campo `poste.normaId` no existe
-- `PasoCotizacion.tsx:27` → Type mismatch `number` vs `string`
+## ✅ COMPLETADO
 
-**Causa:** Schema cambió a many-to-many `PosteNorma`. Ya no hay `normaId` directo en `Poste`.
+### Build y Deploy
+- TypeScript errors arreglados
+- Build compila correctamente
+- Deploy automático en Vercel
 
-### Fixes Aplicados
-1. **normas-export/route.ts**: Simplificado para usar solo `poste.normas` (de `PosteNorma`)
-2. **PasoCotizacion.tsx**: Convertir `linea.id` a string con `.toString()`
+### Paso 3 (Postes)
+- PosteNormasSelector integrado y funcional
+- Selección de normas por poste con modal
+- Cálculo usa solo norma `seleccionada=true`
 
-## Estado de Funcionalidades
+### Paso 4 (Materiales)
+- Parser CSV captura columna 4 (costo por item)
+- Muestra tabla con costos por item
+- Tabla de KPIs muestra costo total por familia
 
-### ✅ COMPLETADO — Integración CELSIA
-- 20 normas integradas (10 tipos × 2 voltajes: 13.2/34.5 kV)
-- Schema many-to-many `PosteNorma` funcionando
-- API endpoints operativos
+### Paso 5 (Cotización) — ✨ NUEVO
+- Lee costos desde CSV (columna 4)
+- **Calcula total por familia** (suma de items)
+- Muestra resumen: Total por familia + Total proyecto
+- Sin cálculos adicionales, solo lectura de CSV
 
-### ✅ EN LUGAR — PosteNormasSelector
-- Componente creado: `app/components/PosteNormasSelector.tsx`
-- Integrado en `PasoPostes.tsx` (línea 414-420)
-- Se abre modal al hacer clic en "+ Normas" en cada poste
-- Gestiona múltiples normas por poste
-
-### 🔄 PRÓXIMOS PASOS
-1. **Validar UI de normas seleccionadas**
-   - [ ] Mostrar en tabla cuál norma está `seleccionada=true`
-   - [ ] Radio button visual en PosteNormasSelector
-2. **Validar cotización usa `seleccionada=true`**
-   - [ ] Revisar si `/api/lineas/[id]/calculo` consulta `PosteNorma.seleccionada`
-   - [ ] Si no, actualizar query de Prisma
-3. **Test en Vercel después del deploy**
+## Flujo Datos Paso 4 → 5
+```
+CSV: desc | cant | presente_en | costo
+  ↓
+Paso 4: Extrae cada fila → estructura familia.items[]
+  ↓
+Paso 5: Suma costos por familia → Muestra totales
+```
 
 ## Archivo
 - URL: https://agente1-rfp.vercel.app
@@ -45,4 +48,4 @@
 
 ---
 
-*Checkpoint guardado tras reparar build errors.*
+*Checkpoint: Paso 4-5 costos funcional. Listo para testing.*
