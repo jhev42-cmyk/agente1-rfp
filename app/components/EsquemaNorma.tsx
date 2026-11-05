@@ -5,12 +5,9 @@ import { useEffect, useState } from 'react'
 export default function EsquemaNorma({ normaId, tieneImagen, codigo, operador }: { normaId: number; tieneImagen: boolean; codigo?: string; operador?: string }) {
   const [imagenUrl, setImagenUrl] = useState<string | null>(null)
   const [error, setError] = useState<string>('')
-  const [debug, setDebug] = useState<string>('')
 
   useEffect(() => {
-    const debugMsg = `tieneImagen=${tieneImagen}, operador=${operador}, codigo=${codigo}`
-    console.log(`[EsquemaNorma] Props: ${debugMsg}`)
-    setDebug(debugMsg)
+    console.log(`[EsquemaNorma] Props: tieneImagen=${tieneImagen}, operador=${operador}, codigo=${codigo}`)
 
     if (!tieneImagen) {
       console.log(`[EsquemaNorma] Sin imagen`)
@@ -22,40 +19,41 @@ export default function EsquemaNorma({ normaId, tieneImagen, codigo, operador }:
     }
 
     const codigoLimpio = String(codigo).trim()
-    const staticUrl = `/FOTOS_CELSIA/Celsia-Foto-${codigoLimpio}.png`
-    const apiUrl = `/api/esquema-celsia/${codigoLimpio}`
 
-    console.log(`[EsquemaNorma] Intentando cargar: ${codigoLimpio}`)
-    console.log(`  Static URL: ${staticUrl}`)
-    console.log(`  API URL: ${apiUrl}`)
+    // Intentar múltiples rutas posibles en orden
+    const rutas = [
+      `/FOTOS_CELSIA/Celsia-Foto-${codigoLimpio}.png`,
+      `/public/FOTOS_CELSIA/Celsia-Foto-${codigoLimpio}.png`,
+      `/_next/static/media/Celsia-Foto-${codigoLimpio}.png`,
+    ]
 
-    // Intentar cargar desde URL estática
-    const img = new Image()
-    img.onload = () => {
-      console.log(`[EsquemaNorma] ✅ Static URL cargó correctamente`)
-      setImagenUrl(staticUrl)
-      setError('')
+    let intentoActual = 0
+
+    const intentarCargar = () => {
+      if (intentoActual >= rutas.length) {
+        console.log(`[EsquemaNorma] Todas las rutas fallaron`)
+        setError(`No se pudo cargar esquema para ${codigoLimpio}`)
+        return
+      }
+
+      const url = rutas[intentoActual]
+      console.log(`[EsquemaNorma] Intentando ruta ${intentoActual + 1}/${rutas.length}: ${url}`)
+
+      const img = new Image()
+      img.onload = () => {
+        console.log(`[EsquemaNorma] ✅ Imagen cargada: ${url}`)
+        setImagenUrl(url)
+        setError('')
+      }
+      img.onerror = () => {
+        console.log(`[EsquemaNorma] ❌ Fallo en: ${url}`)
+        intentoActual++
+        intentarCargar()
+      }
+      img.src = url
     }
-    img.onerror = () => {
-      console.log(`[EsquemaNorma] ❌ Static URL falló, intentando API...`)
-      // Fallback a API
-      fetch(apiUrl)
-        .then((res) => {
-          if (res.ok) {
-            console.log(`[EsquemaNorma] ✅ API URL cargó correctamente`)
-            setImagenUrl(apiUrl)
-            setError('')
-          } else {
-            console.log(`[EsquemaNorma] ❌ API URL retornó ${res.status}`)
-            setError(`API error: ${res.status}`)
-          }
-        })
-        .catch((e) => {
-          console.log(`[EsquemaNorma] ❌ Error en API: ${e.message}`)
-          setError(`Error: ${e.message}`)
-        })
-    }
-    img.src = staticUrl
+
+    intentarCargar()
   }, [tieneImagen, codigo, operador])
 
   if (!tieneImagen) {
@@ -65,13 +63,13 @@ export default function EsquemaNorma({ normaId, tieneImagen, codigo, operador }:
   if (!codigo || operador !== 'CELSIA') {
     return (
       <div style={{ fontSize: 12, color: '#c00', backgroundColor: '#ffe0e0', padding: 8, borderRadius: 4, marginBottom: 8 }}>
-        Debug: codigo={codigo || 'undefined'}, operador={operador || 'undefined'}
+        🔴 Debug: codigo={codigo || 'undefined'}, operador={operador || 'undefined'}
       </div>
     )
   }
 
   if (error) {
-    return <p style={{ fontSize: 13, color: '#999' }}>Sin esquema: {error}</p>
+    return <p style={{ fontSize: 13, color: '#c00' }}>⚠️ {error}</p>
   }
 
   if (!imagenUrl) {

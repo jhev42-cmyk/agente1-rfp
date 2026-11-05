@@ -1,29 +1,17 @@
 import { NextResponse } from 'next/server'
-import { readFileSync, existsSync } from 'fs'
-import { join } from 'path'
 import { HttpError, handler } from '../../../../lib/api'
 
 type Ctx = { params: { codigo: string } }
 
+// En lugar de leer desde filesystem (no funciona en Vercel serverless),
+// simplemente retorna la URL estática para que el navegador la cargue
 export const GET = handler(async (request, { params }: Ctx) => {
   const codigo = String(params.codigo).trim()
-  const imagesDir = join(process.cwd(), 'public', 'FOTOS_CELSIA')
-  const imagenPath = join(imagesDir, `Celsia-Foto-${codigo}.png`)
 
-  if (!existsSync(imagenPath)) {
-    throw new HttpError(404, `Esquema no encontrado para ${codigo}`)
-  }
+  // La URL estática es servida directamente por Vercel como asset
+  const imageUrl = `/FOTOS_CELSIA/Celsia-Foto-${codigo}.png`
 
-  try {
-    const imageBuffer = readFileSync(imagenPath)
-    return new Response(imageBuffer, {
-      headers: {
-        'Content-Type': 'image/png',
-        'Cache-Control': 'public, max-age=86400',
-        'X-Content-Type-Options': 'nosniff',
-      },
-    })
-  } catch (err) {
-    throw new HttpError(500, 'Error leyendo esquema')
-  }
+  // Retornar un JSON con la URL en lugar de la imagen misma
+  // El cliente hará fetch a esta URL estática
+  return NextResponse.json({ url: imageUrl })
 })
