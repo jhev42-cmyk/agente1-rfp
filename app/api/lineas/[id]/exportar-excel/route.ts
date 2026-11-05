@@ -14,19 +14,18 @@ export async function GET(request: Request, { params }: { params: { id: string }
       throw new Error('Template de cotización no encontrado')
     }
 
-    // Obtener materiales desde el endpoint de materiales-cargados
-    const baseUrl = new URL(request.url).origin
-    const materialesResponse = await fetch(`${baseUrl}/api/lineas/${lineaId}/materiales-cargados`, {
-      headers: request.headers,
-    })
+    // Obtener materiales desde el archivo temporal (mismo que materiales-cargados)
+    const tempDir = path.join(projectRoot, 'tmp')
+    const materialesPath = path.join(tempDir, `materiales-${lineaId}.json`)
 
-    if (!materialesResponse.ok) {
+    if (!fs.existsSync(materialesPath)) {
       throw new Error('No hay materiales cargados. Por favor, carga un archivo CSV en el Paso 4.')
     }
 
-    const { familias } = await materialesResponse.json()
+    const content = fs.readFileSync(materialesPath, 'utf-8')
+    const familias = JSON.parse(content)
 
-    if (!familias || familias.length === 0) {
+    if (!familias || !Array.isArray(familias) || familias.length === 0) {
       throw new Error('No hay materiales cargados. Por favor, carga un archivo CSV en el Paso 4.')
     }
 
