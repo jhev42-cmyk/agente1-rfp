@@ -26,9 +26,9 @@ export const GET = handler(async (request, { params }: Ctx) => {
     })
   }
 
-  // Si no hay imagen en BD, intenta buscar en /public/CELSIA/images/
+  // Si no hay imagen en BD, intenta buscar en /public/FOTOS_CELSIA/
   if (norma?.operador === 'CELSIA' && norma?.codigo) {
-    const imagesDir = join(process.cwd(), 'public', 'CELSIA', 'images')
+    const imagesDir = join(process.cwd(), 'public', 'FOTOS_CELSIA')
     const codigo = norma.codigo
     const url = new URL(request.url)
     const num = url.searchParams.get('num') || '01'
@@ -36,8 +36,12 @@ export const GET = handler(async (request, { params }: Ctx) => {
     try {
       const fs = require('fs').promises
       const files = await fs.readdir(imagesDir)
-      // Busca imágenes que contengan el código Y el número (01, 02, 03)
-      const match = files.find((f: string) => f.includes(codigo) && f.includes(`-${num}.png`))
+      // Busca imágenes con patrón: Celsia-Foto-{CODIGO}-{NUM}.png o Celsia-Foto-{CODIGO}.png
+      let match = files.find((f: string) => f.includes(`Celsia-Foto-${codigo}-${num}`) && f.endsWith('.png'))
+      if (!match) {
+        // Si no encuentra con número específico, busca solo con el código (para imágenes únicas)
+        match = files.find((f: string) => f.includes(`Celsia-Foto-${codigo}`) && f.endsWith('.png') && !f.includes('-01.png') && !f.includes('-02.png') && !f.includes('-03.png'))
+      }
       if (match) {
         const imagePath = join(imagesDir, match)
         const imageBuffer = readFileSync(imagePath)
