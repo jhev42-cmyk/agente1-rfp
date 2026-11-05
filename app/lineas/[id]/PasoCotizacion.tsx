@@ -24,7 +24,7 @@ export default function PasoCotizacion(props: PropsPaso & { calculo: Calculo | n
 
       if (familias && familias.length > 0) {
         console.log('[PasoCotizacion] Calculando costos para:', familias.length, 'familias')
-        const materialesConCostos = await calcularCostos(familias, linea.id)
+        const materialesConCostos = await calcularCostos(familias, linea.id.toString())
         setMaterialesCotizacion(materialesConCostos)
       } else {
         // Sin materiales = vacío, no mostrar error

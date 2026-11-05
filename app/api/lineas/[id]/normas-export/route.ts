@@ -28,13 +28,8 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
     },
   })
 
-  // Enriquecer con la norma principal (normaId) del poste si existe
-  const postesConNormas = postes.map(p => ({
-    ...p,
-    normas: p.normaId && !p.normas.some(pn => pn.normaId === p.normaId)
-      ? [{ normaId: p.normaId, norma: { id: 0, codigo: 'TEMP' }, configuracionId: null, seleccionada: false }, ...p.normas]
-      : p.normas
-  }))
+  // Ya no necesitamos enriquecer: todas las normas vienen de PosteNorma
+  // (el campo normaId fue removido del modelo Poste)
 
   if (!postes.length) {
     throw new HttpError(404, 'No hay postes en la línea')
@@ -53,26 +48,12 @@ export const GET = handler(async (request, { params }: { params: { id: string } 
   let postsDetail = ''
   const todasLasNormas: string[] = []
 
-  // Cargar info de normas por ID para cuando normaId esté en el poste
-  const normasMap = await prisma.norma.findMany({
-    select: { id: true, codigo: true }
-  }).then(n => new Map(n.map(x => [x.id, x.codigo])))
-
   for (const poste of postes) {
     const normasCodigos: string[] = []
 
-    // Primero agregar la norma principal del poste (normaId)
-    if (poste.normaId) {
-      const codigoNorma = normasMap.get(poste.normaId)
-      if (codigoNorma) {
-        normasCodigos.push(codigoNorma)
-        todasLasNormas.push(codigoNorma)
-      }
-    }
-
-    // Luego agregar las normas adicionales de PosteNorma (pero no duplicar si ya está en normaId)
+    // Agregar todas las normas desde PosteNorma
     for (const pn of poste.normas) {
-      if (pn.norma?.codigo && (poste.normaId !== pn.normaId || !poste.normaId)) {
+      if (pn.norma?.codigo) {
         normasCodigos.push(pn.norma.codigo)
         todasLasNormas.push(pn.norma.codigo)
       }
