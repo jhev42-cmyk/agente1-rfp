@@ -1,98 +1,92 @@
-# Backup Checkpoint — Navegación Limpia + Foto Esquemas
+# Backup Checkpoint — Bug Fixes + Layout Improvements
 
-**Fecha:** 2026-11-05 (Final)  
-**Commit:** `d59c42b` — Fix: Correct import path and remove unused prop  
+**Fecha:** 2026-11-12 (Final)  
+**Commit:** `5dc09a5` — Refactor: Reorganize Paso 2 (Trayectos) layout  
 **Estado:** ✅ COMPLETAMENTE FUNCIONAL
 
 ---
 
-## ✅ CAMBIOS REALIZADOS EN ESTA SESIÓN
+## ✅ CAMBIOS EN ESTA SESIÓN
 
-### 1. Eliminación de Pestaña "Solicitudes a Proveedores"
-- **Archivo:** `app/components/Marco.tsx`
-- **Cambio:** Eliminado el link `<a href="/agente.html">Solicitudes a proveedores</a>` de la barra de navegación
-- **Resultado:** Navegación limpia con solo: Líneas → Catálogo → Usuarios (admin) → Mi cuenta
+### 1. Bug Fix: Permitir agregar la misma norma múltiples veces a un poste
+- **Archivo:** `app/components/PosteNormasSelector.tsx`
+- **Problema:** Validación de duplicados bloqueaba agregar norma X dos o más veces al mismo poste
+- **Solución:** Eliminada validación que impedía duplicados
+- **Caso de uso real:** Un poste puede requerir 2x norma B71 (diferentes configuraciones o posiciones)
+- **Commit:** `4e845a4`
 
-### 2. Corrección de Errores de Build
-- **Archivo:** `app/api/esquema-celsia/[codigo]/route.ts`
-  - **Problema:** Import incorrecto `../../../../lib/api` (4 niveles)
-  - **Solución:** Cambiar a `../../../lib/api` (3 niveles)
-  - **Adicional:** Remover import innecesario de `HttpError` que no se usaba
-
-- **Archivo:** `app/catalogo/page.tsx`
-  - **Problema:** Passing prop `version={verImagen}` no aceptado por `EsquemaNorma`
-  - **Solución:** Remover prop innecesario
+### 2. Reorganización de Paso 2 (Trayectos)
+- **Archivo:** `app/lineas/[id]/PasoTrayectos.tsx`
+- **Cambio:** Movida pregunta "¿Cómo quieres asignar las normas?" al inicio
+- **Nuevo orden:**
+  1. Título + Descripción
+  2. **Selector de modo de asignación** (CORRIDO / TRAYECTO) ← Movido al inicio
+  3. Tabla de cantidad de postes por trayecto
+  4. Botones de guardar
+- **Beneficio:** Usuario elige estrategia ANTES de entrar datos
+- **Commit:** `5dc09a5`
 
 ---
 
 ## ✅ FUNCIONALIDADES OPERATIVAS
 
-### Paso 3: Postes + Esquemas CELSIA
-- ✅ Seleccionar poste en tabla
-- ✅ Panel derecho muestra normas asignadas
-- ✅ Fotos de esquemas cargan desde `/public/FOTOS_CELSIA/`
-- ✅ Formato: `Celsia-Foto-{CODIGO}.png`
-- ✅ Materiales relacionados por configuración
+### Paso 1: Línea
+- ✅ Registrar línea con operador, longitud, KMZ
+
+### Paso 2: Trayectos
+- ✅ Elegir modo de asignación al inicio
+- ✅ Ingresar cantidad de postes por trayecto
+- ✅ Validación de cambios y generación de postes
+
+### Paso 3: Postes
+- ✅ Vista CORRIDO o TRAYECTO (según selección en Paso 2)
+- ✅ Agregar **múltiples normas del MISMO tipo** al mismo poste
+- ✅ Asignar configuraciones
+- ✅ Ver esquemas CELSIA en panel lateral
+- ✅ Materiales por configuración
 
 ### Paso 4: Materiales
-- ✅ CSV parser: Descripción | Cantidad | Presente en | Costo
-- ✅ Guardado en sessionStorage
-- ✅ UI muestra: Descripción | Cantidad (sin costos)
+- ✅ Cargar CSV: Descripción | Cantidad | Presente en | Costo
+- ✅ Guardar en sessionStorage
+- ✅ Tabla sin costos en UI
 - ✅ KPIs por familia
 
 ### Paso 5: Cotización
-- ✅ Lee materiales desde sessionStorage
-- ✅ Tabla con costo por item
+- ✅ Leer materiales desde sessionStorage
+- ✅ Tabla con costos
 - ✅ Totales por familia
 - ✅ Costo total proyecto
 
-### Paso 6: Revisión y Aprobación
-- ✅ ResumenMateriales: Descripción | Cantidad
-- ✅ Exportar a Excel: POST `/api/lineas/[id]/exportar-excel`
-- ✅ Exportar a PDF: sessionStorage → `/lineas/[id]/imprimir`
+### Paso 6: Revisión
+- ✅ Resumen materiales (sin costos)
+- ✅ Exportar Excel (POST)
+- ✅ Exportar PDF (sessionStorage → imprimir)
+
+### UI/Navegación
+- ✅ Navegación limpia (sin "Solicitudes a Proveedores")
+- ✅ Build sin errores
+- ✅ Deploy estable en Vercel
 
 ---
 
-## 🔧 Pasos Completados
+## 📁 Archivos Modificados Esta Sesión
 
-| Paso | Nombre | Estado |
-|------|--------|--------|
-| 1 | Línea | ✅ Registrar línea |
-| 2 | Trayectos | ✅ Crear trayectos |
-| 3 | Postes | ✅ Seleccionar normas + **Ver esquemas** |
-| 4 | Materiales | ✅ Cargar CSV + Guardar sessionStorage |
-| 5 | Cotización | ✅ Costos por item + totales |
-| 6 | Revisión | ✅ Exportar Excel + PDF |
+| Archivo | Cambio | Commit |
+|---------|--------|--------|
+| `PosteNormasSelector.tsx` | Remover validación de duplicados | `4e845a4` |
+| `PasoTrayectos.tsx` | Reorganizar layout (modo al inicio) | `5dc09a5` |
 
 ---
 
-## 📁 Estructura de Archivos Clave
+## 🔧 Commits Recientes
 
 ```
-app/
-├── components/
-│   ├── Marco.tsx (navegación actualizada)
-│   ├── EsquemaNorma.tsx (carga fotos CELSIA)
-│   ├── ResumenMateriales.tsx
-│   └── ...
-├── api/
-│   ├── esquema-celsia/[codigo]/route.ts (import corregido)
-│   ├── exportar-excel/route.ts (POST)
-│   └── ...
-├── lineas/[id]/
-│   ├── page.tsx (6 pasos)
-│   ├── PasoPostes.tsx
-│   ├── PasoMateriales.tsx
-│   ├── PasoCotizacion.tsx
-│   ├── PasoRevision.tsx
-│   └── imprimir/page.tsx
-└── catalogo/page.tsx (props corregido)
-
-public/
-└── FOTOS_CELSIA/ (38 PNG files)
-    ├── Celsia-Foto-B71.png
-    ├── Celsia-Foto-B767.png
-    └── ...
+5dc09a5 Refactor: Reorganize Paso 2 (Trayectos) layout
+4e845a4 Fix: Allow adding the same norma multiple times to a poste
+49a616d Docs: Add BACKUP.md with current state summary
+7066d14 Backup: Checkpoint with clean navigation and fixed build errors
+d59c42b Fix: Correct import path and remove unused prop
+f495458 Remove: Delete "Solicitudes a Proveedores" tab from navigation
 ```
 
 ---
@@ -101,26 +95,57 @@ public/
 
 - **URL:** https://agente1-rfp.vercel.app
 - **Branch:** main
-- **Last Commit:** d59c42b
-- **Status:** ✅ DEPLOYED SUCCESSFULLY (57s)
+- **Last Commit:** 5dc09a5
+- **Status:** ✅ DEPLOYED & READY (57s)
+
+---
+
+## 📊 Flujo Completo Paso a Paso
+
+```
+Paso 1: Crear línea
+  ↓
+Paso 2: Crear trayectos
+  ├─ Elegir modo asignación (CORRIDO o TRAYECTO)
+  ├─ Ingresar cantidad postes por trayecto
+  └─ Guardar
+  ↓
+Paso 3: Asignar normas a postes
+  ├─ Vista según modo elegido
+  ├─ Agregar múltiples normas (mismo tipo permitido)
+  ├─ Asignar configuración
+  └─ Ver esquema CELSIA en panel
+  ↓
+Paso 4: Cargar CSV materiales
+  └─ Datos guardados en sessionStorage
+  ↓
+Paso 5: Ver cotización
+  ├─ Costos por item
+  └─ Totales por familia
+  ↓
+Paso 6: Exportar
+  ├─ Excel (POST /api/exportar-excel)
+  └─ PDF (sessionStorage → /imprimir)
+```
 
 ---
 
 ## Para Restaurar a Este Punto
 
 ```bash
-git checkout d59c42b
+git checkout 5dc09a5
 ```
 
 ---
 
 ## Notas Importantes
 
-1. **Pestaña eliminada:** "Solicitudes a Proveedores" ya no existe. Si ves caché en navegador, hacer hard refresh (Cmd+Shift+R en Mac, Ctrl+Shift+R en Windows)
-2. **Fotos CELSIA:** Ubicadas en `/public/FOTOS_CELSIA/`, mapeo es `Código de norma` → `Celsia-Foto-{CÓDIGO}.png`
-3. **sessionStorage:** Datos de materiales persisten en sesión navegador, no en servidor
-4. **Exportaciones:** Excel es POST, PDF abre nueva pestaña y auto-dispara print
+1. **Múltiples normas:** Ahora un poste puede tener X veces la norma B71 (ej: 2x B71 config A, 1x B71 config B)
+2. **Orden Paso 2:** Estrategia de asignación se define ANTES de entrar cantidades
+3. **FOTOS CELSIA:** `/public/FOTOS_CELSIA/` con formato `Celsia-Foto-{CODIGO}.png`
+4. **sessionStorage:** Datos persisten en sesión, se limpian al cerrar navegador
+5. **Build:** Sin errores, imports corregidos, props validados
 
 ---
 
-*Backup guardado con navegación limpia y build errors corregidos.*
+*Backup guardado con bug fixes y mejoras de UX en layout.*
