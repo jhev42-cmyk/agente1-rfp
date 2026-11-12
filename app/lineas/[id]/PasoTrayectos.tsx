@@ -75,6 +75,23 @@ export default function PasoTrayectos({ linea, editable, recargar, pedir }: Prop
     <div className="card">
       <h2>2. Trayectos</h2>
       <div className="sub">Ingresa la cantidad de postes de cada trayecto; los que no apliquen quedan en cero. Los trayectos son divisiones de trabajo y no implican la misma longitud. Al guardar se generan los postes T01-P001, T01-P002…</div>
+
+      <h3 style={{ color: 'var(--navy)', fontSize: 15, margin: '20px 0 4px' }}>¿Cómo quieres asignar las normas a los postes?</h3>
+      <div className="sub" style={{ marginBottom: 12 }}>Define cómo se abre el paso 3. Ambos modos siguen disponibles allí y puedes cambiar de uno a otro en cualquier momento.</div>
+      <div className="opciones-modo">
+        {OPCIONES.map((o) => (
+          <label key={o.valor} className={`opcion-modo ${linea.modoAsignacion === o.valor ? 'activa' : ''} ${!editable ? 'bloqueada' : ''}`}>
+            <input type="radio" name="modoAsignacion" checked={linea.modoAsignacion === o.valor} disabled={!editable || guardando} onChange={() => elegirModo(o.valor)} />
+            <div>
+              <b>{o.titulo}</b>
+              <div className="muted">{o.texto}</div>
+            </div>
+          </label>
+        ))}
+      </div>
+      {!linea.modoAsignacion && editable && <div className="note">Elige un modo para continuar con la configuración de postes.</div>}
+
+      <h3 style={{ color: 'var(--navy)', fontSize: 15, margin: '26px 0 12px' }}>Cantidad de postes por trayecto</h3>
       <div className="trayectos-grid">
         {linea.trayectos.map((t) => (
           <div key={t.numero} className="trayecto-box">
@@ -102,21 +119,6 @@ export default function PasoTrayectos({ linea, editable, recargar, pedir }: Prop
       )}
       {error && <div className="error-box">{error}</div>}
       {ok && <div className="ok-box">{ok}</div>}
-
-      <h3 style={{ color: 'var(--navy)', fontSize: 15, margin: '26px 0 4px' }}>¿Cómo quieres asignar las normas a los postes?</h3>
-      <div className="sub" style={{ marginBottom: 12 }}>Define cómo se abre el paso 3. Ambos modos siguen disponibles allí y puedes cambiar de uno a otro en cualquier momento.</div>
-      <div className="opciones-modo">
-        {OPCIONES.map((o) => (
-          <label key={o.valor} className={`opcion-modo ${linea.modoAsignacion === o.valor ? 'activa' : ''} ${!editable ? 'bloqueada' : ''}`}>
-            <input type="radio" name="modoAsignacion" checked={linea.modoAsignacion === o.valor} disabled={!editable || guardando} onChange={() => elegirModo(o.valor)} />
-            <div>
-              <b>{o.titulo}</b>
-              <div className="muted">{o.texto}</div>
-            </div>
-          </label>
-        ))}
-      </div>
-      {!linea.modoAsignacion && editable && <div className="note">Elige un modo para continuar con la configuración de postes.</div>}
     </div>
   )
 }
